@@ -1,0 +1,113 @@
+<div id="play-list">
+	{if $playlist}
+    <div class="thePlayer">
+    	<a class="iconMp3 icon_prev prev prevlist"  no="" artisname="" files="" >&nbsp;</a>
+    	<a class="iconMp3 icon_next next nextlist" no="" artisname="" files="" >&nbsp;</a>
+        <span class="song-title"></span>
+		<audio id="mejs" src="{$basedomain}public_assets/music/mp3/" type="audio/mp3" controls="controls" ></audio>
+    </div><!-- end .mp3Player -->
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" id="tables" class="mejs-list">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Track</th>
+					<th>Artis</th>
+					<th>Album</th>
+					<th>Length</th>
+				</tr>
+			</thead>
+			<tbody class="rec_playlist">
+				{section loop=$playlist name=i}
+					<tr>
+						<td>
+						{if $playlist[i].hasfile}
+						<a rel="{$basedomain}public_assets/music/mp3/{$playlist[i].file}" class="iconMp3 icon_play playlist_{$playlist[i].no} " onclick="playthis($(this))" no="{$playlist[i].no}" artisname="{$playlist[i].author.name}" files="{$playlist[i].title}" >&nbsp;</a>
+						{/if}
+						</td>
+						<td>{$playlist[i].title}</td>
+						<td>{if $playlist[i].author } {$playlist[i].author.name} {else} anonymuse {/if}</td>
+						<td>{if $playlist[i].author } {$playlist[i].author.name} {else} anonymuse {/if}</td>
+						<td>{$playlist[i].filesize}</td>
+					</tr>
+				{/section}
+			</tbody>
+		</table>
+     <div class="paging" id="pagingIDSongs"></div> <!-- END .paging -->
+    {else}
+        <div class="notFound">
+            <p>{$locale.activity.user_playlist}</p>
+        </div>
+    {/if}	
+</div><!-- END .play-list -->
+<script> 
+var toplenghtitem = {$playlist|@count};
+{literal}
+var myAudio = $("#mejs");
+
+function playthis(item){
+	var no = item.attr("no");
+	var artis = item.attr("artisname");
+	var file = item.attr("files");
+	/*console.log(no);*/
+	var html = "";
+	html += "<strong>"+artis+" - "+file+"</strong>";
+	$('.song-title').html(html);
+	inittracklist(no,artis,file);
+}
+
+function pauseAud() {
+	myAudio.pause();
+}
+
+function inittracklist(no,artis,file){
+	$('.prevlist').attr("no",no);
+	$('.prevlist').attr("artisname",artis);
+	$('.prevlist').attr("files",file);
+	
+	$('.nextlist').attr("no",no);
+	$('.nextlist').attr("artisname",artis);
+	$('.nextlist').attr("files",file);
+}
+
+$(document).on('click','.nextlist',function(){
+	var no = $(this).attr("no");
+	var artis = $(this).attr("artisname");
+	var file = $(this).attr("files");
+	inittracklist(no,artis,file);
+	nextplaylist(no,artis,file);	
+});
+
+$(document).on('click','.prevlist',function(){
+	var no = $(this).attr("no");
+	var artis = $(this).attr("artisname");
+	var file = $(this).attr("files");
+	inittracklist(no,artis,file);
+	prevplaylist(no,artis,file);	
+});
+
+function nextplaylist(no,artis,file){
+	no = parseInt(no,10) + 1;
+	//next
+	if(toplenghtitem>=no) {
+		//bisa next
+		$(".playlist_"+no).trigger("click");
+	} else {
+		return false;// ga bisa next
+	}
+}
+
+function prevplaylist(no,artis,file){
+	no =  parseInt(no,10) - 1;
+	if(0<no) { //bisa next
+		$(".playlist_"+no).trigger("click");
+	} else {
+		return false;// ga bisa next
+	}
+}
+
+</script> 
+{/literal}
+
+<script>
+	getpaging({$start},{$total},"pagingIDSongs","paging_ajax_playlist",9);
+</script>

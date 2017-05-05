@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/beat2013/!svn/ver/839/trunk/beat/tools/cron
+END
+curl_class.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/beat2013/!svn/ver/839/trunk/beat/tools/cron/curl_class.php
+END
+badgefirst.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/beat2013/!svn/ver/728/trunk/beat/tools/cron/badgefirst.php
+END
+user_unblock.sh
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/beat2013/!svn/ver/411/trunk/beat/tools/cron/user_unblock.sh
+END
+db.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/beat2013/!svn/ver/252/trunk/beat/tools/cron/db.php
+END
+mopsync.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/beat2013/!svn/ver/263/trunk/beat/tools/cron/mopsync.php
+END

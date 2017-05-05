@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/beat2013/!svn/ver/833/trunk/beat/config
+END
+config.inc.live.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/beat2013/!svn/ver/2/trunk/beat/config/config.inc.live.php
+END
+config.sample.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/beat2013/!svn/ver/2/trunk/beat/config/config.sample.inc.php
+END
+email.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/beat2013/!svn/ver/777/trunk/beat/config/email.inc.php
+END
+routes.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/beat2013/!svn/ver/833/trunk/beat/config/routes.php
+END
+config.dashboard.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/beat2013/!svn/ver/2/trunk/beat/config/config.dashboard.inc.php
+END
+config.inc.local.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/beat2013/!svn/ver/2/trunk/beat/config/config.inc.local.php
+END
+locale.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/beat2013/!svn/ver/462/trunk/beat/config/locale.inc.php
+END

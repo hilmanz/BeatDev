@@ -1,0 +1,64 @@
+<div id="theContainer2" class="galleryPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox">
+                    <div class="theBox-title">
+                        <h2 class="fl">CONFIG USER PERMISSION</h2>
+                       
+                    </div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+<a class="Btn" href="{$basedomain}register/seepermission/{$pagetype}" >back to lists</a>
+<form class="former" id="registerent" action="{$basedomain}register/addpermission"  method="POST" >
+
+				<div style="padding:10px;border-collapse:collapse;">  
+					<div class="row" >	PAGES </div>
+					<div class="row" >	
+						<select name="moduleid" >	
+								{foreach from=$modules key=k item=v}						
+								<option value="{$v.id}" >{$v.module}</option>
+								{/foreach}
+						</select>
+					</div>
+				</div>
+				<div style="padding:10px;border-collapse:collapse;"> 	
+					<div class="row" >ACTS </div>
+					<div class="row" >	<input type="text" name="acts" value="" />		</div>
+				
+				</div>	
+				
+				<div style="padding:10px;border-collapse:collapse;">  
+					<div class="row" >	Status </div>
+					<div class="row" >	
+						<select name="n_status" >	
+											
+								<option value="1" >active</option>
+								<option value="0" >in active</option>
+								
+						</select>
+					</div>
+				</div>
+				
+				<div style="padding:10px;border-collapse:collapse;">   
+				
+				<input type="hidden" value="{$pagetype}" name="pagetype">
+			
+				<input type="hidden" value="1" name="addpermission">	
+				
+				</div>
+				
+				  <input type="submit" value="add user permission">
+				  
+				  
+				</form>
+				
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+          
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+

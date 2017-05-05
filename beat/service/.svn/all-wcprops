@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/beat2013/!svn/ver/17/trunk/beat/service
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/beat2013/!svn/ver/17/trunk/beat/service/.htaccess
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/beat2013/!svn/ver/2/trunk/beat/service/index.php
+END
+common.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/beat2013/!svn/ver/2/trunk/beat/service/common.php
+END

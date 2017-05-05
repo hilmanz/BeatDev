@@ -1,0 +1,53 @@
+<div id="detailEngagement">
+	<table class="tableDetailEngagement">
+    	<tr>
+        	<th>Entourage</th>
+            <th>Engagement</th>
+        </tr>
+        <tr>
+        	<td>Jonny Van Beukering</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>Jonny Van Beukering</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>Jonny Van Beukering</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>Jonny Van Beukering</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>Jonny Van Beukering</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>Jonny Van Beukering</td>
+            <td>8</td>
+        </tr>
+        <tr>
+           <td>Jonny Van Beukering</td>
+            <td>8</td>
+        </tr>
+        <tr>
+           <td>Jonny Van Beukering</td>
+            <td>8</td>
+        </tr>
+        <tr>
+        	<th></th>
+            <th>
+           	<div class="paging">
+                <a href="#">1</a>
+                <a class="current" href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+            </div>
+            	
+            </th>
+        </tr>
+     </table>
+</div><!--end#BrandHostes-->

@@ -1,0 +1,24 @@
+<div class="widget" id="widget-news">
+    <div class="the-title">
+        <h2 class="icon icon_news"><span>PREVIOUS  NEWS</span></h2>
+    </div>
+	{if $article}
+    <ul class="latest-posts-list clearfix latestnewsdata">
+	{section loop=$article name=i}
+        <li class="clearfix">
+            <div class="lpl-content">
+
+                <h6><a href="{$basedomain}news/detail/{$article[i].id}">{$article[i].title}</a> 
+                <span> {if $article[i].posted_date!='0000-00-00 00:00:00'}{$article[i].posted_date|date_format:"%e %B %Y"}{/if}</span></h6>
+
+            </div>
+        </li>
+    {/section}
+    </ul>
+     <div class="paging" id="pagingID" ></div> <!-- END .paging -->
+{/if}
+</div><!-- END .widget -->
+
+<script>
+	 getpaging(0,{$total},"pagingID","paging_ajax_latest_news",5);
+</script>

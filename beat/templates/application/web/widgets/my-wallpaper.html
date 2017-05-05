@@ -1,0 +1,29 @@
+<div class="imgContentPorfile"> 
+	<div class="headbanner" >
+		<div id="photoCover">
+			<a href="#">
+				<img src="				
+			{if $my_wallpaper.image}
+				{$basedomain}public_assets/{$my_wallpaper.coverfolder}{$my_wallpaper.image}					
+			{else}
+				{$basedomain}public_assets/user/cover/default.jpg
+			{/if} "	
+			/>
+			</a>
+		</div>
+	</div>
+	{if $my_wallpaper}
+		{if $my_wallpaper.type==0 &&  $my_wallpaper.myid==$user->id}
+			{*}{if $my_wallpaper.image}<div class="pita_featured"></div>{/if}{/*}
+			<div class="edit_cover">
+				<a href="#popup-upload-mywallpaper" class="showPopup profile editcover">Edit Cover</a>
+			</div>
+		{/if}
+	{else}
+		<div class="edit_cover">
+			<a href="#popup-upload-mywallpaper" class="showPopup profile editcover">Edit Cover</a>
+		</div>
+	{/if}
+</div><!-- END .imgContentPorfile -->
+
+{include file="application/web/widgets/popup-my-wallpaper.html"}

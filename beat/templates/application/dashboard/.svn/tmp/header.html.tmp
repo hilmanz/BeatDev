@@ -1,0 +1,72 @@
+<<<<<<< .mine
+<div id="header">
+	<div class="container">	
+    	<div class="entry1">		
+            <h1><a href="{$basedomain}index.php" class="logo">&nbsp;</a></h1>			
+            <div id="info-user">
+                <div class="info-details">
+				{if $user}
+						<a>Hi, {$user->name} {$user->last_name} </a><br />			
+						<a class="icon_flag"> {$user->leaderdetail->pagetypename} </a> <a class="logout-bt" href="{$basedomain}logout.php">Logout</a>
+					
+				{/if}
+                </div> <!-- /.info-details -->
+            </div> <!-- /#info-user -->
+		</div> <!-- /.entry -->
+	</div> <!-- /.container -->
+</div> <!-- /#header -->
+
+{if $isLogin}
+<div id="menu-relative" class="{$pages}">
+    <div id="main-menu-dashboard">
+        <ul id="nav_dropdown" class="mainNav nav nav-pills">
+            <li><a {if $pages==home || $pages==userDetailEngage || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}home">PERFORMANCE</a></li>
+            <li><a {if $pages==barank || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}barank">BA RANK</a></li>
+            <li><a {if $pages==activities || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}activities">ACTIVITIES</a></li>
+            <li><a {if $pages==userEngage || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}userEngage">USER ENGAGEMENTS</a></li>
+			{*}<li><a {if $pages==survey || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}survey">SURVEY</a></li>{/*}
+            <li><a {if $pages==badges || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}badges">BADGES REPORTING</a></li>
+		</ul>
+    </div>
+</div>
+{/if}
+
+<script>
+var assets_domain="{$assets_domain}";
+=======
+<div id="header">
+	<div class="container">	
+    	<div class="entry1">		
+            <h1><a href="{$basedomain}index.php" class="logo">&nbsp;</a></h1>			
+            <div id="info-user">
+                <div class="info-details">
+				{if $user}
+						<a class="user_name">Hi, {$user->name} {$user->last_name} </a><br />			
+						<a class="icon_flag" href="#"> {$user->leaderdetail->pagetypename} </a> <a class="logout-bt" href="{$basedomain}logout.php">Logout</a>
+					
+				{/if}
+                </div> <!-- /.info-details -->
+            </div> <!-- /#info-user -->
+		</div> <!-- /.entry -->
+	</div> <!-- /.container -->
+</div> <!-- /#header -->
+
+{if $isLogin}
+<div id="menu-relative" class="{$pages}">
+    <div id="main-menu-dashboard">
+        <ul id="nav_dropdown" class="mainNav nav nav-pills">
+            <li><a {if $pages==home || $pages==userDetailEngage || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}home">PERFORMANCE</a></li>
+            <li><a {if $pages==barank || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}barank">BA RANK</a></li>
+            <li><a {if $pages==activities || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}activities">ACTIVITIES</a></li>
+            <li><a {if $pages==userEngage || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}userEngage">USER Engagements</a></li>
+			{*}<li><a {if $pages==survey || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}survey">SURVEY</a></li>{/*}
+            <li><a {if $pages==badges || !$pages}id="blue_menu"{else}{/if} href="{$basedomain}badges">BADGES REPORTING</a></li>
+		</ul>
+    </div>
+</div>
+{/if}
+
+<script>
+var assets_domain="{$assets_domain}";
+>>>>>>> .r921
+</script>

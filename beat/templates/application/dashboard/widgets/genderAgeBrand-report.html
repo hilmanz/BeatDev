@@ -1,0 +1,45 @@
+<table border=1>
+	<th colspan=2>Brand</th>
+	<tr>
+		<td>Total</td> 		
+		<td>brand type</td>	
+	</tr>			
+	{foreach from=$brandPrefReport key=k item=v}
+	
+	<tr>
+		<td>{$v}</td>
+		<td>{$k}</td>
+	</tr>
+	{/foreach}
+</table>
+<br />
+<table border=1>
+	<th colspan=2>Gender</th>
+	<tr>
+		<td>Total</td> 		
+		<td>gender</td>	
+		<td>Date</td>	
+	</tr>			
+	{section name=i loop=$genderPrefReport}
+	<tr>
+		<td>{$genderPrefReport[i].num}</td>
+		<td>{$genderPrefReport[i].sex}</td>
+		<td>{$genderPrefReport[i].dd}</td>
+	</tr>
+	{/section}
+</table>
+<br />
+<table border=1>
+	<th colspan=2>Age</th>
+	<tr>
+		<td>Total</td> 		
+		<td>range age</td>	
+	</tr>			
+	 
+	{foreach from=$agePrefReport key=k item=v}
+	<tr>
+		<td>{$v}</td>
+		<td>{$k}</td>
+	</tr>
+	{/foreach}
+</table>

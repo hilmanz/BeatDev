@@ -1,0 +1,131 @@
+{literal}
+<style>
+#selectfid{width:170px}
+</style>
+{/literal}
+<div id="theContainer2" class="galleryPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox">
+					<div class="head-title" style="padding-top:20px;">
+						<a class="btnback fl" href="{$basedomain}moderation/venueList"></a>
+					</div>
+                    <div class="theBox-title">
+                        <h2 class="fl">Edit Venue</h2>                       
+                    </div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+                            <form id="create-challenge" method="POST" action="{$basedomain}moderation/editVenue" enctype="multipart/form-data" >
+                                <div class="rows2">
+                                    <label>Venue Name</label>
+                                    <input type="text" name="venuename" class="full-width" value="{$detail.venuename}"/>
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Venue Address</label>
+                                    <input type="text" name="venueaddr" class="full-width" value="{$detail.address}"/>
+                                </div><!-- /.rows2 -->
+                               
+                                <div class="rows2">
+                                    <label>Province</label>
+									<select type="text" name="provinceName" class="styled" style="width:233px;" >
+                                       
+                                        {section name=i loop=$province}
+										<option value="{$province[i].province}" {if $province[i].province==$detail.provinceName}selected{else}{/if}>{$province[i].province|capitalize}</option>
+										{/section}
+									</select>
+                                </div><!-- /.rows2 -->
+								<div class="rows2">
+                                    <label>City</label>
+									<select type="text" name="city" class="styled" style="width:233px;">
+										<option value="{$detail.city}">{$detail.city}</option>
+									</select>
+								</div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Category</label>
+									 <select type="text" name="id_cat" class="styled" style="width:233px;" >
+										{section name=i loop=$venue_category}
+										<option value="{$venue_category[i].id}" {if $venue_category[i].id==$detail.venuecategory}selected{else}{/if}>{$venue_category[i].name}</option>
+										{/section}
+									</select>
+                                </div><!-- /.rows2 -->
+                                
+                                <div class="rows2">
+                                    <label>Latitude</label>
+                                    <input type="text" name="latitude" class="full-width" value="{$detail.latitude}"/>
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Longtitude</label>
+                                    <input type="text" name="longitude" class="full-width" value="{$detail.longitude}"/>
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+								<label class="fl">&nbsp;</label>
+								{if $detail.n_status==1}
+								<a class="button fl" onCLick="location.href='{$basedomain}moderation/unpublishvenue/{$detail.id}'" style="margin:20px 10px 0 0;">Unpublish</a>
+								{else}
+								<a class="button fl" onCLick="location.href='{$basedomain}moderation/editVenue/{$detail.id}/1'" style="margin:20px 10px 0 0;">Publish</a>
+								{/if}
+								<input type="hidden" name="upload" value="Submit"/>
+								<input type="hidden" name="cid" value="{$cidStr}"/>
+								<input type="hidden" name="id_venue" value="{$detail.id}"/>
+								<input type="submit" value="Save" class="button fr" />
+                                </div><!-- /.rows2 -->
+                            </form>
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+			{*}
+            <div class="col-sidebar">
+				{include file="application/web/widgets/sidebar-widget.html"}
+            </div><!-- /.col-sidebar -->
+			{/*}
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+
+<script>
+var provinceName = '{$detail.provinceName}';
+var cityName = '{$detail.city}';
+var initCity = false;
+{literal}
+    $(document).ready(function(){
+       
+        $('select[name="city"]').on('click',function(){
+            if(initCity==false){
+                getCity(provinceName,cityName);
+            }
+        });
+
+        $('select[name="provinceName"]').on('change',function(){
+            var provinceName = $(this).val();
+            getCity(provinceName);
+        });
+    });
+
+    function getCity(province,city){
+        initCity=true;
+        $.post(basedomain+pages+'/ajax',{needs:'load_city_moderation',provinceName:province},function(data){
+                try{
+                    var str="";
+                    var isCity=false;
+                   $.each(data,function(k,v){
+                        str+='<option value="'+v.city+'">'+v.city+'</option>';
+                        if(cityName==v.city){
+                            isCity=true;
+                        }
+                   });
+                  
+                   $('select[name="city"]').html(str);
+                    if(isCity){
+                       $('#selectcity').html(cityName);
+                   }else{
+                        $('#selectcity').html('- City -');
+                   }
+                }catch(e){
+
+                }
+            },"JSON");
+    }
+{/literal}
+</script>

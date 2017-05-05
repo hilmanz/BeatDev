@@ -1,0 +1,61 @@
+<div id="theContent">
+	<div class="blog-title clearfix">
+		<div class="fl">
+			<h3><a href="#">My Gallery</a></h3>
+		</div>
+		<div class="fr">
+			<h3><a href="{$basedomain}my" class="btnBack">BACK</a></h3>
+		</div>
+	</div> <!-- END .blog-title -->
+	<ul class="columns-3">
+		{if $my_gallery}
+		{section name=i loop=$my_gallery_all}
+		<li class="col3">
+			<div class="article_box">
+				<div class="imgBox">
+				 <a class="thumb300">
+				 <img class="greyscale" src="
+				 {if $my_gallery_all[i].video_thumbnail}https://img.youtube.com/vi/{$my_gallery_all[i].video_thumbnail}/0.jpg
+					{else}
+						{if $my_gallery_all[i].thumbnail_image}
+							{$basedomain}public_assets/{$my_gallery_all[i].imagepath}/thumbnail_{$my_gallery_all[i].thumbnail_image}
+						{else}
+							{if $my_gallery_all[i].image}{$basedomain}public_assets/{$my_gallery_all[i].imagepath}/{$my_gallery_all[i].image}
+							{else}{$basedomain}assets/content/thumb/image3.jpg
+							{/if}
+						{/if}
+					{/if}
+				" />
+				</a>
+				 <a class="icon_cat icon_fashion" href="#">&nbsp;</a>
+				</div>
+				<div class="article_isi">
+					<h3>{$my_gallery_all[i].title}</h3>
+					<span>{$my_gallery_all[i].brief}</span>
+					{if $my_gallery_all[i].hasfile&&$my_gallery_all[i].file}
+						<div class="mp3Player">
+							<audio src="{$basedomain}public_assets/music/mp3/{$my_gallery_all[i].file}" type="audio/mp3" controls="controls" width="180"></audio>	
+						</div><!-- end .mp3Player -->
+					{/if}
+					<div class="boxBottom2">
+						<div class="content_action fl">
+							<ul>
+								<li><a class="icon_love" href="#">55</a></li>
+								<li><a class="icon_comment" href="#">35</a></li>
+								<li><a class="icon_view" href="#">60</a></li>
+							</ul>
+						</div><!--END .content_action-->
+						<a href="#" class="icon_trash fr"></a>
+					</div><!--END .clearfix-->
+				</div><!--END .article_isi-->
+			</div><!--END .article_box-->
+		</li><!-- END .col3 -->
+		{/section}
+        {else}
+             <div class="notFound">
+                <p>{$locale.galerry.empty}</p>
+            </div>
+        {/if}
+	 </ul><!-- END .columns-3 -->
+	<div class="paging" id="pagingID"></div> <!-- END .paging -->
+</div><!-- END #theContent -->

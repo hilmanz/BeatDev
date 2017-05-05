@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/beat2013/!svn/ver/74/trunk/scripts/deploy/conf
+END
+exclude-staging.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/beat2013/!svn/ver/74/trunk/scripts/deploy/conf/exclude-staging.txt
+END
+exclude-production.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/beat2013/!svn/ver/14/trunk/scripts/deploy/conf/exclude-production.txt
+END
+exclude-reporting.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/beat2013/!svn/ver/14/trunk/scripts/deploy/conf/exclude-reporting.txt
+END

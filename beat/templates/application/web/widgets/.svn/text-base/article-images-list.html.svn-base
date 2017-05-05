@@ -1,0 +1,68 @@
+<div id="articlePage">
+                <div class="blog-content clearfix">
+                	{if $featarticle}
+						<div class="article_boxBig">
+							<a href="#popup-photography" class="showPopup articledetail" contentid="{$featarticle.id}" ><img src="{if $featarticle.image}{$basedomain}public_assets/article/{$featarticle.image}{else}{$basedomain}assets/content/thumb/default_image.jpg{/if}" /></a>
+							<div class="pita_featured"></div>
+							<div class="entry-box">  
+								<div class="judul_photo">
+									<h3>{$featarticle.title}</h3>
+									<span>
+										{$featarticle.posted_date|date_format:"%e %B %Y"}
+									</span>
+								</div><!--END .judul_photo-->
+								<div class="content_action right articleAct">
+									{if $user}
+									<ul>
+										<li><a class="icon_love count" counttype="favorite" count="{$featarticle.favorite}" contentid="{$featarticle.id}" href="javascript:void(0)">{$featarticle.favorite}</a></li>
+										<li><a class="icon_comment count" counttype="comment" count="{$featarticle.commentcount}"  contentid="{$featarticle.id}" href="javascript:void(0)">{$featarticle.commentcount}</a></li>
+										<li><a class="icon_view count" counttype="views" count="{$featarticle.views}"  contentid="{$featarticle.id}" href="javascript:void(0)">{$featarticle.views}</a></li>
+									</ul>
+									{/if}
+
+								</div><!--END .content_action-->
+							 </div>
+						</div><!--END .article_boxBig-->
+					{/if}
+				
+						<div id="photo_gallery" class="article_image_content" >
+						
+						{section loop=$article name=i}
+							<div class="box photo cols2">
+								<a href="#popup-photography" class="showPopup thumb300 articledetail"  contentid="{$article[i].id}">
+									{*}<img class="greyscale" src="{if $article[i].image}{$basedomain}public_assets/article/big_{$article[i].image}{else}{$basedomain}assets/content/thumb/default_image.jpg{/if}"/>{/*}
+									<img class="greyscale" src="{if $article[i].video_thumbnail}https://img.youtube.com/vi/{$article[i].video_thumbnail}/0.jpg{else}{if $article[i].image}{$basedomain}public_assets/article/{$article[i].image}{else}{$basedomain}assets/content/thumb/default_image.jpg{/if}{/if}"/>
+								</a>
+								<div class="entry-box">  
+									<div class="judul_galery">
+										<h3>{$article[i].title}</h3>
+										<span>{if $article[i].author}{$article[i].author.name}{else}anonymous{/if}</span>
+									</div>
+									<div class="content_action right articleAct">
+										<ul>
+										<li><a class="icon_love count" counttype="favorite" count="{$article[i].favorite}" contentid="{$article[i].id}" href="javascript:void(0)">{$article[i].favorite}</a></li>
+										<li><a class="icon_comment count" counttype="comment" count="{$article[i].commentcount}" contentid="{$article[i].id}" href="javascript:void(0)">{$article[i].commentcount}</a></li>
+										<li><a class="icon_view count" counttype="views" count="{$article[i].views}" contentid="{$article[i].id}" href="javascript:void(0)">{$article[i].views}</a></li>
+										</ul>
+								  </div><!--END .content_action-->
+								</div>
+							</div><!--END .box-->
+						
+						{/section}
+						</div><!-- END #photo_gallery-->
+					
+                </div> <!-- END .blog-content -->
+                 <div class="paging" id="pagingID">
+                    
+                </div> <!-- END .paging -->
+</div><!-- END #articlePage -->
+
+<!-- this will trigger auto popup if content id is existing -->
+{if $cid}
+<a href="#popup-photography" class="showPopup articledetail"  contentid="{$cid}" id="autopopupdetail" style="display:none"></a>
+{literal}
+	<script>
+		$(document).ready(function(){$("#autopopupdetail").trigger("click");});
+	</script>	
+{/literal}
+{/if}

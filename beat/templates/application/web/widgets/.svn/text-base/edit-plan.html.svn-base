@@ -1,0 +1,243 @@
+{literal}
+<style>
+#selectfid{width:170px}
+</style>
+{/literal}
+<div id="theContainer2" class="planPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox">
+                    <div class="theBox-title">
+                      <h2 class="fl">  {if $plantypes eq 'Co-Creation'}Invite SBA{else} Edit {$author.pagesdetail.plantype} Plan{/if} </h2>
+                      
+                    </div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+                            <form id="create-challenge" action="{$basedomain}plan/edit" method="POST"  enctype="multipart/form-data"  >
+								{if $author.pagesdetail.plantype eq 'Brand'}
+								<div style="display:none">
+								{/if}
+                                <div class="rows2">
+                                    <label>Plan Name</label>
+                                    <input type="text" name="title" class="full-width" value="{$title}" />
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Date</label>
+                                    <input type="text" name="posted_date" class="half-width" id="datepicker" value="{$dates|date_format:'%d-%m-%Y'}" >
+                                    <label class="label2">Time</label>
+                                    <input type="text" class="half-width" name="times" value="{$times}" id="inputTimes">
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Venue</label>
+                                    <input type="text" name="brief" class="full-width" value="{$brief}" />
+                                </div><!-- /.rows2 -->
+                                {if $author.pagesdetail.plantype eq 'Brand'}
+								</div>
+								{/if}
+						
+							{if  $branduser}
+							<div class="rows2">
+							<label>Brand</label>
+							 <select type="text" name="fidbrand" class="styled"  >
+									<option value="0" > Pick Recepient </option>
+									{foreach from=$branddetail key=k item=v}
+										<option value="{$v.ownerid}" > {$v.name|replace:'marlboro sampoerna (BRAND )':'MARLBORO'|replace:'amild sampoerna (BRAND )':'amild'|upper}   </option>
+									{/foreach}	
+							</select>
+							 <input type="hidden" name="ftypebrand" value="1"/>
+							 </div><!-- /.rows2 -->
+							{/if}
+							
+							{if $areauser}
+							<div class="rows2">
+							 <label >Area</label>
+							 <select type="text" name="fidarea" class="styled"  >
+									<option value="0" > Pick Recepient </option>
+									{foreach from=$areadetail key=k item=v}
+										<option value="{$v.ownerid}" > {$v.name} {$v.last_name} </option>
+									{/foreach}	
+							</select>
+							 <input type="hidden" name="ftypearea" value="1"/>
+								</div><!-- /.rows2 -->
+							{/if}
+						
+							
+						
+					   
+							{if $pluser}
+							 <div class="rows2">
+								<label>Project Leader</label>
+							 <select type="text" name="fidpl" class="styled"  >
+									<option value="0" > Pick Recepient </option>
+									{foreach from=$pldetail key=k item=v}
+										<option value="{$v.ownerid}" > {$v.name} {$v.last_name} </option>
+									{/foreach}	
+							</select>
+							 <input type="hidden" name="ftypepl" value="1"/>
+							</div><!-- /.rows2 -->
+							{/if}
+									
+                                
+								
+							{if $bauser}
+							 <div class="rows2">
+								<label>SBA</label>
+								 <select type="text" name="fid" class="styled" id="searchfriend"  >
+										<option value="0" > Pick Recepient </option>
+										{foreach from=$badetail key=k item=v}
+											<option value="{$v.ownerid}_{$v.type}_{$v.name}_{$v.last_name}" > {$v.name} {$v.last_name} </option>
+										{/foreach}	
+								</select>
+								 	 <input type="hidden" value="1" name="iscms"  >
+								<input type="hidden" value="" name="recipientid" class="fid">
+								<input type="hidden" value="" name="ftype" class="ftype">
+								<input type="hidden" value="" name="fnames" class="fnames">
+								<div id="kluardisini"></div>
+							 </div><!-- /.rows2 -->
+							{/if}
+							
+							<div class="rows2">
+								<label>Invited</label>
+								{foreach from=$friendtags key=k item=v}											
+									{if $v.friendtype==1}<div>{math equation="$k+1"}. {$v.name} {$v.last_name}</div>{/if}
+								{/foreach}	
+							</div><!-- /.rows2 -->
+							{*}	
+                         	{if $author.pagesdetail.plantype=='Brand'}
+                                <div class="rows2">
+                                    <label>Image</label>
+									<input type="file" name="image" id="file" > 
+                               
+                                </div><!-- /.rows2 -->
+								 <div class="rows2">
+                                    <label>Poster</label>
+                                    <img src="{$image_full_path}" />
+                                </div><!-- /.rows2 -->
+							{/if}
+							{/*}
+							{if  $author.pagesdetail.plantype=='Co-Creation'}
+							<div class="rows2">
+                                    <label>Attachment</label>
+									<input type="file" name="attachment" id="fileattachment" > 
+                                
+                                </div><!-- /.rows2 -->
+								 <div class="rows2">
+                                    <label>Attachment</label>
+                                    {if $file}<a href="{$basedomain}public_assets/attachment/{$file}" >attachment file</a>{else} no attachment {/if}
+                                </div><!-- /.rows2 -->
+							{/if}
+													
+                                <div class="rows2">
+                                    <label class="fl">&nbsp;</label><a class="button fl" onCLick="location.href='{$basedomain}plan'" >Cancel</a>
+									<input name="do" value="edit" type="hidden"  />
+									<input name="id" value="{$id}" type="hidden"  />
+                                    <input type="hidden" name="type" value="5"/>
+									<a href="{$basedomain}plan/delete?id={$id}"><input type="button" value="Delete" class="button " /></a>
+                                    <input type="submit" value="Save" class="button fr" />
+                                </div><!-- /.rows2 -->
+                            </form>
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+            <div class="col-sidebar">
+            		{include file="application/web/widgets/sidebar-widget.html"}
+            </div><!-- /.col-sidebar -->
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+
+{literal}
+<script type="text/javascript">
+	$(document).on('change','#searchfriend',function(){
+
+		var addedfriends = $(this).val();
+		 
+		// get last friend list  strings
+		
+		var fidstr = $('.fid').val();
+		var ftypestr = $('.ftype').val();
+		var fnames = $('.fnames').val();
+		
+		var arrfid = [];
+		var arrftype = [];
+		var arrfnames = [];
+		if(fidstr!=''){
+			arrfid = fidstr.split(',');	
+		}
+		
+		if(ftypestr!=''){
+			arrftype = ftypestr.split(',');	
+		}
+		if(fnames!=''){
+			arrfnames = fnames.split(',');	
+		}
+		
+		if(addedfriends!=''){
+			
+			var newaddedfriends = addedfriends.split('_');
+			
+			arrfid.push(newaddedfriends[0]);
+			arrftype.push(newaddedfriends[1]);	
+			arrfnames.push(newaddedfriends[2]+" "+newaddedfriends[3]);	
+			
+			
+			
+		}
+		
+		$('.fid').val(arrfid);
+		$('.ftype').val(arrftype);
+		$('.fnames').val(arrfnames);
+
+		var html = "";
+		$.each(arrfid,function(i,e){
+			html += "<div class='recepientdata' > - "+arrfnames[i]+" <a href='javascript:void(0)' class='clearrecipient' recipeintindex='"+i+"' >X</a></div>";
+		});
+		$('#kluardisini').html(html);
+		
+	});
+
+	$(document).on('click','.clearrecipient',function(){
+
+		var addedfriends = $(this).attr('recipeintindex');
+		
+		// get last friend list  strings
+		
+		var fidstr = $('.fid').val();
+		var ftypestr = $('.ftype').val();
+		var fnames = $('.fnames').val();
+		
+		var arrfid = [];
+		var arrftype = [];
+		var arrfnames = [];
+		if(fidstr!=''){
+			arrfid = fidstr.split(',');	
+		}
+		
+		if(ftypestr!=''){
+			arrftype = ftypestr.split(',');	
+		}
+		if(fnames!=''){
+			arrfnames = fnames.split(',');	
+		}
+		
+		if(addedfriends!=''){
+			
+			arrfid.splice(addedfriends,1);
+			arrftype.splice(addedfriends,1);
+			arrfnames.splice(addedfriends,1);	
+			
+			
+			
+		}
+		
+		$('.fid').val(arrfid);
+		$('.ftype').val(arrftype);
+		$('.fnames').val(arrfnames);
+		
+		$(this).parent('.recepientdata').empty();
+		
+	});
+</script>
+{/literal}

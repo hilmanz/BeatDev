@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/beat2013/!svn/ver/74/trunk/scripts/deploy
+END
+sync_staging.sh
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/beat2013/!svn/ver/14/trunk/scripts/deploy/sync_staging.sh
+END
+sync_production.sh
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/beat2013/!svn/ver/14/trunk/scripts/deploy/sync_production.sh
+END
+sync_reporting.sh
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/beat2013/!svn/ver/14/trunk/scripts/deploy/sync_reporting.sh
+END

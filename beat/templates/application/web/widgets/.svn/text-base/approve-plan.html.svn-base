@@ -1,0 +1,77 @@
+{literal}
+<style>
+#selectfid{width:170px}
+</style>
+{/literal}
+<div id="theContainer2" class="planPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox">
+                    <div class="theBox-title">
+                        <h2 class="fl">Review The {if $author.pagesdetail.plantype}{$author.pagesdetail.plantype}{/if} Plan</h2>                      
+                    </div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+                            <form id="create-challenge" action="{$basedomain}plan/approve" method="POST"  enctype="multipart/form-data"  >
+								  <div class="rows2">
+                                   {if $users->leaderdetail->type==4}  <label> Area Name</label> {else}  <label>PL Name</label>{/if} 
+                                    <input type="hidden" name="title" class="full-width" value="{$title}" />: {$author.name}
+                                </div><!-- /.rows2 -->
+                                  <div class="rows2">
+                                    <label>Plan Name</label>
+                                    <input type="hidden" name="title" class="full-width" value="{$title}" />: {$title}
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Date</label>
+                                    <input type="text" name="posted_date" class="half-width" id="datepicker" value="{$dates|date_format:'%d-%m-%Y'}" >
+                                    <label class="label2">Time</label>
+                                    <input type="text" class="half-width" name="times" value="{$times}" >
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Venue</label>
+                                    <input type="hidden" name="brief" class="full-width" value="{$brief}" />: {$brief}
+                                </div><!-- /.rows2 -->
+								{if $friendtags}
+                                <div class="rows2">
+                                    <label>Tagged Friend (s) : </label>									
+									{foreach from=$friendtags key=k item=v}											
+										{if $v.friendtype==1}<div>{math equation="$k+1"}. {$v.name} {$v.last_name}</div>{/if}
+									{/foreach}	                               
+								</div><!-- /.rows2 -->
+								{/if}
+							{*}
+                            {if $author.pagesdetail.plantype=='Brand'}
+								  <div class="rows2">
+                                    <label>Poster</label>
+                                    <img src="{$image_full_path}" />
+                                </div><!-- /.rows2 -->
+							{/if}
+							{/*}
+							{if $author.pagesdetail.plantype=='Co-Creation'}
+								 <div class="rows2">
+                                    <label>Attachment</label>
+                                    {if $file}<a href="{$basedomain}public_assets/attachment/{$file}" >attachment file</a>{else} No Attachment
+ {/if}
+                                </div><!-- /.rows2 -->
+							{/if}
+								<div class="rows2">
+                                    <label class="fl">&nbsp;</label><a class="button fr mrlbutton" href="{$basedomain}plan/reason/{$id}" >Reject</a>
+									<input name="do" value="edit" type="hidden"  />
+								 	 <input type="hidden" value="1" name="iscms"  >
+									<input name="id" value="{$id}" type="hidden"  />
+									<input name="n_status" value="1" type="hidden"  />
+                                    <input type="hidden" name="type" value="5"/>
+                                    <input type="submit" value="Approve" class="button fr" />
+                                </div><!-- /.rows2 -->
+                            </form>
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+            <div class="col-sidebar">
+            		{include file="application/web/widgets/sidebar-widget.html"}
+            </div><!-- /.col-sidebar -->
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

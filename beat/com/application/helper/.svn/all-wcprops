@@ -1,0 +1,275 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/beat2013/!svn/ver/899/trunk/beat/com/application/helper
+END
+noWhiteSpaceHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/noWhiteSpaceHelper.php
+END
+entourageHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/beat2013/!svn/ver/874/trunk/beat/com/application/helper/entourageHelper.php
+END
+GPlusHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/GPlusHelper.php
+END
+activityHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/beat2013/!svn/ver/845/trunk/beat/com/application/helper/activityHelper.php
+END
+activitymodHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/beat2013/!svn/ver/869/trunk/beat/com/application/helper/activitymodHelper.php
+END
+apnsHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/beat2013/!svn/ver/802/trunk/beat/com/application/helper/apnsHelper.php
+END
+AccessControlHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/AccessControlHelper.php
+END
+twitterHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/twitterHelper.php
+END
+bandHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/beat2013/!svn/ver/490/trunk/beat/com/application/helper/bandHelper.php
+END
+checkinHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/beat2013/!svn/ver/854/trunk/beat/com/application/helper/checkinHelper.php
+END
+searchHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/beat2013/!svn/ver/282/trunk/beat/com/application/helper/searchHelper.php
+END
+bookmarkHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/bookmarkHelper.php
+END
+saveEmailHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/saveEmailHelper.php
+END
+loginNonFormHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/loginNonFormHelper.php
+END
+loginHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/beat2013/!svn/ver/814/trunk/beat/com/application/helper/loginHelper.php
+END
+sharePostHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/beat2013/!svn/ver/490/trunk/beat/com/application/helper/sharePostHelper.php
+END
+FacebookHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/FacebookHelper.php
+END
+socialMediaHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/socialMediaHelper.php
+END
+contentHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/beat2013/!svn/ver/854/trunk/beat/com/application/helper/contentHelper.php
+END
+contentmodHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/beat2013/!svn/ver/899/trunk/beat/com/application/helper/contentmodHelper.php
+END
+deviceMopHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/beat2013/!svn/ver/858/trunk/beat/com/application/helper/deviceMopHelper.php
+END
+trackingGPSHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/beat2013/!svn/ver/534/trunk/beat/com/application/helper/trackingGPSHelper.php
+END
+newsHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/beat2013/!svn/ver/828/trunk/beat/com/application/helper/newsHelper.php
+END
+dateHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/dateHelper.php
+END
+synchHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/beat2013/!svn/ver/871/trunk/beat/com/application/helper/synchHelper.php
+END
+botHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/beat2013/!svn/ver/707/trunk/beat/com/application/helper/botHelper.php
+END
+wallpaperHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/wallpaperHelper.php
+END
+permissionHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/beat2013/!svn/ver/500/trunk/beat/com/application/helper/permissionHelper.php
+END
+entouragemodHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/beat2013/!svn/ver/875/trunk/beat/com/application/helper/entouragemodHelper.php
+END
+mopHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/mopHelper.php
+END
+memcache_helper.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/memcache_helper.php
+END
+badgeHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/beat2013/!svn/ver/870/trunk/beat/com/application/helper/badgeHelper.php
+END
+VikiHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/VikiHelper.php
+END
+passwordHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/beat2013/!svn/ver/826/trunk/beat/com/application/helper/passwordHelper.php
+END
+leaderboardHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/beat2013/!svn/ver/856/trunk/beat/com/application/helper/leaderboardHelper.php
+END
+brandQuestionerHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/808/trunk/beat/com/application/helper/brandQuestionerHelper.php
+END
+userHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/beat2013/!svn/ver/870/trunk/beat/com/application/helper/userHelper.php
+END
+usermodHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/beat2013/!svn/ver/899/trunk/beat/com/application/helper/usermodHelper.php
+END
+merchandiseHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/beat2013/!svn/ver/868/trunk/beat/com/application/helper/merchandiseHelper.php
+END
+SessionHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/beat2013/!svn/ver/2/trunk/beat/com/application/helper/SessionHelper.php
+END
+registerHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/beat2013/!svn/ver/845/trunk/beat/com/application/helper/registerHelper.php
+END
+messageHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/beat2013/!svn/ver/845/trunk/beat/com/application/helper/messageHelper.php
+END
+uploadHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/beat2013/!svn/ver/845/trunk/beat/com/application/helper/uploadHelper.php
+END
+messagemodHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/beat2013/!svn/ver/869/trunk/beat/com/application/helper/messagemodHelper.php
+END
+activityReportHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/beat2013/!svn/ver/802/trunk/beat/com/application/helper/activityReportHelper.php
+END

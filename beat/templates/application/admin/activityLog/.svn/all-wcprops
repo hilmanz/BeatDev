@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/activityLog
+END
+activityLog_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/activityLog/activityLog_edit.html
+END
+activityLog_new.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/activityLog/activityLog_new.html
+END
+activityLog_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/activityLog/activityLog_list.html
+END

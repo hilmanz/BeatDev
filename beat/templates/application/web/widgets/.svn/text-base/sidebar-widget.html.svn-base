@@ -1,0 +1,49 @@
+{if $users->leaderdetail->type==3 || $users->leaderdetail->type==5 || $users->leaderdetail->type==6 || $users->leaderdetail->type==7}
+{else}  
+<div class="widget">
+    <div class="widget-title">
+        <h3>
+	
+		{if $users->leaderdetail->type==4}CO-Creation{/if} 
+		{if $users->leaderdetail->type==2}CO-Creation and Brand{/if} 
+		{if $users->leaderdetail->type>=100}CO-Creation{/if} 
+		{if $users->leaderdetail->type==3}Brand{/if} 
+		{if $users->leaderdetail->type==5}Brand {/if} 
+		{if $users->leaderdetail->type==6}Brand {/if} 
+		{if $users->leaderdetail->type==7}Brand {/if} 
+		 Notifications</h3>
+    </div>
+    <div class="widget-content">
+	{if $notification.result}
+        {foreach from=$notification.result key=k item=v}
+			<div class="row3">
+				<span class="dates">{$v.posted_date|date_format:"%d/%m/%Y"}</span>
+				<span class="venue">{$v.title}</span>
+				{if $users->leaderdetail->type==2}<a class="icon-polaroid" href="{$basedomain}plan/detail/{$v.id}">&nbsp;</a>{/if}
+				{if $users->leaderdetail->type==5}<a class="icon-polaroid" href="{$basedomain}plan/detail/{$v.id}">&nbsp;</a>{/if}
+				{if $users->leaderdetail->type==6}<a class="icon-polaroid" href="{$basedomain}plan/detail/{$v.id}">&nbsp;</a>{/if}
+				{if $users->leaderdetail->type==7}<a class="icon-polaroid" href="{$basedomain}plan/detail/{$v.id}">&nbsp;</a>{/if}
+				{if $users->leaderdetail->type==3}<a class="icon-polaroid" href="{$basedomain}plan/detail/{$v.id}">&nbsp;</a>{/if}
+				{if $users->leaderdetail->type==4}<a class="icon-{if $v.n_status==0}checks{else}polaroid{/if}" href="{$basedomain}plan/{if $v.n_status==0}approve{else}detail{/if}/{$v.id}">&nbsp;</a>{/if}
+			</div><!-- /.row3 -->
+		{/foreach}      
+       {/if}
+    </div><!-- /.widget-content -->
+</div><!-- /.widget -->
+{/if}
+<div class="widget">
+    <div class="widget-title">
+        <h3>Latest BA Engagements</h3>
+    </div>
+	{if $userprofile.baengagement}
+    <div class="widget-content">
+		 {foreach from=$userprofile.baengagement key=k item=v}
+			<div class="row3">
+				<span class="dates">{$v.posted_date|date_format:"%d/%m/%Y"}</span>
+				<span class="venue"><a  href="{$basedomain}balatest/{$v.id}">{if $v.brief!=''}{$v.brief}{else}{$v.title}{/if}</a></span>
+				{if $users->leaderdetail->type!=1}{if $v.image}<a class="icon-polaroid" href="{$basedomain}gallery/detail/{$v.id}">&nbsp;</a>{/if}{/if}
+			</div><!-- /.row3 -->
+        {/foreach}
+    </div><!-- /.widget-content -->
+	{/if}
+</div><!-- /.widget -->

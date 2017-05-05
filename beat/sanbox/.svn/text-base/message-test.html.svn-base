@@ -1,0 +1,67 @@
+<script src="jquery-1.8.2.js" ></script>
+<script src="jquery.form.js" ></script>
+
+<h1>SEND MESSAGE SANDBOX</h1>
+<h3> LOGIN <a href="#" class="tombolaja" >klik ini</a> </h3>
+
+<form method="POST"  id = "poster" action="https://beat-stg.ba-space.com/service/message/create">
+ 
+	
+    <h2>message </h2>
+	<div>
+					<input type="text" value="" name="message" >
+				</div>
+	<h2>parent message id </h2>
+	<div>
+					<input type="text" value="" name="parentid" > if create new message leave it blank
+	</div>
+	<h2>RECEPIENT Id </h2>
+	<div>
+			<input type="text" value="" name="recipientid" >
+	</div>
+
+					<div style="width:50%;height:100%;overflow:auto;float:right;position:fixed;top:0;right:0;padding:10px;border-collapse:collapse;border:1px solid"> 
+					<span >OUTPUT</span>
+					<p id="kluardisini" ></p>
+				</div> 
+
+	
+<div>
+		<input type="submit" value="postit" />
+		</div>
+			
+</form>
+
+<script>
+
+var basedomain = "https://beat-stg.ba-space.com/service/";
+//var basedomain = "http://localhost/beatphi2013/trunk/beat/service/";
+
+
+
+	var updateoptions = {
+						dataType:"html",
+						beforeSubmit: function(data) { 
+									$('#kluardisini').html("<blink>loading please wait</blink>");
+							},
+						success : function(data) {									
+								 $('#kluardisini').html("<p>"+data+"</p>");
+						}
+					};					
+					
+
+$("#poster").ajaxForm(updateoptions);
+
+$(document).on('click','.tombolaja',function(){
+	
+			$('#kluardisini').html("<blink>loading please wait</blink>");
+		$.get(basedomain+'login/account/terra/aruka',function(data){
+			
+			 $('#kluardisini').html("<p>"+data+"</p>");
+
+		},"html");
+		
+
+})
+
+</script>

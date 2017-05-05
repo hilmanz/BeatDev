@@ -1,0 +1,216 @@
+{literal}
+<style>
+#selectrecipientid{width:170px}
+</style>
+{/literal}
+<div id="theContainer2" class="brandPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox">
+                    <div class="theBox-title">
+                        <h2 class="fl">Create Message</h2>
+           		</div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+                            <form id="create-challenge" method="POST" action="{$basedomain}inbox/reply" >	
+                            	<div class="rows2">
+                 				<label>Brand</label>
+			                        <select class="styled"  name="brandid" >
+			                            <option value="0"> - Brand - </option>                           
+			                            {foreach from=$branddetail key=k item=v}							
+                           
+                            <option value="{$v.ownerid}" {if $v.ownerid==$brandid}selected{/if}>{$v.name|replace:'(BRAND )':''|upper} </option>
+							{/foreach}	
+			                            </select>
+			                     
+			                    </div><!-- /.selectBrand -->
+			                <div class="rows2">
+			                    <label>Area</label>
+			                        <select class="cityDrop styled"  name="areaid"> 
+			                        <option value="0"> - Area - </option>
+			                            {section name=i loop=$getCity}
+			                            <option value="{$getCity[i].id}" {if $areaid==$getCity[i].id }selected{/if} > {$getCity[i].city|upper}</option>
+			                            {/section}
+			                        </select>
+			                     
+			                    </div><!-- /.selectArea -->
+								 <div class="rows2">
+								 <label>Send To</label> 
+								
+								 <select type="text" name="searchfriend" class="styled " id="searchfriend" >
+									<option value="0" > Pick Recipient </option>
+									{foreach from=$recipient key=k item=v}
+										<option value="{$v.ownerid}_{$v.type}_{$v.name}_{$v.last_name}" > {$v.name}  </option>
+									{/foreach}	
+								</select>
+									<input type="hidden" value="" name="recipientid" class="fid">
+									<input type="hidden" value="" name="ftype" class="ftype">
+									<input type="hidden" value="" name="fnames" class="fnames">
+									<div id="kluardisini"></div>
+								 </div>
+                                <div class="rows2">
+                                    <label>Detail</label>
+                                    <textarea  name="message" class="full-width" rows="5"></textarea>
+                                </div><!-- /.rows2 -->
+                             
+                                <div class="rows2">
+                                    <label class="fl">&nbsp;</label>
+                                   
+                                    <input type="submit" value="SEND" class="button fr" style="margin:20px 30px 0 0;"/>
+                                </div><!-- /.rows2 -->
+                            </form>
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+           
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+{literal}
+	<script>
+		
+$(document).on('change','#searchfriend',function(){
+
+	var addedfriends = $(this).val();
+	 
+	// get last friend list  strings
+	
+	var fidstr = $('.fid').val();
+	var ftypestr = $('.ftype').val();
+	var fnames = $('.fnames').val();
+	
+	var arrfid = [];
+	var arrftype = [];
+	var arrfnames = [];
+	if(fidstr!=''){
+		arrfid = fidstr.split(',');	
+	}
+	
+	if(ftypestr!=''){
+		arrftype = ftypestr.split(',');	
+	}
+	if(fnames!=''){
+		arrfnames = fnames.split(',');	
+	}
+	
+	if(addedfriends!=''){
+		
+		var newaddedfriends = addedfriends.split('_');
+		
+		arrfid.push(newaddedfriends[0]);
+		arrftype.push(newaddedfriends[1]);	
+		arrfnames.push(newaddedfriends[2]+" "+newaddedfriends[3]);	
+		
+		
+		
+	}
+	
+	$('.fid').val(arrfid);
+	$('.ftype').val(arrftype);
+	$('.fnames').val(arrfnames);
+
+	var html = "";
+	$.each(arrfid,function(i,e){
+		html += "<div class='recepientdata' > - "+arrfnames[i]+" <a href='javascript:void(0)' class='clearrecipient' recipeintindex='"+i+"' >X</a></div>";
+	});
+	$('#kluardisini').html(html);
+	
+});
+
+
+$(document).on('click','.clearrecipient',function(){
+
+	var addedfriends = $(this).attr('recipeintindex');
+	
+	// get last friend list  strings
+	
+	var fidstr = $('.fid').val();
+	var ftypestr = $('.ftype').val();
+	var fnames = $('.fnames').val();
+	
+	var arrfid = [];
+	var arrftype = [];
+	var arrfnames = [];
+	if(fidstr!=''){
+		arrfid = fidstr.split(',');	
+	}
+	
+	if(ftypestr!=''){
+		arrftype = ftypestr.split(',');	
+	}
+	if(fnames!=''){
+		arrfnames = fnames.split(',');	
+	}
+	
+	if(addedfriends!=''){
+		
+		arrfid.splice(addedfriends,1);
+		arrftype.splice(addedfriends,1);
+		arrfnames.splice(addedfriends,1);	
+		
+		
+		
+	}
+	
+	$('.fid').val(arrfid);
+	$('.ftype').val(arrftype);
+	$('.fnames').val(arrfnames);
+	
+	$(this).parent('.recepientdata').empty();
+	
+});
+
+	</script>
+{/literal}
+
+<script>
+    var sbaid = parseInt({$sbaid});
+{literal}
+     var badgeCol = {};
+    $(document).ready(function(){
+        var selected_brand = $("select[name='brandid'] option:selected").val();
+        var selected_area = $("select[name='areaid'] option:selected").val();
+        badgeCol.area = selected_area;
+        badgeCol.brand = selected_brand;
+        loadDefaultBA();
+       
+        $("select[name='areaid']").on('change',function(){
+            badgeCol.area = $(this).val();
+            $.post(basedomain+'challenge/ajax_load_ba',badgeCol,function(response){
+                var str='<option value="0">Pick Recepient</option>';
+                $("select[name='searchfriend']").closest('div').find('.select').html('Pick Recepient');
+                $.each(response,function(k,v){
+                    str+='<option value="'+v.id+'_'+v.type+'_'+v.name+' '+v.last_name+'_">'+v.name+' '+v.last_name+'</option>';
+                });
+                $("select[name='searchfriend']").html(str);
+            },'json');
+        });
+        $("select[name='brandid']").on('change',function(){
+            badgeCol.brand = $(this).val();
+            $.post(basedomain+'challenge/ajax_load_ba',badgeCol,function(response){
+                var str='<option value="0">Pick Recepient</option>';
+                $("select[name='searchfriend']").closest('div').find('.select').html('Pick Recepient');
+                $.each(response,function(k,v){
+                    str+='<option value="'+v.id+'_'+v.type+'_'+v.name+' '+v.last_name+'_">'+v.name+' '+v.last_name+'</option>';
+                });
+                $("select[name='searchfriend']").html(str);
+            },'json');
+        });
+    });
+    function loadDefaultBA(){
+         $.post(basedomain+'challenge/ajax_load_ba',badgeCol,function(response){
+            var str='<option value="0">Pick Recepient</option>';
+            $.each(response,function(k,v){
+                if(sbaid == v.id){
+                    str+='<option value="'+v.id+'_'+v.type+'_'+v.name+' '+v.last_name+'_" selected>'+v.name+' '+v.last_name+'</option>';
+                }else{
+                    str+='<option value="'+v.id+'_'+v.type+'_'+v.name+' '+v.last_name+'_">'+v.name+' '+v.last_name+'</option>';
+                }                
+            });
+            $("select[name='searchfriend']").html(str);
+        },'json');
+    }
+{/literal}
+</script>

@@ -1,0 +1,13 @@
+{$slider_default}
+<table>
+		<tr>
+            <td width="200px">Slide Banner</td>
+        </tr>
+		<tr>
+            <td width="300px">
+			{section name=i loop=$arrData}
+			 {$arrData[i].image}			
+			{/section}
+			</td>
+		</tr>
+</table>

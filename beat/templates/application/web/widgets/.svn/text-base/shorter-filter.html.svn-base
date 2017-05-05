@@ -1,0 +1,58 @@
+<div id="shorter">
+    <div id="left_menu">
+    	<ul>
+        	<li {if $act!='article'}class="current"{/if}  ><a href="{$basedomain}{$pages}" >Highlights</a></li>
+            <li {if $act=='article'}class="current"{/if} ><a href="{$basedomain}{$pages}/article" >Articles</a></li>
+            {*}<li><a href="#">Contest</a></li>{/*}
+        </ul>
+    </div><!-- END #left_menu -->
+    <div id="right_menu">
+        <form method="POST" action="{$basedomain}{$pages}" id="searchTop">
+			<div  class="searchTop" >
+				<!-- s:method of blank text default html -->
+				<div class="default-text-search" style="position: absolute; display: block; left:0; top:3px; width: 265px; height: 30px;" onclick="$(this).hide();$('#querySearch').focus();"><span style="position: relative; left: 12px; top: 8px;">Search...</span></div>
+				<input type="text" value="{if $q}{$q}{/if}" name="q" class="querykey" id="querySearch" onBlur="if($(this).val()=='')$('.default-text-search').show()" >
+				<!-- e:method of blank text default html -->			
+				
+				<input type="submit" value="&nbsp;" id="querySubmit">		
+			</div>
+			<ul>
+			{if $category}
+             <li>
+                <div class="shorters">
+                    <select class="styled categorytype" name="categorytype" >
+                        <option>CATEGORY</option>
+                        {foreach from=$category key=k item=v} 
+                        <option value="{$v.id}" {if $categorytypevalue==$v.id}selected{/if} >{if $v.naming}{$v.naming|upper}{else}{$v.category|upper}{/if}</option>
+						{/foreach} 
+                    </select>
+                </div>
+            </li>
+			{/if}
+			
+            <li>
+                <div class="shorters">				
+                    <select class="styled filtertype" name="filtertype">
+                        <option>SORT BY </option>
+                        <option value="terbaru"  {if $filtertypevalue=="terbaru"}selected{/if}  >NEWEST</option>
+                        <option value="popular"  {if $filtertypevalue=="popular"}selected{/if}  >POPULAR</option>
+                        <option value="weekly"  {if $filtertypevalue=="weekly"}selected{/if}  >CURRENT MONTH</option>
+                        
+                    </select>
+                </div>
+            </li>
+			
+        </ul>
+		</form>
+   </div><!-- END #right_menu -->
+</div><!-- END #shorter -->
+
+{literal}
+	<script>
+		$(document).ready(function(){
+			if($('.querykey').val()) $('.default-text-search').hide();
+			else  $('.default-text-search').show();
+		});
+		$(document).on('change','.categorytype, .filtertype, .bandcategory',function(){ $('#searchTop').submit(); });
+	</script>
+{/literal}

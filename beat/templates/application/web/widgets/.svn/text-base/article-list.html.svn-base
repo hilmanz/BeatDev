@@ -1,0 +1,31 @@
+<ul class="columns-2">
+
+	{section name=i loop=$article_list }
+
+		<li class="col2">
+				<div class="article_box interview article_media_content_interview" >
+					<a href="#popup-photography" class="showPopup thumb300 articledetail"  contentid="{$article_list[i].id}"><img class="greyscale" src="{if $article_list[i].video_thumbnail}https://img.youtube.com/vi/{$article_list[i].video_thumbnail}/0.jpg
+							{else}
+								{if $article_list[i].image}{$basedomain}public_assets/{$article_list[i].imagepath}/{$article_list[i].image}
+								{else}{$basedomain}assets/content/thumb/img_content9.jpg{/if}
+							{/if}"/></a>
+					
+					<div class="article_isi">
+						<h3>{$article_list[i].title|truncate:35}</h3>
+						<span>{if $article_list[i].author}{$article_list[i].author.name}{else}anonymuse{/if}, {$article_list[i].posted_date|date_format:"%e %B %Y"}</span>
+							{$article_list[i].content|truncate:100}
+						<div class="content_action">
+							<ul>
+								<li><abbr title="add favourite"><a class="icon_love count" counttype="favorite" count="{$article_list[i].favorite}" contentid="{$article_list[i].id}" href="javascript:void(0)">{$article_list[i].favorite}</a></abbr></li>
+								<li><abbr title="total comment"><a class="icon_comment count" counttype="comment" count="{$article_list[i].commentcount}"  contentid="{$article_list[i].id}" href="javascript:void(0)">{$article_list[i].commentcount}</a></abbr></li>
+								<li><abbr title="total view"><a class="icon_view count" counttype="views" count="{$article_list[i].views}"  contentid="{$article_list[i].id}" href="javascript:void(0)">{$article_list[i].views}</a></abbr></li>
+							</ul>
+						</div><!--END .content_action-->
+					</div><!--END .article_isi-->
+				</div><!--END .article_box-->
+			</li><!-- END .clos2-->
+
+	{/section}
+</ul>
+
+	 <div class="paging" id="pagingID"></div> <!-- END .paging -->

@@ -1,0 +1,121 @@
+
+<div class="popup">
+	<div class="popupContainer" id="popup-post">
+        <div class="popupContent">
+        	<div class="popupHead">
+                <div class="the-title">
+                    <h2 class="icon icon_smile"><span>New Post</span></h2>
+                </div>
+            </div>
+        	<div id="popup-post-content" ></div>
+        </div><!-- END .popupContent -->
+    </div><!-- END .popupContainer -->
+</div><!-- END .popup -->
+
+
+<script type="text/javascript">
+	var basedomain = "{$basedomain}";
+	var page = "{$pages}";
+	var localepages = {$locale.pages|@json_encode};
+
+
+	{literal}
+	
+	$(document).on('click','.showthispopuppost',function(){
+			$.post(basedomain+'post',function(data){
+				
+				$("#popup-post-content").html(data);
+				initpost();
+				Custom.init(); // customform js re-init
+			});
+		
+	});
+	
+	function initpost(){
+		$("#music").hide();
+		$("#upload-image").hide();
+		
+		$("#pilih-image").hide();
+		
+		$('.msg_page').hide('');
+		
+        $("#jenis-info").change(function(){
+            var jenis_info = $("#jenis-info").val();
+			if (jenis_info!='') {
+				$.post(basedomain+'post/getJenis',{jenis_info:jenis_info},function(data){
+					if(data) $(".valjenis").attr("value",data);
+					else $(".valjenis").html("");
+				},"JSON");
+			}
+			if (jenis_info=='') {
+				$("#upload-image").hide();
+				$("#pilih-image").hide();
+				$('.msg_page').hide('');
+			} else {
+				$("#upload-image").show();
+				$("#pilih-image").show();				
+				$('.msg_page').hide('');
+			}
+        });
+		
+       
+		
+    };
+	
+	function pilih_upload_image() {
+		$("#pilih-image").show();
+	
+	}
+
+	
+	//CEK FORM POST IMAGE & POST BY (AJAX)
+	$(document).on('click','.doPostImage', function(){
+		if($('#title_postimage').val()=='Title'){
+			var htm = "<font size=4>Title mohon di isi!</font>";
+			$('.msg_formpostimage').html(htm);
+			return false;
+		}
+		if($('#content_postimage').val()=='Description'){
+			var htm = "<font size=4>Deskripsi mohon di isi!</font>";
+			$('.msg_formpostimage').html(htm);
+			return false;
+		}
+		if($('#tags_postimage').val()=='Tags'){
+			var htm = "<font size=4>Tags mohon di isi!</font>";
+			$('.msg_formpostimage').html(htm);
+			return false;
+		}
+		if($('#file_postimage').val()==''){
+			var htm = "<font size=4>File Image mohon di isi!</font>";
+			$('.msg_formpostimage').html(htm);
+			return false;
+		}
+		if ($('#check_postimage').is(':checked')){
+			
+		} else {
+			var htm = "<font size=4>"+localepages.cek.syarat+"</font>";
+			$('.msg_formpostimage').html(htm);
+			return false;
+		}
+		
+	});
+	
+	
+	//CEK SIZE FILE POST IMAGE
+	function getSize() {
+		$('#file_postimage').bind('change', function() {
+			//alert(this.files[0].size);
+			if (this.files[0].size > 2000000) {
+				var htm = "<font size=4>Ukuran file terlalu besar!</font>";
+				$('.msg_formpostimage').html(htm);
+				return false;
+			} else {
+				$('.msg_formpostimage').html("");
+				return false;
+			}
+		});
+	}
+	
+
+</script>
+{/literal}

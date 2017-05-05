@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/PubSub
+END
+DispatcherLoopTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/PubSub/DispatcherLoopTest.php
+END
+PubSubContextTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/PubSub/PubSubContextTest.php
+END

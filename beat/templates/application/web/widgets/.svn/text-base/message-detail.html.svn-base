@@ -1,0 +1,62 @@
+<div id="theContainer" class="inboxPage">
+	{if $message}
+ 
+		{foreach from=$message.message key=k item=v}
+		<div class="theContainer">
+			<div class="head-title">
+				<a class="btnback fl" href="{$basedomain}inbox"></a>
+			</div> <!-- /.head-title -->
+			<div class="head-title">
+		 
+		 
+				<a href="#" class="thumbsmall fl">
+					<img src="{$basedomain}public_assets/user/photo/{if $v.userdetail.img}small_{$v.userdetail.img}{else}default.jpg{/if}" />
+				</a>
+				<h1 class="fl username">{$v.userdetail.name|capitalize} {$v.userdetail.last_name|capitalize}</h1>
+				 
+			
+			</div> <!-- /.head-title -->
+			
+			<div class="theContent">
+				<div class="rows">
+					<div class="entries-detail">
+						 
+						<span class="date">{$v.datetime|date_format:"%e/%m/%Y %H:%M:%S"}</span>
+						<p>{$v.message}</p>
+						 
+					</div> <!-- /.entries -->
+					{*}<a class="icons icon_delete" href="#">&nbsp;</a>{/*}
+				</div><!-- /.rows -->
+				{if $message.reply}
+				 
+					{foreach from=$message.reply key=kreply item=vreply name=message}
+							 
+							<div class="rows last-child">
+								<a href="#" class="thumbsmall fl"><img src="{$basedomain}public_assets/user/photo/{if $vreply.userdetail.img}small_{$vreply.userdetail.img}{else}default.jpg{/if}" /></a>
+								<div class="entries fl">
+									<h3 class="username fl">{$vreply.userdetail.name|capitalize}    </h3>
+									<span class="date fr">{$vreply.datetime|date_format:"%e/%m/%Y %H:%M:%S"}</span>
+									<p>{$vreply.message}</p>
+								</div> <!-- /.entries -->
+							</div><!-- /.rows -->
+						 
+					{/foreach}
+				 
+							 
+				{/if}
+				<div id="reply">
+				{if $v.messagetype=='direct'} 
+					<form id="reply-form" method="POST" action="{$basedomain}inbox/reply" >	
+						<input type="hidden" name="parentid" value="{$parentid}" />
+						<input type="hidden" name="recipientid" value="{if $message.message[0].fromid==$users->id}{$message.message[0].recipientid}{else}{$message.message[0].fromid}{/if}" />
+						<textarea name="message" ></textarea>
+						<input type="submit" value="SUBMIT" class="button fr" />
+					</form>
+				{/if}
+				</div>
+			</div> <!-- /.theContent -->
+			
+		</div> <!-- /.theContainer -->
+		{/foreach}
+	{/if}
+</div> <!-- /#theContainer -->

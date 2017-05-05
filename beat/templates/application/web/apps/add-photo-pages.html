@@ -1,0 +1,104 @@
+{literal}
+<style>
+#selectfid{width:270px}
+</style>
+{/literal}
+<div id="theContainer2" class="galleryPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox">
+                    <div class="theBox-title">
+                        <h2 class="fl">Add Photo</h2>
+                        {*}<span class="date fr">12/05/2013</span>{/*}
+                    </div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+				
+                            <form id="add-photo" action="{$basedomain}gallery/upload" method="POST" enctype="multipart/form-data" >
+							<input type="hidden" name="title" value="{$title}" />
+							<input type="hidden" name="cid" value="{$cid}" />
+                                <div class="rows2">
+                                    <label>Photo</label>
+                                    <input type="file" name="image" id="file" />
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Tag</label>
+                                    <select type="text" name="fid" class="styled" id="searchfriend" style="width:280px;">
+											<option value="0" > Pick Recipient </option>
+									{foreach from=$badetail key=k item=v}
+										<option value="{$v.ownerid}_{$v.type}_{$v.name}_{$v.last_name}" > {$v.name} {$v.last_name} </option>
+									{/foreach}	
+									</select>
+									<input type="hidden" value="" name="fid" class="fid">
+									<input type="hidden" value="" name="ftype" class="ftype">
+									<input type="hidden" value="" name="fnames" class="fnames">
+									<div id="kluardisini"></div>
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Detail</label>
+                                    <textarea class="full-width" name="desc" ></textarea>
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label class="fl">&nbsp;</label>
+                                    <button class="button fl">Discard</button>
+                                    <input type="submit" value="Save" class="button fr" />
+                                </div><!-- /.rows2 -->
+                            </form>
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+           
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+{literal}
+	<script>
+		
+$(document).on('change','#searchfriend',function(){
+
+	var addedfriends = $(this).val();
+	 
+	// get last friend list  strings
+	
+	var fidstr = $('.fid').val();
+	var ftypestr = $('.ftype').val();
+	var fnames = $('.fnames').val();
+	
+	var arrfid = [];
+	var arrftype = [];
+	var arrfnames = [];
+	if(fidstr!=''){
+		arrfid = fidstr.split(',');	
+	}
+	
+	if(ftypestr!=''){
+		arrftype = ftypestr.split(',');	
+	}
+	if(fnames!=''){
+		arrfnames = fnames.split(',');	
+	}
+	
+	if(addedfriends!=''){
+		
+		var newaddedfriends = addedfriends.split('_');
+		
+		arrfid.push(newaddedfriends[0]);
+		arrftype.push(newaddedfriends[1]);	
+		arrfnames.push(newaddedfriends[2]+" "+newaddedfriends[3]);	
+		
+		
+		
+	}
+	
+	$('.fid').val(arrfid);
+	$('.ftype').val(arrftype);
+	$('.fnames').val(arrfnames);
+	
+	$('#kluardisini').html("<p> "+$('.fnames').val()+" </p>");
+	
+});
+
+	</script>
+{/literal}

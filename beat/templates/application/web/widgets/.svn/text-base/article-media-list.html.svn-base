@@ -1,0 +1,133 @@
+<div id="articlePage">
+	<div class="blog-content clearfix">
+		{if $featarticle}
+		<div id="hotArticle" class="article_boxBig">
+			<a href="#popup-photography" class="showPopup thumb250 articledetail" contentid="{$featarticle.id}">
+							<img src="
+							{if $featarticle.video_thumbnail}https://img.youtube.com/vi/{$featarticle.video_thumbnail}/0.jpg
+							{else}
+								{if $featarticle.image}{$basedomain}public_assets/{$featarticle.imagepath}/{$featarticle.image}
+								{else}{$basedomain}assets/content/thumb/default_music.jpg{/if}
+							{/if}" width="250" height="250" /></a>
+			<div class="pita_rev"></div>
+			<div class="isi_boxBig">
+				<div class="judul">
+					{if $featarticle.fromwho==2}
+						<h3><a contentid="{$featarticle.id}" class="showPopup articledetail" href="#popup-photography">{$featarticle.title}</a></h3>
+						<span>{$featarticle.author.name|upper}</span>
+					{else}
+						<h3><a contentid="{$featarticle.id}" class="showPopup articledetail" href="#popup-photography">{$featarticle.title|upper}</a></h3>
+						<span>{$featarticle.brief}</span>
+					{/if}
+				</div>
+				{$featarticle.content|truncate:300}
+				<div class="boxBottom">
+					<div class="content_action">
+						<ul>
+							<li><abbr title="add favourite"><a class="icon_love count" counttype="favorite" count="{$featarticle.favorite}" contentid="{$featarticle.id}" href="javascript:void(0)">{$featarticle.favorite}</a></abbr></li>
+							<li><abbr title="total comment"><a class="icon_comment count" counttype="comment" count="{$featarticle.commentcount}"  contentid="{$featarticle.id}" href="javascript:void(0)">{$featarticle.commentcount}</a></abbr></li>
+							<li><abbr title="total view"><a class="icon_view count" counttype="views" count="{$featarticle.views}"  contentid="{$featarticle.id}" href="javascript:void(0)">{$featarticle.views}</a></abbr></li>
+						</ul>
+					</div><!--END .content_action-->
+					{if !$featarticle.video_thumbnail}
+						<div class="mp3Player fr">
+							{if $featarticle.hasfile}
+								 <div class="mp3Player fr">
+                                    <audio src="{$basedomain}public_assets/music/mp3/{$featarticle.file}" type="audio/mp3" controls="controls" width="150"></audio>	
+                                </div><!-- end .mp3Player -->															
+							{/if}
+						</div><!-- end .mp3Player -->
+					{/if}
+				</div><!--END .boxBottom-->
+			</div><!--END .isi_boxBig-->
+		</div><!--END .article_boxBig-->
+		{/if}
+		{*}<div  id="main-menu-wrapper" class="clearfix">			
+			<ul id="main-menu" class="fl">
+				<li><a href="{$basedomain}upload/image" class="hoverslide">Upload Image</a></li>	
+				<li><a href="{$basedomain}upload/image" class="hoverslide">Upload Music</a></li>	
+				<li><a href="{$basedomain}upload/image" class="hoverslide">Upload Video</a></li>
+			</ul>
+		</div>
+		{/*}
+		<div>&nbsp;</div>
+		<ul class="columns-2">
+			{section loop=$articleinter name=i}
+			<li class="col2">
+				<div class="article_box interview article_media_content_interview" >
+					<a href="#popup-photography" class="showPopup thumb300 articledetail"  contentid="{$articleinter[i].id}"><img class="greyscale" src="{if $articleinter[i].image}{$basedomain}public_assets/article/big_{$articleinter[i].image}{else}{$basedomain}assets/content/thumb/default_music.jpg{/if}"/></a>
+					<div class="pita_interview"></div>
+					<div class="article_isi">
+						<h3>{$articleinter[i].title|truncate:50}</h3>
+						<span>{if $articleinter[i].author}{$articleinter[i].author.name}{else}anonymous{/if}, {$articleinter[i].posted_date|date_format:"%e %B %Y"}</span>
+							{$articleinter[i].content|truncate:100}
+						<div class="content_action">
+							<ul>
+								<li><abbr title="add favourite"><a class="icon_love count" counttype="favorite" count="{$articleinter[i].favorite}" contentid="{$articleinter[i].id}" href="javascript:void(0)">{$articleinter[i].favorite}</a></abbr></li>
+								<li><abbr title="total comment"><a class="icon_comment count" counttype="comment" count="{$articleinter[i].commentcount}"  contentid="{$articleinter[i].id}" href="javascript:void(0)">{$articleinter[i].commentcount}</a></abbr></li>
+								<li><abbr title="total view"><a class="icon_view count" counttype="views" count="{$articleinter[i].views}"  contentid="{$articleinter[i].id}" href="javascript:void(0)">{$articleinter[i].views}</a></abbr></li>
+							</ul>
+						</div><!--END .content_action-->
+					</div><!--END .article_isi-->
+				</div><!--END .article_box-->
+			</li><!-- END .clos2-->
+			{/section}
+			<div class="article_media_content">
+				{section loop=$article name=i}
+				<li class="col2">
+					<div class="box_little ">					
+						<a href="#popup-photography" class="showPopup thumb120 articledetail"  contentid="{$article[i].id}">
+							<img class="greyscale" src="
+							{if $article[i].video_thumbnail}https://img.youtube.com/vi/{$article[i].video_thumbnail}/0.jpg
+							{else}
+								{if $article[i].image}{$basedomain}public_assets/{$article[i].imagepath}/{$article[i].image}
+								{else}{$basedomain}assets/content/thumb/default_music.jpg{/if}
+							{/if}" />
+						</a>
+						<div class="isi_boxLittle">
+							<h3><a contentid="{$article[i].id}" class="showPopup articledetail" href="#popup-photography">{$article[i].title|truncate:50:" "}</a></h3>
+							<span><a href="#popup-photography" class="showPopup articledetail"  contentid="{$article[i].id}">
+							{if $article[i].author}
+								{if $article[i].profilepath}<a href="{$basedomain}{$article[i].profilepath}/{$article[i].author.authorid}" >{$article[i].author.name}</a>
+								{else}{$article[i].author.name}
+								{/if}
+							{else}anonymous{/if}
+                            
+							{if $article[i].hasfile && $article[i].file}
+								{if $article[i].can_save}<a href="{$basedomain}music/downloadit/{$article[i].file}" target="_blank" class="icon_download" >&nbsp;</a>{/if}
+							{/if}
+							</span>
+							{if !$article[i].video_thumbnail}
+								<div class="mp3Player">
+									{if $article[i].hasfile && $article[i].file}
+									<div class="mp3Player fr">
+										<audio src="{$basedomain}public_assets/music/mp3/{$article[i].file}" type="audio/mp3" controls="controls" width="150"></audio>	
+									</div><!-- end .mp3Player -->	
+									{/if}
+								</div><!-- end .mp3Player -->
+							{/if}
+							<div class="content_action">
+								<ul>
+									<li><abbr title="add favourite"><a class="icon_love count" counttype="favorite" count="{$article[i].favorite}" contentid="{$article[i].id}" href="javascript:void(0)">{$article[i].favorite}</a></abbr></li>
+									<li><abbr title="total comment"><a class="icon_comment count" counttype="comment" count="{$article[i].commentcount}" contentid="{$article[i].id}" href="javascript:void(0)">{$article[i].commentcount}</a></abbr></li>
+									<li><abbr title="total view"><a class="icon_view count" counttype="views" count="{$article[i].views}" contentid="{$article[i].id}" href="javascript:void(0)">{$article[i].views}</a></abbr></li>
+								</ul>
+							</div><!--END .content_action-->
+						</div><!--END .isi_boxLittle-->
+					</div>
+				</li>
+				{/section}
+			</div>
+		</ul>
+	</div> <!-- END .blog-content -->
+	 <div class="paging" id="pagingID"></div> <!-- END .paging -->
+</div><!-- END #articlePage -->	
+<!-- this will trigger auto popup if content id is existing -->
+{if $cid}
+<a href="#popup-photography" class="showPopup articledetail"  contentid="{$cid}" id="autopopupdetail" style="display:none"></a>
+{literal}
+	<script>
+		$(document).ready(function(){$("#autopopupdetail").trigger("click");});
+	</script>	
+{/literal}
+{/if}

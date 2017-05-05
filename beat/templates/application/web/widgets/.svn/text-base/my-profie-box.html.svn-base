@@ -1,0 +1,9 @@
+ <div class="thumb-user-big">
+    <a href="{$basedomain}home/profileDetail"><img src="{$userprofile.image_full_path}" /></a>
+</div> <!-- /.thumb-user-big -->
+<div class="user-info">
+   <h2 class="icons flag-red"><span>{$user->leaderdetail->pagetypename}</span></h2>
+  <a href="{$basedomain}home/profileDetail"> <h4 class="username">{$userprofile.name}</h4></a>
+  
+   </span>
+</div> <!-- /.user-info -->

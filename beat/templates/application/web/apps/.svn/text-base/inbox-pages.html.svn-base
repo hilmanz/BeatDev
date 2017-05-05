@@ -1,0 +1,75 @@
+<div id="theContainer" class="inboxPage">
+    <div class="theContainer">
+        <div class="head-title">
+            <h1 class="fl">Direct Message</h1>
+            <a href="{$basedomain}inbox/create" class="tiptip fr icons icon_create" title="create message">&nbsp;</a>
+        </div> <!-- /.head-title -->
+        <div class="short2">
+            <form method="POST" action="{$basedomain}inbox" id="shorter">
+                <div class="date-range fl">
+                <label>Date Range</label>
+                <input type="text" class="half-width" name="startdate" id="datepicker" value="{$startdate}">
+                <span>-</span>
+                <input type="text" class="half-width" name="enddate" id="datepicker2" value="{$enddate}">
+                </div>
+                <div class="input-append fr">
+                    <input type="text" size="16" id="search" name="search" class="span2" onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" value="{if $search}{$search}{else}Search...{/if}">
+					<button type="submit" class="btn">Go!</button>
+                </div>
+            </form>
+        </div><!-- /.short -->
+        <div class="theContent">
+		{if $message}
+		 {foreach from=$message key=k item=v}
+        	<div class="rows row-inbox">
+            	<a href="#" class="thumbsmall2 fl"><img src="{$basedomain}public_assets/user/photo/{if $v.userdetail.img}small_{$v.userdetail.img}{else}default.jpg{/if}" /></a>
+                <div class="entries-inbox fl">
+				
+					{*} <h3 class="username bluecolor">  {$v.userdetail.name} {$v.userdetail.last_name}</h3> {/*}
+					
+					<h3 class="username {if $v.n_status==1}bluecolor{/if}"> 
+						<a href="{$basedomain}inbox/detail/{$v.parentid}"> {$v.userdetail.name} {$v.userdetail.last_name} </a>
+                        {if $v.n_status==1} <span class='messageType'>New {if $v.messagetype=='direct'} Message {else} Notification {/if}</span>{/if}
+						{if $v.lastreply.n_status==1} <span class='messageType'>New Reply</span>{/if}
+					</h3> 
+					
+					
+					{*}<p>{$v.recepientdetail.name} {$v.recepientdetail.last_name}</p>{/*}
+                    <p>
+					{if $v.lastreply.n_status==1}
+						{$v.lastreply.message}
+					{else}
+						{if $v.messagetype!='direct'}  [ NOTIFICATION ] {/if}  {$v.message} 
+					{/if}
+					{*}
+					{$v.lastreply.userdetail.name} {$v.lastreply.userdetail.last_name} {if $v.lastreply.n_status==1}<span class='bluecolor'>NEW REPLY </span> {/if}</p>					
+                    <p>to : {$v.recepientdetail.name} {$v.recepientdetail.last_name}</p>
+                    <p>message : {$v.message}</p>
+                    <p>total reply : {$v.totalreply}</p>
+                    <p>last reply from :  {$v.lastreply.userdetail.name} {$v.lastreply.userdetail.last_name} {if $v.lastreply.n_status==1}<span class='bluecolor'>NEW</span>{/if}</p>
+					{/*}</p> 
+                </div> <!-- /.entries -->
+                <div class="date-action fr">
+                	<span class="date">{$v.datetime|date_format:"%e/%m/%Y %H:%M:%S"}</span>
+                    <a class="icons icon_expand" href="{$basedomain}inbox/detail/{$v.parentid}">&nbsp;</a>
+                <a class="icons icon_delete" href="{$basedomain}inbox/uninboxmessage/{$v.parentid}" onclick="return confirm('Are you sure you want to delete this message?')">&nbsp;</a>
+                </div>
+                
+            </div><!-- /.rows -->
+        {/foreach}
+        </div> <!-- /.theContent -->
+		<div class="paging" id="paginginbox"></div> <!-- END .paging -->
+		<script>
+			getpaging(0,{$total},"paginginbox","paging_ajax_inbox",10);
+		</script>
+		
+	{else}
+		<div>
+			<p> 
+				<br> <br> You don't have any message(s) in your inbox!  
+			</p>
+		</div>
+	{/if}
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+

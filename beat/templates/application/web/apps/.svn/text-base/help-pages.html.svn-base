@@ -1,0 +1,573 @@
+<div class="section">
+	<h2 class="theTitle">HELP</h2>
+    <div class="accordions">
+    	<h4>Mengganti foto profil </h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help1.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">1</span>
+                        <p>Masuk ke halaman "My Profile" (dengan mengklik thumbnail foto profil di kanan atas)</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help1a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">2</span>
+                        <p>Klik tombol "Edit Profile" pada foto profil</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help1b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">2</span>
+                        <p>Klik tombol "Choose File" dan pilih foto dalam di komputer</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle">3</span>
+                        <p>Klik "Save Photo"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Mengganti header/cover image</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help2.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">1</span>
+                        <p>Klik pada salah satu foto yang ter-upload di halaman A Exchange </p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle">2</span>
+                        <p>Klik tombol "Set as cover" yang ada di pojok kanan bawah foto </p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help2a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">3</span>
+                        <p>Gambar telah terpasang sebagai cover </p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help2b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">4</span>
+                        <p>Masuk ke halaman "My Profile" (dengan mengklik thumbnail foto profil di kanan atas) untuk kustomisasi cover </p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle">5</span>
+                        <p>Klik tombol "Edit Cover" pada cover profil </p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help2c.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">6</span>
+                        <p>Klik, tahan dan seret mouse untuk memilih crop area pada foto cover sesuai ukuran yang diinginkan </p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle">7</span>
+                        <p>Klik "Save Cover" </p>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Mengubah informasi tentang influencers</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help3.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">1</span>
+                        <p>Masuk ke halaman "My Profile" (dengan mengklik thumbnail foto profil di kanan atas) </p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help3a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">2</span>
+                        <p>Klik tombol "Edit Profile" pada foto profil</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help3b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">3</span>
+                        <p>Isi kolom "Influencer"</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle">4</span>
+                        <p>Klik tombol "Update" </p>
+                    </div>
+                </li>
+                <li class="col2">
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Mengubah biografi diri/about me</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help3.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">1</span>
+                        <p>Masuk ke halaman "My Profile" (dengan mengklik thumbnail foto profil di kanan atas) </p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help3a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">2</span>
+                        <p>Klik tombol "Edit Profile" pada foto profil</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help4b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">3</span>
+                        <p>Isi kolom "About Me"</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle">4</span>
+                        <p>Klik tombol "Update" </p>
+                    </div>
+                </li>
+                <li class="col2">
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Memposting event baru</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help5.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">1</span>
+                        <p>Klik "Event" di navigasi atas </p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle">2</span>
+                        <p>Klik "Create New Event"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help5a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle" style="height:50px;">3</span>
+                        <p>Masukkan nama event, pilih Provinsi, masukkan lokasi, tanggal serta deskripsi, klik "choose file" untuk memilih gambar poster, centang check box Syarat & Ketentuan, kemudian klik "Submit"</p>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Fitur My Gallery</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help6.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">1</span>
+                        <p>Masuk ke halaman "My Profile" (dengan mengklik thumbnail foto profil di kanan atas)  untuk melihat “My Gallery” </p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help6a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">2</span>
+                        <p>"My Gallery" berisi gambar-gambar yang pernah digunakan sebagai header/cover profil</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help6b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">3</span>
+                        <p>Hover kursor mouse pada gambar yang terdapat di "My Gallery" untuk melihat preview dari artikel yang menyertai gambar tersebut</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle">4</span>
+                        <p>Klik "See All" untuk melihat keseluruhan isi "My Gallery"</p>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Fitur Activity</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help7.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">1</span>
+                        <p>Masuk ke halaman "My Profile" (dengan mengklik thumbnail foto profil di kanan atas) untuk melihat "My Activity" </p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help7a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">2</span>
+                        <p>"My Activity" berisi history dari kegiatan-kegiatan yang telah kamu lakukan di dalam A Exchange</p>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Fitur Add Friend</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help8.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">1</span>
+                        <p>Kamu dapat melakukan pencarian nama teman dengan cara:</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle_grey">A</span>
+                        <p>Masuk ke halaman "My Profile" (dengan mengklik thumbnail foto profil di kanan atas) kemudian klik "See All" pada panel "Friends" </p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help8a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">B</span>
+                        <p>Ketik nama teman pada kolom search</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle_grey" style="height:60px;">C</span>
+                        <p>Kamu dapat langsung klik "Add Friend" pada thumbnail hasil pencarian atau klik "Lihat Profile" terlebih dahulu baru kemudian klik "Add Friend" di halaman profil teman kamu</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help8b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle">2</span>
+                        <p>Kamu juga dapat menambahkan teman melalui daftar teman orang lain dengan mengklik thumbnail foto profil masing-masing user kemudian mengklik "Add Friend"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help8c.jpg" class="imghelp" >
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Fitur Friend-Grouping </h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help9.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle" style="height:60px;">1</span>
+                        <p>Pada halaman "See All Friends", kamu dapat mengelompokkan teman-temanmu berdasarkan grup yang kamu buat sendiri: Pertama-tama, buat grupnya terlebih dahulu: Klik "Group", pilih "Create/Edit Group"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help9a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">A</span>
+                        <p>Masukkan nama grup yang diinginkan, kemudian klik "Add" dan tutup pop-up</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help9b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey" style="height:60px;">B</span>
+                        <p>Setelah grup berhasil dibuat, kembali ke "See All Friends" dan klik tombol "Add to Group" di bagian kanan bawah thumbnail teman, kemudian klik pada nama grup yang diinginkan</p>
+                    </div>
+                </li>
+                <li class="col2">
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Fitur Favorite</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help10.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle" style="height:60px;">1</span>
+                        <p>Kamu dapat menambahkan konten yang kamu sukai ke dalam daftar favorite kamu dengan cara mengklik tombol favorite (ikon hati) pada masing-masing konten</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help10a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle" style="height:60px;">2</span>
+                        <p>Konten yang kamu favoritkan otomatis akan masuk ke dalam daftar "My Favorite" yang dapat kamu liat di dalam halaman profil kamu</p>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Cara membuat band & DJ page</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help11.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey" style="height:60px;">A</span>
+                        <p>Saat kamu klik tombol "Post" di bawah nama kamu dan memilih kategori "Music", kamu akan diminta untuk kembali memilih "Select Upload As Band/DJ"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help11a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey" style="height:70px;">B</span>
+                        <p>Pilih "Band" pada pilihan dropdown yang muncul. Jika kamu belum pernah membuat band page sebelumnya, maka akan muncul pop-up "Create Band Page" Ikuti prosesnya dan isi semua kolomnya untuk membuat band page-mu</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help11b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">C</span>
+                        <p>Untuk membuat DJ page, pilih "DJ" dan ikuti proses yang sama.
+</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help11c.jpg" class="imghelp" >
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Menambahkan anggota band ke band page</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help12.jpg" class="imghelp" >
+                    <div class="entry-help">
+                        <p>Setelah band page berhasil dibuat, kamu dapat menambahkan anggota band ke dalam band page kamu dengan cara: </p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle_grey">A</span>
+                        <p>Masuk ke band page dengan mengklik nama kamu di kanan atas dan pilih "My Band"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help12a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">B</span>
+                        <p>Klik tombol "Edit Band" yang terdapat  pada foto profil band kamu</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help12b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey" style="height:60px;">C</span>
+                        <p>Klik "Add Member" dan search nama anggota band kamu yang sudah terdaftar sebagai member A Exchange (jika anggota band kamu belum terdaftar di A Exchange, undang mereka melalui link yang tersedia)</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle_grey">D</span>
+                        <p>Klik thumbnail foto anggota band kamu pada hasil pencarian dan isi kolom "Instrument" sesuai dengan alat musik yang dia mainkan</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle_grey">E</span>
+                        <p>Tekan "Enter" atau klik "Update" untuk menyimpan perubahan yang sudah dilakukan</p>
+                    </div>
+                </li>
+                <li class="col2">
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Cara meng-upload lagu</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help13.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">A</span>
+                        <p>Untuk meng-upload lagu band kamu, klik tombol "Post" di bawah nama kamu dan pilih kategori "Music"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help13a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">B</span>
+                        <p>Pilih "Band" pada pilihan dropdown "Select Upload As"</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help13b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey" style="height:60px;">C</span>
+                        <p>Klik "MP3", isi kolom judul, deskripsi dan tags, lalu klik tombol "Choose File" untuk memilih file lagu bandmu (pastikan ukuran file MP3 tidak lebih dari 5MB). Centang check box jika kamu ingin lagu bandmu bisa di-download  dan klik "Submit"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Cara men-download lagu</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help14.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey" style="height:60px;">A</span>
+                        <p>Kamu dapat men-download lagu-lagu di dalam halaman 
+subculture "Music" &raquo; "AMN" yang di-aktifkan fitur download-nya oleh peng-upload (ditandai dengan "icon download" pada konten lagu)</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help14a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">B</span>
+                        <p>Untuk men-download, cukup klik kanan pada link "download" dan pilih "save link as" kemudian tentukan di mana hasil download akan disimpan</p>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Membuat daftar lagu (playlist)</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help15.jpg" class="imghelp" >
+                    <div class="entry-help">
+                        <p>Kamu dapat mengisi "My Playlist" yang terdapat di dalam halaman profil kamu dengan konten-konten yang terdapat di dalam subculture "Music":</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle_grey">A</span>
+                        <p>Klik navigasi subculture "Music" dan pilih AMN/DJ</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle_grey">A</span>
+                        <p>Di dalam halaman AMN/DJ, klik konten musik/lagu yang ada kemudian klik tombol "Add Playlist"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help15a.jpg" class="imghelp" >
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Cara memposting video</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help16.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">A</span>
+                        <p>Untuk mem-posting video band kamu, klik tombol "Post" di bawah nama kamu dan pilih kategori "Music"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help16a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">B</span>
+                        <p>Pilih "Band" pada pilihan dropdown "Select Upload As"</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help16b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">C</span>
+                        <p>Klik "Video", isi kolom judul, deskripsi serta tags, lalu masukkan URL video dan klik "Submit"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Mengganti foto profil band</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help12.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">A</span>
+                        <p>Masuk ke band page dengan mengklik nama kamu di kanan atas dan pilih "My Band"</p>
+                    </div>
+                	<img src="{$basedomain}assets/images/help/help17.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">C</span>
+                        <p>Klik tombol "Choose File" dan pilih foto dalam di komputer</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle_grey">D</span>
+                        <p>Klik "Save Photo"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help12a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">B</span>
+                        <p>Klik tombol "Edit Band" yang terdapat  pada foto profil band kamu</p>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Mengganti header/cover image Band</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help12.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">A</span>
+                        <p>Masuk ke band page dengan mengklik nama kamu di kanan atas dan pilih "My Band"</p>
+                    </div>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help18.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">B</span>
+                        <p>Klik tombol "Edit Cover" yang terdapat  pada profil band kamu</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle_grey">C</span>
+                        <p>Klik tombol "Choose File" dan pilih foto dalam di komputer</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle_grey">D</span>
+                        <p>Klik "Save Photo"</p>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    	<h4>Cara meng-upload karya</h4>
+        <div class="help-entry">
+            <ul class="columns-2 clearfix">
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help19.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">A</span>
+                        <p>Kamu dapat meng-upload karya dalam bidang fashion, visual art, maupun fotografi dengan cara mengklik tombol "Post"</p>
+                    </div>
+                    <div class="entry-help">
+                    	<span class="circle_grey">B</span>
+                        <p>Pada pop-up yang muncul, pilih kategori Fashion/Visual Art/Photography sesuai jenis karya yang ingin kamu upload</p>
+                    </div>
+                	<img src="{$basedomain}assets/images/help/help19b.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey">D</span>
+                        <p>Untuk mem-posting video, klik pada tombol "Video", Isi kolom judul, deskripsi serta tags, lalu masukkan URL video dan klik "Submit"</p>
+                    </div>
+                </li>
+                </li>
+                <li class="col2">
+                	<img src="{$basedomain}assets/images/help/help19a.jpg" class="imghelp" >
+                    <div class="entry-help">
+                    	<span class="circle_grey" style="height:80px;">C</span>
+                        <p>Untuk meng-upload gambar/foto, klik pada tombol "Image", isi kolom judul, deskripsi dan tags, lalu klik tombol "Choose File" untuk memilih file karyamu (pastikan ukuran file gambar/foto tidak lebih dari 250KB) dan klik "Submit"</p>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- END .help-entry -->
+    </div><!-- END .accordion -->
+</div><!-- END .section -->

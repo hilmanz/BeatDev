@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/beat2013/!svn/ver/861/trunk/beat/templates/application/dashboard/widgets
+END
+genderAgeBrand-report.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/beat2013/!svn/ver/861/trunk/beat/templates/application/dashboard/widgets/genderAgeBrand-report.html
+END
+visit-page-report.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/beat2013/!svn/ver/770/trunk/beat/templates/application/dashboard/widgets/visit-page-report.html
+END
+engagement-report.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/beat2013/!svn/ver/861/trunk/beat/templates/application/dashboard/widgets/engagement-report.html
+END
+ba-rank-report.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/beat2013/!svn/ver/861/trunk/beat/templates/application/dashboard/widgets/ba-rank-report.html
+END
+engagement-city-report.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/beat2013/!svn/ver/861/trunk/beat/templates/application/dashboard/widgets/engagement-city-report.html
+END
+popup-photo.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/beat2013/!svn/ver/564/trunk/beat/templates/application/dashboard/widgets/popup-photo.html
+END
+popup-detail-engagement.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/beat2013/!svn/ver/455/trunk/beat/templates/application/dashboard/widgets/popup-detail-engagement.html
+END
+cumulative-engage-report.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/beat2013/!svn/ver/770/trunk/beat/templates/application/dashboard/widgets/cumulative-engage-report.html
+END
+venue-report.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/beat2013/!svn/ver/861/trunk/beat/templates/application/dashboard/widgets/venue-report.html
+END

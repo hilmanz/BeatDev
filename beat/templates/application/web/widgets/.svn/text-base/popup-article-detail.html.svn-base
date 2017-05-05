@@ -1,0 +1,8 @@
+<div class="popup">	
+	<div class="popupContainer" id="popup-photography">
+	<div class="popupLoader"></div>
+	<div class="popupDetail"></div><!-- END .popupContent -->
+	<div class="editpopupDetail"></div><!-- END .popupContent -->
+	{include file="application/web/widgets/comment-list.html"}
+	</div><!-- END .popupContainer -->
+</div><!-- END .popup -->

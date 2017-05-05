@@ -1,0 +1,159 @@
+<div id="theContainer2" class="homePage">
+    <div class="theContainer2">
+        <div class="theContent">
+            <div class="darkBox">
+                <div class="short">
+                    <form method="POST" action="{$basedomain}home" id="shorter">
+						<div class="date-range fl">
+						<label>Date Range</label>
+						<input type="text" class="half-width" name="startdate" id="datepicker" value="{$startdate}">
+						<span>to</span>
+						<input type="text" class="half-width" name="enddate" id="datepicker2" value="{$enddate}"><input type="submit" value="GO"/>
+						</div>
+							
+                    </form>
+                </div><!-- /.short -->
+                <div class="darkBox-title">
+                  <h2 class="fl">Entourage Acquisition Achievements</h2>  
+                    <div class="shorters fr">
+                        <a href="#" id="button" class="button3 accept btn-green fl">Accepted</a>
+                        <a href="#" id="button2" class="button3 reject btn-orange fl">Rejected</a>
+					 
+                        <a href="{$basedomain}entourage" class="icons icon-button-people fl">&nbsp;</a>
+					 
+					</div><!-- /.shorter -->
+                </div><!-- /.darkBox-title -->
+                <div class="darkBox-content">
+					<div class="darkBox-content">
+						<div class="number-acq">
+							<label>Rejected:</label>
+							<h1 class="rejected">0</h1>
+						</div>
+						<div class="number-acq">
+							<label>Accepted:</label>
+							<h1 class="accepted">0</h1>
+						</div>
+
+						<div id="container" style="min-width: 517px; height: 400px; margin: -10 auto; clear:both;"><br></div>
+                    </div> <!-- /.darkBox-content -->
+<div id="container" style="min-width: 703px; height: 80px; margin: 0 auto"></div>
+
+				</div> <!-- /.darkBox-content -->
+            </div> <!-- /.darkBox -->
+            <div class="rows2">
+                <div class="darkBox col3s">
+                    <div class="darkBox-title3">
+                         <a href="{$basedomain}home/profileDetail"><h3>Your Profile</h3></a>
+                    </div><!-- /.darkBox-title -->
+                    <div class="darkBox-content">
+                       {$my_profile_box}
+                    </div> <!-- /.darkBox-content -->
+                </div> <!-- /.darkBox -->
+                <div class="darkBox col3s">
+                    <div class="darkBox-title3">
+                        <h3>Latest BA Engagement</h3>
+                    </div><!-- /.darkBox-title -->
+					{$lates_engagement_box}
+                </div> <!-- /.darkBox -->
+				{if $user->leaderdetail->type!=1}	
+                <div class="darkBox col3s">
+                    <div class="darkBox-title3">
+                        <h3>Inbox</h3>
+                    </div><!-- /.darkBox-title -->
+                     {$inbox_box}
+                </div> <!-- /.darkBox -->
+				{/if}
+            </div><!-- /.rows2 -->
+        </div> <!-- /.theContent2 -->
+</div> <!-- /#theContainer -->
+    </div> <!-- /.theContainer -->
+	
+
+<script type="text/javascript">
+	
+		var thedata = {$entourage};
+		 
+var pendingdata = thedata.data[1]; 
+var pendingdata2 = thedata.data[2];
+var total_per_status_accept = thedata.total_per_status[1];
+var total_per_status_reject = thedata.total_per_status[2];
+
+var pendingdatavalue = new Array();
+var pendingdatavalue2 = new Array();
+
+var pendingdatacategory = new Array(); 
+
+{literal}
+for (var keypending in pendingdata){
+pendingdatavalue.push(parseInt(pendingdata[keypending])); 
+var datecategory = keypending.split('-');
+//pendingdatacategory.push(String(keypending).substr(5,5));
+pendingdatacategory.push(datecategory['2']+'-'+datecategory['1']);
+}
+for (var keypending in pendingdata2){
+pendingdatavalue2.push(parseInt(pendingdata2[keypending])); 
+}
+	$(function () {
+    $('#container').highcharts({
+		 xAxis: {
+                 categories: pendingdatacategory
+            },yAxis: {
+                title: {
+                    text: 'Acquisition'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#0088cc'
+                }]
+            },  title: false,
+			credits:false
+			,
+			exporting: {
+				enabled: false
+			},
+        series: [{
+			name: 'Accepted',
+            data: pendingdatavalue
+        }, {
+			name: 'Rejected',
+            data: pendingdatavalue2
+        }]
+    });
+
+
+    // the button action
+    var chart = $('#container').highcharts(),
+        $button = $('#button');
+    $button.click(function() {
+        var series = chart.series[0];
+        if (series.visible) {
+            series.hide();
+            $button.html('Rejected');
+        } else {
+            series.show();
+            $button.html('Rejected');
+        }
+    });
+	
+	    // the button action
+    var chart = $('#container').highcharts(),
+        $button = $('#button2');
+    $button.click(function() {
+        var series = chart.series[1];
+        if (series.visible) {
+            series.hide();
+            $button.html('Rejected');
+        } else {
+            series.show();
+            $button.html('Rejected');
+        }
+    });
+	
+});
+$(document).ready(function(){
+    $('.accepted').html(Highcharts.numberFormat(total_per_status_accept,0)); 
+    $('.rejected').html(Highcharts.numberFormat(total_per_status_reject,0));  
+});
+{/literal}
+</script>

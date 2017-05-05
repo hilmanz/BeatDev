@@ -1,0 +1,16 @@
+<table border=1>
+	<th colspan=2>Venue REPORT</th>
+	<tr>
+		<td>Total</td> 		
+		<td>Venue</td>	
+		<td>City</td>	
+	</tr>			
+	{section name=i loop=$top10venueReport}
+	<tr>
+		<td>{$top10venueReport[i].total}</td>
+		<td>{$top10venueReport[i].venuename}</td>
+		<td>{$top10venueReport[i].city}</td>
+	</tr>
+	{/section}
+</table>
+   

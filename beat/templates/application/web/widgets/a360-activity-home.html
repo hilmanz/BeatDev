@@ -1,0 +1,59 @@
+	<li class="col2">
+        	<div id="latest-activity">
+                <div class="the-title">
+                    <h2 class="icon icon_refresh"><span>A Exchange activity</span></h2>
+                     <div class="paging">
+                         <p class="clearfix pagea360activity" startpage="0" >
+                            <a href="javascript:void(0)" class="prev preva360activity">&nbsp;</a>
+                            <a href="javascript:void(0)" class="next nexta360activity">&nbsp;</a>
+                         </p>
+                    </div> <!-- END .paging -->
+                </div> <!-- END .the-title -->
+                <div class="entry-activity a360activityhome" >
+				{section name=i loop=$activity}
+                	<div class="row">
+						{if $activity[i].userdetail}
+							<a class="thumb65" href="{$basedomain}{if $user->id==$activity[i].userdetail.id}my{else}friends/{$activity[i].userdetail.id}{/if}" >
+								<img src="{$basedomain}public_assets/user/photo/{if $activity[i].userdetail.img}{$activity[i].userdetail.img}{else}default.jpg{/if}" />
+							</a>
+						{else}
+							<a class="thumb65" href="{$basedomain}{if $user->id==$activity[i].userdetail.id}my{else}friends/{$activity[i].userdetail.id}{/if}" >
+								<img src="{$basedomain}public_assets/user/photo/default.jpg" />
+							</a>
+						{/if}
+                   	 	
+                        <div class="entry-feed">
+                        	<h3 class="username"><a href="{$basedomain}friends/{$activity[i].userdetail.id}">{$activity[i].userdetail.name|lower|ucwords} {$activity[i].userdetail.last_name|lower|ucwords}</a></h3>
+                            <p>
+								{if $activity[i].notification}
+										{$activity[i].notification.activities} 
+										{if $activity[i].contentdetail.contentType=='social'}<a href="{$basedomain}friends/{$activity[i].contentdetail.id}" >{$activity[i].notification.subjective}</a>
+										{else} 
+												{if $activity[i].contentdetail.id}<a href="{$basedomain}{$activity[i].contentdetail.type}/{$activity[i].contentdetail.id}" >{$activity[i].notification.subjective}</a>
+												{else}	<a href="javascript:void(0)" >{$activity[i].notification.subjective}</a>
+												{/if}
+										{/if}									
+								{/if}
+							</p>
+							{if $activity[i].typeofnotification!='social'}
+							   <div class="content_action">
+									<ul>
+										<li><a class="icon_love" href="javascript:void(0)" style="pointer:none">{$activity[i].contentdetail.favorite}</a></li>
+										<li><a class="icon_comment" href="javascript:void(0)">{$activity[i].contentdetail.commentcount}</a></li>
+										<li><a class="icon_view" href="javascript:void(0)">{$activity[i].contentdetail.views}</a></li>
+									</ul>
+								</div><!--END .content_action-->
+							{/if}
+                     	</div><!--END .entry-feed-->
+                    </div> <!-- END .row -->
+                	{/section}
+                </div> <!-- END .entry-activity -->
+            </div> <!-- END #latest-activity -->
+				
+<script>
+	var a360length = {if $totalactivity}{$totalactivity}{else}0{/if};
+	var userid = {$user->id};
+	/* after this , link to content helper js and content views as view */
+</script>
+</li>	
+	

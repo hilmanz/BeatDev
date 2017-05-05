@@ -1,0 +1,170 @@
+{literal}
+<style>
+#selectfid{width:170px}
+#selectfidbrand{width:170px}
+#selectfidarea{width:170px}
+#selectfidpl{width:170px}
+#selectfidba{width:170px}
+</style>
+{/literal}
+<div id="theContainer2" class="galleryPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content" style="width:100%">
+                <div class="theBox register-box">
+                    <div class="theBox-title">
+                        <h2 class="fl">REDEEM ACTIVITY</h2>
+                       	<a class="btn fr" href="{$basedomain}merchandise/redeemExcel">Download Excel</a>
+                        <div class="input-append fr" style="margin-right:15px;">
+                            <input type="text" size="16" name="search" id="search" class="span2" onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" value="{if $search}{$search}{else}Search...{/if}">
+                            <button type="submit" class="btn" id="redeemSearch" >Go!</button>
+							</div>
+                        {*}
+                       	<button id="dateFilter" class="btn fr ">Go!</button>
+						<input style="margin-right:20px;" id="searchs" class="fr" type="text" name="search" value="" placeholder="search">{/*}
+                    	
+                    </div><!-- /.theBox-title -->
+                    <div class="short2">
+                    	<div class="date-range fl">
+							<label>Date Range</label>
+							<input type="text" class="half-width" id="datepicker" name="startdate" value="{$startdate}" style="width:70px" />
+							<span>-</span>
+							<input type="text" class="half-width" id="datepicker2" name="enddate" value="{$enddate}" style="width:70px"  />
+							<button id="dateFilter" class="btn">Go!</button>
+		                </div>
+		                <div class="fr radioChecked">
+		                	<label>Redeem Type :</label>
+		                	<input type="radio" name="redeemtype" value="0" checked="checked" class="fl">
+                            <label>Not Approved</label>
+							<input type="radio" name="redeemtype" value="1" class="fl">
+                            <label>Approved</label>
+		                </div>
+                    </div>
+                    <div class="theBox-content">
+                        <div class="forms">
+							<table id="redeemActivity" class="registerUser" border="1px" width=100% >
+							<thead>
+							<tr>
+							<th class="header"><a href="javascript:void(0)" class="sort" data-sorter="mm.name" >NAME</a></th>
+							<th class="header"><a href="javascript:void(0)" class="sort" data-sorter="mm.email">EMAIL</a></th>
+							<th class="header"><a href="javascript:void(0)" class="sort" data-sorter="mm.redeemdate" >REDEEM DATE</a></th>
+							<th class="header"><a href="javascript:void(0)" class="sort" data-sorter="tmd.name" >MERCHANDISE</a></th>
+							<th class="alCenter" colspan='2' >ACTION</th>
+							</tr>
+							</thead>
+							<tbody class="reg">
+								{section name=i loop=$redeem}
+								<tr>
+									<td>{$redeem[i].name}</td>
+									<td>{$redeem[i].email}</td>
+									<td>{$redeem[i].redeemdate}</td>
+									<td>{$redeem[i].badge_name}</td>
+									<td class="alCenter"><a href="{$basedomain}merchandise/redeem/{$redeem[i].id}">approved
+</a></td>
+								</tr>
+								{/section}
+							</tbody>
+							</table>
+							<div class="paging" id="paging_of_redeem_list"></div> <!-- END .paging -->
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+          
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+<script type="text/javascript">
+	var startdate='';
+	var enddate='';
+	var redeemtype=0;
+	var searchkey='';
+	var startPage = 0;
+	
+	{literal}
+	var redeemData = {};
+	redeemData.ajax=1;
+	redeemData.start=startPage;
+	redeemData.limit=10;
+	redeemData.sorter_type = 0;
+	$(document).ready(function(){
+		console.log(startPage);
+		loadRedeemActivity({},0);
+
+		$("input[name='redeemtype']").on('change',function(){
+			redeemtype = $(this).val();
+			redeemData.rdmtype = redeemtype;
+			loadRedeemActivity({},0);
+		});
+
+		$('#dateFilter').on('click',function(){
+			startdate=$("input[name='startdate']").val();
+			enddate=$("input[name='enddate']").val();
+			if(startdate!=''&&enddate!=''){
+				redeemData.fromdate = startdate;
+				redeemData.todate = enddate;
+				if($("#search").val()!='')
+				{
+					redeemData.search=$("#search").val();
+				}
+				loadRedeemActivity({},0);
+			}
+		});
+
+		$('.sort').on('click',function(){
+			redeemData.sorter = $(this).data('sorter');
+			var stype = redeemData.sorter_type;
+			if(stype == 0) redeemData.sorter_type = 1;
+			else redeemData.sorter_type = 0;
+			loadRedeemActivity({},0);
+		});
+
+		$('#search').keypress(function(e) {
+		    if(e.which == 13) {
+		    	redeemData.search=$(this).val();
+		      	loadRedeemActivity({},0);
+		    }
+		});
+
+		$('#search').change(function(e) {
+		    if($(this).val()=="") {
+		    	redeemData.search="";
+		        loadRedeemActivity({},0);
+		    }
+		});
+	});
+	function loadRedeemActivity(data,startPage){
+		redeemData.start=startPage;
+		$('#redeemActivity tbody,#paging_of_redeem_list').html('');
+		$.post(basedomain+'merchandise/redeem',redeemData,function(response){
+			try{
+				var str='';
+				$.each(response.data,function(k,v){
+					str+='';
+					str+='<tr>';
+						str+='<td>'+v.name+'</td>';
+						str+='<td>'+v.email+'</td>';
+						var date= v.redeemdate.split("-");
+						var time = date[2].split(" ");
+						str+='<td>'+time[0]+'-'+date[1]+'-'+date[0]+' '+time[1]+'</td>';
+						str+='<td>'+v.badge_name+'</td>';
+						if(redeemData.rdmtype == 1){
+							str+='<td class="alCenter">Approved</td>';
+						}else{
+							str+='<td class="alCenter"><a class="btn" href="'+basedomain+'merchandise/redeem/'+v.id+'">Not Approved</a></td>';
+						}						
+					str+='</tr>';
+				});
+
+				$('#redeemActivity tbody').html(str);
+				if(startPage==0){
+	                startPage=1;
+	                kiPagination(response.total, startPage, 'paging_of_redeem_list', {}, 'loadRedeemActivity', 10);
+	            }
+			}catch(e){}
+			
+		},'json');
+	}
+	{/literal}
+</script>
+

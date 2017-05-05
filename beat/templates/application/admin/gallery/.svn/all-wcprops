@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/gallery
+END
+gallery_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/gallery/gallery_edit.html
+END
+gallery_new.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/gallery/gallery_new.html
+END
+gallery_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/gallery/gallery_list.html
+END

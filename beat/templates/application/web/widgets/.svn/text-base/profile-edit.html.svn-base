@@ -1,0 +1,55 @@
+<div id="theContainer2" class="baPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox" style="margin:0 0 30px 0;">
+                    <div class="theBox-title">
+                        <h2 class="fl blue">Profile Edit</h2>
+                        <div class="navPaging fr">
+                            <a class="btnback" href="{$basedomain}home/profileDetail">&nbsp;</a>
+                        </div><!-- /.navPaging -->
+                    </div><!-- /.theBox-title -->
+                    <div class="user-container">
+                    	<table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="170">
+                            	 <div class="thumb-user-big" style="width:140px;">
+                          	 		 <img src="{$basedomain}public_assets/user/photo/{$userprofile.img}" />
+                       			 </div> <!-- /.thumb-user-big -->
+                            </td>
+                            <td>
+                                <div class="upload-profile-form">
+                                    <form class="former" id="registerent" action="{$basedomain}home/profileDetailEdit"  method="POST" enctype="multipart/form-data">
+                                        <div class="row">
+                                         <label>Choose Images :</label>
+                                         <input type="file" name="img" />                    
+                                        </div>
+                                        <div class="row rowsubmit">
+                                         <input type="hidden" value="1" name="token">
+                                         <input type="submit" value="Upload" class="button">
+                                        </div>
+                                    </form>
+                                </div> <!-- /.user-info -->
+                            </td>
+                          </tr>
+                        </table>
+                        
+                    </div> <!-- /.user-container -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+          
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+
+<!-- <script>
+	var status = {$status}
+{literal}
+	$(document).ready(function(){
+		if (status==1){
+			alert('masuk');
+		}
+	})
+{/literal}
+</script> -->
+

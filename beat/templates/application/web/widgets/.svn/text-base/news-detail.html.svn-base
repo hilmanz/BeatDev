@@ -1,0 +1,57 @@
+<li class="col-main">
+        	<div class="searchTop clearfix" style="margin:0 0 15px;">
+            
+                <form method="POST" action="{$basedomain}{$pages}" id="searchForm" class="searchBox fr">
+                   <div class="default-text-search" style="display: block; height: 39px; position: absolute; width: 259px;top: 10px;" onclick="$(this).hide();$('#querySearch').focus();">
+                   <span style="position: relative; left: 12px;">Search...</span></div>
+                    <input type="text" value="{if $q}{$q}{/if}" name="q" class="querykey" id="querySearch" onBlur="if($(this).val()=='')$('.default-text-search').show()" >
+                    <input type="submit" value="&nbsp;" id="querySubmit">
+                </form>
+            </div>
+
+		<div class="content-news">
+			  <div class="blog-title clearfix">
+				<div class="fl">
+						<h3><a href="#" class="newstitle ">{$article.title} </a><span class="newscatposted">{if $article.posted_date!='0000-00-00 00:00:00'} {$article.posted_date|date_format:"%e %B %Y"}  - {/if} Posted in {if $article.category}{$article.category} / {/if} News</span></h3>
+					</div>
+				   <div class="comment-count fr">
+						<h3><a href="#" class="newscommentcount" >{$article.commentcount}</a></h3>
+					</div>
+				</div> <!-- END .blog-title -->
+				<div class="blog-content clearfix">
+				{if $article.imagepath}
+					<!-- SLIDER NEWS --->
+					<div class="slider slide-loader clearfix">
+						<div id="slidernews" class="flexslider">
+							<ul class="slides">
+								<!-- can be loop -->
+									<li><img src="{$basedomain}public_assets/article/{$article.image}"  alt=""></li>
+								
+							</ul>
+						</div>
+					</div>
+					<!--- E :SLIDER --->
+				{/if}
+				<h5 class="newsbrief">{$article.brief}</h5>        
+				<span class="newscontents">{$article.content}</span>
+
+				</div> 
+		</div>
+      <!-- END .blog-content -->
+         	 <div class="paging pagenews" startpage="0">
+           		 <p class="clearfix">
+				  	<a href="javascript:void(0)" class="prev fl prevnews" >&nbsp;</a>
+                 	<a href="javascript:void(0)" class="next fr nextnews"  >&nbsp;</a>
+                 </p>
+            </div> <!-- END .paging -->
+			
+<script>
+	var newslength = {if $totalnews}{$totalnews}{else}0{/if};
+	var userid = {$user->id};
+	var numofpage = 1;
+	/* after this , link to content helper js and content views as view */
+	
+		
+	</script>
+
+</li> <!-- END .col-main -->

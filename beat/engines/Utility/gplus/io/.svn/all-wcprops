@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/gplus/io
+END
+apiCacheParser.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/gplus/io/apiCacheParser.php
+END
+apiRPC.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/gplus/io/apiRPC.php
+END
+cacerts.pem
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/gplus/io/cacerts.pem
+END
+apiIO.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/gplus/io/apiIO.php
+END
+apiHttpRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/gplus/io/apiHttpRequest.php
+END
+apiCurlIO.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/gplus/io/apiCurlIO.php
+END
+apiREST.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/gplus/io/apiREST.php
+END

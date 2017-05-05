@@ -1,0 +1,88 @@
+{if $user->leaderdetail->type==4 OR $user->leaderdetail->type==6 OR $user->leaderdetail->type==46 OR $user->leaderdetail->type==100 OR $user->leaderdetail->type==666}
+<div id="theContainer" class="galleryPage">
+    <div class="theContainer">
+		<div class="head-title">
+            <h1 class="fl">Merchandise</h1>
+            
+        </div> <!-- /.head-title -->
+        <div class="short2">
+            <form method="POST" action="{$basedomain}merchandise" id="shorter" class='formmerchandise' >
+            <div class="fl radioChecked">
+                <input type="radio" name="n_status" value="1" class="fl gosubmit" {if $n_status eq '1'}checked{/if} >
+                <label>Publish</label>
+                <input type="radio" name="n_status" value="2" class="fl gosubmit" {if $n_status eq '2'}checked{/if} >
+                <label>Unpublish</label>
+            </div>
+                <div class="date-range fl">
+                {*}
+                <label>Publish</label>
+                <input type="radio" class="half-width gosubmit" name="n_status" value="1" {if $n_status eq '1'}checked{/if} >
+                <label>Unpublish</label>
+                <input type="radio" class="half-width gosubmit" name="n_status" value="2" {if $n_status eq '2'}checked{/if}>{/*}
+                <span></span>
+                <select type="text" name="m_type">
+                    <option value="0,4,5" {if $m_type eq '0,4,5'}selected{/if}>All</option>
+                    <option value="0" {if $m_type eq '0'}selected{/if}>Both</option>
+                    <option value="4" {if $m_type eq '4'}selected{/if}>AMILD</option>
+                    <option value="5" {if $m_type eq '5'}selected{/if}>MARLBORO</option>
+                </select>
+                 <button type="submit" class="btn">Go!</button>
+                </div>
+                
+            </form>
+        </div><!-- /.short -->
+        <div class="theContent">
+        	<div class="section">
+			{if $merchandise.result}
+			 {foreach from=$merchandise.result key=k item=v}
+            	<div class="col3">
+                	<div class="box-gallery">
+                    	<div class="imgbox">
+                        	<a href="#" class="thumb-gallery"><img src="{$basedomain}public_assets/merchandises/{$v.image}" width="100%" /></a>
+                            <div class="gallery-author">
+              
+                                <h1 class="fl username">{$v.name}  </h1>
+                            </div> <!-- /.gallery-author -->
+                        </div> <!-- /.imgbox -->
+                        <div class="gallery-info">
+                        	<span class="desc1">{$v.detail}   </span>
+                        	<span class="desc2"> {$v.postdate|date_format:"%e %B %Y"}</span>
+                            {if $n_status eq '1'}
+                                <a onclick="return confirm('Are you sure you want to unpublish this?')" href="{$basedomain}merchandise/deleteMerchandise/{$v.id}" class="icons icon_unpublish fr tiptip" title="unpublish merchandise">&nbsp;</a>
+                            {else}
+                                <a onclick="return confirm('Are you sure you want to publish this?')" href="{$basedomain}merchandise/publishMerchandise/{$v.id}" class="icons icon_publish fr tiptip" title="publish merchandise">&nbsp;</a>
+                            {/if}
+                            
+                            
+                            <a href="{$basedomain}merchandise/edit/{$v.id}" class="icons icon_expand fr tiptip" title="edit merchandise">&nbsp;</a>
+                        </div> <!-- /.gallery-info -->
+                    </div> <!-- /.box-gallery -->
+                </div> <!-- /.col3 -->
+				{/foreach} 
+			{/if}	
+            	
+            </div> <!-- /.section -->
+        </div> <!-- /.theContent -->
+		<div class="paging" id="pagingmerchandise"></div> <!-- END .paging -->
+				<script>
+                    var nstatus = "{$n_status}";
+					getpaging(0,'{$total.total}',"pagingmerchandise","paging_ajax_merchandise",12);
+					
+					{literal}
+					$(document).on('click','.gosubmit',function(){
+						$(".formmerchandise").submit();
+					})
+					{/literal}
+				</script>
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+{else}  
+
+<div id="theContainer" class="galleryPage">
+    <div class="theContainer">
+		<div class="head-title">
+			<h1 class="fl">This Page For Highest User Level Only.</h1>
+		</div>
+	</div>
+</div>
+{/if}

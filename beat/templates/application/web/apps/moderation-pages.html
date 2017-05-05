@@ -1,0 +1,263 @@
+{if $user->leaderdetail->type==1}
+<div id="theContainer" class="inboxPage">
+    <div class="theContainer">
+		<div class="head-title">
+			<h1 class="fl">This Page For Highest User Leveling Only.</h1>
+		</div>
+	</div>
+</div>
+{else}  
+<div id="theContainer" class="inboxPage">
+    <div class="theContainer">
+		<form method="POST" action="{$basedomain}
+									{if $timelines}
+										moderation
+									{elseif $act==commentList}
+										moderation/commentList
+									{elseif $act==galleryList}
+										moderation/galleryList
+									{elseif $act==venueList}
+										moderation/venueList
+									{/if}" id="shorter" class="formsubmittypemoderation">
+        <div class="head-title">
+            <h1 class="fl">{if $act==commentList}Comment Moderation{elseif $act==venueList}Venue Moderation{elseif $act==galleryList}Photo Moderation{else}Post Moderation{/if}</h1>
+            {*}
+            <a href="{$basedomain}{if $act==commentList}moderation{else}moderation/commentList{/if}" class="fr button2">{if $act==commentList}Post Moderation{else}Comment Moderation{/if}</a><br><br>
+			<a href="{$basedomain}moderation/venueList" class="fr button2">venue Moderation</a>
+            {/*}
+			 <div class="short2 fr Short-By">
+                    <label>Moderation Type</label>
+                    <select class="styled" id='moderationtype' name="articeltype">
+                        <option value='commentList' {if $act=='commentList'}selected{/if} >Comment</option>
+                        <option value='' {if $act=='timeline'}selected{/if} >Post</option>
+						 <option value='5' {if $act=='plan'}selected{/if} >Plan</option>
+						{if $user->leaderdetail->type >= 100}
+                        <option value='venueList' {if $act=='venueList'}selected{/if} >Venue</option>
+                        <option value='galleryList' {if $act=='galleryList'}selected{/if} >Photo</option>
+						{/if}
+                    </select>
+               <!-- </form>-->
+            </div><!-- /.short -->
+           <div class="date-range short2 fr Short-By" style="width:185px;">
+                <select class="styled" id='publishedtype' name="publishedtype"   >
+                    <option value='1' {if $publishedtype=='1'}selected{/if} >Published</option>
+                    <!--<option value='0' {if $publishedtype=='0'}selected{/if} >Unpublished</option>-->
+                    <option value='3' {if $publishedtype=='3'}selected{/if} >Unpublished</option>					 
+                </select>
+            </div>
+        </div> <!-- /.head-title -->
+        <div class="short2">
+           <!-- <form method="POST" action="{$basedomain}{if $timeline}moderation{elseif $act eq 'venueList'}moderation/venueList{else}moderation/commentList{/if}" id="shorter" class="formsubmitmanualmoderation" >-->
+                
+                <div class="date-range fl">
+					<label>Date Range</label>
+					<input type="text" class="half-width" id="datepicker" name="startdate" value="{$startdate}" style="width:100px" />
+					<span>to</span>
+					<input type="text" class="half-width" id="datepicker2" name="enddate" value="{$enddate}" style="width:100px"  />
+                </div>
+				
+                <div class="input-append fr">
+                	{if $act eq 'venueList'}
+                		<div style="margin-right:10px;display:inline;">
+							<select class="styled" id='searchType' name="searchType"   >
+								<option value='1' {if $searchType=='1'}selected{/if} >Venue</option>
+								<option value='2' {if $searchType=='2'}selected{/if} >City</option>					 
+							</select>
+		                	 
+	                	</div>
+	                {/if}
+                    <input type="text" size="16" id="search" name="search" class="span2" onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" value="{if $search}{$search}{else}Search...{/if}"/>
+					<input type="hidden" name="filter" value="searchform"/>
+					<button type="submit" class="btn">Go!</button>
+                </div>
+        </div><!-- /.short -->
+		</form>
+        <div class="theContent">
+			{if $timeline}
+				{section loop=$timeline name=i}
+				<div class="rows">
+					<a href="{$basedomain}{$pages}/detail/{$timeline[i].id}" class="thumbsmall2"><img src="{$basedomain}public_assets/user/photo/{if $timeline[i].author.img}small_{$timeline[i].author.img}{else}default.jpg{/if}" /></a>
+                    <span class="date fr">{$timeline[i].posted_date|date_format:"%d/%m/%Y %H:%M"} </span> 
+					<div class="entries-inbox fl">
+						 <h3 class="username">{$timeline[i].author.name|capitalize}</h3>
+                    {if $timeline[i].imagepath}<div class="image-post"><span class="img-moderation"><a href="{$basedomain}{$pages}/detail/{$timeline[i].id}"><img src="{$timeline[i].image_full_path}" /></a></span></div>{/if}
+						{*}<span class="date fr">{$timeline[i].posted_date|date_format:"%d/%m/%Y %H:%M:%S"}</span>{/*}
+					 
+						<p>{$timeline[i].title|truncate:100}</p>
+					</div> <!-- /.entries -->
+					<a class="icons icon_expand" href="{$basedomain}{$pages}/detail/{$timeline[i].id}">&nbsp;</a>
+					{if $user->leaderdetail->type!=1}
+						 {if $publishedtype=='3'}
+							
+							<a class="icons icon_check showPopup" href="{$basedomain}{$pages}/publishit/{$timeline[i].id}{if $act=='plan' } ?articeltype=plan {/if}" onclick="return confirm('Are you sure you want to published the selected plan?') ">&nbsp;</a>
+						{else}
+							<a class="icons icon_delete showPopup" href="{$basedomain}{$pages}/unpublish/{$timeline[i].id}{if $act=='plan' } ?articeltype=plan {/if}" onclick="return confirm('Are you sure you want to remove the selected plan?') ">&nbsp;</a>
+						{/if}
+					{else} 
+						
+					{/if}
+					
+				</div><!-- /.rows -->
+				{/section}
+			{/if}
+			{if $gallery}
+				{section loop=$gallery name=i}
+				<div class="rows">
+					<a href="{$basedomain}{$pages}/detail/{$gallery[i].id}" class="thumbsmall2"><img src="{$basedomain}public_assets/user/photo/{if $gallery[i].author.img}small_{$gallery[i].author.img}{else}default.jpg{/if}" /></a>
+                    <span class="date fr">{$gallery[i].posted_date|date_format:"%d/%m/%Y %H:%M"}lery </span> 
+					<div class="entries-inbox fl">
+						 <h3 class="username">{$gallery[i].author.name|capitalize}</h3>
+                    {if $gallery[i].imagepath}<div class="image-post"><span class="img-moderation"><a href="{$basedomain}{$pages}/detail/{$gallery[i].id}"><img src="{$gallery[i].image_full_path}" /></a></span></div>{/if}
+						{*}<span class="date fr">{$gallery[i].posted_date|date_format:"%d/%m/%Y %H:%M:%S"}</span>{/*}
+					 
+						<p>{$gallery[i].title|truncate:100}</p>
+					</div> <!-- /.entries -->
+					<a class="icons icon_expand" href="{$basedomain}{$pages}/detail/{$gallery[i].id}">&nbsp;</a>
+					{if $user->leaderdetail->type!=1}
+						 {if $publishedtype=='3'}
+							
+							<a class="icons icon_check showPopup" href="{$basedomain}{$pages}/publishitGallery/{$gallery[i].id}" onclick="return confirm('Are you sure you want to published the selected Gallery?') ">&nbsp;</a>
+						{else}
+							<a class="icons icon_delete showPopup" href="{$basedomain}{$pages}/unpublishGallery/{$gallery[i].id}" onclick="return confirm('Are you sure you want to remove the selected Gallery?') ">&nbsp;</a>
+						{/if}
+					{else} 
+						
+					{/if}
+					
+				</div><!-- /.rows -->
+				{/section}
+			{/if}
+			{if $comment}
+				{if $comment}
+					{section loop=$comment name=i}
+					<div class="rows">
+						<a href="{$basedomain}moderation/detail/{$comment[i].contentid}" class="thumbsmall fl"><img src="{$basedomain}public_assets/user/photo/{if $comment[i].img}small_{$comment[i].img}{else}default.jpg{/if}" /></a>
+						<div class="entries fl">
+							<h3 class="username fl">{$comment[i].name|capitalize}</h3>
+							<span class="date fr">{$comment[i].date|date_format:"%d/%m/%Y %H:%M"}</span>
+							<p>{$comment[i].comment}</p>
+						</div> <!-- /.entries -->
+						<a class="icons icon_expand" href="{$basedomain}moderation/detail/{$comment[i].contentid}">&nbsp;</a>
+						{if $user->leaderdetail->type!=1}
+							 {if $publishedtype=='3'}
+								
+									<a class="icons icon_check showPopup" href="{$basedomain}{$pages}/commentpublished/{$comment[i].id}" onclick="return confirm('Are you sure you want to published the selected comment?') ">&nbsp;</a>
+							{else}
+							<a class="icons icon_delete showPopup" href="{$basedomain}{$pages}/uncomment/{$comment[i].id}" onclick="return confirm('Are you sure you want to remove the selected comment?') ">&nbsp;</a>
+							{/if}
+						{else} 
+							
+						{/if}
+					</div><!-- /.rows -->
+					{/section}
+				{else}
+					Tidak ada Komentar Moderasi
+				{/if}
+			{/if}
+            
+			{if $user->leaderdetail->type>=100}
+				{if $venue}
+					{section loop=$venue name=i}
+						<div class="rows">
+							<div class="entries-full fl">
+								<h3 class="venueName fl">{$venue[i].venuename}</h3>
+								<span class="date fr">{$venue[i].datetimes|date_format:"%d/%m/%Y %H:%M"}</span>
+								<p class="venueAddress">{$venue[i].address}, {$venue[i].city}, {$venue[i].provinceName}</p>
+								
+							</div> <!-- /.entries -->
+							<a class="icons icon_expand" href="{$basedomain}{$pages}/detailVenue/{$venue[i].id}">&nbsp;</a>
+							
+							{if $user->leaderdetail->type!=1}
+								{if $publishedtype!='1'}
+									<a class="icons icon_check showPopup" href="{$basedomain}{$pages}/publishitvenue/{$venue[i].id}" onclick="return confirm('Are you sure you want to published the selected venue?') ">&nbsp;</a>
+								{else}
+									
+									<a class="icons icon_delete showPopup" href="{$basedomain}{$pages}/unpublishvenue/{$venue[i].id}" onclick="return confirm('Are you sure you want to remove the selected venue?') ">&nbsp;</a>
+								{/if}
+							{else} 
+							{/if}
+							
+							{*} <a class="label-green">Valid</a>
+							<a class="label-red">Not Valid</a>{/*}					
+						</div><!-- /.rows -->
+					{/section}
+				{/if}
+			{else} 
+				<!-- <br><h3 class="fl">This Sub Page for Specific User Leveling Only. </h3> <br> -->
+			{/if}
+			
+        </div> <!-- /.theContent -->
+		<script>
+				var startdate = "{$startdate}";
+				var enddate = "{$enddate}";
+				var search = "{$search}";
+				var publishedtype = "{$publishedtype}";
+				{literal}
+					$(document).on('change','#publishedtype',function(){
+						//$(".formsubmitmanualmoderation").submit();
+						$(".formsubmittypemoderation").submit();
+					})
+				{/literal}
+		</script>
+		{if $timeline}
+			{if $act !='galleryList'}
+				{if $act !='plan'}
+				<div class="paging" id="pagingpostmoderation"></div> <!-- END .paging -->			
+				<script>				 
+					getpaging(0,{$total},"pagingpostmoderation","paging_ajax_postmoderation",10,1);
+				</script>
+				{else}
+				<div class="paging" id="pagingpostmoderation"></div> <!-- END .paging -->			
+				<script>
+					getpaging(0,{$total},"pagingpostmoderation","paging_ajax_planmoderation",10);
+				</script>
+				{/if}
+			{else}
+				<div class="paging" id="pagingpostmoderation"></div> <!-- END .paging -->			
+				<script>
+					getpaging(0,{$total},"pagingpostmoderation","paging_ajax_gallerymoderation",10);
+				</script>
+			{/if}
+		{/if}
+		{if $comment}
+			<div class="paging" id="pagingcommentmoderation"></div> <!-- END .paging -->
+			<script>
+				 getpaging(0,{$total},"pagingcommentmoderation","paging_ajax_commentmoderation",10);
+			</script>
+		{/if}
+		{if $venue}
+			<div class="paging" id="pagingvenuemoderation"></div> <!-- END .paging -->
+			<script>
+				getpaging(0,{$total_venue},"pagingvenuemoderation","paging_ajax_venuemoderation",10);
+			</script>
+		{/if}
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+
+
+{/if}
+
+
+	<script>
+		var searchType = '{$searchType}';
+	{literal}
+		$(document).on("change","#moderationtype",function(){
+			var modetype = $(this).val();
+			if(modetype=="5")
+			{
+				modetype = "";
+			}
+			//window.location = basedomain+"moderation/"+modetype;
+			
+			$(".formsubmittypemoderation").attr('action',basedomain+"moderation/"+modetype);
+			$(".formsubmittypemoderation").submit(); 
+		
+		});
+
+		$(document).ready(function(){
+			$('input.searchType').on('change',function(){
+				searchType = $(this).val();
+			});
+		});
+	{/literal}
+	</script>

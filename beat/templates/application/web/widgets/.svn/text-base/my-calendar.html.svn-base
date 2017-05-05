@@ -1,0 +1,35 @@
+<div id="my-calendar">
+    <div id="event_list">
+		{if $my_calendar}
+			{section loop=$my_calendar name=i}	
+					<div class="box_event">
+						{if $my_calendar[i].posted_date!='0000-00-00 00:00:00'}
+							<div class="event_date">
+								<span class="date">{$my_calendar[i].posted_date|date_format:"%d"}</span>
+								<span class="day">{$my_calendar[i].posted_date|date_format:"%A"}</span>
+							</div>
+						{/if}
+						<div class="event_detail">
+							<h3><a href="javascript:void(0)" >{$my_calendar[i].title}</a></h3>
+							<span>{$my_calendar[i].brief|truncate:24:""}<br />{$my_calendar[i].cityname}</span>
+							<h4>{$my_calendar[i].attending} Attending</h4>
+						</div>
+						<div class="event_action">
+							<div class="content_action">
+								<ul>
+									<li><a class="icon_view" href="#">{$my_calendar[i].views}</a></li>
+									<li><a class="icon_comment" href="#">{$my_calendar[i].commentcount}</a></li>
+								</ul>
+							</div><!--END .content_action-->
+						</div><!--END .event_action-->
+					</div><!--END .box_event-->
+			{/section}
+          <div class="paging" id="myFavoritePagingID" ></div> <!-- END .paging -->
+		{else}
+			<div class="notFound">
+				<p>{$locale.activity.user_kalender}</p>
+			</div>
+		{/if}	
+    </div><!--END #event_list-->
+</div><!--END #event_list-->
+    

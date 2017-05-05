@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/lib/Predis/Options
+END
+ClientOptions.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/lib/Predis/Options/ClientOptions.php
+END
+ClientPrefix.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/lib/Predis/Options/ClientPrefix.php
+END
+ClientProfile.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/lib/Predis/Options/ClientProfile.php
+END
+ClientCluster.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/lib/Predis/Options/ClientCluster.php
+END
+IOption.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/lib/Predis/Options/IOption.php
+END
+CustomOption.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/lib/Predis/Options/CustomOption.php
+END
+IClientOptions.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/lib/Predis/Options/IClientOptions.php
+END
+ClientConnectionFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/lib/Predis/Options/ClientConnectionFactory.php
+END
+ClientReplication.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/lib/Predis/Options/ClientReplication.php
+END
+Option.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/lib/Predis/Options/Option.php
+END

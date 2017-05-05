@@ -1,0 +1,90 @@
+<div id="theContainer" class="challengePage">
+    <div class="theContainer">
+        <div class="head-title">
+			<a href="{$basedomain}{$pages}" class="btnback fl"></a>
+        </div> <!-- /.head-title -->
+        <div class="theContent">
+			<div class="rows last-child">
+				<div class="entry-details">
+					<div class="head-title">
+						<h1 class="fl">Edit Badge</h1>
+					  
+					</div> <!-- /.head-title -->
+					<div class="forms">
+						<form id="create-badges" METHOD="POST" enctype="multipart/form-data" action="{$basedomain}{$pages}/create">
+							<div class="rows">
+								<label>Name</label>
+								<input type="text" name="name" class="full-width" value="{$detailBadge.name}" />
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Detail</label>
+								<textarea name="desc" class="full-width">{$detailBadge.detail}</textarea>
+							</div><!-- /.rows -->
+							<div class="rows">
+                                <label>Action</label>
+								<select type="text" name="checkcondition">
+									<option value="0" > - </option>
+									<option value="entourage" {if $detailBadge.checkcondition eq 'entourage'}selected{/if} >Entourage</option>
+									<option value="engagement" {if $detailBadge.checkcondition eq 'engagement'}selected{/if}>Engagement</option>
+									<option value="checkin" {if $detailBadge.checkcondition eq 'checkin'}selected{/if}>Checkin</option>
+									<option value="brand" {if $detailBadge.checkcondition eq 'brand'}selected{/if}>Brand</option>
+									<option value="cocreation" {if $detailBadge.checkcondition eq 'cocreation'}selected{/if}>Cocreation</option>
+									<option value="insight" {if $detailBadge.checkcondition eq 'insight'}selected{/if}>Insight</option>
+								</select>
+							</div>
+							
+							<div class="rows">
+                                <label>Badge Type</label>
+								<select type="text" name="badgeType">
+									<option value="0" {if $detailBadge.badgetype == '0'}selected{/if}>Online</option>
+									<option value="1" {if $detailBadge.badgetype == '1'}selected{/if} >Offline</option>
+								</select>
+							</div>
+							
+							<div class="rows">
+                                <label>Gain Type</label>
+								<select type="text" name="gaintype">
+									<option value="everytime" {if $detailBadge.gaintype == 'everytime'}selected{/if}>Everytime</option>
+									<option value="once" {if $detailBadge.gaintype == 'once'}selected{/if} >Once</option>
+									<option value="everymonth" {if $detailBadge.gaintype == 'everymonth'}selected{/if}>Every Month</option>
+								</select>
+							</div>
+							
+							<div class="rows">
+								<label>Point</label>
+								<input type="number" name="point" class="full-width" value="{$detailBadge.point}"/>
+							</div><!-- /.rows -->
+							<div class="rows" style="padding:30px 0 30px 100px;">
+								<label>Image Active</label>
+								<img style="width:100px; float:left; margin:0 10px 0 0;" width="100" src="{$basedomain}/public_assets/badges/{$detailBadge.image}">
+                                <div class="upload">
+									<input type="file" name="badge_active" class="uploadfile fl" />
+                                </div>
+							</div><!-- /.rows -->
+							<div class="rows" style="padding:30px 0 30px 100px;">
+								<label>Image Non</label>
+								<img style="width:100px; float:left; margin:0 10px 0 0;" width="100" src="{$basedomain}/public_assets/badges/{$detailBadge.image_2}">
+                                <div class="upload">
+									<input type="file" name="badge_non" class="uploadfile fl" />
+                                </div>
+							</div><!-- /.rows -->
+							<div class="rows">
+                                <label>Badge Status</label>
+								<select type="text" name="badge_status">
+									<option value="0" {if $detailBadge.n_status == '0'}selected{/if}>Unpublish</option>
+									<option value="1" {if $detailBadge.n_status == '1'}selected{/if}>Publish</option>
+								</select>
+							</div>
+							<div class="rows">
+								<a href="{$basedomain}badges" class="button">Cancel</a>
+								<input type="hidden" name="badges" value="1"/>
+								<input type="hidden" name="updateBadge" value="{$detailBadge.id}"/>
+								<input type="submit" value="Update" class="button fr" style="margin:0;" />
+							</div><!-- /.rows -->
+						</form>
+					</div> <!-- /.forms -->
+				</div> <!-- /.entry-details -->
+			</div><!-- /.rows -->
+        </div> <!-- /.theContent -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

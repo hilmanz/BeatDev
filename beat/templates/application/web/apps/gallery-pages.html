@@ -1,0 +1,109 @@
+{if $user->leaderdetail->type!=1}
+<div id="theContainer" class="galleryPage">
+    <div class="theContainer">
+			<form method="POST" action="{$basedomain}gallery" id="shorter " class="formgallery" >
+				<div class="head-title">
+							<h1 class="fl">Gallery</h1>
+							{if $user->leaderdetail->type!=1}
+							
+							{else}
+							<div class="shorter fr">
+								<select class="styled">
+									<option value="0" > Select BA </option>
+									{foreach from=$social key=k item=v}
+										{if $v.type==1}<option value="{$v.id}" > {$v.name} </option>{/if}
+									{/foreach}		
+								</select>
+							</div><!-- /.shorter -->
+							{/if}	
+						</div> <!-- /.head-title -->
+					
+				<div class="short2">
+				   
+						<div class="date-range fl">
+						<label>Date Range</label>
+						<input type="text" class="half-width" id="datepicker" name="startdate" value="{$startdate}"  />
+						<span>to</span>
+						<input type="text" class="half-width" id="datepicker2" name="enddate" value="{$enddate}" />
+						</div>
+						<div class="input-append fr">
+							<input type="text" size="16" name="search" id="search" class="span2" onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" value="{if $search}{$search}{else}Search...{/if}" /> 
+								<button type="submit" class="btn">Go!</button>
+						</div>
+				   
+				</div><!-- /.short -->
+				
+				<div class="head-title">
+					<div class="rowShorter">
+										<input type="radio" class="pickgallerytype styled" name="category" value='' {if !$category}checked{/if} />
+										<span>All</span>
+										
+										<input type="radio" class="pickgallerytype styled" name="category" value='cocreation' {if $category=='cocreation'}checked{/if}  />
+										<span>Co-Creation</span>
+										<input type="radio" class="pickgallerytype styled" name="category" value='brands' {if $category=='brands'}checked{/if}  />
+										<span>Brand Event</span>
+										
+										<input type="radio" class="pickgallerytype styled" name="category" value='baengagement' {if $category=='baengagement'}checked{/if}  />
+										<span>BA Engagement</span>
+										{*}
+										<input type="radio" class="pickgallerytype styled" name="category" value='timeline' {if $category=='timeline'}checked{/if}  />
+										<span>Time Line</span>
+										{/*}
+					</div><!-- /.rowShorter -->
+				</div> <!-- /.head-title -->
+		 </form>
+        <div class="theContent">
+        	<div class="section">
+			{if $plandata.result}
+			 {foreach from=$plandata.result key=k item=v}
+            	<div class="col3">
+                	<div class="box-gallery">
+                    	<div class="imgbox">
+                        	<a href="{$basedomain}gallery/detail/{$v.id}" class="thumb-gallery"><img src="{$v.image_full_path}" width="100%" /></a>
+                            <div class="gallery-author">
+                                <a href="#" class="thumbsmall fl"><img src="{$v.author.image_full_path}" /></a><h1 class="fl username">{$v.author.name}  </h1>
+                            </div> <!-- /.gallery-author -->
+                        </div> <!-- /.imgbox -->
+                        <div class="gallery-info">
+                        	<span class="desc1">{$v.title}   </span>
+                        	<span class="desc2"> {$v.posted_date|date_format:"%e %B %Y"}</span>
+							<span class="desc2">{$v.totalgallery} Photos</span>
+                         {*}   <a class="icon-remove theicon" href="#">&nbsp;</a>{/*}
+                        </div> <!-- /.gallery-info -->
+                    </div> <!-- /.box-gallery -->
+                </div> <!-- /.col3 -->
+				{/foreach} 
+			{/if}	
+            	
+            </div> <!-- /.section -->
+        </div> <!-- /.theContent -->
+		<div class="paging" id="paginggallery"></div> <!-- END .paging -->
+				<script>
+					
+					var categories = "{$category}";
+					var startdate = "{$startdate}";
+					var enddate = "{$enddate}";
+					var search = "{$search}";
+					
+					getpaging(0,{$total},"paginggallery","paging_ajax_gallery",12);
+				</script>
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+
+{literal}
+	<script>
+			$(document).on('click','.radio ', function(){
+				$(".formgallery").submit();			
+			}) ;
+	</script>
+{/literal}
+{else}  
+
+<div id="theContainer" class="galleryPage">
+    <div class="theContainer">
+		<div class="head-title">
+			<h1 class="fl">This Page For Highest User Leveling Only.</h1>
+		</div>
+	</div>
+</div>
+{/if}

@@ -1,0 +1,119 @@
+<div id="theContainer2" class="baPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content-full">
+			{if $plandata}
+                <div class="theBox" style="margin:0 0 30px 0;">
+                    <div class="theBox-title">
+                        <h2 class="fl blue">BA Latest Engagement Detail</h2>
+                        <div class="navPaging fr">
+                            <a class="icons prev" href="{$basedomain}home">&nbsp;</a>
+                        </div><!-- /.navPaging -->
+                    </div><!-- /.theBox-title -->
+                    <div class="user-container">
+						<div >
+						<h3>{$title|@ucwords} - {$brief } - {$posted_date|date_format:"%d/%m/%Y %H:%M"} </h3>
+							<div class="section">
+								<div id="slider" class="flexslider">
+									  <ul class="slides">
+									  
+									  
+										<li><a href="#" target="_blank">
+											<img src="{$image_full_path}" alt="" style="height:285px" ></a>
+									  	</li> 
+										  {if $gallery}
+											 
+											 {foreach from=$gallery key=kg item=vg}
+												 <li> 
+													<img src="{$vg.image_full_path}" alt="" style="height:285px" > 
+													 
+												</li>   
+												{/foreach}
+											
+											{/if}	
+						 
+									 
+									  </ul>
+									</div>
+								</div> <!-- /.section -->
+                             
+							 
+                        </div> <!-- /.thumb-user-big -->
+					<div style="clear:both; width:625px; margin:0 auto;" >
+					<div style="float:left;width:50%; " >
+							 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                             <tr>
+                             	<td colspan="4"><h4>Rating</h4></td>
+                             </tr>
+                              <tr>
+                                <td width="90">Rate</td>
+                                <td width="1">:</td>
+                                <td><img src="{$basedomain}assets/images/star{$rating.rating}.png" /> </td>
+                              </tr>
+                              <tr>
+                                <td>Price Range</td>
+                                <td>:</td>
+                                <td><img src="{$basedomain}assets/images/dollar{$rating.prize}.png" /> </td>
+                              </tr>
+                              <tr>
+                                <td>Wi-Fi</td>
+                                <td>:</td>
+                                <td>{if $rating.wifi==1} Yes {else} No {/if}</td>
+                              </tr>
+                              <tr>
+                                <td>Smoking Area</td>
+                                <td>:</td>
+                                <td>{if $rating.smoking==1} Yes {else} No {/if}</td>
+                              </tr>
+                            </table>
+							 
+					</div>
+                    <div  style="float:left;width:50%">
+							<h4 style="padding-bottom:10px;padding-top:10px">Friend Tags</h4>
+							{if $friendtags}
+							{foreach from=$friendtags key=k item=v}
+								<div class="rowd"><img src="{$v.image_full_path}"/><p>{$v.name} ( {$v.role} )</p></div>
+							{/foreach}
+							{else}
+												This Post do not have tag of friends
+							{/if}
+					</div>
+					</div>		
+                             
+							
+                         
+					<div style="clear:both" ></div>
+                    </div> <!-- /.user-container -->
+					 
+                    <div class="user-detail">
+ 
+					 <h2 class="blue" style="padding:0 10px; font-size:20px;">SBA Detail</h2>
+
+                    	<table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="100">Name </td>
+                            <td width="1">:</td>
+                            <td>{$author.name}</td>
+                          </tr>
+                          <tr>
+                            <td>Brand</td>
+                            <td>:</td>
+                            <td>{$author.pagesdetail.brandid}</td>
+                          </tr>
+ 
+                           <tr>
+                            <td>Area</td>
+                            <td>:</td>
+                            <td>{$author.pagesdetail.areaid}</td>
+                          </tr>
+ 
+                        </table>
+				 
+                    </div> <!-- /.user-detail -->
+                </div> <!-- /.theBox -->
+				{/if}
+            </div><!-- /.col-content -->
+          
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

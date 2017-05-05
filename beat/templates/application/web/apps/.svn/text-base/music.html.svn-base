@@ -1,0 +1,16 @@
+{$shorter_filter}
+<div class="section">
+    <ul class="columns-content page-content clearfix">
+        <li class="col-sidebar">
+           {$popular_tags}
+           {$weekly_popular}
+		   {$side_banner}
+        </li> <!-- END .col-sidebar -->
+        <li class="col-main">
+			{$article_media_list}
+		</li><!-- END .col-main -->    
+    </ul><!-- END .page-content -->
+</div><!-- END .section -->
+<script>
+	getpaging({$start},{$total},"pagingID","paging_ajax_music",10);
+</script>

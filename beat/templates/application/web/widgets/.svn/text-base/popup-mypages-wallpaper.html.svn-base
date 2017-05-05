@@ -1,0 +1,164 @@
+<link rel="stylesheet" href="{$basedomain}assets/css/jquery.Jcrop.css" type="text/css" />
+<div class="popup">
+	<div class="popupContainer" id="popup-upload-mybandwall">
+        <div class="popupContent">
+        	<div class="popupHead">
+                <div class="the-title">
+                    <h2 class="icon icon_smile"><span>UPLOAD COVER {if $pages=='myband'}BAND{else}DJ{/if}</span></h2>
+                </div>
+            </div>                
+				<div class="row">
+					<form method="POST" enctype="multipart/form-data" id = "updatePhotoCoverForm" action="{$basedomain}{$pages}/{if $pages=='myband'}coverBand{else}coverDJ{/if}/set">
+						<div id="previewCoverPhotoProfile" style="overflow:hidden;width:670px;height:285px">
+							<img id="preview" src="{$basedomain}public_assets/pages/cover/{if $mypages_wallpaper.imgoriginal}{$mypages_wallpaper.imgoriginal}{else}{if $mypages_wallpaper.image}{$mypages_wallpaper.image}{else}default.jpg{/if}{/if}">
+						</div>
+						<div class="up_foto">
+							<i>Ukuran file avatar yang bisa diupload maksimum 1200 KB.</i>
+							<div class="row">
+								<label for="img">Upload Image&nbsp;</label>
+								<input type="file" name="myImageCover" id="file" value="" class="uploadphotoprofile" >
+							</div>
+						</div>			   
+					</form>
+					<form id = "updateThumbCoverPhotoForm" action="{$basedomain}{$pages}/{if $pages=='myband'}coverBand{else}coverDJ{/if}/crop" method="POST">
+						<input type="hidden" id="x" name="x" />
+						<input type="hidden" id="y" name="y" />
+						<input type="hidden" id="w" name="w" />
+						<input type="hidden" id="h" name="h" />
+						<input type="hidden" name="imageFilenameCover" class = "imageFilenameCover" value="{if $mypages_wallpaper.imgoriginal}{$mypages_wallpaper.imgoriginal}{else}{if $mypages_wallpaper.image}{$mypages_wallpaper.image}{else}default.jpg{/if}{/if}" />
+						<input type="submit" name="upload_thumbnail" value="SIMPAN PHOTO" class="dosimpan"/>
+					</form>
+					<div><span class="msg-upload-foto"></span></div>
+                </div>
+        </div><!-- END .popupContent -->
+    </div><!-- END .popupContainer -->
+</div><!-- END .popup -->
+
+	
+<script >
+var basedomain = '{$basedomain}';
+var localepilihfoto = "choose photo";
+var notification = '{$locale.addpicturefailed}';
+	{literal}	
+	$(document).on("click",".editcover" , function(){
+		cropperOpt =new Object();
+		cropperOpt = {
+			 imageForm : '#updatePhotoCoverForm',
+			 imageThumbForm : '#updateThumbCoverPhotoForm',
+			 previewPhotoProfile : "#previewCoverPhotoProfile",
+			 photoProfile : "#photoCover",
+			 imageFilename : ".imageFilenameCover",
+			 smallthumb :false,
+			 imageCropPath : 'public_assets/pages/cover/',
+			 msgNotif : notification,
+			 saveButton : ".dosimpan",
+				autoSize : [0,0,670,285]
+			};
+		cropperHelper(cropperOpt);	
+	});
+				
+	
+</script>
+
+<script >
+
+	$("#canceladdmember").hide();
+	$("#add_member_band").hide();
+	function linkaddmemberband() {
+		$("#add_member_band").show();
+		$("#canceladdmember").show();
+	}
+	
+	function cancellinkband() {
+		$("#add_member_band").hide();
+		$("#canceladdmember").hide();
+	}
+	
+	$('#member_name').keyup(function(){
+		var kw = $(this).val();		
+		var delay = (function(){
+			var timer = 0;
+			return function(callback, ms){
+			clearTimeout (timer);
+			timer = setTimeout(callback, ms);
+			};
+		})();
+		//alert(kw);
+		$(this).addClass("putloader");
+		delay(function(){
+			$.post(basedomain+'myband/searchMember',{kw:kw},
+			function(data){
+				if(data.m){
+					var num = data.m.length;
+					var htm = "";
+					for(i=0;i<num;i++){
+						htm += '<a href="javascript:addMember('+data.m[i].id+',\''+data.m[i].name+'\');">';
+						htm += '<img src="'+basedomain+'public_assets/user/photo/tiny_'+data.m[i].img+'" style="vertical-align:middle;"  />&nbsp;&nbsp;'+data.m[i].name+'</a>';
+					}
+						$('#select-member').html(htm);
+						$('#select-member').hide('fast',function(){
+							$(this).slideToggle();
+						});
+						$('#member_name').removeClass("putloader");
+				}else{
+					var htm = "";
+					$('#member_name').show();
+					htm += '<a href="javascript:;">no result</a>';
+					$('#select-member').html(htm);
+					$('#select-member').hide('fast',function(){
+						$(this).slideToggle();
+					});
+					$('#member_name').removeClass("putloader");
+				}
+			},
+			'json'
+		);
+		}, 1000 );
+	});	
+
+	$('#btn-add-member').click(function(){
+		if( $("#member_id").val() == '' ){
+			alert("Please put valid member name");
+			return false;
+		}
+		$('#list-members').append('<div class="add-member-load"></div>');
+		$.post(basedomain+'myband/getInfoMember',{id: 1 },
+			function(data){
+				if(data.sukses){
+					var htm = "";
+					htm += '<td class="member-list" id="mem-'+data.id+'">';
+					htm +=    '<a href="javascript:;" class="smallAvatar">';
+					htm +=        '<img src="'+basedomain+'public_assets/user/photo/tiny_'+data.img+'" />';
+					htm +=    '</a>';
+					htm +=        '<a href="javascript:;" class="memberName">'+data.name+'</a>';
+					htm +=        	'<a class="edit" href="javascript:editMember('+data.id+','+data.id+',\''+data.name+'\');"> Edit</a> |';
+					htm +=            '<a class="delete" href="javascript:deleteMember('+data.id+');">Delete</a>';
+					htm += '</td>';
+					
+					//not[data.id] = ','+data.id;
+					$('.add-member-load').empty().remove();
+					$('#form-create-band').append('<input class="cband-person" id="hmem-'+data.id+'" type="hidden" name="person[]" value="'+data.id+'[:]'+$("#instrument").val()+'" />');
+					
+					$('#list-members').append(htm).fadeIn();
+					$("#members").val(data.id);
+					$("#member_name").val("");
+					$("#member_id").val("");
+					$("#instrument").val("");
+					$("#add-member").css("background","none");
+				}
+			},
+			'json'
+		);
+	});
+	
+	
+	function addMember(id,name){
+		$("#member_name").val(name);
+		$("#member_id").val(id);
+		$('#select-member').hide();
+		//$("#add-member").css("background","none");
+	}
+	
+</script>
+
+{/literal}

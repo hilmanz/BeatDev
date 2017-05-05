@@ -1,0 +1,92 @@
+<script src="jquery-1.8.2.js" ></script>
+<script src="jquery.form.js" ></script>
+
+<h1>DELETE POST SANDBOX</h1>
+<h3> LOGIN <a href="#" class="tombolaja" >klik ini</a> </h3>
+
+<form method="POST" enctype="multipart/form-data" id = "poster" action="https://beat-stg.ba-space.com/service/pop/">
+ <h2>push Type</h2>
+	 <div>
+					<select name="pushtype" class="pushtype">
+						<option value="" >- choosse first -</option>
+						<option value="comment" >comment</option>
+						<option value="checkin" >checkin</option>
+						<option value="content" >content</option>
+												
+					</select>
+				</div>
+	 <h2>CONTENT / COMMENT / CHECKIN ID </h2>
+	 <div>
+					<input type="text" value="" name="cid" >
+					<br>
+					pasword
+					<input type="text" value="" name="password" class="passwordaja" >
+				</div>
+					<div style="width:50%;height:100%;overflow:auto;float:right;position:fixed;top:0;right:0;padding:10px;border-collapse:collapse;border:1px solid"> 
+					<span >OUTPUT</span>
+					<p id="kluardisini" ></p>
+				</div> 
+	
+<div>
+		<input type="submit" value="popit" />
+		</div>
+			
+</form>
+
+
+
+<script>
+
+var basedomain = "https://beat-stg.ba-space.com/service/";
+
+
+
+	var updateoptions = {
+						dataType:  'html', 	
+						beforeSubmit: function(data) { 
+										$('#kluardisini').html("<blink>loading please wait</blink>");
+							},
+						success : function(data) {									
+										 $('#kluardisini').html("<p>"+data+"</p>");
+						}
+					};					
+					
+
+$("#poster").ajaxForm(updateoptions);
+
+$(document).on('change','.pushtype',function(){
+
+$("#poster").attr('action',basedomain+"pop/"+$(this).val());
+
+});
+
+$(document).on('click','.tombolaja',function(){
+	$('#kluardisini').html("<blink>loading please wait</blink>");
+		
+		$.get(basedomain+'login/account/testuser/Acc345$$',function(data){
+			
+					 $('#kluardisini').html("<p>"+data+"</p>");
+
+		},"html");
+		
+		
+		/*
+		$.post('http://preview.kanadigital.com/beat2013/service/post/upload',{upload:'video',url:'http://www.youtube.com/watch?v=q68s6JMXD88',type:3,title:'ini coba dari api',desc:'ini description nya',brief:'ini bref nya'}, function(data){
+			
+			if(data) $('.initargetdivnya').append('success');
+			else $('.initargetdivnya').append('gagl');
+		},"JSON");
+		*/
+
+})
+
+
+$(document).on('change','.passwordaja',function(){
+	var str = $(this).val();
+	var res = "ok";
+	if(!str.match(/^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/)) res = 'not ok';
+	
+	 $('#kluardisini').html("<p>"+res+"</p>");
+});
+
+</script>

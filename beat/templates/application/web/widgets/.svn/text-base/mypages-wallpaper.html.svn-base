@@ -1,0 +1,25 @@
+<div class="imgContentPorfile">
+	<div class="headbanner myPagesWallpaper" id="photoCover">		
+			<a href="#"><img src="{$basedomain}public_assets/pages/cover/{if $mypages_wallpaper.image}{$mypages_wallpaper.image}{else}default.jpg{/if} "/>	</a>	
+	</div>
+	{*}<div class="pita_featured"></div>{/*}
+	{if $pid==''}
+		{if !$user->immember && $user->ownerid}
+			<div class="edit_cover">
+				<a href="#popup-upload-mybandwall" class="showPopup profile editcover">Edit Cover</a>
+			</div>
+		{/if}
+	{else}
+		{if $pid==$user->pageid}
+			{if !$user->immember && $user->ownerid}
+				<div class="edit_cover">
+					<a href="#popup-upload-mybandwall" class="showPopup profile editcover">Edit Cover</a>
+				</div>
+			{/if}
+		{else}
+		
+		{/if}
+	{/if}
+</div><!-- END .imgContentPorfile -->
+
+{include file="application/web/widgets/popup-mypages-wallpaper.html"}

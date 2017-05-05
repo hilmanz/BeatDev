@@ -1,0 +1,270 @@
+<div id="theContainer" class="challengePage">
+    <div class="theContainer">
+        <div class="head-title">
+			<a href="{$basedomain}{$pages}" class="btnback fl"></a>
+            <div class="navPaging fr">
+            	 {*}
+					<a class="icons prev" href="#">&nbsp;</a>
+					<a class="icons next" href="#">&nbsp;</a>
+				{/*}
+            </div><!-- /.navPaging -->
+        </div> <!-- /.head-title -->
+        <div class="theContent">
+			<div class="rows last-child">
+				<div class="entry-details">
+					<div class="head-title">
+						<h1 class="fl">Create Challenge </h1>
+					  
+					</div> <!-- /.head-title -->
+					<div class="forms">
+						<form id="create-challenge" METHOD="POST" action="{$basedomain}{$pages}/create">
+							<div class="rows">
+								<label>Name</label>
+								<input type="text" name="title" class="full-width" />
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Date Range</label>
+								<input type="text" name="posted_date" class="half-width" id="datepicker">
+								<span>to</span>
+								<input type="text" name="expired_date" class="half-width" id="datepicker2">
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Brief</label>
+								<textarea name="brief" class="full-width"></textarea>
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Detail</label>
+								<textarea name="desc" class="full-width"></textarea>
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Parameter</label>
+								<input type="text" name="tags" class="full-width" />
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Reward Type</label>
+								
+								<select class="styled"  name="rewardType" >
+									<option value="2" selected="selected">Point</option>
+									<option value="1">Badge</option>									
+								</select>
+							</div>
+							<div class="rows">
+								<label>Reward</label>	
+								<input type="text" name="prize" onfocus="if(this.value=='Set Point')this.value='';" onblur="if(this.value=='')this.value='Set Point';" value="Set Point" class="half-width rewardType" />
+								<div class="rewardType badgeid" style="display:none;">
+									<select class="styled"  name="badgeid" >
+				                            <option value="0"> - Pick Badge - </option>
+				                            {section name=i loop=$badge_list.result}
+				                            	 <option value="{$badge_list.result[i].id}">{$badge_list.result[i].name}</option>
+				                            {/section}
+				                    </select>
+			                    </div>
+
+							</div><!-- /.rows -->
+							{*}
+							<div class="rows">
+								<label>Recipient</label>
+								<button class="ico icon_circletag"></button>
+							</div><!-- /.rows -->
+							{/*}
+							<div class="rows">
+                 				<label>Brand</label>
+			                        <select class="styled"  name="brandid" >
+			                            <option value="0"> - Brand - </option>                           
+			                            <option value="4" {if $brandid==4}selected{/if}>AMILD</option>
+			                            <option value="5" {if $brandid==5}selected{/if}>MARLBORO</option>
+			                        </select>
+			                     
+			                    </div><!-- /.selectBrand -->
+			                <div class="rows">
+			                    <label>Area</label>
+			                        <select class="cityDrop styled"  name="areaid"> 
+			                        	<option value="0"> - Area - </option>
+			                            {section name=i loop=$getCity}
+			                            <option value="{$getCity[i].id}" {if $areaid==$getCity[i].id }selected{/if} > {$getCity[i].city|upper}</option>
+			                            {/section}
+			                        </select>
+			                     
+			                    </div><!-- /.selectArea -->
+							<div class="rows">
+							<label>Recipient</label>
+							<select type="text" name="searchfriend" class="styled " id="searchfriend" >
+									<option value="0" > Pick Recepient </option>
+									{foreach from=$badetail key=k item=v}
+										<option value="{$v.ownerid}_{$v.type}_{$v.name}_{$v.last_name}" > {$v.name} {$v.last_name} </option>
+									{/foreach}	
+								</select>
+									<input type="hidden" value="" name="fid" class="fid">
+									<input type="hidden" value="" name="ftype" class="ftype">
+									<input type="hidden" value="" name="fnames" class="fnames">
+									<div id="kluardisini"></div>
+							</div><!-- /.rows -->
+							<div class="rows" style="padding-right:103px;">
+								<button class="button">Discard</button>
+								<input type="hidden" name="type" value="6"/>
+								<input type="hidden" name="upload" value="simpan"/>
+								<input type="submit" value="Save" class="button fr" />
+							</div><!-- /.rows -->
+						</form>
+					</div> <!-- /.forms -->
+				</div> <!-- /.entry-details -->
+			</div><!-- /.rows -->
+        </div> <!-- /.theContent -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+{literal}
+	<script>
+		
+$(document).on('change','#searchfriend',function(){
+
+	var addedfriends = $(this).val();
+	 
+	// get last friend list  strings
+	
+	var fidstr = $('.fid').val();
+	var ftypestr = $('.ftype').val();
+	var fnames = $('.fnames').val();
+	
+	var arrfid = [];
+	var arrftype = [];
+	var arrfnames = [];
+	if(fidstr!=''){
+		arrfid = fidstr.split(',');	
+	}
+	
+	if(ftypestr!=''){
+		arrftype = ftypestr.split(',');	
+	}
+	if(fnames!=''){
+		arrfnames = fnames.split(',');	
+	}
+	
+	if(addedfriends!=''){
+		
+		var newaddedfriends = addedfriends.split('_');
+		
+		arrfid.push(newaddedfriends[0]);
+		arrftype.push(newaddedfriends[1]);	
+		arrfnames.push(newaddedfriends[2]+" "+newaddedfriends[3]);	
+		
+		
+		
+	}
+	
+	$('.fid').val(arrfid);
+	$('.ftype').val(arrftype);
+	$('.fnames').val(arrfnames);
+
+	var html = "";
+	$.each(arrfid,function(i,e){
+		html += "<div class='recepientdata' > - "+arrfnames[i]+" <a href='javascript:void(0)' class='clearrecipient' recipeintindex='"+i+"' >X</a></div>";
+	});
+	$('#kluardisini').html(html);
+	
+});
+
+
+$(document).on('click','.clearrecipient',function(){
+
+	var addedfriends = $(this).attr('recipeintindex');
+	
+	// get last friend list  strings
+	
+	var fidstr = $('.fid').val();
+	var ftypestr = $('.ftype').val();
+	var fnames = $('.fnames').val();
+	
+	var arrfid = [];
+	var arrftype = [];
+	var arrfnames = [];
+	if(fidstr!=''){
+		arrfid = fidstr.split(',');	
+	}
+	
+	if(ftypestr!=''){
+		arrftype = ftypestr.split(',');	
+	}
+	if(fnames!=''){
+		arrfnames = fnames.split(',');	
+	}
+	
+	if(addedfriends!=''){
+		
+		arrfid.splice(addedfriends,1);
+		arrftype.splice(addedfriends,1);
+		arrfnames.splice(addedfriends,1);	
+		
+		
+		
+	}
+	
+	$('.fid').val(arrfid);
+	$('.ftype').val(arrftype);
+	$('.fnames').val(arrfnames);
+	
+	$(this).parent('.recepientdata').empty();
+	
+});
+
+	</script>
+{/literal}
+
+<script>
+    var sbaid = parseInt({$sbaid});
+{literal}
+     var badgeCol = {};
+    $(document).ready(function(){
+        var selected_brand = $("select[name='brandid'] option:selected").val();
+        var selected_area = $("select[name='areaid'] option:selected").val();
+        badgeCol.area = selected_area;
+        badgeCol.brand = selected_brand;
+        loadDefaultBA();
+       
+        $("select[name='areaid']").on('change',function(){
+            badgeCol.area = $(this).val();
+            $.post(basedomain+'challenge/ajax_load_ba',badgeCol,function(response){
+                var str='<option value="0">Pick Recepient</option>';
+                $("select[name='searchfriend']").closest('div').find('.select').html('Pick Recepient');
+                $.each(response,function(k,v){
+                    str+='<option value="'+v.id+'_'+v.type+'_'+v.name+' '+v.last_name+'_">'+v.name+' '+v.last_name+'</option>';
+                });
+                $("select[name='searchfriend']").html(str);
+            },'json');
+        });
+        $("select[name='brandid']").on('change',function(){
+            badgeCol.brand = $(this).val();
+            $.post(basedomain+'challenge/ajax_load_ba',badgeCol,function(response){
+                var str='<option value="0">Pick Recepient</option>';
+                $("select[name='searchfriend']").closest('div').find('.select').html('Pick Recepient');
+                $.each(response,function(k,v){
+                    str+='<option value="'+v.id+'_'+v.type+'_'+v.name+' '+v.last_name+'_">'+v.name+' '+v.last_name+'</option>';
+                });
+                $("select[name='searchfriend']").html(str);
+            },'json');
+        });
+
+        $("select[name='rewardType']").on('change',function(){
+        	var rewardType = parseInt($(this).val());
+        	$(".rewardType").hide();
+        	if(rewardType==2){        		
+        		$("input[name='prize']").show();
+        	}else{
+        		$(".badgeid").css('display','inline');
+        	}
+        });
+    });
+    function loadDefaultBA(){
+         $.post(basedomain+'challenge/ajax_load_ba',badgeCol,function(response){
+            var str='<option value="0">Pick Recepient</option>';
+            $.each(response,function(k,v){
+                if(sbaid == v.id){
+                    str+='<option value="'+v.id+'_'+v.type+'_'+v.name+' '+v.last_name+'_" selected>'+v.name+' '+v.last_name+'</option>';
+                }else{
+                    str+='<option value="'+v.id+'_'+v.type+'_'+v.name+' '+v.last_name+'_">'+v.name+' '+v.last_name+'</option>';
+                }                
+            });
+            $("select[name='searchfriend']").html(str);
+        },'json');
+    }
+{/literal}
+</script>

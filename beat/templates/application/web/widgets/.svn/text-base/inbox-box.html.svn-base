@@ -1,0 +1,17 @@
+<div class="darkBox-content2">
+{if $userprofile.inbox.result}   
+{foreach from=$userprofile.inbox.result key=k item=v}
+		<div class="row3">
+			<span class="dates">{$v.datetime|date_format:"%e/%m/%Y %H:%M:%S"}</span>
+			<span class="user"><a href="{$basedomain}inbox/detail/{$v.parentid}">{$v.userdetail.name} {$v.userdetail.last_name}</a></span>
+			<p> {$v.message|truncate:200} </p>
+		</div><!-- /.row3 -->  
+{/foreach}      
+{else}  
+<div class="row3">
+			<span class="dates">              
+				You don't have any message(s) in your inbox!
+			</span>
+</div>
+{/if}
+</div> <!-- /.darkBox-content -->

@@ -1,0 +1,50 @@
+<div id="post-upload" class="row">
+	<select name="jenis_info" id="jenis-info" class="styled">
+		<option value="" >SELECT CATEGORY</option>
+		{section name=i loop=$jenis_type}
+		<option value="{$jenis_type[i].id}">{$jenis_type[i].type|upper}</option>
+		{/section}
+	</select>
+</div>
+
+<br>
+<div class="msg_page the-title"></div>
+
+<div id="upload-image" class="row">
+	<ul id="main-menu" class="fl">
+		<li onclick="pilih_upload_image()"><a href="#" >POSTING</a></li>	
+
+	</ul>
+</div>
+
+
+<div id="pilih-image" class="row">
+	<form class="formdatapost" method="post" name="uploadimage"  action="{$basedomain}{$pages}/upload" enctype="multipart/form-data">
+		<input type="hidden" class="valjenis" value="" name="type"/>
+		<input type="hidden" class="typemusic" value="" name="typemusic"/>
+		{$upload_pages_image}
+		<input type="hidden" name="upload" value="image" />	
+	</form>
+</div>
+
+{literal}
+<script>	
+	var optionpost = {
+		dataType:  'json',
+		success:    function(data) {
+			if(data) {
+				$("#popup-messagebox .popupContent .entry-popup h3").html(locale.photoprofile.upload.success);
+				$(".messageboxpop").trigger('click');
+			}else {
+				$("#popup-messagebox .popupContent .entry-popup h3").html(locale.photoprofile.upload.failed);
+				$(".messageboxpop").trigger('click');			
+			}
+		}
+	};
+	
+	
+	
+	$(".formdatapost").ajaxForm(optionpost);
+	
+</script>
+{/literal}

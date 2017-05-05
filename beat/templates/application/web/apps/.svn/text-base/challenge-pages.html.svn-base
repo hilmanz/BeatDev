@@ -1,0 +1,75 @@
+<div id="theContainer" class="challengePage">
+    <div class="theContainer">
+        <div class="head-title">
+            <h1 class="fl">BA Challenge</h1>
+            <a href="{$basedomain}{$pages}/create" class="fr icons icon_create">&nbsp;</a>
+        </div> <!-- /.head-title -->
+        <div class="short2">
+            <form method="POST" action="{$basedomain}{$pages}" id="shorter">
+                <div class="date-range fl">
+                <label>Date Range</label>
+                <input type="text" class="half-width" id="datepicker" name="startdate" value="{$startdate}"/>
+                <span>to</span>
+                <input type="text" class="half-width" id="datepicker2" name="enddate" value="{$enddate}"/>
+                </div>
+                <div class="input-append fr">
+                    <input type="text" size="16" id="search" name="search" class="span2" onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" value="{if $search}{$search}{else}Search...{/if}"/>
+					<input type="hidden" name="filter" value="searchform"/>
+					<button type="submit" class="btn">Go!</button>
+                </div>
+            </form>
+        </div><!-- /.short -->
+        <div class="theContent">
+		{if $challenge}
+			{section loop=$challenge name=i}
+        	<div class="rows">
+                <div class="entries">
+                	<h3 class="username fl">{$challenge[i].title|capitalize}</h3>
+                    <span class="date fr">{$challenge[i].posted_date|date_format:"%d/%m/%Y"}</span>
+                    <p>{$challenge[i].brief|truncate:100}</p>
+                    <a class="icons icon-chall icon_zoom" href="{$basedomain}{$pages}/detail/{$challenge[i].id}">&nbsp;</a>
+				{if $challenge[i].authorid == $user->id}
+                <a class="icons icon-chall icon_delete" href="{$basedomain}{$pages}/unpublish/{$challenge[i].id}" onclick="return confirm('Are you sure you want to delete this?')">&nbsp;</a>
+               
+				{/if}
+				 </div> <!-- /.entries -->
+            </div><!-- /.rows -->
+			{/section}
+		{/if}
+			{*}
+        	<div class="rows">
+            	<a href="#" class="ico icon_check fl">&nbsp;</a>
+                <div class="entries fl">
+                	<h3 class="username fl">Challenge A</h3>
+                    <span class="date fr">12/05/2013</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque odio sed arcu tincidunt 
+                    tristique. Nam laoreet velit eget sapien placerat euismod. Vestibulum faucibus faucibus orci, a hendrerit neque accumsan vitae. 
+                    Donec tristique mauris ac ligula bibendum in porttitor purus gravida. </p>
+                </div> <!-- /.entries -->
+                <a class="icons icon_zoom" href="{$basedomain}challenge/detail">&nbsp;</a>
+                <a class="icons icon_delete" href="#">&nbsp;</a>
+            </div><!-- /.rows -->
+        	<div class="rows">
+            	<a href="#" class="ico icon_check fl">&nbsp;</a>
+                <div class="entries fl">
+                	<h3 class="username fl">Challenge A</h3>
+                    <span class="date fr">12/05/2013</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque odio sed arcu tincidunt 
+                    tristique. Nam laoreet velit eget sapien placerat euismod. Vestibulum faucibus faucibus orci, a hendrerit neque accumsan vitae. 
+                    Donec tristique mauris ac ligula bibendum in porttitor purus gravida. </p>
+                </div> <!-- /.entries -->
+                <a class="icons icon_zoom" href="{$basedomain}challenge/detail">&nbsp;</a>
+                <a class="icons icon_delete" href="#">&nbsp;</a>
+            </div><!-- /.rows -->
+			{/*}
+        </div> <!-- /.theContent -->
+		<div class="paging" id="pagingchallenge"></div> <!-- END .paging -->
+		<script>
+			var startdate = "{$startdate}";
+			var enddate = "{$enddate}";
+			var search = "{$search}";
+			var userid = "{$user->id}";
+			getpaging(0,{$total},"pagingchallenge","paging_ajax_challenge",10);
+		</script>
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

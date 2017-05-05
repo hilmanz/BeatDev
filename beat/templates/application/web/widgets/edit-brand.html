@@ -1,0 +1,167 @@
+<div id="theContainer2" class="brandPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox">
+                    <div class="theBox-title">
+                        <h2 class="fl">Edit Brand Post</h2>
+           				<span class="date fr">{$date}</span>
+                    </div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+                            <form id="create-challenge" METHOD="POST" enctype="multipart/form-data" action="{$basedomain}{$pages}/create">
+                                <div class="rows2">                        
+                                    <label>Name</label>
+									<input type="text" name="title" class="full-width" value="{$brand.title}" />
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Detail</label>
+                                    <textarea class="full-width" rows="5" name="desc">{$brand.brief}</textarea>
+                                </div><!-- /.rows2 -->
+                                 <div class="rows2">
+                                   <label>Pick Brand</label>
+								<select type="text" name="brand" class="styled">
+									<option value="0" > Pick Brand </option>
+									
+									{section name=i loop=$branddetail}
+									<option value="{$branddetail[i].ownerid} " {if $brand.authorid == $branddetail[i].ownerid}selected{/if} > {$branddetail[i].name|replace:'marlboro sampoerna (BRAND )':'MARLBORO'|replace:'amild sampoerna (BRAND )':'amild'|upper}  </option>
+									
+									{/section}
+									
+								</select>
+                                </div> 
+								
+                                <div class="rows2">
+                                    <label>Sticky Post</label>
+                                    <select type="text" name="sticky" class="styled">
+									
+									<option value="0"  {if $brand.topcontent eq '0'}selected{/if}> NO </option>
+									<option value="1"  {if $brand.topcontent eq '1'}selected{/if}> YES </option>
+                             		</select>
+                                </div><!-- /.rows2 -->
+                                <div class="rows2 imgBrandEdit">
+                                   <label>Image</label>
+                                   		<img src="{$basedomain}/public_assets/article/{$brand.image}" />
+                                   <label>&nbsp;</label>
+									<input type="file" name="image" />
+                                </div> 
+                                <div class="rows2">
+                                    <label>Timespan</label>
+                                    <input type="text" name="posted_date" class="half-width" id="datepicker" value="{$brand.cd|date_format:'%d-%m-%Y'}">
+                                    <span>to</span>
+                                    <input value="{$brand.ed|date_format:'%d-%m-%Y'}" type="text" name="expired_date" class="half-width" id="datepicker2">
+                                </div><!-- /.rows2 -->
+                                <div class="rows2" style="padding-right:35px;">
+                                    <label class="fl">&nbsp;</label>
+                                    <a  href="{$basedomain}brand" class="button fl" style="margin-top:20px;">Discard</a>
+                                  	 <input type="hidden" name="type" value="4"/> 
+									<input type="hidden" name="upload" value="simpan"/>
+									<input type="hidden" name="upload_type" value="1"/>
+									<input type="hidden" name="brand_id" value="{$brand.id}"/>
+									<input type="hidden" name="old_image" value="{$brand.image}"/>
+									<input type="submit" value="Save" class="button fr" />
+                                </div><!-- /.rows2 -->
+                            </form>
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+          
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+{literal}
+	<script>
+$(document).on('change','#searchfriend',function(){
+
+	var addedfriends = $(this).val();
+	 
+	// get last friend list  strings
+	
+	var fidstr = $('.fid').val();
+	var ftypestr = $('.ftype').val();
+	var fnames = $('.fnames').val();
+	
+	var arrfid = [];
+	var arrftype = [];
+	var arrfnames = [];
+	if(fidstr!=''){
+		arrfid = fidstr.split(',');	
+	}
+	
+	if(ftypestr!=''){
+		arrftype = ftypestr.split(',');	
+	}
+	if(fnames!=''){
+		arrfnames = fnames.split(',');	
+	}
+	
+	if(addedfriends!=''){
+		
+		var newaddedfriends = addedfriends.split('_');
+		
+		arrfid.push(newaddedfriends[0]);
+		arrftype.push(newaddedfriends[1]);	
+		arrfnames.push(newaddedfriends[2]+" "+newaddedfriends[3]);	
+		
+		
+		
+	}
+	
+	$('.fid').val(arrfid);
+	$('.ftype').val(arrftype);
+	$('.fnames').val(arrfnames);
+
+	var html = "";
+	$.each(arrfid,function(i,e){
+		html += "<div class='recepientdata' > - "+arrfnames[i]+" <a href='javascript:void(0)' class='clearrecipient' recipeintindex='"+i+"' >X</a></div>";
+	});
+	$('#kluardisini').html(html);
+	
+});
+
+
+$(document).on('click','.clearrecipient',function(){
+
+	var addedfriends = $(this).attr('recipeintindex');
+	
+	// get last friend list  strings
+	
+	var fidstr = $('.fid').val();
+	var ftypestr = $('.ftype').val();
+	var fnames = $('.fnames').val();
+	
+	var arrfid = [];
+	var arrftype = [];
+	var arrfnames = [];
+	if(fidstr!=''){
+		arrfid = fidstr.split(',');	
+	}
+	
+	if(ftypestr!=''){
+		arrftype = ftypestr.split(',');	
+	}
+	if(fnames!=''){
+		arrfnames = fnames.split(',');	
+	}
+	
+	if(addedfriends!=''){
+		
+		arrfid.splice(addedfriends,1);
+		arrftype.splice(addedfriends,1);
+		arrfnames.splice(addedfriends,1);	
+		
+		
+		
+	}
+	
+	$('.fid').val(arrfid);
+	$('.ftype').val(arrftype);
+	$('.fnames').val(arrfnames);
+	
+	$(this).parent('.recepientdata').empty();
+	
+});
+
+	</script>
+{/literal}

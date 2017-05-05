@@ -1,0 +1,753 @@
+<div id="theContainer2" class="baPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+		<form action="{$basedomain}baperformance" method="POST" id="formbaperformance" >
+        	<div class="col-content">
+                <div class="darkBox"> 
+                    <div class="short">
+                        <div class="date-range fl">
+                            <label>Date Range</label><input type="text" class="half-width " name="startdate" id="datepicker" value="{$startdate}">
+                            <span>to</span>
+                            <input type="text" class="half-width " name="enddate" id="datepicker2" value="{$enddate}">
+                            <input type="submit" value="GO"/>
+						 
+                            
+                        
+                        </div> 
+                    </div><!-- /.short -->
+                     
+                    <div class="darkBox-title">
+                        <h2 class="fl">Entourage Acquisition Achievements</h2>
+                        <div class="shorters fr">
+                                <a href="{$basedomain}entourage" class="icons icon-button-people fr">&nbsp;</a>
+							
+                        <a href="#" id="button2" class="button3 reject btn-orange fr">Rejected</a>
+                        <a href="#" id="button" class="button3 accept btn-green fr">Accepted</a>
+                    	</div><!-- /.shorters -->
+                    </div><!-- /.darkBox-title -->
+                    <div class="darkBox-content">
+							<div class="number-acq">
+							<label>Rejected:</label>
+							<h1 class="rejected">0</h1>
+							</div>
+							<div class="number-acq">
+							<label>Accepted:</label>
+							<h1 class="accepted">0</h1>
+							</div>
+
+							<div id="container" style="min-width: 517px; height: 400px; margin: -10 auto; clear:both;"><br></div>
+                    </div> <!-- /.darkBox-content -->
+                </div> <!-- /.darkBox -->
+                <div class="rows2">
+                    <div class="darkBox col3s">
+ 
+                      <div class="darkBox-content">
+                    		<h5 class="titleChart">Age Relevancy</h5>
+<div class="box-chart">
+    <div id="container4" class="thePie">
+    </div>
+</div>
+<div id="legend">
+    <div class="rowl">
+        <span class="rec lblue">&nbsp;</span>
+        <label>18-24</label>
+    </div>
+    <div class="rowl">
+        <span class="rec lorange">&nbsp;</span>
+        <label>25-29</label>
+    </div>
+    <div class="rowl">
+        <span class="rec lgreen">&nbsp;</span>
+        <label>+30</label>
+    </div>
+</div>
+ 
+                        </div> <!-- /.darkBox-content -->
+                    </div> <!-- /.darkBox -->
+                    <div class="darkBox col3s">
+                     
+                        <div class="darkBox-content">
+																
+								<h5 class="titleChart">Brand Relevancy</h5>
+								<div class="box-chart">
+									<div id="container3" class="thePie">
+									</div>
+								</div>
+								<div id="legend">
+									<div class="rowl">
+										<span class="rec lred">&nbsp;</span>
+										<label>Our Brand</label>
+									</div>
+									<div class="rowl">
+										<span class="rec lblue">&nbsp;</span>
+										<label>Other HMS/PMI</label>
+									</div>
+									<div class="rowl">
+										<span class="rec lbrown">&nbsp;</span>
+										<label>Competitor</label>
+									</div>
+								</div>
+								 
+                        </div> <!-- /.darkBox-content -->
+                    </div> <!-- /.darkBox -->
+                    <div class="darkBox col3s">
+                       
+                        <div class="darkBox-content darkBox-title2">
+                    		  
+<h5 class="titleChart">Gender</h5>
+<div class="box-chart">
+    <div id="container2" class="thePie">
+    </div>
+</div>
+<div id="legend">
+    <div class="rowl">
+        <span class="rec lblue">&nbsp;</span>
+        <label>Male</label>
+    </div>
+    <div class="rowl">
+        <span class="rec lpink">&nbsp;</span>
+        <label>Female</label>
+    </div>
+</div>
+                        </div> <!-- /.darkBox-content -->
+                    </div> <!-- /.darkBox -->
+                </div><!-- /.rows2 -->
+            </div><!-- /.col-content -->
+            <div class="col-sidebar">
+				{if $roletype==1}	
+				{else}
+					{if $roletype!=3 }
+                    <div class="selectBrand">
+                        <select class="styled"  name="brandid" >
+                            <option value="0"> - Brand - </option>   
+							
+						</select>
+                    </div><!-- /.selectBrand -->
+					{/if}
+					{if $roletype!=2 &&  $roletype!=5}
+					<div class="selectArea">
+                        <select class="cityDrop styled"  name="cityid"> 
+                        <option value="0"> - Area - </option>
+                         
+                        </select>
+                    </div><!-- /.selectArea -->
+					{/if}
+					{if $roletype!=1 && $roletype!=2}
+					<div class="selectArea">
+                        <select class="cityDrop styled"  name="plpicker"> 
+                        <option value="0"> - PL - </option>
+                           
+                        </select>
+                    </div><!-- /.selectArea -->
+					{/if}
+					<div class="selectBA">
+						<select class="baperformanceselecttor styled" name="uid"  >
+							<option value="0" >Select BA</option>
+							
+						</select>
+					</div><!-- /.selectBA -->
+				{/if}
+            </div><!-- /.col-sidebar -->
+		</form>
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+<script>
+var uid='{$uid}';
+		var brandidr='{$brandid}';
+		var cityid='{$cityid}';
+		var plpicker='{$plpicker}';
+	console.log(brandidr+''+cityid+''+plpicker);
+</script>
+{literal}
+<script>
+	$(document).on('change','.baperformanceselecttor',function(){
+		$("#formbaperformance").submit();
+	});
+</script>
+{/literal}
+{literal}
+	<script>    
+		var baid = "";
+		var plid = "";
+		var areaid = "";
+		var brandid = "";
+		$(document).ready(function(){getBrand();});
+		
+		$(document).on('change',"select[name='brandid']", function(){
+			$("select[name='cityid']").html("<option value='' > Area </option>");
+			$("select[name='uid']").html("<option value='' > Select BA </option>");
+			
+			brandid = $(this).val();
+			
+			getAREA();
+					
+		});
+		
+		$(document).on('change',"select[name='cityid']", function(){
+			areaid = $(this).val();
+			$("select[name='plpicker']").html("<option value='' > PL </option>");
+			getPL();
+					
+		});
+		
+		$(document).on('change',"select[name='plpicker']", function(){
+			plid = $(this).val();
+			$("select[name='uid']").html("<option value='' > Select BA </option>");
+			getBA();
+					
+		});
+		
+		function getBA(){
+		
+			/* get BA */
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:plid,brandid:brandid,areaid:areaid,type:"sba"},  function(data){
+				//console.log(data);
+				var html ="<option value='' > Select BA  </option>";
+				$.each(data, function(i,e){ 
+						if(e.ownerid == uid)
+						{
+							$('#selectuid').html(e.name);
+							html+="<option value='"+e.ownerid+"' selected > "+e.name+"  </option>";
+						}
+						else
+						{
+							html+="<option value='"+e.ownerid+"' > "+e.name+"  </option>";
+						}
+				});
+				 
+				$("select[name='uid']").html(html);
+			
+			},"JSON");
+		
+		}
+		
+		function getPL(){
+					
+			/* get PL */
+			$("select[name='uid']").html("<option value='' > Select BA </option>");
+			
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:areaid,brandid:brandid,type:"pl"},  function(data){	
+				var arrplid = new Array();
+				var html ="<option value='' > - PL -  </option>";
+				$.each(data, function(i,e){
+							if(e.ownerid == plpicker)
+							{
+								$('#selectplpicker').html(e.name);
+								html+="<option value='"+e.ownerid+"'selected > "+e.name+"  </option>";
+							}
+							else
+							{
+								html+="<option value='"+e.ownerid+"' > "+e.name+"  </option>";
+							}
+						arrplid.push(e.ownerid);
+				} );
+				
+				plid = arrplid.join();
+				$("select[name='plpicker']").html(html);
+				getBA();
+			},"JSON");		
+		
+		}
+		
+		function getAREA(){
+			/* get AREA */
+			$("select[name='plpicker']").html("<option value='' > PL</option>");
+			$("select[name='uid']").html("<option value='' >Select BA </option>");
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:brandid,type:"area"},  function(data){	
+				var arrareaid = new Array();
+				
+				var html ="<option value='' > - Area -  </option>";
+				$.each(data, function(i,e){
+						if(e.ownerid == cityid )
+						{
+							$('#selectcityid').html(e.name);
+							html+="<option value='"+e.ownerid+"' selected > "+e.name+"  </option>";
+						}
+						else
+						{
+							html+="<option value='"+e.ownerid+"' > "+e.name+"  </option>";
+						}
+						arrareaid.push(e.ownerid);
+				});
+				
+				areaid = arrareaid.join();
+				getPL();
+					
+				$("select[name='cityid']").html(html);
+			},"JSON");
+				
+		}
+		
+		function getBrand(){
+			/* get BRAND */
+			
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:1,type:"brand"},  function(data){	
+				var html ="<option value='' > - Brand - </option>";
+					var arrbrandid = new Array();
+				$.each(data, function(i,e){
+					
+					if(e.ownerid == brandidr )
+						{
+							$('#selectbrandid').html(e.name);
+							html+="<option value='"+e.ownerid+"' selected='selected' > "+e.name+"  </option>";
+						}
+					else
+						{
+							html+="<option value='"+e.ownerid+"' > "+e.name+"  </option>";
+						}
+						arrbrandid.push(e.ownerid);
+				});
+				 	brandid = arrbrandid.join();
+				$("select[name='brandid']").html(html);
+				
+				getAREA();
+			},"JSON");
+				
+		}
+	</script>
+{/literal}
+
+<script type="text/javascript">
+	
+var thedata = {$entourage};
+
+   
+var pendingdata = thedata.data[1];
+var pendingdata2 = thedata.data[2];
+
+var total_per_status_accept = thedata.total_per_status[1];
+var total_per_status_reject = thedata.total_per_status[2];
+
+
+var pendingdatavalue = new Array();
+var pendingdatavalue2 = new Array();
+
+var pendingdatacategory = new Array(); 
+
+{literal}
+for (var keypending in pendingdata){
+pendingdatavalue.push(parseInt(pendingdata[keypending])); 
+var datecategory = keypending.split('-');
+//pendingdatacategory.push(String(keypending).substr(5,5));
+pendingdatacategory.push(datecategory['2']+'-'+datecategory['1']);
+}
+
+for (var keypending in pendingdata2){
+pendingdatavalue2.push(parseInt(pendingdata2[keypending])); 
+}
+	$(function () {
+    $('#container').highcharts({
+		 xAxis: {
+                 categories: pendingdatacategory
+            },yAxis: {
+                title: {
+                    text: 'Acquisition'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#0088cc'
+                }]
+            }, title: false,credits:false
+			,exporting: {
+         enabled: false
+},
+        series: [{
+			name: 'Accepted',
+            data: pendingdatavalue
+        }, {
+			name: 'Rejected',
+            data: pendingdatavalue2
+        }]
+    });
+
+
+    // the button action
+    var chart = $('#container').highcharts(),
+        $button = $('#button');
+    $button.click(function() {
+        var series = chart.series[0];
+        if (series.visible) {
+            series.hide();
+            $button.html('Rejected');
+        } else {
+            series.show();
+            $button.html('Rejected');
+        }
+    });
+	
+	    // the button action
+    var chart = $('#container').highcharts(),
+        $button = $('#button2');
+    $button.click(function() {
+        var series = chart.series[1];
+        if (series.visible) {
+            series.hide();
+            $button.html('Rejected');
+        } else {
+            series.show();
+            $button.html('Rejected');
+        }
+    });
+	
+});
+
+$(document).ready(function(){
+    $('.accepted').html(Highcharts.numberFormat(total_per_status_accept,0)); 
+    $('.rejected').html(Highcharts.numberFormat(total_per_status_reject,0));  
+});
+{/literal}
+</script>
+
+	<script>
+ 
+		{literal}
+		 $(document).ready(function () {
+		    var chart;
+        var colors = Highcharts.getOptions().colors,
+            categories = ['Our Brand', 'Other HMS/PMI','Competitor'],
+            name = 'Brand Relevancy',
+            data = [{
+                    y: 35.11,
+                    color: '#ee1c25',
+                    drilldown: {
+                        name: 'Our Brand',
+                        categories: ['Our Brand'],
+                        data: [parseInt(thedata.brand.Our,10)],
+                        
+                        color: '#ee1c25'
+                    }
+                }, {
+                    y: 25.94,
+                      color: '#c6b098',
+                    drilldown: {
+                        name: 'Competitor',
+                        categories: ['Competitor'],
+						data: [parseInt(thedata.brand.Competitor,10)],
+                      
+                        color: '#c6b098'
+                    }
+                },{
+                    y: 18.14,
+                    color: '#00aeef',
+                    drilldown: {
+						name: 'Other HMS/PMI',
+                        categories: ['Other HMS/PMI'],
+						data: [parseInt(thedata.brand.PMI,10)],
+                       
+                        color: '#00aeef'
+                    }
+                }];
+    
+    
+        // Build the data arrays
+        var browserData = [];
+        var versionsData = [];
+        for (var i = 0; i < data.length; i++) {
+    
+            
+            // add version data
+            for (var j = 0; j < data[i].drilldown.data.length; j++) {
+                var brightness = 0.2 - (j / data[i].drilldown.data.length) / 5 ;
+                versionsData.push({
+                    name: data[i].drilldown.categories[j],
+                    y: data[i].drilldown.data[j],
+                    color: Highcharts.Color(data[i].color).brighten(brightness).get()
+                });
+            }
+        }
+    
+        // Create the chart
+        $('#container3').highcharts({
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: ''
+            },
+            
+            plotOptions: {
+                pie: {
+                    shadow: true,
+                    center: ['50%', '50%']
+                },
+				 series: {
+                dataLabels: {
+                    enabled: true,
+                    formatter: function() {
+                        return Math.round(this.percentage*100)/100 + ' %';
+                    },
+                    distance: -10,
+                    color:'black'
+                }
+            }
+            },
+			credits:false
+			, 
+			exporting: {
+					 enabled: false
+			}
+			,
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <br><b>{point.percentage:.1f}%</b> ({point.y:,.0f})<br/>',
+            }
+			,
+            series: [{
+                name: 'Brand',
+                data: browserData,
+                size: '70%',
+                dataLabels: {
+                    formatter: function() {
+                        return this.y > 3 ? this.point.name : null;
+                    },
+                    color: 'white',
+                    distance: 30
+                }
+            }, {
+                name: 'Brand Relevancy',
+                data: versionsData,
+				size: '80%',
+                innerSize: '50%',
+                dataLabels: {
+                    formatter: function() {
+                         return this.y > 1 ? + Math.round(this.point.percentage) +'%'  : null;                   
+						 }
+                }
+            }]
+        });
+    });
+    
+{/literal}
+	</script>
+
+		<script>
+ 
+		{literal} 
+		
+		 $(document).ready(function () {
+    
+        var colors = Highcharts.getOptions().colors,
+            categories = ['18-24', '25-29','+30'],
+            name = 'Age Relevancy',
+            data = [{
+                    y: 35.11,
+                     color: '#01acec',
+                    drilldown: {
+                        name: '18-24',
+                        categories: ['18-24'],
+                        data: [parseInt(thedata.age["18"],10)],
+						 color: '#01acec'
+                    }
+                }, {
+                    y: 25.94,
+                      color: '#f7951c',
+                    drilldown: {
+                        name: '25-29',
+                        categories: ['25-29'],
+                        data: [parseInt(thedata.age["24"],10)],
+                        color: '#f7951c'
+					}
+                },{
+                    y: 18.14,
+                    color: '#05a63d',
+                    drilldown: {
+						name: '+30',
+                        categories: ['+30'],
+                        data: [parseInt(thedata.age["40"],10)],
+                        color: '#05a63d'
+                    }
+                }];
+    
+    
+        // Build the data arrays
+        var browserData = [];
+        var versionsData = [];
+        for (var i = 0; i < data.length; i++) {
+    
+            
+            // add version data
+            for (var j = 0; j < data[i].drilldown.data.length; j++) {
+                var brightness = 0.2 - (j / data[i].drilldown.data.length) / 5 ;
+                versionsData.push({
+                    name: data[i].drilldown.categories[j],
+                    y: data[i].drilldown.data[j],
+                    color: Highcharts.Color(data[i].color).brighten(brightness).get()
+                });
+            }
+        }
+    
+        // Create the chart
+        $('#container4').highcharts({
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: ''
+            },
+            
+            plotOptions: {
+                pie: {
+                    shadow: false,
+                    center: ['50%', '50%']
+                },
+				 series: {
+                dataLabels: {
+                    enabled: true,
+                    formatter: function() {
+                        return Math.round(this.percentage*100)/100 + ' %';
+                    },
+                    distance: -10,
+                    color:'black'
+                }
+            }
+            },
+			credits:false
+			, 
+			exporting: {
+					 enabled: false
+			}
+			,
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <br><b>{point.percentage:.1f}%</b> ({point.y:,.0f})<br/>',
+            }
+			,
+            series: [{
+                name: 'Age',
+                data: browserData,
+                size: '70%',
+                dataLabels: {
+                    formatter: function() {
+                        return this.y > 3 ? this.point.name : null;
+						
+                    },
+                    color: 'black',
+                    distance: 30
+                }
+            }, {
+                name: 'Age Relevancy',
+                data: versionsData,
+                size: '80%',
+                innerSize: '50%',
+                dataLabels: {
+                    formatter: function() {
+                        // display only if larger than 1
+                        return this.y > 1 ? + Math.round(this.point.percentage) +'%'  : null;
+                    }
+                }
+            }]
+        });
+    });
+    
+{/literal}
+	</script>
+	<script> 
+		{literal}
+		$(function () {
+    
+        var colors = Highcharts.getOptions().colors,
+            categories = ['Female','Male'],
+            name = 'Age Relevancy',
+            data = [{
+                    y: 35.11,
+                    color: '#01acec',
+                    drilldown: {
+                        name: 'Male',
+                        categories: ['Male'],
+                        <!-- data: [thedata.gender.Male], -->
+                        data: [parseInt(thedata.gender.M,10)],
+						color: '#01acec',
+                    }
+                }, {
+                    y: 25.94,
+                    color: '#ee6da8',
+                    drilldown: {
+                        name: 'Female',
+                        categories: ['Female'],
+                        <!-- data: [thedata.gender.Female], -->
+                        data: [parseInt(thedata.gender.F,10)],
+                        color: '#ee6da8'
+					}
+                }];
+    
+    
+        // Build the data arrays
+        var browserData = [];
+        var versionsData = [];
+        for (var i = 0; i < data.length; i++) {
+    
+            
+            // add version data
+            for (var j = 0; j < data[i].drilldown.data.length; j++) {
+                var brightness = 0.2 - (j / data[i].drilldown.data.length) / 5 ;
+                versionsData.push({
+                    name: data[i].drilldown.categories[j],
+                    y: data[i].drilldown.data[j],
+                    color: Highcharts.Color(data[i].color).brighten(brightness).get()
+                });
+            }
+        }
+    
+        // Create the chart
+        $('#container2').highcharts({
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: ''
+            },
+            
+            plotOptions: {
+                pie: {
+                    shadow: false,
+                    center: ['50%', '50%']
+                },
+				 series: {
+                dataLabels: {
+                    enabled: true,
+                    formatter: function() {
+                        return Math.round(this.percentage*100)/100 + ' %';
+                    },
+                    distance: -10,
+                    color:'black'
+                }
+            }
+            },
+			credits:false
+			, 
+			exporting: {
+					 enabled: false
+			}
+			,
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}%</b> ({point.y:,.0f})<br/>',
+            }
+			,
+            series: [{
+                name: 'Age',
+                data: browserData,
+                size: '70%',
+                dataLabels: {
+                    formatter: function() {
+                        return this.y > 3 ? this.point.name : null;
+                    },
+                    color: 'white',
+                    distance: 30
+                }
+            }, {
+                name: 'Gender',
+                data: versionsData,
+                size: '80%',
+                innerSize: '50%',
+                dataLabels: {
+                    formatter: function() {
+                        // display only if larger than 1
+                         return this.y > 1 ? + Math.round(this.point.percentage) +'%'  : null;
+                    }
+                }
+            }]
+        });
+    });
+    
+{/literal}
+	</script>

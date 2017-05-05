@@ -1,0 +1,106 @@
+<div id="theContainer2" class="homePage">
+    <div class="theContainer2">
+        <div class="shorter-menu">
+            <div class="selectBrand fl">
+            	<form>        
+                    <select class="">
+                      <option value="1">Brand</option>
+                      <option value="2">Brand Lorend Ipsum1</option>
+                      <option value="3">Brand Lorend Ipsum2</option>
+                      <option value="4">Brand Lorend Ipsum3</option>
+                    </select>
+                  </form>
+                </div><!-- /.selectBrand -->
+            <div class="selectArea fl">
+            	<form>        
+                    <select class="">
+                      <option value="1">Area</option>
+                      <option value="2">Jakarta Timur</option>
+                      <option value="3">Jakarta Selatan</option>
+                    </select>
+                  </form>
+                </div><!-- /.selectArea -->
+            <div class="selectBA fr">
+            	<form>        
+                    <select class="">
+                      <option value="1">Select BA</option>
+                      <option value="2">BA Lorend Impsum1</option>
+                      <option value="3">BA Lorend Impsum1</option>
+                    </select>
+                  </form>
+                </div><!-- /.selectBA -->
+        </div>
+        <div class="theContent">
+        	 <div class="darkBox-title">
+                <h2 class="fl">Weekly Achievement VS. KPI</h2>
+                <div class="short fr">
+                    <form id="shorter">
+                            <label>Periode</label>
+                            <input type="text" class="half-width" id="datepicker">
+                            <span>to</span>
+                            <input type="text" class="half-width" id="datepicker2">
+                    </form>
+                </div><!-- /.short -->
+            </div><!-- /.darkBox-title -->
+            <div class="darkBox">
+                <div class="darkBox-content">
+                    <img src="content/line_chart.png" style="width:100%" />
+                </div> <!-- /.darkBox-content -->
+            </div> <!-- /.darkBox -->
+            <div class="rows2">
+                 <div class="darkBox-title">
+                <h2 class="fl">Cumulative Weekly Achievement VS. KPI</h2>
+            </div><!-- /.darkBox-title -->
+            <div class="darkBox">
+                <div class="darkBox-content">
+                    <img src="content/line_chart.png" style="width:100%" />
+                </div> <!-- /.darkBox-content -->
+            </div> <!-- /.darkBox -->
+            </div><!-- /.rows2 -->
+            <div class="rows2">
+            	<div class="col3s">
+                	<div class="darkBox-title2">
+                        <h3>Age Relevancy</h3>
+                    </div><!-- /.darkBox-title -->
+                    <div class="darkBox">
+                        <div class="darkBox-content">
+                            <img src="content/pie1.png" />
+                        </div> <!-- /.darkBox-content -->
+                    </div> <!-- /.darkBox -->
+                </div><!-- /.col3s -->
+                <div class="col3s">
+                	 <div class="darkBox-title2">
+                        <h3>Brand Preference Relevancy</h3>
+                    </div><!-- /.darkBox-title -->
+                    <div class="darkBox">
+                        <div class="darkBox-content">
+                            <img src="content/pie2.png" />
+                        </div> <!-- /.darkBox-content -->
+                    </div> <!-- /.darkBox -->
+                </div><!-- /.col3s -->
+                <div class="col3s col3s-last">
+                	 <div class="darkBox-title2">
+                        <h3>Gender</h3>  
+                    </div><!-- /.darkBox-title -->
+                    <div class="darkBox"> 
+                        <div class="darkBox-content">
+                            <img src="content/pie3.png" />
+                        </div> <!-- /.darkBox-content -->
+                    </div> <!-- /.darkBox -->
+                </div><!-- /.col3s -->
+            </div><!-- /.rows2 -->
+            <div class="rows2">
+                 <div class="darkBox-title">
+                <h2 class="fl">Cumulative Weekly Achievement VS. KPI</h2>
+            </div><!-- /.darkBox-title -->
+            <div class="darkBox">
+                <div class="darkBox-content">
+                    <img src="content/line_balok.png" style="width:100%" />
+                </div> <!-- /.darkBox-content -->
+            </div> <!-- /.darkBox -->
+            </div><!-- /.rows2 -->
+            <a class="button showPopup fr" href="#detailEngagement">See Detail</a>
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+<?php include('widget/popup-detail-engagement.php'); ?>
+</div> <!-- /#theContainer -->

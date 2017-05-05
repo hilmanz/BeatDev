@@ -1,0 +1,38 @@
+<div id="theContainer" class="challengePage">
+    <div class="theContainer">
+        <div class="head-title">
+			<a href="{$basedomain}challenge" class="btnback fl"></a>
+			{*}
+            <div class="navPaging fr">
+            	<a class="icons prev" href="#">&nbsp;</a>
+            	<a class="icons next" href="#">&nbsp;</a>
+            </div><!-- /.navPaging -->
+			{/*}
+        </div> <!-- /.head-title -->
+        <div class="theContent">
+        	<div class="rows">
+                <div class="rows last-child">
+                    <a href="#" class="ico icon_challenge fl">&nbsp;</a>
+					
+					{section loop=$detail name=i}
+                    <div class="entry-detail fl">
+                        <h3 class="username fl">{$detail[i].title|capitalize}</h3>
+                        <span class="date fr">{$detail[i].date_posted}</span>
+                        <p>{$detail[i].content}</p>
+                        <p class="hastag">Hashtag : <a href="#">{$detail[i].un_tags}</a></p>
+                        <div class="entry-action">
+                            <a class="icon-cross" href="{$basedomain}{$pages}/unpublish/{$detail[i].id}">&nbsp;</a>
+                            {if $detail[i].n_status==0}
+                            <a class="icon-checks icon-checks-complete" href="#">&nbsp;</a>
+                            {else}
+                            <a class="icon-checks" href="{$basedomain}{$pages}/setcomplete/{$detail[i].id}">&nbsp;</a>
+                            {/if}
+                        </div><!-- /.entry-action -->
+                    </div> <!-- /.entry-detail -->
+					{/section}
+                </div><!-- /.rows -->
+            </div><!-- /.sideLeft -->
+			{$challenge_hashtag}
+        </div> <!-- /.theContent -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/beat2013/!svn/ver/123/trunk/beat/public_html/service
+END
+crossdomain.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/beat2013/!svn/ver/20/trunk/beat/public_html/service/crossdomain.xml
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/beat2013/!svn/ver/20/trunk/beat/public_html/service/.htaccess
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/beat2013/!svn/ver/78/trunk/beat/public_html/service/index.php
+END
+common.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/beat2013/!svn/ver/123/trunk/beat/public_html/service/common.php
+END

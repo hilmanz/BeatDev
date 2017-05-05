@@ -1,0 +1,121 @@
+<div id="hotArticle" class="article_boxBig">
+	<a href="#popup-music" class="showPopup thumb250"><img src="{$basedomain}public_assets/music/images/{$featured_article.image}" /></a>
+	<div class="pita_rev"></div>
+	<div class="isi_boxBig">
+		<div class="judul">
+			<h3>{$featured_article.title|upper}</h3>
+			<span>{$featured_article.brief}</span>
+		</div>
+		{$featured_article.content}
+		<div class="boxBottom">
+			<div class="content_action">
+				<ul>
+				<li><a class="icon_love" href="#">55</a></li>
+				<li><a class="icon_comment" href="#">35</a></li>
+				<li><a class="icon_view" href="#">60</a></li>
+				</ul>
+			</div><!--END .content_action-->
+			<div class="mp3Player fr">
+				<audio src="{$basedomain}public_assets/music/mp3/{$featured_article.file}" type="audio/mp3" controls="controls" width="150"></audio>	
+			</div><!-- end .mp3Player -->
+		</div><!--END .boxBottom-->
+	</div><!--END .isi_boxBig-->
+</div><!--END .article_boxBig-->
+
+<div class="popup">
+	<div class="popupContainer" id="popup-music">
+        <div class="popupContent">
+        	 <div class="entry-music-detail">
+                <div class="imgDetail">
+                    <a class="thumb250"><img src="{$basedomain}public_assets/music/images/{$featured_article.image}" /></a>
+                    <a href="#" class="icons icon_plus">&nbsp;</a>
+                </div><!-- END .imgDetail -->
+                <div class="entry-detail">
+                    <h3>Rumah Sakit</h3>
+                     <span>1 + 2</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum nisl at ipsum volutpat ut aliquam.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum nisl at ipsum volutpat ut aliquam.</p>
+                </div>
+			</div>
+        	<div class="entry-mp3">
+                <div class="mp3Player fl">
+                    <audio src="{$basedomain}public_assets/music/mp3/{$featured_article.file}" type="audio/mp3" controls="controls" width="300"></audio>	
+                </div><!-- end .mp3Player -->
+                <div class="content_action fr">
+                    <ul>
+                        <li><a class="icon_love" href="#">55</a></li>
+                        <li><a class="icon_comment" href="#">35</a></li>
+                        <li><a class="icon_view" href="#">60</a></li>
+                    </ul>
+                </div><!--END .content_action-->
+            </div><!--END .content_action-->
+            <div class="commentsContainer">
+    <div class="commentHeader">
+        <h4 class="fl">Comment as <a href="index.php?menu=myprofile">Dafinda</a></h4>
+        <span class="maxChar fr">You have <span class="counter"></span> characters left.</span>
+    </div><!--END .commentHeader-->
+    <div class="commentForm">
+        <div class="loader"></div>
+        <form action="" method="get">
+            <textarea  class="textComment"></textarea>
+            <input type="submit" class="postSubmit fr" value="SUBMIT" />
+        </form>
+    </div><!--END .commentForm-->
+    <div class="commentList">
+        <div class="loader"></div>
+        <div class="row">
+            <div class="author">
+                <div class="smallthumb">
+                    <a href="index.php?menu=myprofile"><img src="content/thumb/user_30x30.jpg"></a>
+                </div><!--END .smallthumb-->
+                <div class="meta-comment">
+                    <a href="index.php?menu=myprofile" class="comment-author">Dafinda</a> &bull; 
+                    <span class="comment-date">About 17 minutes ago</span>
+                </div><!--END .meta-comment-->
+            </div><!--END .author-->
+            <div class="entry-comment">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim arcu, sagittis sit amet faucibus sed, tristique at quam. </p>
+            </div><!--END .entry-comment-->
+        </div><!--END .row-->
+        <div class="row">
+            <div class="author">
+                <div class="smallthumb">
+                    <a href="index.php?menu=myprofile"><img src="content/thumb/user_30x30.jpg"></a>
+                </div><!--END .smallthumb-->
+                <div class="meta-comment">
+                    <a href="index.php?menu=myprofile" class="comment-author">Dafinda</a> &bull; 
+                    <span class="comment-date">About 17 minutes ago</span>
+                </div><!--END .meta-comment-->
+            </div><!--END .author-->
+            <div class="entry-comment">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim arcu, sagittis sit amet faucibus sed, tristique at quam. </p>
+            </div><!--END .entry-comment-->
+        </div><!--END .row-->
+        <div class="row">
+            <div class="author">
+                <div class="smallthumb">
+                    <a href="index.php?menu=myprofile"><img src="content/thumb/user_30x30.jpg"></a>
+                </div><!--END .smallthumb-->
+                <div class="meta-comment">
+                    <a href="index.php?menu=myprofile" class="comment-author">Dafinda</a> &bull; 
+                    <span class="comment-date">About 17 minutes ago</span>
+                </div><!--END .meta-comment-->
+            </div><!--END .author-->
+            <div class="entry-comment">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim arcu, sagittis sit amet faucibus sed, tristique at quam. </p>
+            </div><!--END .entry-comment-->
+        </div><!--END .row-->
+    </div><!--END .commentList-->
+    <div class="paging">
+         <p class="clearfix">
+            <a href="#" class="prev">&nbsp;</a>
+            <a href="#">1</a>
+            <a href="#" class="current">2</a>
+            <a href="#">3</a>
+            <a href="#" class="next">&nbsp;</a>
+         </p>
+    </div><!-- END .paging -->
+</div><!--END .commentsContainer-->
+        </div><!-- END .popupContent -->
+    </div><!-- END .popupContainer -->
+</div><!-- END .popup -->

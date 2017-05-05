@@ -1,0 +1,34 @@
+{if $my_gallery}
+<div class="myGallery">
+	<div class="clearfix">
+	<h2 class="red fl">My Gallery</h2>
+	<a href="{$basedomain}my/gallery" class="seeAll fr">SEE ALL</a>
+	</div>
+	<ul class="columns-3">
+		{section name=i loop=$my_gallery}
+		<li class="col3">
+			<div class="boxgrid slideright">
+				<div class="imgbox2">
+				<a href="javascript:void(0)" class="thumb300"><img class="cover" 
+				src="{if $my_gallery[i].image}{$basedomain}public_assets/{$my_gallery[i].typecontent}/{$my_gallery[i].image}
+						{else}{$basedomain}assets/content/thumb/gallery1.jpg
+						{/if}" /></a>
+	
+						
+				</div>
+				<div class="caption">
+					<h2><a href="{$basedomain}{$my_gallery[i].typeofarticle}/{$my_gallery[i].id}">{$my_gallery[i].title|truncate:30:""}</a></h2>
+					<p>{$my_gallery[i].brief|truncate:50:""}</p>
+				</div>
+			</div>
+		</li>
+		{/section}
+	</ul>
+</div><!-- END .myGallery -->
+{else}
+   {*} 
+   	<div class="notFound">
+        <p>{$locale.galerry.empty}</p>
+    </div>
+   {/*}
+{/if}

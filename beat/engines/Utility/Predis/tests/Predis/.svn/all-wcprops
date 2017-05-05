@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis
+END
+MonitorContextTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/MonitorContextTest.php
+END
+ClientExceptionTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/ClientExceptionTest.php
+END
+ClientTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/ClientTest.php
+END
+HelpersTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/HelpersTest.php
+END
+ConnectionParametersTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/ConnectionParametersTest.php
+END
+CommunicationExceptionTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/CommunicationExceptionTest.php
+END
+PredisExceptionTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/PredisExceptionTest.php
+END
+ServerExceptionTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/ServerExceptionTest.php
+END
+ResponseQueuedTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/ResponseQueuedTest.php
+END
+ConnectionFactoryTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/ConnectionFactoryTest.php
+END
+ResponseErrorTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/2/trunk/beat/engines/Utility/Predis/tests/Predis/ResponseErrorTest.php
+END

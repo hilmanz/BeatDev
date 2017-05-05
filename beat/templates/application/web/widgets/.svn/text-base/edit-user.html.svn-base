@@ -1,0 +1,226 @@
+{literal}
+<style>
+#selectfid{width:170px}
+#selectfidbrand{width:170px}
+#selectfidarea{width:170px}
+#selectfidpl{width:170px}
+#selectfidba{width:170px}
+</style>
+{/literal}
+<div id="theContainer2" class="galleryPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox register-box2">
+                    <div class="theBox-title">
+                        <h2 class="fl">USER UPDATE</h2>
+                       
+                    </div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+                        	<a class="btnback" href="{$basedomain}register" ></a>
+<form style="overflow:hidden;" class="former" id="registerent" action="{$basedomain}service/registeruserwebsite/register"  method="POST" >
+				<div class="formRegister2">
+                   	<div class="col2s">
+                    	<div class="rows2">
+                        	<label class="bluecolor">ROLE</label><br />
+                            <div class="selectRegister">
+                                <select name="role" >
+								<option value="0" {if $pagetype==0}selected{/if} > NOT HAVE </option>
+									{foreach from=$role key=k item=v}				
+									<option value="{$v.name}_{$v.id}" {if $pagetype==$v.id}selected{/if} > {$v.name} </option>
+									{/foreach}
+                                     
+                                </select>
+                            </div>
+                        </div>
+                        <div class="rows2">
+                        	<label class="bluecolor">OTHER BRAND </label>	
+                             <div class="selectRegister"> 				
+                                 <select name="brandsubid"  class="brandsubid">
+									<option value="0"  {if $brandsubid==0}selected{/if} > NOT HAVE </option>
+                                        {foreach from=$brand key=k item=v}	
+											<option value="{$v.id}" {if $brandsubid==$v.id}selected{/if} >{$v.name|upper}</option>
+										{/foreach}		
+                                        							
+                                </select>
+                            </div>
+                        </div>
+                        <div class="rows2 lineState">
+                        	<label class="bluecolor">AREA LEADER</label>
+                             <div class="selectRegister">
+                             <select name="areaid"  class="areaid">
+                                    <option value="0" > - </option>
+                            </select>
+                            </div>
+
+                        </div>
+                        <div class="rows2">
+                        	 <label>NAME</label><br /><input class="inputRegister" type="text" name="name" value="{$name}" />
+                        </div>
+                        <div class="rows2">
+                        	<label>NICKNAME</label> <input class="inputRegister" type="text" name="nickname" value="{$nickname}"  />
+	
+                        </div>
+                        <div class="rows2">
+                        	<label>USERNAME</label><input class="inputRegister" type="text" name="username" value="{$username}" disabled="disabled" />
+                        </div>
+                        <div class="rows2">
+                        	<label>NEW PASSWORD</label><input class="inputRegister" type="password" name="password" value=""  />
+                        </div>
+                    
+                   	</div><!-- /.col2s -->
+                   	<div class="col2s col2s-last">
+                    	<div class="rows2">
+                        	<label class="bluecolor">BRAND</label>
+                            <div class="selectRegister"> 		
+                            <select name="brandid"  class="brandid">
+                                  <option value="0" {if $brandid==0}selected{/if}> NOT HAVE </option>
+                                        {foreach from=$brand key=k item=v}	
+											<option value="{$v.id}" {if $brandid==$v.id}selected{/if} >{$v.name|upper}</option>
+										{/foreach}		
+                                        												
+                            </select>
+                            </div>
+                        </div>
+                        <div class="rows2">
+                        	<label class="bluecolor">CITY</label>
+                             <div class="selectRegister">	
+                                <select name="city" >
+                                        <option value=""  {if $city==0}selected{/if}> - </option>
+										
+                                       	{foreach from=$citylist key=k item=v}	
+										<option value="{$v.id}" {if $city==$v.id}selected{/if}>{$v.city|upper}</option>
+										{/foreach}	
+                                        
+                                </select>
+                             </div>
+                        </div>
+                        <div class="rows2 lineState">
+                        	<label class="bluecolor">PL</label>
+                            <div class="selectRegister">
+                            <select name="otherid" class="otherid" >
+                                    <option value="0" > - </option>			
+                            </select>
+                            </div>
+                        </div>
+                        <div class="rows2">
+                        	<label>LASTNAME</label><input class="inputRegister" type="text" name="lastname"  value="{$last_name}" />
+                        </div>
+                        <div class="rows2">
+                        	<label>GENDER</label><br />  					
+                        	<input type="radio" name="sex" value="Male" {if $sex=='Male'}checked{/if} /> MALE 
+                        	<input type="radio" name="sex" value="Female" {if $sex=='Female'}checked{/if} /> FEMALE
+                        </div>
+                        <div class="rows2 passwordrows">
+                        	<label>EMAIL</label><input class="inputRegister" type="text" name="emailnottoedit" value="{$email}"  disabled="disabled" />
+							
+                        </div>
+                        <div class="rows2">
+                        	<label class="confirmPass">CONFIRM PASSWORD</label> <input class="inputRegister" type="password" name="repassword" />
+                        </div>
+						<div class="rows2">
+                            <label>MASTER DATA</label><br /> 					
+                            <input type="radio" name="masterrole" value="0" checked /> NO 
+                            <input type="radio" name="masterrole" value="1" /> YES
+                        </div>			
+                	</div><!-- /.col2s -->
+                </div> <!-- /.formRegister2 -->
+				<div style="padding:10px;border-collapse:collapse;">   
+				<input type="hidden" value="1" name="register">
+				<input  type="hidden" name="email" value="{$email}"   />
+				</div>
+                <div class="rows2">
+				<input type="hidden" value="1" name="edit">
+                <input class="button update-button fr" type="submit" value="Update">
+                </div>
+				 
+				  
+				  
+				</form>
+				
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+          
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+
+<div id="popup-message">
+    <h3></h3>
+    <a class="button close-popup-message" href="{$basedomain}register">OK</a>
+</div>
+<div id="bg-popups"></div>
+
+
+<script>
+var otherid = "{$otherid}";
+var areaid = "{$areaid}";
+
+{literal}
+
+var servicedomain = basedomain+"service/";
+
+	var updateoptions = {
+						dataType : "html",
+						beforeSubmit: function(data) {
+                             $("#bg-popups").fadeIn();
+                            $("#popup-message h3").html('Loading...');
+                             $("#popup-message").fadeIn();
+                             $(".close-popup-message").hide();
+                                        //$('#kluardisini').html("<blink>loading please wait</blink>");
+                            },
+                        success : function(data) {  
+                            $("#bg-popups").fadeIn();
+                            $("#popup-message h3").html(data);
+                            $("#popup-message").fadeIn();
+                            $(".close-popup-message").show();
+                                    // $('#kluardisini').html("<p>"+data+"</p>");
+                        }
+					};					
+					
+
+$("#registerent").ajaxForm(updateoptions );
+
+
+$(document).ready(function(){
+	
+	
+			
+			$.post(servicedomain+'registeruserwebsite/getleader',{leadertype:2},function(data){
+				var html ="<option value='0' > - </option>";
+				$.each(data,function(i,e){
+					if(otherid==e.id) html+="<option value='"+e.id+"' selected >"+e.name+" "+e.last_name+" "+e.pagename+"</option>";
+					else html+="<option value='"+e.id+"' >"+e.name+" "+e.last_name+" "+e.pagename+"</option>";
+				})
+				$(".otherid").html(html);
+			},"JSON")
+		/*	
+			$.post(servicedomain+'registeruserwebsite/getleader',{leadertype:3},function(data){
+				var html ="<option value='0' > - </option>";
+				$.each(data,function(i,e){
+					html+="<option value='"+e.id+"' >"+e.name+" "+e.last_name+" "+e.pagename+"</option>";
+				})
+				$(".brandid").html(html);
+				$(".brandsubid").html(html);
+			},"JSON")
+			*/
+			$.post(servicedomain+'registeruserwebsite/getleader',{leadertype:5},function(data){
+				var html ="<option value='0' > - </option>";
+				$.each(data,function(i,e){
+					if(areaid==e.id)html+="<option value='"+e.id+"' selected >"+e.pagename+"</option>";
+					else html+="<option value='"+e.id+"' >"+e.pagename+"</option>";
+				})
+				$(".areaid").html(html);
+			},"JSON")
+			
+	
+	
+});
+
+
+</script>
+
+{/literal}

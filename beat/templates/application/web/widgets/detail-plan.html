@@ -1,0 +1,100 @@
+{literal}
+<style>
+#selectfid{width:170px}
+</style>
+{/literal}
+<div id="theContainer2" class="planPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox">
+                    <div class="theBox-title">
+                        <h2 class="fl">Detail {if $author.pagesdetail.plantype}{$author.pagesdetail.plantype}{/if} Plan</h2>
+                        <a class="btnback fr" onCLick="location.href='{$basedomain}plan'">&nbsp;</a>
+						<!-- <a class="button fl" onCLick="location.href='{$basedomain}plan'" >Reject Plan</a> -->
+                    </div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+                        		<table width="650" border="0" cellspacing="0" cellpadding="0" class="detailscontent">
+                                  <tr>
+                                    <td width="100"><label>Plan Creator</label></td>
+                                    <td width="1">:</td>
+                                    <td><span>{$author.name}</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td width="100"><label>Role</label></td>
+                                    <td width="1">:</td>
+                                    <td><span>{$author.pagesdetail.role}</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td width="100"><label>Plan Name</label></td>
+                                    <td width="1">:</td>
+                                    <td><span>{$title}</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td><label>Date</label></td>
+                                    <td width="1">:</td>
+                                    <td><span>{$dates|date_format:"%d/%m/%Y"}</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td><label>Time</label></td>
+                                    <td width="1">:</td>
+                                    <td><span>{$times}</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td><label>Venue</label></td>
+                                    <td width="1">:</td>
+                                    <td><span>{if $rating.venue }{$rating.venue}{else}{$brief}{/if}</span></td>
+                                  </tr>
+								  
+                                  <tr>
+                                    <td><label>Invited</label></td>
+                                    <td width="1">:</td>
+                                    <td>
+                                        {if $friendtags}
+                                         <span>
+										 
+                                            {foreach from=$friendtags key=k item=v}											
+                                                {if $v.friendtype==1}<div>{$no++}. {$v.name} </div>{/if}
+                                            {/foreach}	
+                                        </span>
+                                        {/if}
+                                    </td>
+                                  </tr>
+								  
+								{*}
+  								{if $author.pagesdetail.plantype=='Brand'}
+                                  <tr>
+                                    <td><label>Attachment</label></td>
+                                    <td width="1">:</td>
+                                    <td><span> <img src="{$image_full_path}" /></span></td>
+                                  </tr>
+  								{/if}
+								{/*}
+								{if $author.pagesdetail.plantype=='Co-Creation'}
+                                  <tr>
+                                    <td><label>Poster</label></td>
+                                    <td width="1">:</td>
+                                    <td><span> {if $file}<a href="{$basedomain}public_assets/attachment/{$file}" >attachment file</a>{else} No attachment
+ {/if}</span></td>
+                                  </tr>
+								{/if}
+                                </table>
+                                {if $author.pagesdetail.plantype=='Brand'}
+                                {if $users->leaderdetail->type==2}
+                                  <div class="rows2">
+                                      <a class="button fr" onCLick="location.href='{$basedomain}plan/edit/{$id}'" >Edit</a>
+                                  </div>
+                                {/if}
+                                {/if}
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                    
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+            <div class="col-sidebar">
+            		{include file="application/web/widgets/sidebar-widget.html"}
+            </div><!-- /.col-sidebar -->
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

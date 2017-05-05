@@ -1,0 +1,314 @@
+<link rel="stylesheet" href="{$basedomain}assets/css/jquery.Jcrop.css" type="text/css" />
+<div class="popup">
+	<div class="popupContainer" id="popup-editProfile">
+        <div class="popupContent">
+        	<div class="popupHead">
+                <div class="the-title">
+                    <h2 class="icon icon_smile"><span>Band Update</span></h2>
+                </div>
+            </div>                
+				<div class="row">
+					<h2>Photo Band </h2>
+					<form method="POST" enctype="multipart/form-data" id = "updatePhotoForm" action="{$basedomain}myband/photo/set">
+						<div id="previewPhotoProfile" style="overflow:hidden;width:213px;height:213px;padding:0" > 	
+							<img id="preview" src="{$basedomain}public_assets/pages/{if $bandprofile.imgoriginal}{$bandprofile.imgoriginal}{else}{if $bandprofile.img}{$bandprofile.img}{else}default.jpg{/if}{/if}">
+						</div>
+						<div class="up_foto">
+							<i>{$locale.ukuranfile}</i>
+							<div class="row">
+								<label for="img">Upload Image&nbsp;</label>
+								<input type="file" name="myImage" id="file" value="" class="uploadphotoprofile" >
+							</div>
+						</div>			   
+					</form>
+					<form id = "updateThumbPhotoForm" action="{$basedomain}myband/photo/crop" method="POST">
+						<input type="hidden" id="x" name="x" />
+						<input type="hidden" id="y" name="y" />
+						<input type="hidden" id="w" name="w" />
+						<input type="hidden" id="h" name="h" />
+						<input type="hidden" name="imageFilename" class = "imageFilename" value="{if $bandprofile.imgoriginal}{$bandprofile.imgoriginal}{else}{if $bandprofile.img}{$bandprofile.img}{else}default.jpg{/if}{/if}" />
+						<input type="submit" name="upload_thumbnail" value="SIMPAN PHOTO" class="dosimpan" />
+					</form>
+					<div><span class="msg-upload-foto"></span></div>
+                </div>
+				
+				<form method="POST" id="formLogin" action="{$basedomain}myband/setting">
+					<div class="row">
+						<h2>NAME BAND</h2>
+						<input value="{$bandprofile.name}" name="name" type="text" onBlur="if(this.value=='')this.value='Nama Band';" onFocus="if(this.value=='Nama Band')this.value='';"/>
+					</div>
+					<div class="row">	
+						<h2>CITY</h2>
+						<select name="city" id="city" class="styled">
+							<option value="" >SELECT CITY</option>
+							{section name=i loop=$city}
+							<option value="{$city[i].id}" {if $city[i].id==$bandprofile.cityid} selected="selected"{/if}>{$city[i].city|upper}</option>
+							{/section}
+						</select>
+					</div>
+					<div class="row">
+						<h2>GENRE</h2>
+						<select name="genre" class="styled" id="genre">
+							<option value="">SELECT GENRE MUSIC</option>
+								{section name=i loop=$genre_band}
+								<option value="{$genre_band[i].id}" {if $genre_band[i].id==$bandprofile.genreid} selected="selected"{/if}>{$genre_band[i].category|upper}</option>
+								{/section}
+						</select>
+					</div>					
+					<div class="row">
+						<h2>INFLUENCER </h2>
+						<textarea value="Influence Music" name="influence" id="cband-influence" onBlur="if(this.value=='')this.value='Influence Music';" onFocus="if(this.value=='Influence Music')this.value='';">{$bandprofile.influencer}</textarea>
+					</div>
+					<div class="row">
+						<input type="button" value="SEE MEMBER" class="buttonSubmit" onclick="linkaddmemberband()"/>&nbsp;
+						<input type="button" value="CLOSE" class="buttonSubmit" onclick="cancellinkband()" id="canceladdmember"/>
+					</div>
+					<div class="row" id="add_member_band">
+						<table>
+							<tr id="list-members">
+								{section name=i loop=$memberlist}
+									{if $memberlist[i].id != $user->id}
+										<tr id="mem-{$memberlist[i].id}">
+											<td class="member-list" width="70">
+												<a class="smallAvatar" href="javascript:;">
+												<img  width="70" height="70" src="{$basedomain}public_assets/user/photo/{if $memberlist[i].img}{$memberlist[i].img}{else}default.jpg{/if} "/>
+												</a>
+											</td>
+											<td width=3>&nbsp;</td>
+											<td>
+												&nbsp;<a class="memberName">{$memberlist[i].name|capitalize}</a>
+												{*}&nbsp;<a href="javascript:editMember(,,\'\');" class="edit"> Edit</a>{/*} |
+												<a href="javascript:deleteMemberPage({$memberlist[i].id});" class="delete">Delete</a><br>
+												INSTRUMENT <input type="text" id="instrument_'+data.id+'" name="instrument[{$memberlist[i].id}]" size="10px" value="{$memberlist[i].instrument}" />
+											</td>
+										</tr>
+									{/if}
+								{/section}
+							</tr>
+							<tr><td height="10" colspan="2"></td></tr>						
+							<tr>
+								<td colspan="3">
+									<p><input type="text" name="member_name_page" id="member_name_page" AUTOCOMPLETE="OFF" size="100" onBlur="if(this.value=='')this.value='Search Name';" onFocus="if(this.value=='Search Name')this.value='';" value="Search Name"/></p>
+									<div class="mbox">{$locale.anggotaband} <a href="#" target="_BLANK">{$locale.undangmereka}</a></div>
+								</td>
+							</tr>
+							<tr>
+								<td id="select-member" colspan="3">&nbsp;</td>
+							</tr>
+							<tr>
+								<td colspan="3">
+								<input type="hidden" name="members" id="members" value=""/>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row">
+						<h2>DESCRIPTION</h2>
+						<textarea value="Description"  type="text" name="description" id="cband-profile" onBlur="if(this.value=='')this.value='Description';" onFocus="if(this.value=='Description')this.value='';">{$bandprofile.description}</textarea>
+					</div>
+					{*}
+					<div class="row">
+						<h2>DETAIL</h2>
+						<textarea name="content" onBlur="if(this.value=='')this.value='Detail';" onFocus="if(this.value=='Detail')this.value='';" value="Detail">Detail</textarea>
+					</div>
+					{/*}
+					<div class="row">
+						<input type="hidden" name="update" value="1" />
+						<input type="hidden" name="tokenize" value="{$tokenize}" />
+						<input name="submit" type="Submit" value="Update">
+					</div>	
+                </form>
+                <!--widget di dalam act => -->
+        </div><!-- END .popupContent -->
+    </div><!-- END .popupContainer -->
+</div><!-- END .popup -->
+
+
+	
+<script >
+var basedomain = '{$basedomain}';
+var notification = '{$locale.addpicturefailed}';
+	{literal}	
+	
+			$(document).on("click",".editprofile" , function(){
+				cropperOpt =new Object();
+				cropperOpt = {
+					 imageForm : '#updatePhotoForm',
+					 imageThumbForm : '#updateThumbPhotoForm',
+					 previewPhotoProfile : "#previewPhotoProfile",
+					 photoProfile : "#photoProfile",
+					 imageFilename : ".imageFilename",
+					 smallthumb : false,
+					 imageCropPath : 'public_assets/pages/',
+					 msgNotif : notification,
+					 saveButton : ".dosimpan",
+					 autoSize : [0,0,213,213]
+					};			
+				cropperHelper(cropperOpt);
+			
+			});
+
+</script>
+
+
+
+
+	
+<script >
+
+	$("#canceladdmember").hide();
+	$("#add_member_band").hide();
+	function linkaddmemberband() {
+		$("#add_member_band").show();
+		$("#canceladdmember").show();
+	}
+	
+	function cancellinkband() {
+		$("#add_member_band").hide();
+		$("#canceladdmember").hide();
+	}
+	
+	$('#member_name_page').keyup(function(){
+		var kw = $(this).val();	
+		if (kw!='') {
+			var delay = (function(){
+				var timer = 0;
+				return function(callback, ms){
+				clearTimeout (timer);
+				timer = setTimeout(callback, ms);
+				};
+			})();
+		
+			$(this).addClass("putloader");
+			delay(function(){
+				$.post(basedomain+'myband/searchMember',{kw:kw},
+					function(data){
+						if(data.m){
+							var num = data.m.length;
+							var htm = "";
+							for(i=0;i<num;i++){
+								htm += '<tr><td>';
+								htm += '	<a href="javascript:addMemberEditPages('+data.m[i].id+',\''+data.m[i].name+'\');">';
+								if (data.m[i].img) {
+									htm += '	<img width="70" height="70" src="'+basedomain+'public_assets/user/photo/'+data.m[i].img+'" style="vertical-align:middle;"  />&nbsp;&nbsp;'+data.m[i].name+'</a>';
+								} else {
+									htm += '	<img width="70" height="70" src="'+basedomain+'public_assets/user/photo/default.jpg" style="vertical-align:middle;"  />&nbsp;&nbsp;'+data.m[i].name+'</a>';
+								}
+								htm += '<td></tr>';
+							}
+								$('#select-member').html(htm);
+								$('#select-member').hide('fast',function(){
+									$(this).slideToggle();
+								});
+								$('#member_name_page').removeClass("putloader");
+						}else{
+							var htm = "";
+							$('#member_name_page').show();
+							htm += '<a href="javascript:;">no result</a>';
+							$('#select-member').html(htm);
+							$('#select-member').hide('fast',function(){
+								$(this).slideToggle();
+							});
+							$('#member_name_page').removeClass("putloader");
+						}
+					},
+					'json'
+				);
+			}, 1000 );
+		} else {
+			$('#select-member').hide();			
+		}
+	});
+
+	$('#btn-add-member').click(function(){
+		if( $("#member_id").val() == '' ){
+			alert("Please put valid member name");
+			return false;
+		}
+		$('#list-members').append('<div class="add-member-load"></div>');
+		$.post(basedomain+'myband/getInfoMember',{id: 1 },
+			function(data){
+				if(data.sukses){
+					var htm = "";
+					htm += '<td class="member-list" id="mem-'+data.id+'" >';
+					htm +=    '<a href="javascript:;" class="smallAvatar">';
+					htm +=        '<img src="'+basedomain+'public_assets/user/photo/tiny_'+data.img+'" />';
+					htm +=    '</a>';
+					htm +=        '<a href="javascript:;" class="memberName">'+data.name+'</a>';
+					htm +=        	'<a class="edit" href="javascript:editMember('+data.id+','+data.id+',\''+data.name+'\');"> Edit</a> |';
+					htm +=            '<a class="delete" href="javascript:deleteMemberPage('+data.id+');">Delete</a>';
+					htm += '</td>';
+					
+					//not[data.id] = ','+data.id;
+					$('.add-member-load').empty().remove();
+					$('#form-create-band').append('<input class="cband-person" id="hmem-'+data.id+'" type="hidden" name="person[]" value="'+data.id+'[:]'+$("#instrument").val()+'" />');
+					
+					$('#list-members').append(htm).fadeIn();
+					$("#members").val(data.id);
+					$("#member_name_page").val("");
+					$("#member_id").val("");
+					$("#instrument").val("");
+					$("#add-member").css("background","none");
+				}
+			},
+			'json'
+		);
+	});
+	
+	function addMemberEditPages(id,name){
+		$('#list-members').append('<div class="add-member-load"></div>');var htm = "";
+		$.post(basedomain+'myband/getInfoMember',{id: id },
+			function(data){
+				if(data.sukses){
+					var htm = "";
+					htm += '<tr id="mem-'+data.id+'">';
+					htm += '<td class="member-list" width="70">';
+					htm +=    '<a href="javascript:;" class="smallAvatar">';
+					if (data.img) {
+						htm +=        '<img width="70" height="70" src="'+basedomain+'public_assets/user/photo/'+data.img+'" />';
+					} else {
+						htm +=        '<img width="70" height="70" src="'+basedomain+'public_assets/user/photo/default.jpg" />';
+					}
+					htm +=    '</a>';
+					htm += '</td>';
+					htm += '<td width=3>&nbsp;</td>';
+					htm += '<td>';
+					htm +=        '<a href="javascript:void(0)" class="memberName"></a>';
+					htm += 			data.name;
+					htm +=            '<a class="delete" href="javascript:deleteMemberPage('+data.id+');">Delete</a><br>';
+					htm += '    INSTRUMENT <input type="text" id="instrument_'+data.id+'" name="new_instrument['+data.id+']" size="20" value="" />';
+					htm += '</td>';
+					htm += '</tr>';
+					
+					$('.add-member-load').empty().remove();
+					$('#form-create-band').append('<input class="cband-person" id="hmem-'+data.id+'" type="hidden" name="person['+data.id+']" value="'+data.id+'" />');
+					
+					$('#list-members').append(htm).fadeIn();
+					$("#members").val(data.id);
+					$("#member_name").val("");
+					$("#member_id").val("");
+					$("#instrument").val("");
+					$("#add-member").css("background","none");
+				}
+			},
+			'json'
+		);
+		$('#select-member').hide();
+	}
+	
+	
+	function addMember(id,name){
+		$("#member_name_page").val(name);
+		$("#member_id").val(id);
+		$('#select-member').hide();
+	}
+	
+	function deleteMemberPage(id){
+		$("#mem-"+id).remove();
+		$("#hmem-"+id).remove();
+		$('#select-member').hide();
+	}
+	
+</script>
+
+{/literal}

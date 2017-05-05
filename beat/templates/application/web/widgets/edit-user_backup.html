@@ -1,0 +1,204 @@
+{literal}
+<style>
+#selectfid{width:170px}
+#selectfidbrand{width:170px}
+#selectfidarea{width:170px}
+#selectfidpl{width:170px}
+#selectfidba{width:170px}
+</style>
+{/literal}
+<div id="theContainer2" class="galleryPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox">
+                    <div class="theBox-title">
+                        <h2 class="fl">USER REGISTER</h2>
+                       
+                    </div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+<a class="Btn" href="{$basedomain}register" >back to lists</a>
+<form class="former" id="registerent" action="{$basedomain}service/registeruserwebsite/register"  method="POST" >
+<div style="border-collapse: collapse; border: 1px solid; overflow: auto; padding: 10px; width: 100px; float: right; position: fixed; right: 100px; top: 112px; height: 300px;"> 
+					<span >OUTPUT</span>
+					<p id="kluardisini" ></p>
+				</div> 
+				<div style="padding:10px;border-collapse:collapse;">  
+					<div class="row" >	ROLE </div>
+					<div class="row" >	
+						<select name="role" >
+								<option value="SBA_1" {if $pagetype==1}selected{/if} > SBA </option>
+								<option value="PL_2" {if $pagetype==2}selected{/if} > PL </option>
+								<option value="AREA_5" {if $pagetype==5}selected{/if} > AREA </option>
+								<option value="BRAND_3" {if $pagetype==3}selected{/if} > BRAND </option>
+								<option value="IS_6" {if $pagetype==6}selected{/if} > IS </option>
+								<option value="121_4" {if $pagetype==4}selected{/if} > 121 </option>
+								<option value="AGENCY_100" {if $pagetype==100}selected{/if} > AGENCY </option>
+						</select>
+					</div>
+				</div>
+				<div style="padding:10px;border-collapse:collapse;"> 	<div class="row" >	  	USERNAME </div><div class="row" >	<input type="text" name="username" value="{$username}" /></div></div>
+				<div style="padding:10px;border-collapse:collapse;">  	<div class="row" >		PASSWORD </div><div class="row" >	<input type="text" name="password" value="{$password}"  /></div></div>
+				<div style="padding:10px;border-collapse:collapse;">  	<div class="row" >	 	NAME </div><div class="row" >	<input type="text" name="name" value="{$name}" /></div></div>
+				<div style="padding:10px;border-collapse:collapse;"> 	<div class="row" >	  	LASTNAME </div><div class="row" >	<input type="text" name="lastname"  value="{$last_name}" /></div></div>
+				<div style="padding:10px;border-collapse:collapse;"> 	<div class="row" >	 	NICKNAME </div><div class="row" >	<input type="text" name="nickname" value="{$nickname}"  /></div></div>
+				<div style="padding:10px;border-collapse:collapse;"> 	<div class="row" >	  	EMAIL </div><div class="row" >	<input type="text" name="email" value="{$email}"  /></div></div>
+				<div style="padding:10px;border-collapse:collapse;">  	<div class="row" >		IMAGE </div><div class="row" >	<input type="file" name="img" /></div><img src="{$basedomain}public_assets/user/photo/{$img}" /></div>
+				<div style="padding:10px;border-collapse:collapse;">  	<div class="row" >		CITY AREA
+				</div><div class="row" >	
+						<select name="city" >
+								<option value="" 	{if $city==0}selected{/if} > NOT USED </option>
+								<option value="215" {if $city==215}selected{/if} > JAKARTA </option>
+								<option value="407" {if $city==407}selected{/if}  > SURABAYA </option>
+								<option value="140" {if $city==140}selected{/if}  > BANDUNG </option>						
+								<option value="292" {if $city==292}selected{/if} > MEDAN </option>
+								<option value="451" {if $city==451}selected{/if} > JOGJA </option>
+								<option value="199" {if $city==199}selected{/if} > BALI </option>
+								<option value="318" {if $city==318}selected{/if} > PALEMBANG </option>
+						</select>
+				</div></div>
+				<div style="padding:10px;border-collapse:collapse;">
+				<div class="row" >					AREAS  GROUP
+				</div><div class="row" >			
+					<select name="area" >
+								<option value=""  {if $city==0}selected{/if}> NOT USED </option>
+								<option value="JAKARTA" {if $city==215}selected{/if} > JAKARTA </option>
+								<option value="SURABAYA"  {if $city==407}selected{/if} > SURABAYA </option>
+								<option value="BANDUNG" {if $city==140}selected{/if} > BANDUNG </option>									
+								<option value="MEDAN" {if $city==292}selected{/if} > MEDAN </option>
+								<option value="JOGJA" {if $city==451}selected{/if} > JOGJA </option>
+								<option value="BALI" {if $city==199}selected{/if} > BALI </option>
+								<option value="PALEMBANG" {if $city==318}selected{/if} > PALEMBANG </option>
+						</select>
+				</div></div>
+				<div style="padding:10px;border-collapse:collapse;"> 
+				<div class="row" >					PL 
+				</div><div class="row" >			<select name="otherid" class="otherid" >
+								<option value="0" > NOT HAVE </option>
+								
+						</select>
+				</div>
+				</div>
+				<div style="padding:10px;border-collapse:collapse;">  
+				<div class="row" >	BRAND 
+				</div><div class="row" >			
+						<select name="brandid"  class="brandid">
+								<option value="0" {if $brandid==0}selected{/if}> NOT HAVE </option>
+								<option value="4" {if $brandid==4}selected{/if}>amild sampoerna BRAND </option>
+								<option value="5" {if $brandid==5}selected{/if}>marlboro sampoerna BRAND </option>								
+						</select>
+				</div>
+				</div>
+				<div style="padding:10px;border-collapse:collapse;"> 
+				<div class="row" > OTHER BRAND 
+				</div><div class="row" >					
+					<select name="brandsubid"  class="brandsubid">
+								<option value="0" {if $brandsubid==0}selected{/if}> NOT HAVE </option>
+								<option value="4" {if $brandsubid==4}selected{/if}>amild sampoerna BRAND </option>
+								<option value="5" {if $brandsubid==5}selected{/if}>marlboro sampoerna BRAND </option>								
+						</select>
+				</div>
+				</div>
+				<div style="padding:10px;border-collapse:collapse;"> 
+				<div class="row" > AREA LEADER 
+				</div><div class="row" >					<select name="areaid"  class="areaid">
+								<option value="0" > NOT HAVE </option>
+								
+						</select>
+				</div>
+				</div>
+				<div style="padding:10px;border-collapse:collapse;">  
+				<div class="row" > GENDER 
+				</div><div class="row" >						
+				<input type="radio" name="sex" value="Male" {if $sex=='Male'}checked{/if} /> MALE 
+				<input type="radio" name="sex" value="Female" {if $sex=='Female'}checked{/if} /> FEMALE
+							</div>
+							</div>
+				<div style="padding:10px;border-collapse:collapse;">    
+				<div class="row" > BIRTHDAY 
+				</div><div class="row" >	<input type="text" name="birthday" value="{$birthday}"   /> yyyy-mm-dd
+				</div>
+				</div>
+				<div style="padding:10px;border-collapse:collapse;">  
+				<div class="row" > PHONE NUMBER 
+				</div><div class="row" >	<input type="text" name="phone_number" value="{$phone_number}"   />
+				</div>
+				</div>
+				<div style="padding:10px;border-collapse:collapse;">   <input type="hidden" value="1" name="register"></div>
+				
+				  <input type="submit" value="register">
+				  
+				  
+				</form>
+				
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+          
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+
+
+<script>
+var otherid = "{$otherid}";
+var areaid = "{$areaid}";
+
+{literal}
+var servicedomain = basedomain+"service/";
+
+	var updateoptions = {
+						dataType : "html",
+						beforeSubmit: function(data) { 
+										$('#kluardisini').html("<blink>loading please wait</blink>");
+							},
+						success : function(data) {									
+									 $('#kluardisini').html("<p>"+data+"</p>");
+						}
+					};					
+					
+
+$("#registerent").ajaxForm(updateoptions );
+
+
+$(document).ready(function(){
+	
+	
+			
+			$.post(servicedomain+'registeruserwebsite/getleader',{leadertype:2},function(data){
+				var html ="<option value='0' > NOT HAVE </option>";
+				$.each(data,function(i,e){
+					if(otherid==e.id) html+="<option value='"+e.id+"' selected >"+e.name+" "+e.last_name+" "+e.pagename+"</option>";
+					else html+="<option value='"+e.id+"' >"+e.name+" "+e.last_name+" "+e.pagename+"</option>";
+				})
+				$(".otherid").html(html);
+			},"JSON")
+		/*	
+			$.post(servicedomain+'registeruserwebsite/getleader',{leadertype:3},function(data){
+				var html ="<option value='0' > NOT HAVE </option>";
+				$.each(data,function(i,e){
+					html+="<option value='"+e.id+"' >"+e.name+" "+e.last_name+" "+e.pagename+"</option>";
+				})
+				$(".brandid").html(html);
+				$(".brandsubid").html(html);
+			},"JSON")
+			*/
+			$.post(servicedomain+'registeruserwebsite/getleader',{leadertype:5},function(data){
+				var html ="<option value='0' > NOT HAVE </option>";
+				$.each(data,function(i,e){
+					if(areaid==e.id)html+="<option value='"+e.id+"' selected >"+e.name+" "+e.last_name+" "+e.pagename+"</option>";
+					else html+="<option value='"+e.id+"' >"+e.name+" "+e.last_name+" "+e.pagename+"</option>";
+				})
+				$(".areaid").html(html);
+			},"JSON")
+			
+	
+	
+});
+
+
+</script>
+
+{/literal}

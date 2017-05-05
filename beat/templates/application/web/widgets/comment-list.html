@@ -1,0 +1,26 @@
+{if $user}
+{if  $pages=='event'}
+<div class="joinEvent">
+   <a href="javascript:void(0)" class="anttending doattending" contentid="0" style="position: relative; left: 449px;" >I AM ATTENDING</a>
+</div>
+{/if}
+<div class="commentsContainer">
+    <div class="commentHeader">
+        <h4 class="fl">Comment as <a href="{$basedomain}my">{$user->name} {$user->last_name}</a></h4>
+        <span class="maxChar fr">You have <span class="counter"></span> characters left.</span>
+    </div><!--END .commentHeader-->
+    <div class="commentForm">
+        <div class="loader"></div>
+            <textarea  class="textComment"></textarea>
+            <input type="button" class="postSubmit fr postComment" value="SUBMIT" />
+			<input type="hidden" class="comment_userid" value="{$user->id}" />
+			<input type="hidden" class="comment_img" value="{$user->img}" />
+			<input type="hidden" class="comment_name" value="{$user->name}" />
+
+    </div><!--END .commentForm-->
+	{/if}
+    <div class="commentList commentdata" contentid=0 >
+        
+    </div><!--END .commentList-->
+    <div class="paging" id="commentpagingID"></div><!-- END .paging -->
+</div><!--END .commentsContainer-->

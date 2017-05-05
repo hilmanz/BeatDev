@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/userArticle
+END
+userArticle_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/userArticle/userArticle_list.html
+END
+articlecomment_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/userArticle/articlecomment_list.html
+END
+userArticle_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/userArticle/userArticle_edit.html
+END
+userArticle_new.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/userArticle/userArticle_new.html
+END

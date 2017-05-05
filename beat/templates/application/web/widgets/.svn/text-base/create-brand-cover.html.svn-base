@@ -1,0 +1,63 @@
+<div id="theContainer2" class="brandPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox">
+                    <div class="theBox-title">
+                        <h2 class="fl">Create Brand Cover</h2>
+           				<span class="date fr">{$date}</span>
+                    </div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+                            <form id="create-challenge" METHOD="POST" enctype="multipart/form-data" action="{$basedomain}{$pages}/cover">
+                                 
+                                <div class="rows2">
+                                   <label>Pick Brand</label>
+								<select type="text" name="brandsid" class="styled">
+									<option value="0" > Pick Brand </option>
+									{section name=i loop=$branddetail}
+									<option value="{$branddetail[i].ownerid}" > {$branddetail[i].name|replace:'marlboro sampoerna (BRAND )':'MARLBORO'|replace:'amild sampoerna (BRAND )':'amild'|upper}  </option>
+									
+									{/section}									
+								</select>
+                                </div>  
+                                <div class="rows2">
+                                   <label>Image</label>
+									<input type="file" name="image" />
+                                </div>
+								<div class="rows2">
+                                   <label>Brand Quote</label>
+									<input type="text" name="description" />
+                                </div>
+								<div class="rows2">
+                                   <label><b>Amild Cover</b></label>
+								   <div style="padding-left:100px">
+									<img src="{$basedomain}public_assets/user/cover/{$cover.amild.small_img}" />
+									<br/>
+									<span>{$cover.amild.description}</span>
+									
+									</div>
+                                </div> 
+								<div class="rows2">
+                                   <label><b>Marlboro Cover</b></label>
+								   <div style="padding-left:100px">
+									<img src="{$basedomain}public_assets/user/cover/{$cover.marlboro.small_img}" />
+									<br/>
+									<span>{$cover.marlboro.description}</span>
+									</div>
+                                </div> 
+                                <div class="rows2" style="padding-right:35px;">
+                                    <label class="fl">&nbsp;</label> 
+									<input type="hidden" name="action" value="set"/>
+									<input type="submit" value="Save" class="button fr" />
+                                </div><!-- /.rows2 -->
+                            </form>
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+          
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+		 

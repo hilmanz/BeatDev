@@ -1,0 +1,32 @@
+<div id="theContainer" class="inboxPage">
+	<div class="theContainer">
+		<div class="head-title">
+			<a class="btnback fl" href="{$basedomain}{$pages}/venueList"></a>
+		</div> <!-- /.head-title -->
+		<div class="head-title">
+			<h1 class="fl username">Keywords : {$detail.keywords}</h1>
+		</div> <!-- /.head-title -->
+		<div class="theContent">
+			<div class="rows">
+				<div class="entries-detail">
+					{*}<span class="date">{$detail.datetime}</span>{/*}
+					<p>Latitude &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {$detail.latitude}</p><br>
+					<p>Longitude &nbsp;&nbsp;: {$detail.longitude}</p><br>
+					<p>
+					<form id="reply-form" method="POST" action="{$basedomain}{$pages}/unpublishvenue">
+						<select name="idvenue" style="width:400px;" class="articleType">
+							<option value=""> - Area Venue - </option>
+							{section name=i loop=$venueMaster}
+							<option value="{$venueMaster[i].id}" {if $venueMaster[i].id==$detail.venueid}selected{else}{/if}>{$venueMaster[i].venuename}</option>
+							{/section}
+						</select>
+						<input type="hidden" name="cid" value="{$cidStr}"/>
+						<input type="hidden" name="venueid" value="venueid"/>
+						<input type="submit" value="SUBMIT" class="button fr" />
+					</form>
+					</p>
+				</div> <!-- /.entries -->
+			</div><!-- /.rows -->
+		</div> <!-- /.theContent -->
+	</div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

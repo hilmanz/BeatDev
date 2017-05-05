@@ -1,0 +1,54 @@
+<div id="theContainer" class="inboxPage">
+	{if $detail}
+		{section loop=$detail name=i}
+		<div class="theContainer"> 
+			<div class="head-title">
+				 
+				 <a class="btnback fl" href="javascript:void(0)" onclick="window.history.back()" ></a>
+				 
+			</div> <!-- /.head-title -->
+		
+		<div class="head-title" style="padding: 10px 0 10px 40px;">
+				<a href="#" class="thumbsmall fl"><img src="{$basedomain}public_assets/user/photo/{if $detail[i].author.img}small_{$detail[i].author.img}{else}default.jpg{/if}" /></a><h1 class="fl username">{$detail[i].author.name|capitalize}</h1>
+				<div class="navPaging fr">
+					{*}<a class="icons prev" href="#">&nbsp;</a>
+					<a class="icons next" href="#">&nbsp;</a>
+					{/*}
+				</div><!-- /.navPaging -->
+			</div> <!-- /.head-title -->
+			<div class="theContent">
+				<div class="rows">
+					<div class="entries-detail">
+					{if $detail[i].imagepath}<div class="image-post-detail"><span class="img-moderation-detail"><img src="{$detail[i].image_full_path}" /></span></div>{/if}
+						<span class="date">{$detail[i].posted_date|date_format:"%d/%m/%Y %H:%M"}</span>
+						<p>{if $detail[i].content}{$detail[i].content}{else}{$detail[i].title} {/if}</p>
+					</div> <!-- /.entries -->
+					{*}<a class="icons icon_delete" href="#">&nbsp;</a>{/*}
+				</div><!-- /.rows -->
+		{/section}
+	{/if}
+	{if $comment}
+		{section loop=$comment name=i}
+			<div class="rows last-child">
+				<a href="#" class="thumbsmall fl"><img src="{$basedomain}public_assets/user/photo/{if $comment[i].img}small_{$comment[i].img}{else}default.jpg{/if}" /></a>
+				<div class="entries fl">
+					<h3 class="username fl">{$comment[i].name|capitalize}</h3>
+					<span class="date fr">{$comment[i].date|date_format:"%d/%m/%Y "}</span>
+					<p>{$comment[i].comment}</p>
+				</div> <!-- /.entries -->
+			</div><!-- /.rows -->
+		{/section}
+	{/if}
+				<div id="reply">
+				
+					<form id="reply-form" method="POST" action="{$basedomain}{$pages}/addComment">
+					<span>Comment:</span>
+						<textarea name="comment"></textarea>
+						<input type="hidden" name="cid" value="{$cidStr}"/>
+						<input type="submit" value="SUBMIT" class="button fr" />
+					</form>
+				</div>
+			</div> <!-- /.theContent -->
+		</div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+ 

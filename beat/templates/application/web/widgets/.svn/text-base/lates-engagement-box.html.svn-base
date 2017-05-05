@@ -1,0 +1,11 @@
+					<div class="darkBox-content2">
+						{if $userprofile.baengagement} 
+							{foreach from=$userprofile.baengagement key=k item=v}
+								<div class="row3">
+									<span class="dates">{$v.posted_date|date_format:"%e/%m/%Y %H:%M:%S"}</span>
+									<span class="venue"><a  href="{$basedomain}balatest/{$v.id}">{if $v.brief!=''}{$v.brief}{else}{$v.title}{/if}</a></span>
+									 		{if $users->leaderdetail->type!=1}{if $v.image}<a class="icon-polaroid" href="{$basedomain}gallery/detail/{$v.id}">&nbsp;</a>{/if}{/if}
+								</div><!-- /.row3 -->
+							{/foreach}
+						{/if}
+                    </div> <!-- /.darkBox-content -->

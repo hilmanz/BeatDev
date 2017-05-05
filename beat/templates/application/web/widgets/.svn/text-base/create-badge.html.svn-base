@@ -1,0 +1,104 @@
+<div id="theContainer" class="challengePage">
+    <div class="theContainer">
+        <div class="head-title">
+			<a href="{$basedomain}{$pages}" class="btnback fl"></a>
+        </div> <!-- /.head-title -->
+        <div class="theContent">
+			<div class="rows last-child">
+				<div class="entry-details">
+					<div class="head-title">
+						<h1 class="fl">Create Badge</h1>
+					  
+					</div> <!-- /.head-title -->
+					<div class="forms">
+						<form id="create-badges" METHOD="POST" enctype="multipart/form-data" action="{$basedomain}{$pages}/create">
+							<div class="rows">
+								<label>Name</label>
+								<input type="text" name="name" class="full-width" />
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Detail</label>
+								<textarea name="desc" class="full-width"></textarea>
+							</div><!-- /.rows -->
+							<div class="rows">
+                                <label>Action</label>
+								<select type="text" name="checkcondition">
+									<option value="0" > - </option>
+									<option value="entourage" >Entourage</option>
+									<option value="engagement" >Engagement</option>
+									<option value="checkin" >Checkin</option>
+									<option value="brand" >Brand</option>
+									<option value="cocreation" >Cocreation</option>
+									<option value="insight" >Insight</option>
+								</select>
+							</div>
+							{*}
+							<div class="rows">
+								<label>n Condition</label>
+								<input type="number" name="multiplier" class="full-width"/>
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Minimal Check Condition</label>
+								<input type="number" name="mincheckcondition" class="full-width"/>
+							</div><!-- /.rows -->
+							{/*}
+							<div class="rows">
+                                <label>Badge Type</label>
+								<select type="text" name="badgeType">
+									<option value="0" >Online</option>
+									<option value="1" >Offline</option>
+								</select>
+							</div>
+							
+							<div class="rows">
+                                <label>Gain Type</label>
+								<select type="text" name="gaintype">
+									<option value="everytime" >Everytime</option>
+									<option value="once" >Once</option>
+									<option value="everymonth" >Every Month</option>
+								</select>
+							</div>
+							{*}
+							<div class="rows">
+								<label>Badge Code</label>
+								<input type="text" name="badgecode" class="full-width"/>
+							</div><!-- /.rows --><div class="rows">
+								<label>Max Have Badge</label>
+								<input type="number" name="maxhavebadge" class="full-width"/>
+							</div><!-- /.rows -->
+							{/*}
+							<div class="rows">
+								<label>Points</label>
+								<input type="number" name="point" class="sepertiga-width"/>
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label class="fl">Active Image</label>
+                                <div class="upload fl">
+								<input type="file" name="badge_active" class="uploadfile" />
+                                </div>
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label class="fl">Inactive Image</label>
+                                <div class="upload fl">
+								<input type="file" name="badge_non" class="uploadfile" />
+                                </div>
+							</div><!-- /.rows -->
+							<div class="rows">
+                                <label>Badge Status</label>
+								<select type="text" name="badge_status">
+									<option value="0" >Unpublish</option>
+									<option value="1" >Publish</option>
+								</select>
+							</div>
+							<div class="rows">
+								<button class="button">Cancel</button>
+								<input type="hidden" name="badges" value="1"/>
+								<input type="submit" value="Save" class="button fr" />
+							</div><!-- /.rows -->
+						</form>
+					</div> <!-- /.forms -->
+				</div> <!-- /.entry-details -->
+			</div><!-- /.rows -->
+        </div> <!-- /.theContent -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

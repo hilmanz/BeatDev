@@ -1,0 +1,85 @@
+<div class="popup">
+	<div class="popupContainer" id="popup-create-event">
+        <div class="popupContent">
+        	<div class="popupHead">
+                <div class="the-title">
+                    <h2 class="icon icon_calendar"><span>New Event</span></h2>
+                </div>
+            </div>
+        	<div id="popup-event-content">
+            		<form method="POST" enctype="multipart/form-data" id = "createEventForm" action="{$basedomain}event/create" >
+                	<div class="row">
+                    	<input type="text" value="Event Name" onfocus="if(this.value=='Event Name')this.value='';" onblur="if(this.value=='')this.value='Event Name';" name="title">
+                    </div>
+					<div class="row">
+                    	<select class="styled" id="fromwho-article" name="fromwho">
+                            <option value="">CREATE EVENT AS</option>
+							<option value="1" >{$user->name}</option>
+							<option value="2" >My Page</option>
+						</select>                        
+                    </div>
+					<div class="row">
+                    	<select class="styled" id="type-article" name="type">
+                            <option value="">SELECT EVENT</option>
+                           {section name=i loop=$jenis_type}
+							<option value="{$jenis_type[i].id}" >{$jenis_type[i].content_name}</option>
+							{/section}
+                        </select>                        
+                    </div>
+                	<div class="row">
+                    	<select class="styled" id="city_event" name="city_event">
+                            <option value="">SELECT CITY</option>
+                           {section name=i loop=$city}
+							<option value="{$city[i].id}" {if $city[i].id==$bandprofile.cityid} selected="selected"{/if}>{$city[i].city|upper}</option>
+							{/section}
+                        </select>                        
+                    </div>
+                	<div class="row">
+                    	<input type="text" value="Venue" onfocus="if(this.value=='Venue')this.value='';" onblur="if(this.value=='')this.value='Venue';" name="brief">
+                    </div>
+                	<div class="row">
+                    	<input type="text" value="Event Date" onfocus="if(this.value=='Event Date')this.value='';" onblur="if(this.value=='')this.value='Event Date';" name="posted_date" class="datepicker">
+                    </div>
+                	<div class="row">
+                    	<textarea value="Description" onfocus="if(this.value=='Description')this.value='';" onblur="if(this.value=='')this.value='Description';" name="desc">Description</textarea>
+                    </div>
+                	<div class="row">
+                    	<label>Poster</label><input type="file" name="image" value="Upload Photo">
+                    </div>
+                	<div class="row">
+                    	<input type="checkbox" id="setuju-on-event" value="1" />
+                        <label>Saya telah  menyetujui <a href="{$basedomain}tnc-upload-download.html" target="_blank">Syarat dan Ketentuan</a></label>
+                    </div>
+                    <div class="row rowsubmit">
+                    	<input type="submit" id="submit" value="Submit">
+                    </div>
+				</form>
+            </div>
+        </div><!-- END .popupContent -->
+    </div><!-- END .popupContainer -->
+</div><!-- END .popup -->
+
+
+{literal}
+<script>
+	
+					var optionevent = {
+							dataType:  'json',
+							success:    function(data) { 
+							
+								if(data) {
+									$("#popup-messagebox .popupContent .entry-popup h3").html("success");
+									$(".messageboxpop").trigger('click');
+								}else {
+									$("#popup-messagebox .popupContent .entry-popup h3").html("gagal");
+									$(".messageboxpop").trigger('click');
+								
+								}
+					
+						} 
+					};
+					
+					$("#createEventForm").ajaxForm(optionevent);
+</script>
+
+{/literal}

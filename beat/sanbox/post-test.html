@@ -1,0 +1,85 @@
+<script src="jquery-1.8.2.js" ></script>
+<script src="jquery.form.js" ></script>
+
+<h1>POST SANDBOX</h1>
+<h3> LOGIN <a href="#" class="tombolaja" >klik ini</a> </h3>
+
+<form method="POST" enctype="multipart/form-data" id = "poster" action="http://preview.kanadigital.com/beat2013/service/post/upload">
+    <h2>title </h2>
+					<input type="text" value="" name="title" >
+				</div>
+	 <h2>description</h2>
+					<input type="text" value="" name="desc"  >
+				</div>
+	 <h2>BRIEF </h2>
+					<input type="text" value="" name="brief" >
+				</div>
+				
+	 <h2>URL</h2>
+					<input type="text" value="" name="url"  >
+				</div>
+				
+	 <h2>IAMGE </h2>
+		<input type="file" name="image" >
+	<h2>VIDEO </h2>
+		<input type="file" name="video" >
+	</div>
+		<h2>POST TYPE </h2>
+		<input type="radio" value="image" name="upload" /> IMAGE
+		<input type="radio" value="video" name="upload" /> VIDEO
+		<input type="radio" value="timeline" name="upload"  selected="selected" /> TIMELINE
+	</div>
+	</div>
+		<h2>POST AS </h2>
+		<input type="radio" value="5" name="type" /> PLAN
+		<input type="radio" value="4" name="type" /> BRAND
+ 		<input type="radio" value="3" name="type"  selected="selected" /> TIMELINE
+	</div>
+<div>
+		<input type="submit" value="postit" />
+		</div>
+			
+</form>
+	</div>
+					<div style="width:50%;height:100%;overflow:auto;float:right;position:fixed;top:0;right:0;padding:10px;border-collapse:collapse;border:1px solid"> 
+					<span >OUTPUT</span>
+					<p id="kluardisini" ></p>
+				</div> 
+
+
+<script>
+var basedomain = "http://preview.kanadigital.com/beat2013/service/";
+	var updateoptions = {
+						dataType:"html",
+						beforeSubmit: function(data) { 
+								 $('.initargetdivnya').html("");
+							},
+						success : function(data) {									
+									 $('#kluardisini').html("<p>"+data.status+"</p>");
+						}
+					};					
+					
+
+$("#poster").ajaxForm(updateoptions);
+
+$(document).on('click','.tombolaja',function(){
+			$('#kluardisini').html("<blink>loading please wait</blink>");
+		
+		$.get(basedomain+'/login/account/aruka/aruka',function(){
+			
+				$('#kluardisini').html("<p>"+data+"</p>");
+
+		},"html");
+		
+		
+		/*
+		$.post('http://preview.kanadigital.com/beat2013/service/post/upload',{upload:'video',url:'http://www.youtube.com/watch?v=q68s6JMXD88',type:3,title:'ini coba dari api',desc:'ini description nya',brief:'ini bref nya'}, function(data){
+			
+			if(data) $('.initargetdivnya').append('success');
+			else $('.initargetdivnya').append('gagl');
+		},"JSON");
+		*/
+
+})
+
+</script>

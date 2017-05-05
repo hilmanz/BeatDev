@@ -1,0 +1,35 @@
+<div class="popup">
+	<div class="popupContainer popupForm popup-small" id="popup-addGroup">
+        <div class="popupContent">
+        	<div class="entry-popup">
+            	<form>
+                	<div class="rowTitle">
+                	<label>Group Name</label>
+                    </div>
+                	<div class="row">
+                	<input name="groupname" type="text" class="w70 fl " id="newgroupname"/>
+                    <a href="javascript:void(0)" class="button fr creategroup" >ADD</a>
+                    </div>
+                    <div class="rowTitle">
+                	<label>Edit Group</label>
+                    </div>
+					<div class="contentgroup">
+					{foreach from=$group key=k item=v}
+						{if $k!=0}
+										<div class="contentgroupname_{$k}">
+											<input name="groupname" type="text" value="{$v}" disabled="disabled" class="w60 fl groupname_{$k}"/>
+											<div class="act-btn fl">
+												<a href="javascript:void(0)" class="renamegroup" groupid="{$k}" >Rename</a>
+												<a href="javascript:void(0)" class="deletegroup"  groupid="{$k}"  >Delete</a>
+											</div>
+										</div>
+						{/if}
+					{/foreach}
+					
+                   </div>
+                </form>
+            </div><!--END .entry-popup-->
+        </div><!-- END .popupContent -->
+    </div><!-- END .popupContainer -->
+</div><!-- END .popup -->
+

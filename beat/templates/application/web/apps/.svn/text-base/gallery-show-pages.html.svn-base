@@ -1,0 +1,111 @@
+<div id="theContainer" class="galleryPage">
+    <div class="theContainer">
+        <div class="head-title">
+			<a href="{$basedomain}gallery/detail/{$plandata.result[0].id}" class="btnback fl"></a>
+			{if $user->leaderdetail->type!=1}
+			{else}
+            <div class="shorter fr">
+            	<select class="styled">
+                	<option>Select BA</option>
+                	{foreach from=$social key=k item=v}
+							{if $v.type==1}<option value="{$v.id}" > {$v.name} </option>{/if}
+					{/foreach}	
+                </select>
+            </div><!-- /.shorter -->
+			{/if}
+        </div> <!-- /.head-title -->
+        <div class="head-title">
+			<h3 class="fl">{$plandata.result[0].title} - {$plandata.result[0].posted_date|date_format:"%d/%m/%Y"} @ {$plandata.result[0].brief}</h3>	
+			{if $plandata.result[0].type !='timeline' && $plandata.result[0].diff_date < '7'  }
+				{if $user->leaderdetail->type==1 || $user->leaderdetail->type==100 || $user->leaderdetail->type==4 }
+			{else}
+				{if $user->leaderdetail->type==3} 
+					{if $plandata.result[0].engagementtype} <a href="{$basedomain}gallery/addphoto/{$plandata.result[0].id}" class="button addPhoto fr">Add Photo</a>{/if}
+				{else} <a href="{$basedomain}gallery/addphoto/{$plandata.result[0].id}" class="button addPhoto fr">Add Photo</a>
+				{/if}
+			{/if}
+				{/if}
+		   </div> <!-- /.head-title -->
+        <div class="theContent">
+        	<div class="head-row">
+                 <a href="#" class="thumbsmall fl"><img src="{$plandata.result[0].author.image_full_path}" /></a><h1 class="fl username">{$plandata.result[0].author.name}</h1>
+				<a href="#" class="icon-remove theicon fr" >&nbsp;</a> 
+				<br>
+				<div class="gallery-info">
+				<span  class="desc1"> {$plandata.result[0].rating.venue}</span>
+				<span class="desc1">{$plandata.result[0].rating.cityname}</span>
+				</div>
+            </div>
+        	<div class="section">
+                <div id="slider" class="flexslider">
+                  <ul class="slides">
+				  
+				  {foreach from=$plandata.result[0].gallery key=k item=v}
+					{*}
+						{if $v.imagepath}
+						<li><a href="#" target="_blank">
+							<img src="{$v.image_full_path}" alt=""></a>
+								{if $friendtags}
+								 <div style= " padding-right:10px;padding-left:10px"><h3>Tags :</h3></div>
+								{foreach from=$v.friendtags key=kf item=vf}
+									<div style="float:left;width:50%" ><img src="{$vf.image_full_path}" style= "width:30px;height:30px;float:left;padding-right:10px;padding-left:10px" /><p>{$vf.name} ( {$vf.role} )</p></div>
+								{/foreach}
+								<div style="clear:both" ></div>
+								{/if}
+						</li> 
+						{/if}
+						
+						  {if $v.gallery}
+							 
+							 {foreach from=$v.gallery key=kg item=vg}
+								 <li><a href="{$basedomain}gallery/detail/{$vg.id}" onclick="return confirm('This action will permanently delete your photo. Delete it anyway?')">
+									<img src="{$vg.image_full_path}" alt=""></a>
+									{if $friendtags}
+									 <div style= " padding-right:10px;padding-left:10px"><h3>Tags :</h3></div>
+									{foreach from=$v.friendtags key=kf item=vf}
+										<div style="float:left;width:50%" ><img src="{$vf.image_full_path}" style= "width:30px;height:30px;float:left;padding-right:10px;padding-left:10px" /><p>{$vf.name} ( {$vf.role} )</p></div>
+									{/foreach}
+									
+									<div style="clear:both" ></div>
+									{/if}
+								</li>   
+								{/foreach}
+					 
+						{/if}
+					{/*}			
+						 <li>
+							<img src="{$v.image_full_path}" alt="{$v.id}">
+							{if $plandata.result[0].gallery[$k].friendtags }
+                            <div class="listFriendWith">
+							<div class="textFriend"><h3>I'm with : </h3></div>	
+								<div class="gallery-friend">
+								{foreach from=$plandata.result[0].gallery[$k].friendtags key=x item=y}
+									<span  class="friendwith"><img class="tiptip friendImg" src="{$y.image_full_path}" title="{$y.name}" /></span>
+									
+								
+								{/foreach}
+								</div>
+                                </div>
+							{/if}
+						</li>   
+				   {/foreach}
+ 
+                  </ul>
+                </div>
+            </div> <!-- /.section -->
+        </div> <!-- /.theContent -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+
+<script>
+var cid={$cid};
+{literal}
+$('.icon-remove' ).click(function() {
+	
+	
+	var fotoId=$('.flex-active-slide').find('img').attr('alt');
+	confirm('This action will permanently delete your photo. Delete it anyway?');
+	window.location.href = basedomain+'gallery/clearphoto/'+fotoId+'/'+cid;
+});
+{/literal}
+</script>

@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/beat2013/!svn/ver/863/trunk/beat/com/application/services
+END
+entourage.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/beat2013/!svn/ver/863/trunk/beat/com/application/services/entourage.php
+END
+plan.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/beat2013/!svn/ver/807/trunk/beat/com/application/services/plan.php
+END
+friends.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/beat2013/!svn/ver/534/trunk/beat/com/application/services/friends.php
+END
+mop.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/beat2013/!svn/ver/846/trunk/beat/com/application/services/mop.php
+END
+questioner.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/beat2013/!svn/ver/762/trunk/beat/com/application/services/questioner.php
+END
+pop.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/beat2013/!svn/ver/653/trunk/beat/com/application/services/pop.php
+END
+brandpref.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/beat2013/!svn/ver/452/trunk/beat/com/application/services/brandpref.php
+END
+track.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/beat2013/!svn/ver/2/trunk/beat/com/application/services/track.php
+END
+leaderboard.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/beat2013/!svn/ver/534/trunk/beat/com/application/services/leaderboard.php
+END
+timeline.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/beat2013/!svn/ver/765/trunk/beat/com/application/services/timeline.php
+END
+registeruserwebsite.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/190/trunk/beat/com/application/services/registeruserwebsite.php
+END
+gcm.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/beat2013/!svn/ver/838/trunk/beat/com/application/services/gcm.php
+END
+login.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/beat2013/!svn/ver/742/trunk/beat/com/application/services/login.php
+END
+content.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/beat2013/!svn/ver/775/trunk/beat/com/application/services/content.php
+END
+example_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/beat2013/!svn/ver/2/trunk/beat/com/application/services/example_service.php
+END
+sendInboxMail_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/2/trunk/beat/com/application/services/sendInboxMail_service.php
+END
+push.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/beat2013/!svn/ver/772/trunk/beat/com/application/services/push.php
+END
+getaccess_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/beat2013/!svn/ver/2/trunk/beat/com/application/services/getaccess_service.php
+END
+merchandise.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/beat2013/!svn/ver/755/trunk/beat/com/application/services/merchandise.php
+END
+mail.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/beat2013/!svn/ver/740/trunk/beat/com/application/services/mail.php
+END
+challenge.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/beat2013/!svn/ver/735/trunk/beat/com/application/services/challenge.php
+END
+venue.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/beat2013/!svn/ver/737/trunk/beat/com/application/services/venue.php
+END
+message.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/beat2013/!svn/ver/827/trunk/beat/com/application/services/message.php
+END
+synch.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/beat2013/!svn/ver/776/trunk/beat/com/application/services/synch.php
+END
+my.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/beat2013/!svn/ver/852/trunk/beat/com/application/services/my.php
+END
+badges.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/beat2013/!svn/ver/653/trunk/beat/com/application/services/badges.php
+END
+post.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/beat2013/!svn/ver/747/trunk/beat/com/application/services/post.php
+END
+brand.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/beat2013/!svn/ver/850/trunk/beat/com/application/services/brand.php
+END
+notification.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/beat2013/!svn/ver/617/trunk/beat/com/application/services/notification.php
+END

@@ -1,0 +1,161 @@
+<script src="jquery-1.8.2.js" ></script>
+<script src="jquery.form.js" ></script>
+
+<h1>REGISTER ENTORAGE SANDBOX</h1>
+<div style="padding:10px;border-collapse:collapse;">
+<button class="tombolaja" >LOGIN </button>
+<button id="checkreferral" >CHECK REFERRAL</button>
+<button id="endsession" >END SESSION</button>
+</div>
+
+	SEARCH ENTOURAGE
+<div style="padding:10px;border-collapse:collapse;">
+	<div> EMAIL <input type="text" name="emails" id="emails" /> <button id="searchentourage" >SEARCH</button></div>
+	<div> GIID <input type="text" name="giidnumbers" id="giidnumbers" /> <button id="searchentouragenumber" >SEARCH</button></div>
+</div>
+
+REGISTER
+<form class="former" id="registerent" action="https://beat-stg.ba-space.com/service/mop/registeruserdeduplicate" method="GET">
+				<div style="padding:10px;border-collapse:collapse;"> CAMPAIGN TYPE 
+					<br />
+					<input type="checkbox" name="ctypes" value="on" checked /> standard type [ grey marker ]
+					<br />
+					<input type="checkbox" name="ctypeu" value="on" checked /> update type  [ yellow marker ]
+				</div>
+			 <div style="padding:10px;border-collapse:collapse;"> TYPE OF REGISTER 
+				<select name="types" id="types">
+						<option value="registeruserdeduplicate" > DEDUPLICATION </option> 
+						<option value="registeruser" > REGISTER </option> 								
+						<option value="changeuserprofile" > UPDATE </option> 
+				</select>
+			  </div> 
+				<div style="padding:10px;border-collapse:collapse;">    	SESSION ID <input type="text" name="sessionid" /></div>
+				<div style="padding:10px;border-collapse:collapse;">    	REGISTER ID <input type="text" name="registerid" /></div>
+				<div style="padding:10px;border-collapse:collapse;">   	NAME <input type="text" name="name" /></div>
+				<div style="padding:10px;border-collapse:collapse;">   	LASTNAME <input type="text" name="lastname" /></div>
+				<div style="padding:10px;border-collapse:collapse;">  	NICKNAME <input type="text" name="nickname" /></div>
+				<div style="padding:10px;border-collapse:collapse;">   	EMAIL <input type="text" name="email" /></div>
+				<div style="padding:10px;border-collapse:collapse;">  	IMAGE <input type="file" name="img" /></div>
+				<div style="padding:10px;border-collapse:collapse;">  	CITY 
+						<select name="city" >
+								<option value="471" > JAKARTA </option>
+								<option value="471" > JAKARTA TIMUR </option>
+								<option value="471" > JAKARTA BARAT </option>
+								<option value="471" > JAKARTA PUSAT </option>
+								<option value="471" > JAKARTA SELATAN </option>
+								<option value="471" > JAKARTA UTARA </option>
+						</select>
+				</div>
+				<div style="padding:10px;border-collapse:collapse;">    	STATE  <select name="state" >
+								<option value="033" > INDONESIA </option>   
+							</select> 
+				</div>
+				<div style="padding:10px;border-collapse:collapse;">    GIID NUMBER <input type="text" name="giidnumber" /></div>
+				<div style="padding:10px;border-collapse:collapse;">   GIID TYPE <input type="text" name="giidtype" value="K" /></div>
+				<div style="padding:10px;border-collapse:collapse;">  COMPANY MOBILE <input type="text" name="companymobile" value="ST1" /></div>
+				<div style="padding:10px;border-collapse:collapse;">   GENDER 
+							<input type="radio" name="sex" value="Male" checked /> MALE 
+							<input type="radio" name="sex" value="Female" /> FEMALE</div>
+				<div style="padding:10px;border-collapse:collapse;">    BIRTHDAY <input type="text" name="birthday" /> dd/mm/yyyy</div>
+				<div style="padding:10px;border-collapse:collapse;">  PHONE NUMBER <input type="text" name="phone_number" /></div>
+				<div style="padding:10px;border-collapse:collapse;">   	BRAND 1 <input type="radio" name="Brand1_ID" value="0004" /> AMILD </div>
+				<div style="padding:10px;border-collapse:collapse;">   	BRAND SUB 1 
+							<input type="radio" name="Brand1SUB_ID" value="F/M/Z" checked  /> FILTER 
+							<input type="radio" name="Brand1SUB_ID" value="F/M/Z" /> MENTHOL 
+				</div>
+				<div style="padding:10px;border-collapse:collapse;">   <input type="hidden" value="1" name="register"></div>
+				<div style="width:50%;height:100%;overflow:auto;float:right;position:fixed;top:0;right:0;padding:10px;border-collapse:collapse;border:1px solid"> 
+					<span >OUTPUT</span>
+					<p id="kluardisini" ></p>
+				</div> 
+				  <input type="submit" value="register">
+			</form>
+<div class="initargetdivnya" ></div>
+
+
+<script>
+var basedomain = "https://beat-stg.ba-space.com/service/";
+	var updateoptions = {
+						dataType : "html",
+						beforeSubmit: function(data) { 
+										$('#kluardisini').html("<blink>loading please wait</blink>");
+							},
+						success : function(data) {									
+									 $('#kluardisini').html("<p>"+data+"</p>");
+						}
+					};					
+					
+
+$("#registerent").ajaxForm(updateoptions );
+
+
+$(document).on('change','#types',function(){
+		var types = $(this).val();
+		
+		$("#registerent").attr("action",basedomain+"mop/"+types);
+		
+});
+		
+
+
+$(document).on('click','.tombolaja',function(){
+	
+		$('#kluardisini').html("<blink>loading please wait</blink>");
+		$.get(basedomain+'mop/login',function(data){
+			
+			 $('#kluardisini').html("<p>"+data+"</p>");
+
+		} ,"html");
+		
+		});
+		
+		
+$(document).on('click','#checkreferral',function(){
+	
+			$('#kluardisini').html("<blink>loading please wait</blink>");
+		$.get(basedomain+'mop/checkreferral',function(data){
+			
+			 $('#kluardisini').html("<p>"+data+"</p>");
+		},"html");
+		
+	});
+
+
+$(document).on('click','#endsession',function(){
+	
+			$('#kluardisini').html("<blink>loading please wait</blink>");
+		$.get(basedomain+'mop/endsessionmop',function(data){
+			
+			 $('#kluardisini').html("<p>"+data+"</p>");
+		} ,"html");
+		
+	});	
+		/*
+		$.post('http://preview.kanadigital.com/beat2013/service/post/upload',{upload:'video',url:'http://www.youtube.com/watch?v=q68s6JMXD88',type:3,title:'ini coba dari api',desc:'ini description nya',brief:'ini bref nya'}, function(data){
+			
+			if(data) $('.initargetdivnya').append('success' />
+			else $('.initargetdivnya').append('gagl' />
+		},"JSON" />
+		*/
+
+
+$(document).on('click','#searchentourage',function(){
+	var emails = $("#emails").val();
+		$('#kluardisini').html("<blink>loading please wait</blink>");
+	$.post(basedomain+'mop/searchuser',{email:emails},function(data){
+		
+			 $('#kluardisini').html("<p>"+data+"</p>");
+		
+		},"html");
+	});
+
+$(document).on('click','#searchentouragenumber',function(){
+	var giidnumber = $("#giidnumbers").val();
+		$('#kluardisini').html("<blink>loading please wait</blink>");
+	$.post(basedomain+'entourage/checkgiid',{giidnumber:giidnumber},function(data){
+		
+			  $('#kluardisini').html("<p>"+data+"</p>");
+		
+		},"html");
+	});
+</script>

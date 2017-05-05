@@ -1,0 +1,319 @@
+<script src="jquery-1.8.2.js" ></script>
+<script src="jquery.form.js" ></script>
+
+<h1>PUSH SANDBOX</h1>
+ <div>
+username <input type="text" value="" name="usernamelogin" class="usernamelogin" /><br />
+				password	<input type="text" value="" name="passwordlogin" class="passwordlogin" />
+<button class="tombolaja" >LOGIN </button>
+</div>
+<h2>Add Friend</h2>
+	 <div>
+				
+				friend id <input type="text" value="" name="fid" class="fidaddfriend" ><br />
+				friend type	<select name="ftype" class="ftypeaddfriend" >
+						<option value="0" >entourage</option>
+						<option value="1" >Brand Ambasador</option>
+												
+					</select>
+				<button class="addfriendtome" >ADD</button>
+				</div>
+<form method="POST" enctype="multipart/form-data" id = "poster" action="https://beat-stg.ba-space.com/service/push">
+ <h2>push Type</h2>
+	 <div>
+					<select name="pushtype" class="pushtype">
+						<option value="" >- choosse firdsts -</option>
+						<option value="comment" >comment</option>
+						<option value="emoticon" >emoticon</option>
+						<option value="checkin" >checkin</option>
+						<option value="friendTags" >friend Tags</option>
+						<option value="friendUnTags" >friend Un Tags</option>
+												
+					</select>
+				</div>
+	<h2>Search Venue </h2>
+	<div>
+					<input type="text" value="" name="venue"  id="venue">
+					<input type="hidden" value="" name="venuerefid"  id="venuerefid">
+					<input type="text" value="-6.273836,106.820828" name="coor"  id="coordinate"><a id="venuesearch" href="javascript:void(0)" >search</a>
+					<select name="venueid" id="venueid">
+						<option value="" >-</option>
+					</select>
+				</div>
+	<h2>Add Venue </h2>
+	<div>
+					<a id="addvenue"  href="javascript:void(0)">Add venue</a>
+					<span id="msgaddvenue"></span>
+				</div>
+	<h2>PLOAD PHOTO </h2>
+	<input type="file" name="image" >
+	<h2>submit rating </h2>
+	<div>	
+			<div>
+			overall <select name="rating" >
+					<option value="1" >1 star</option>
+					<option value="2" >2 star</option>
+					<option value="3" >3 star</option>
+					<option value="4" >4 star</option>
+					<option value="5" >5 star</option>
+					
+				</select>
+			</div>
+			<div>
+			prize <select name="prize" >
+					<option value="1" >1 rupiah</option>
+					<option value="2" >2 rupiah</option>
+					<option value="3" >3 rupiah</option>
+					<option value="4" >4 rupiah</option>
+					<option value="5" >5 rupiah</option>
+					
+				</select>
+			</div>
+			<div>
+			wifi <select name="wifi" >
+					<option value="0" >no wifi</option>
+					<option value="1" >wifi</option>				
+				</select>
+			</div>
+			<div>
+			smoking <select name="smoking" >
+					<option value="0" >no smoking</option>
+					<option value="1" >smoking</option>				
+				</select>
+			</div>
+	</div>
+    <h2>comment </h2>
+	<div>
+					<input type="text" value="" name="comment" >
+				</div>
+	 <h2>emoticon</h2>
+	 <div>
+					<select name="emoid" >
+						<option value="0" >tooth smile</option>
+						<option value="1" >smile</option>
+						<option value="2" >straight face</option>
+						<option value="3" >boring</option>
+						<option value="4" >not interest</option>
+						
+					</select>
+				</div>
+	<h2>Add Friend Tags search</h2>
+	 <div>
+				<input type="text" value="" name="keywords" class="keywordsfriends">
+				friend type	<select name="searchfriend" id="searchfriend" >
+						<option value="" >-pick friend -</option>
+						
+												
+					</select>
+				</div>
+	<h2>Added Friend</h2>
+	 <div>
+				<span class="listfriends">
+					<input type="text" value="" name="fid" class="fid">
+					<input type="text" value="" name="ftype" class="ftype">
+				</span>
+	</div>
+	<h2>Add Friend Tags</h2>
+	 <div>
+				<!--
+				friend id <input type="text" value="" name="fid" >
+				friend type	<select name="ftype" >
+						<option value="0" >entourage</option>
+						<option value="1" >Brand Ambasador</option>
+												
+					</select>
+				-->
+				</div>
+	 <h2>CONTENT </h2>
+	 <div>
+					<input type="text" value="" name="cid" >
+				</div>
+				<div style="width:50%;height:100%;overflow:auto;float:right;position:fixed;top:0;right:0;padding:10px;border-collapse:collapse;border:1px solid"> 
+					<span >OUTPUT</span>
+					<p id="kluardisini" ></p>
+				</div> 
+
+	
+<div>
+		<input type="submit" value="postit" />
+		</div>
+			
+</form>
+
+<script>
+
+//var basedomain = "http://localhost/beat_2013/trunk/beat/service/";
+//var basedomain = "http://localhost/beatphi2013/trunk/beat/service/";
+var basedomain = "https://beat-stg.ba-space.com/service/";
+
+$(document).ready(function(){
+$('.fid').val('');
+ $('.ftype').val('');
+	$.post(basedomain+'my/friends',function(data){
+		var friendslist = "";
+		if(data.result){
+		friendslist = getfriends(data.data);
+		}
+		
+		$("#searchfriend").html(friendslist);
+		
+		
+	},"JSON");
+
+});
+
+
+$(document).on('click','.addfriendtome',function(){
+	var fidaddfriend=$(".fidaddfriend").val();
+	var ftypeaddfriend = $(".ftypeaddfriend").val();
+		$('#kluardisini').html("<blink>loading please wait</blink>");
+	$.post(basedomain+'friends/add',{fid:fidaddfriend,ftype:ftypeaddfriend},function(data){
+		
+			 $('#kluardisini').html("<p>"+data+"</p>");
+			 		
+	},"JSON");
+
+});
+
+
+
+$(document).on('click','#addvenue',function(){
+	var coordinate=$("#coordinate").val();
+	var keywords = $("#venue").val();
+	var venueid = $("#venueid").val();
+	$.post(basedomain+'venue/add',{venueid:venueid,keywords:keywords,coor:coordinate},function(data){
+			var msg = "gagal";
+		if(data.result) {
+			msg = "success";		
+			$("#venueid").html("<option value='"+data.venueid+"' selected >"+data.venuename+"</option>");
+			$("#venuerefid").val(data.venuerefid)
+		}
+		$("#msgaddvenue").html(msg);
+	},"JSON");
+
+});
+
+
+
+$(document).on('click','#venuesearch',function(){
+	var coordinate=$("#coordinate").val();
+		var keywords = $("#venue").val();
+	$.post(basedomain+'venue/search',{coor:coordinate,keywords:keywords},function(data){
+	
+		html ="";
+			$.each(data,function(i,e){
+					html+="<option value='"+e.id+"' >"+e.venuename+", "+e.provinceName+"</option>";			
+			});
+		
+		
+		$("#venueid").html(html);
+	},"JSON");
+
+});
+
+	var updateoptions = {
+						dataType:"html",
+						beforeSubmit: function(data) { 
+									$('#kluardisini').html("<blink>loading please wait</blink>");
+							},
+						success : function(data) {									
+								 $('#kluardisini').html("<p>"+data+"</p>");
+						}
+					};					
+					
+
+$("#poster").ajaxForm(updateoptions);
+
+$(document).on('change','.pushtype',function(){
+
+$("#poster").attr('action',basedomain+"push/"+$(this).val());
+
+});
+
+$(document).on('click','.tombolaja',function(){
+		var username = $('.usernamelogin').val();
+		var password = $('.passwordlogin').val();
+			$('#kluardisini').html("<blink>loading please wait</blink>");
+		$.get(basedomain+'login/account',{username:username,password:password},function(data){
+			
+			 $('#kluardisini').html("<p>"+data+"</p>");
+
+		},"html");
+		
+		
+		/*
+		$.post('http://preview.kanadigital.com/beat2013/service/post/upload',{upload:'video',url:'http://www.youtube.com/watch?v=q68s6JMXD88',type:3,title:'ini coba dari api',desc:'ini description nya',brief:'ini bref nya'}, function(data){
+			
+			if(data) $('.initargetdivnya').append('success');
+			else $('.initargetdivnya').append('gagl');
+		},"JSON");
+		*/
+		
+		
+
+})
+
+$(document).on('change','#searchfriend',function(){
+
+	var addedfriends = $(this).val();
+	 
+	// get last friend list  strings
+	
+	var fidstr = $('.fid').val();
+	var ftypestr = $('.ftype').val();
+	
+	var arrfid = [];
+	var arrftype = [];
+	if(fidstr!=''){
+		arrfid = fidstr.split(',');	
+	}
+	
+	if(ftypestr!=''){
+		arrftype = ftypestr.split(',');	
+	}
+	
+	if(addedfriends!=''){
+		
+		var newaddedfriends = addedfriends.split('_');
+		
+		arrfid.push(newaddedfriends[0]);
+		arrftype.push(newaddedfriends[1]);	
+		
+		
+		
+	}
+	
+	$('.fid').val(arrfid);
+	$('.ftype').val(arrftype);
+	
+	$('#kluardisini').html("<p> fid "+$('.fid').val()+"</p><p> ftype "+$('.ftype').val()+"</p>");
+	
+});
+
+
+
+	function getfriends(data){
+		var html = "";
+		$.each(data,function(i,e){
+			html+="<option value='"+e.id+"_"+e.ftype+"' >"+e.name+" "+e.last_name+"</option>";
+		});
+
+		return html;
+	}
+	
+	$(document).on('keyup','.keywordsfriends',function(){
+	var keywords = $(this).val();
+	$.post(basedomain+'friends/search',{keywords:keywords},function(data){
+		var friendslist = "";
+			if(data.result){
+			friendslist = getfriends(data.result);
+			}
+		
+		$("#searchfriend").html(friendslist);
+		
+		
+	},"JSON");
+
+})
+
+</script>

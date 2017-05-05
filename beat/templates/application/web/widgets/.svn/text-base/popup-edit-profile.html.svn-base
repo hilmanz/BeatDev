@@ -1,0 +1,101 @@
+
+<link rel="stylesheet" href="{$basedomain}assets/css/jquery.Jcrop.css" type="text/css" />
+<div class="popup">
+	<div class="popupContainer" id="popup-editProfile">
+        <div class="popupContent">
+        	<div class="popupHead">
+                <div class="the-title">
+                    <h2 class="icon icon_smile"><span>Profile Update</span></h2>
+                </div>
+            </div>
+                
+				<div class="row">
+				<h2>Photo Profile </h2>
+					<form method="POST" enctype="multipart/form-data" id = "updatePhotoForm" action="{$basedomain}my/photo/set">
+						<div id="previewPhotoProfile" style="overflow:hidden;width:213px;height:213px;padding:0"> 	
+							<img id="preview" src="{$basedomain}public_assets/user/photo/{if $userprofile.imgoriginal}{$userprofile.imgoriginal}{else}{if $userprofile.img}{$userprofile.img}{else}default.jpg{/if}{/if}">
+						</div>
+						<div class="up_foto">
+							<i>{$locale.ukuranfile}</i>
+                        	<div class="row">
+                                <label for="img">Upload Image&nbsp;</label>
+                                <input type="file" name="myImage" id="file" value="" class="uploadphotoprofile" >
+                            </div>
+						</div>
+               
+					</form>
+				<form id = "updateThumbPhotoForm" action="{$basedomain}my/photo/crop" method="POST">
+				<input type="hidden" id="x" name="x" />
+				<input type="hidden" id="y" name="y" />
+				<input type="hidden" id="w" name="w" />
+				<input type="hidden" id="h" name="h" />
+				<input type="hidden" name="imageFilename" class = "imageFilename" value="{if $userprofile.imgoriginal}{$userprofile.imgoriginal}{else}{if $userprofile.img}{$userprofile.img}{else}default.jpg{/if}{/if}" />
+				<input type="submit" name="upload_thumbnail" value="SIMPAN PHOTO" class="dosimpan" />
+				</form>
+				<div><span class="msg-upload-foto"></span></div>
+                </div>
+				
+				<form method="POST" id="formLogin" action="{$basedomain}my/setting">
+				{*}<div class="row">				
+				<h2>EMAIL </h2>
+					<input type="text" value="{$userprofile.email}" onfocus="if(this.value=='Email')this.value='';" onblur="if(this.value=='')this.value='Email';">
+				</div>
+				<div class="row">
+				<h2>GENRE </h2>
+					<input type="text" value="{$userprofile.sex}" onfocus="if(this.value=='Sex')this.value='';" onblur="if(this.value=='')this.value='Sex';">
+				</div>
+				<div class="row">
+				<h2>BIRTHDAY </h2>
+					<input type="date" id="birthday" name="birthday" size="20" value="{$userprofile.birthday}" onfocus="if(this.value=='Birthday')this.value='';" onblur="if(this.value=='')this.value='Birthday';"/> <i>&nbsp;*YY/MM/DD</i>
+				</div>
+				<div class="row">
+				<h2>STREET NAME </h2>
+					<input type="text" value="{$userprofile.streetname}" onfocus="if(this.value=='Street Name')this.value='';" onblur="if(this.value=='')this.value='Street Name';">
+				</div>
+				{/*}
+				<div class="row">
+				<h2>INFLUENCER </h2>
+					<input type="text" value="{$userprofile.influencer}" onfocus="if(this.value=='Influencer')this.value='';" onblur="if(this.value=='')this.value='Influencer';" name="influencer" >
+				</div>				
+				 <div class="row">
+				<h2>ABOUT ME </h2>
+                	<textarea onfocus="if(this.value=='Description')this.value='';" onblur="if(this.value=='')this.value='Description';" id="cband-profile" name="description" type="text">{$userprofile.description}</textarea>
+				</div>
+                 <div class="row">
+                	<input type="hidden" name="update" value="1" />
+                	<input type="hidden" name="tokenize" value="{$tokenize}" />
+                	<input name="submit" type="Submit" value="Update">
+                </div>	
+                </form>
+                <!--widget di dalam act => -->
+        </div><!-- END .popupContent -->
+    </div><!-- END .popupContainer -->
+</div><!-- END .popup -->
+
+	
+<script >
+var basedomain = '{$basedomain}';
+var notification = '{$locale.addpicturefailed}';
+	{literal}	
+	
+			$(document).on("click",".editprofile" , function(){
+				cropperOpt =new Object();
+				cropperOpt = {
+					 imageForm : '#updatePhotoForm',
+					 imageThumbForm : '#updateThumbPhotoForm',
+					 previewPhotoProfile : "#previewPhotoProfile",
+					 photoProfile : "#photoProfile",
+					 imageFilename : ".imageFilename",
+					 smallthumb : ".smallthumb",
+					 imageCropPath : 'public_assets/user/photo/',
+					 msgNotif : notification,
+					 saveButton : ".dosimpan",
+					 autoSize : [0,0,213,213]
+					};			
+				cropperHelper(cropperOpt);
+			
+			});
+
+		</script>
+
+{/literal}

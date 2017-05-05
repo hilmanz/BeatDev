@@ -1,0 +1,641 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/beat2013/!svn/ver/919/trunk/beat/templates/application/web/widgets
+END
+inbox-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/899/trunk/beat/templates/application/web/widgets/inbox-detail.html
+END
+my-activity.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/my-activity.html
+END
+register-user-permission-lists.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/beat2013/!svn/ver/242/trunk/beat/templates/application/web/widgets/register-user-permission-lists.html
+END
+popup-add-group.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-add-group.html
+END
+edit-user_backup.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/674/trunk/beat/templates/application/web/widgets/edit-user_backup.html
+END
+create-brand.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/919/trunk/beat/templates/application/web/widgets/create-brand.html
+END
+acquisition-chart.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/beat2013/!svn/ver/863/trunk/beat/templates/application/web/widgets/acquisition-chart.html
+END
+newest-post.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/newest-post.html
+END
+my-gallery-all.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/my-gallery-all.html
+END
+send-badge.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/690/trunk/beat/templates/application/web/widgets/send-badge.html
+END
+article-pages-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/article-pages-list.html
+END
+entourage-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/899/trunk/beat/templates/application/web/widgets/entourage-detail.html
+END
+sidebar-widget.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/899/trunk/beat/templates/application/web/widgets/sidebar-widget.html
+END
+detail-plan.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/beat2013/!svn/ver/899/trunk/beat/templates/application/web/widgets/detail-plan.html
+END
+my-calendar.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/my-calendar.html
+END
+create-dj.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/create-dj.html
+END
+article-calendar-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/article-calendar-list.html
+END
+social-activity.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/social-activity.html
+END
+popup-my-wallpaper.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-my-wallpaper.html
+END
+mypages-calendar.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/mypages-calendar.html
+END
+edit-plan.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/872/trunk/beat/templates/application/web/widgets/edit-plan.html
+END
+popular-tags.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popular-tags.html
+END
+create-user.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/beat2013/!svn/ver/843/trunk/beat/templates/application/web/widgets/create-user.html
+END
+featured-article.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/featured-article.html
+END
+event-review.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/event-review.html
+END
+popup-inbox.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-inbox.html
+END
+weekly-popular.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/weekly-popular.html
+END
+challengehashtag-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/beat2013/!svn/ver/91/trunk/beat/templates/application/web/widgets/challengehashtag-detail.html
+END
+popup-edit-pages.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-edit-pages.html
+END
+profile-edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/909/trunk/beat/templates/application/web/widgets/profile-edit.html
+END
+popup-edit-profile.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-edit-profile.html
+END
+my-circle.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/my-circle.html
+END
+register-user-permission.html
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/beat2013/!svn/ver/242/trunk/beat/templates/application/web/widgets/register-user-permission.html
+END
+reject-reason-plan.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/beat2013/!svn/ver/92/trunk/beat/templates/application/web/widgets/reject-reason-plan.html
+END
+slider-news.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/slider-news.html
+END
+article-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/article-list.html
+END
+article-images-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/article-images-list.html
+END
+balatest-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/beat2013/!svn/ver/899/trunk/beat/templates/application/web/widgets/balatest-detail.html
+END
+create-brand-cover.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/beat2013/!svn/ver/868/trunk/beat/templates/application/web/widgets/create-brand-cover.html
+END
+upload-image.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/upload-image.html
+END
+slider-default.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/slider-default.html
+END
+approve-plan.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/919/trunk/beat/templates/application/web/widgets/approve-plan.html
+END
+edit-merchandise.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/726/trunk/beat/templates/application/web/widgets/edit-merchandise.html
+END
+inbox-box.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/866/trunk/beat/templates/application/web/widgets/inbox-box.html
+END
+article-media-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/article-media-list.html
+END
+popup-upload-photo.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-upload-photo.html
+END
+age-relevancy.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/beat2013/!svn/ver/863/trunk/beat/templates/application/web/widgets/age-relevancy.html
+END
+my-gallery.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/my-gallery.html
+END
+popup-create-event.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-create-event.html
+END
+create-merchandise.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/beat2013/!svn/ver/726/trunk/beat/templates/application/web/widgets/create-merchandise.html
+END
+popup-article-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-article-detail.html
+END
+message-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/382/trunk/beat/templates/application/web/widgets/message-detail.html
+END
+create-message.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/887/trunk/beat/templates/application/web/widgets/create-message.html
+END
+playlist-songs.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/playlist-songs.html
+END
+pages-activity.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/pages-activity.html
+END
+a360-activity-home.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/a360-activity-home.html
+END
+popup_messages.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/beat2013/!svn/ver/95/trunk/beat/templates/application/web/widgets/popup_messages.html
+END
+add-permission-user.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/beat2013/!svn/ver/242/trunk/beat/templates/application/web/widgets/add-permission-user.html
+END
+popup-mypages-wallpaper.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-mypages-wallpaper.html
+END
+register-user-lists.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/beat2013/!svn/ver/909/trunk/beat/templates/application/web/widgets/register-user-lists.html
+END
+popup-messagebox.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-messagebox.html
+END
+upcoming-event.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/upcoming-event.html
+END
+edit-user.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/909/trunk/beat/templates/application/web/widgets/edit-user.html
+END
+popup-unverified.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-unverified.html
+END
+gender.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/beat2013/!svn/ver/863/trunk/beat/templates/application/web/widgets/gender.html
+END
+edit-venue.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/484/trunk/beat/templates/application/web/widgets/edit-venue.html
+END
+lates-engagement-box.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/beat2013/!svn/ver/899/trunk/beat/templates/application/web/widgets/lates-engagement-box.html
+END
+shorter-filter.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/shorter-filter.html
+END
+my-wallpaper.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/my-wallpaper.html
+END
+comment-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/comment-list.html
+END
+news-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/news-detail.html
+END
+challenge-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/866/trunk/beat/templates/application/web/widgets/challenge-detail.html
+END
+detail-challenge.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/beat2013/!svn/ver/27/trunk/beat/templates/application/web/widgets/detail-challenge.html
+END
+venue-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/139/trunk/beat/templates/application/web/widgets/venue-detail.html
+END
+medium-banner.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/medium-banner.html
+END
+edit-profile.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/909/trunk/beat/templates/application/web/widgets/edit-profile.html
+END
+create-challenge.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/866/trunk/beat/templates/application/web/widgets/create-challenge.html
+END
+user-statistic.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/user-statistic.html
+END
+module-permission-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/beat2013/!svn/ver/242/trunk/beat/templates/application/web/widgets/module-permission-list.html
+END
+search-event.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/search-event.html
+END
+change-password.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/beat2013/!svn/ver/909/trunk/beat/templates/application/web/widgets/change-password.html
+END
+edit-badge.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/690/trunk/beat/templates/application/web/widgets/edit-badge.html
+END
+line-chart.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/863/trunk/beat/templates/application/web/widgets/line-chart.html
+END
+invite-plan.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/beat2013/!svn/ver/143/trunk/beat/templates/application/web/widgets/invite-plan.html
+END
+popup-post.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-post.html
+END
+side-banner.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/side-banner.html
+END
+brand-preference-relevancy.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/beat2013/!svn/ver/863/trunk/beat/templates/application/web/widgets/brand-preference-relevancy.html
+END
+mypages-wallpaper.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/mypages-wallpaper.html
+END
+my-contest-submission.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/my-contest-submission.html
+END
+create-plan.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/beat2013/!svn/ver/919/trunk/beat/templates/application/web/widgets/create-plan.html
+END
+my-profie-box.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/beat2013/!svn/ver/339/trunk/beat/templates/application/web/widgets/my-profie-box.html
+END
+list-categories.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/list-categories.html
+END
+add-modules.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/beat2013/!svn/ver/242/trunk/beat/templates/application/web/widgets/add-modules.html
+END
+navigation.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/900/trunk/beat/templates/application/web/widgets/navigation.html
+END
+profile-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/909/trunk/beat/templates/application/web/widgets/profile-detail.html
+END
+monthly-calendar.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/monthly-calendar.html
+END
+upload-pages-image.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/upload-pages-image.html
+END
+my-inbox.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/beat2013/!svn/ver/240/trunk/beat/templates/application/web/widgets/my-inbox.html
+END
+my-favorite.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/my-favorite.html
+END
+entourage-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/868/trunk/beat/templates/application/web/widgets/entourage-list.html
+END
+create-badge.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/919/trunk/beat/templates/application/web/widgets/create-badge.html
+END
+popup-email-setting.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/popup-email-setting.html
+END
+latest-news.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/latest-news.html
+END
+challenge-hashtag-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/beat2013/!svn/ver/834/trunk/beat/templates/application/web/widgets/challenge-hashtag-list.html
+END
+slider-header.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/widgets/slider-header.html
+END
+edit-brand.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/868/trunk/beat/templates/application/web/widgets/edit-brand.html
+END

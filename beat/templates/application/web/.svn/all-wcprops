@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/beat2013/!svn/ver/921/trunk/beat/templates/application/web
+END
+landing.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/landing.html
+END
+login_message.html
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/beat2013/!svn/ver/691/trunk/beat/templates/application/web/login_message.html
+END
+footer.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/beat2013/!svn/ver/6/trunk/beat/templates/application/web/footer.html
+END
+forgotpassword.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/beat2013/!svn/ver/777/trunk/beat/templates/application/web/forgotpassword.html
+END
+message.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/message.html
+END
+register.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/beat2013/!svn/ver/2/trunk/beat/templates/application/web/register.html
+END
+meta.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/beat2013/!svn/ver/880/trunk/beat/templates/application/web/meta.html
+END
+header.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/beat2013/!svn/ver/339/trunk/beat/templates/application/web/header.html
+END
+home.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/beat2013/!svn/ver/887/trunk/beat/templates/application/web/home.html
+END
+login.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/beat2013/!svn/ver/887/trunk/beat/templates/application/web/login.html
+END
+master.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/beat2013/!svn/ver/923/trunk/beat/templates/application/web/master.html
+END

@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="{$basedomain}assets/css/jquery.Jcrop.css" type="text/css" />
+<div class="popup">
+	<div class="popupContainer" id="popup-upload-mywallpaper">
+		<div class="imgContentPorfile"> 			
+        	<div class="popupHead">
+                <div class="the-title">
+                    <h2 class="icon icon_smile"><span>Cover Update</span></h2>
+                </div>
+            </div>
+			<div class="row">
+					<form method="POST" enctype="multipart/form-data" id = "updatePhotoCoverForm" action="{$basedomain}my/cover/upload">
+						<div id="previewCoverPhotoProfile" style="overflow:hidden;width:670px;height:285px"> 	
+							<img id="preview" src="{$basedomain}public_assets/user/cover/{if $my_wallpaper.imgoriginal}{$my_wallpaper.imgoriginal}{else}{if $my_wallpaper.image}{$my_wallpaper.image}{else}default.jpg{/if}{/if}">
+						</div>
+						<div class="up_foto">
+							
+                        	<div class="row">
+                                <label for="img">Upload Image&nbsp;</label>
+                                <input type="file" name="myImage" id="file" value="" class="uploadphotoprofile" >
+                            </div>
+						</div>
+               
+					</form>
+				<form id = "updateThumbCoverPhotoForm" action="{$basedomain}my/cover/crop" method="POST">
+				<input type="hidden" id="x" name="x" />
+				<input type="hidden" id="y" name="y" />
+				<input type="hidden" id="w" name="w" />
+				<input type="hidden" id="h" name="h" />
+				<input type="hidden" name="imageFilename" class = "imageFilenameCover" value="{if $my_wallpaper.imgoriginal}{$my_wallpaper.imgoriginal}{else}{if $my_wallpaper.image}{$my_wallpaper.image}{else}default.jpg{/if}{/if}"/>
+				<input type="hidden" name="typeofimage" class = "typeofimage" value="{if $my_wallpaper.coverfolder}{$my_wallpaper.coverfolder}{/if}" />
+				<input type="submit" name="upload_thumbnail" value="SIMPAN PHOTO" class="dosimpan" />
+				</form>
+				<div><span class="msg-upload-cover"></span></div>
+                </div>
+		</div><!-- END .imgContentPorfile -->
+	</div>
+</div>
+	
+<script >
+var basedomain = '{$basedomain}';
+var localepilihfoto = "choose photo";
+var notification = '{$locale.addpicturefailed}';
+	{literal}	
+	$(document).on("click",".editcover" , function(){
+		cropperOpt =new Object();
+		cropperOpt = {
+			 imageForm : '#updatePhotoCoverForm',
+			 imageThumbForm : '#updateThumbCoverPhotoForm',
+			 previewPhotoProfile : "#previewCoverPhotoProfile",
+			 photoProfile : "#photoCover",
+			 imageFilename : ".imageFilenameCover",
+			 smallthumb :false,
+			 imageCropPath : 'public_assets/user/cover/',
+			 msgNotif : notification,
+			 saveButton : ".dosimpan",
+				autoSize : [0,0,670,285]
+			};
+		cropperHelper(cropperOpt);	
+	});
+				
+	
+</script>
+{/literal}

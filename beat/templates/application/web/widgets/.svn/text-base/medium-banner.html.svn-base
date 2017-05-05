@@ -1,0 +1,22 @@
+ <li class="col2">
+      <div class="mediumBanner">
+	{section name=i loop=$banner}
+		<div class="mediumBanner">
+		<a href="{$basedomain}{if $banner[i].typeofarticlename}{$banner[i].typeofarticlename}{else}event{/if}/{$banner[i].id}" class="thumb300" >
+			{if $banner[i].thumbnail_image}<img src="{$basedomain}public_assets/banner/thumbnail_{$banner[i].thumbnail_image}" />
+			{else}
+				{if $banner[i].slider_image or $banner[i].image}
+					{if $banner[i].slider_image}
+						<img src="{$basedomain}public_assets/banner/{$banner[i].slider_image}" />				
+					{else}
+						<img src="{$basedomain}public_assets/article/{$banner[i].image}" />
+					{/if}
+				{else}
+					<img src="{$basedomain}assets/content/banner/mediumbanner.jpg" />
+				{/if}
+			{/if}
+		</a>
+		</div>
+	{/section}
+     </div>
+ </li>

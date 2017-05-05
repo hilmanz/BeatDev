@@ -1,0 +1,55 @@
+<div class="Activity_list" id="activity-list">  
+	{if $activity}   
+        {section name=i loop=$activity}
+            <div class="content_activty">
+                <div class="img_content">
+                {if $activity[i].userdetail}
+                    <a class="thumb50" href="{$basedomain}{if $user->id==$activity[i].userdetail.id}my{else}friends/{$activity[i].userdetail.id}{/if}" >
+                        <img src="{$basedomain}public_assets/user/photo/{if $activity[i].userdetail.img}{$activity[i].userdetail.img}{else}default.jpg{/if}" />
+                    </a>
+                {else}
+                    <a class="thumb50" href="{$basedomain}{if $user->id==$activity[i].userdetail.id}my{else}friends/{$activity[i].userdetail.id}{/if}" >
+                        <img src="{$basedomain}public_assets/user/photo/default.jpg" />
+                    </a>
+                {/if}
+                    
+                </div>
+                  <div class="content_detail">
+                        <p>{$activity[i].userdetail.name} 
+                        {if $activity[i].notification}
+                                                {$activity[i].notification.activities} 
+                                                {if $activity[i].contentdetail.contentType=='social'}<a href="{$basedomain}friends/{$activity[i].contentdetail.id}" >{$activity[i].notification.subjective}</a>
+                                                {else} 
+                                                        {if $activity[i].contentdetail.id}<a href="{$basedomain}{$activity[i].contentdetail.type}/{$activity[i].contentdetail.id}" >{$activity[i].notification.subjective}</a>
+                                                        {else}	<a href="javascript:void(0)" >{$activity[i].notification.subjective}</a>
+                                                        {/if}
+                                                {/if}									
+                                        {/if}
+                        
+                        </p>
+                    {if $activity[i].typeofnotification!='social'}
+                      <div class="content_action">
+                        <ul>
+                                <li><a class="icon_love" href="#">{$activity[i].contentdetail.favorite}</a></li>
+                                <li><a class="icon_comment" href="#">{$activity[i].contentdetail.commentcount}</a></li>
+                                <li><a class="icon_view" href="#">{$activity[i].contentdetail.views}</a></li>
+                                
+                            </ul>
+                        </div><!--END .content_action-->
+                        {/if}
+                </div><!--END .content_detail-->
+            </div><!-- END .content_activty -->
+        {/section}           
+    {else}
+		{if $friendid}
+		
+		{else}
+        <div class="notFound">
+            <p>{$locale.activity.user}</p>
+        </div>
+		{/if}
+    {/if}	   
+</div><!-- END .Activity_list -->
+
+
+	

@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/beat2013/!svn/ver/917/trunk/beat/templates/application/dashboard/apps
+END
+user.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/beat2013/!svn/ver/917/trunk/beat/templates/application/dashboard/apps/user.html
+END
+demographic.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/420/trunk/beat/templates/application/dashboard/apps/demographic.html
+END
+user-detail-city.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/beat2013/!svn/ver/533/trunk/beat/templates/application/dashboard/apps/user-detail-city.html
+END
+badges.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/908/trunk/beat/templates/application/dashboard/apps/badges.html
+END
+user-engagement.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/beat2013/!svn/ver/889/trunk/beat/templates/application/dashboard/apps/user-engagement.html
+END
+user-report.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/beat2013/!svn/ver/770/trunk/beat/templates/application/dashboard/apps/user-report.html
+END
+gps.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/beat2013/!svn/ver/746/trunk/beat/templates/application/dashboard/apps/gps.html
+END
+survey.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/beat2013/!svn/ver/511/trunk/beat/templates/application/dashboard/apps/survey.html
+END
+user-detail-engage.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/beat2013/!svn/ver/889/trunk/beat/templates/application/dashboard/apps/user-detail-engage.html
+END
+analytic.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/beat2013/!svn/ver/420/trunk/beat/templates/application/dashboard/apps/analytic.html
+END
+activities.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/beat2013/!svn/ver/889/trunk/beat/templates/application/dashboard/apps/activities.html
+END
+topvenue.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/beat2013/!svn/ver/889/trunk/beat/templates/application/dashboard/apps/topvenue.html
+END
+ba-dashboard.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/beat2013/!svn/ver/420/trunk/beat/templates/application/dashboard/apps/ba-dashboard.html
+END
+reporting.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/beat2013/!svn/ver/420/trunk/beat/templates/application/dashboard/apps/reporting.html
+END
+ba-rank.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/beat2013/!svn/ver/895/trunk/beat/templates/application/dashboard/apps/ba-rank.html
+END

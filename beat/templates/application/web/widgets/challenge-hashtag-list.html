@@ -1,0 +1,79 @@
+<div class="rows">
+	<div class="hastagList">
+		<table class="hastagUser" border="1px" width=100% >
+            <thead>
+            <tr>
+            <th class="header">DATE</th>
+            <th class="header">NAME</th>
+            <th class="header">BRAND</th>
+            <th class="header">CITY</th>
+            <th class="header">IMAGE</th>
+            <th class="header">POST</th>
+            <th class="header">SET WINNER</th>
+            </tr>
+            </thead>
+            <tbody>
+			 
+			{if $challengeHashtag}
+				{section loop=$challengeHashtag name=i}
+				<tr>
+					<td>{$challengeHashtag[i].posted_date}</td>
+					<td>{$challengeHashtag[i].author.name} {$challengeHashtag[i].author.last_name}</td>
+					<td>{$challengeHashtag[i].author.pagesdetail.brandid}</td>
+					<td>{$challengeHashtag[i].author.pagesdetail.name}</td>
+					<td><img src="{$challengeHashtag[i].image_full_path}" width="200px" /></td>
+					<td>{$challengeHashtag[i].title|capitalize}</td>
+					<td class="alCenter"><input type="checkbox" name="checkaswinner" class="checkaswinner" 
+					userid="{$challengeHashtag[i].author.authorid}" 
+					cid_user="{$challengeHashtag[i].id}" 
+					cid="{$challengeHashtag[i].id}" 
+					set="winner"
+					
+					/>
+					 
+					</td>
+				</tr>
+				{/section}
+			{/if}
+           
+            </tbody>
+       </table>
+      	<div class="paging" id="pagingchallengeHashtag"></div> <!-- END .paging -->
+		
+
+<div id="popup-message">
+    <h3></h3>
+    <a class="button close-popup-message" href="{$basedomain}challenge/detail/{$cidStr}">failed add winner</a>
+</div>
+<div id="bg-popups"></div>
+		
+		<script>
+			var tags = '{$tags}';
+			var total_hashtag = '{$total_hashtag}';
+			var cidStr = '{$cidStr}';
+			getpaging(0,{$total_hashtag},"pagingchallengeHashtag","paging_ajax_challengeHashtag",3);
+		</script>
+      	</div><!-- /.hastagList -->
+</div><!-- /.rows -->
+ {literal}
+	<script>
+	 $(document).on("click",".checkaswinner",function(){
+		var userid = $(this).attr('userid');
+		var cid_user = $(this).attr('cid_user');
+		var cid = $(this).attr('cid');
+		var set = $(this).attr('set'); 
+		$.post(basedomain+'challenge/setwinner',{userid:userid,cid_user:cid_user,cid:cid,set:set},function(data){
+			
+			if(data.result){
+			
+			}else{
+				    $("#bg-popups").fadeIn();
+					$("#popup-message h3").html(data);
+					$("#popup-message").fadeIn();
+					$(".close-popup-message").show();
+			}
+			
+		},"JSON");
+	 })
+	</script>
+ {/literal}

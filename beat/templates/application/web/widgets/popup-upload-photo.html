@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="{$basedomain}assets/css/jquery.Jcrop.css" type="text/css" />
+<div class="popup">
+	<div class="popupContainer" id="popup-uploadPhotoProfile">
+        <div class="popupContent">
+        	<div class="popupHead">
+                <div class="the-title">
+                    <h2 class="icon icon_smile"><span>Photo Update</span></h2>
+                </div>
+            </div>
+				
+                 <form method="POST" enctype="multipart/form-data" id = "updatePhotoForm" action="{$basedomain}my/photo/set">
+						<div id="previewPhotoProfile"> 	
+							<img id="preview" src="{$basedomain}public_assets/user/photo/{if $userprofile.img}{$userprofile.img}{else}default.jpg{/if}">
+						</div>
+						<div class="up_foto">
+							<i>Ukuran file avatar yang bisa diupload maksimum 1200 KB.</i>
+                        	<div class="row">
+                                <label for="img">Upload Image&nbsp;</label>
+                                <input type="file" name="myImage" id="file" value="" class="uploadphotoprofile" >
+                            </div>
+						</div>
+               
+                </form>
+				<form id = "updateThumbPhotoForm" action="{$basedomain}my/photo/crop" method="POST">
+				<input type="hidden" id="x" name="x" />
+				<input type="hidden" id="y" name="y" />
+				<input type="hidden" id="w" name="w" />
+				<input type="hidden" id="h" name="h" />
+				<input type="hidden" name="imageFilename" class = "imageFilename" value="{if $userprofile.img}{$userprofile.img}{else}default.jpg{/if}" />
+				<input type="submit" name="upload_thumbnail" value="SIMPAN PHOTO" class="dosimpan" />
+				</form>
+				<div><span class="msg-upload-foto"></span></div>
+                <!--widget di dalam act => -->
+        </div><!-- END .popupContent -->
+    </div><!-- END .popupContainer -->
+</div><!-- END .popup -->
+	
+	
+<script >
+var basedomain = '{$basedomain}';
+var localepilihfoto = "choose photo";
+	{literal}	
+			$(function(){
+						
+				$(".msg-upload-foto").hide();
+				$('#previewPhotoProfile #preview').Jcrop({
+									onSelect: updateCoordsProfile
+				});
+				
+				$(document).on('change','#updatePhotoForm',function(){
+				
+					$("#previewPhotoProfile").html("<img id='preview' src='' />");
+					$("#previewPhotoProfile #preview").attr('src',basedomain+'assets/images/loader.gif');
+					$(".msg-upload-foto").hide();
+					$(".msg-upload-foto").html('');
+					$(".dosimpan").val("Simpan Foto");
+				
+					$(this).submit();
+				});
+				
+				$('#updatePhotoForm').ajaxForm(function(data) { 
+						
+						if(data){
+							
+							$("#previewPhotoProfile").html("<img id='preview' src='' />");
+							$("#previewPhotoProfile #preview").attr('src',basedomain+'public_assets/user/photo/'+data);
+							$(".imageFilename").val(data);
+							$('#previewPhotoProfile #preview').Jcrop({
+										onSelect: updateCoordsProfile
+							});
+						}
+					
+				
+				});
+				var options = { 
+						success:    function(data) { 
+							
+						
+							if(data) {
+								$("#previewPhotoProfile").html("");
+							
+								$("#previewPhotoProfile").html("<img id='preview' src='' />");
+								$("#previewPhotoProfile #preview").attr('src',basedomain+'public_assets/user/photo/prev_'+data);
+							
+								$(".imageFilename").val(data);								
+															
+								$(".dosimpan").val("Tutup");						
+							
+								$('#previewPhotoProfile #preview').Jcrop({
+											onSelect: updateCoordsProfile
+								});
+							}else {
+								$("#previewPhotoProfile").html("<img id='preview' src='' />");
+								$("#previewPhotoProfile #preview").attr('src',basedomain+'public_assets/user/photo/'+data);
+								$(".msg-upload-foto").show();
+								$(".msg-upload-foto").html(localepilihfoto);
+								return false;
+							}
+				
+					} ,
+						beforeSubmit: function() { 
+										
+										$(".msg-upload-foto").hide();
+										$(".msg-upload-foto").html('');
+										$("#previewPhotoProfile").html("<img id='preview' src='' />");
+										$("#previewPhotoProfile #preview").attr('src',basedomain+'assets/images/loader.gif');
+					}
+				};
+				$('#updateThumbPhotoForm').ajaxForm(options);
+				
+				
+			
+			function updateCoordsProfile(c)
+			{
+			
+				$('#updateThumbPhotoForm #x').val(c.x);
+				$('#updateThumbPhotoForm #y').val(c.y);
+				$('#updateThumbPhotoForm #w').val(c.w);
+				$('#updateThumbPhotoForm #h').val(c.h);
+				
+			};
+			
+		
+			
+			
+});
+
+		</script>
+
+{/literal}

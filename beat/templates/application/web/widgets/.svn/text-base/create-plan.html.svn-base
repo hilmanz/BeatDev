@@ -1,0 +1,326 @@
+{literal}
+<style>
+#selectfid{width:170px}
+#selectfidbrand{width:170px}
+#selectfidarea{width:170px}
+#selectfidpl{width:170px}
+#selectfidba{width:170px}
+</style>
+{/literal}
+<div id="theContainer2" class="galleryPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox">
+                    <div class="theBox-title">
+                        <h2 class="fl">Create {$plantypes} Plan
+						  <!--  Create {if $user->leaderdetail->type>=5}CO-CREATION{/if}  Plan -->
+						</h2>
+                    </div><!-- /.theBox-title -->
+                    <div class="theBox-content">
+                        <div class="forms">
+                            <form id="create-challenge" method="POST" action="{$basedomain}plan/create" enctype="multipart/form-data" >
+							
+                                <div class="rows2">
+                                    <label>Plan Name</label>
+                                    <input type="text" name="title" class="full-width"/>
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Date</label>
+                                    <input type="text" name="posted_date" class="half-width" id="datepicker">
+                                    <label class="label2">Time</label>
+                                    <input type="text" class="half-width" name="times" id="inputTimes">
+                                </div><!-- /.rows2 -->
+                                <div class="rows2">
+                                    <label>Venue</label>
+                                    <input type="text" name="brief" class="full-width"/>
+                                </div><!-- /.rows2 -->
+								{if  $branduser}
+								<div class="rows2">
+								<label>Brand</label>
+								 <select type="text" name="fidbrand" class="brandpicker styled"  >
+										<option value="0" > Pick Recipient </option>
+										{*}
+										{foreach from=$branddetail key=k item=v}
+											<option value="{$v.ownerid}" > {$v.name} {$v.last_name} </option>
+										{/foreach}
+										{/*}
+								</select>
+								 <input type="hidden" name="ftypebrand" value="1"/>
+								 </div><!-- /.rows2 -->
+								{/if}
+							
+								{if $areauser}
+								<div class="rows2">
+								 <label >Area</label>
+								 <select type="text" name="fidarea" class="areapicker styled"  >
+										<option value="0" > Pick Recipient </option>
+										 
+								</select>
+								 <input type="hidden" name="ftypearea" value="1"/>
+								</div><!-- /.rows2 -->
+								{/if}
+					   
+								{if $pluser}
+								 <div class="rows2">
+									<label>Project Leader</label>
+								 <select type="text" name="fidpl" class="plpicker styled"   id="searchfriendpl" >
+										<option value="0" > Pick Recipient </option>
+										 
+								</select>
+								 <input type="hidden" name="ftypepl" value="1"/>
+								</div><!-- /.rows2 -->
+								{/if}
+								
+								{if $bauser}
+								 <div class="rows2">
+									<label>BA Name</label>
+									 <select type="text" name="fid" class="bapicker styled "  id="searchfriend"   >
+											<option value="0" > Pick Recipient </option>
+											 
+									</select>
+								
+								 </div><!-- /.rows2 -->
+								{/if}
+								 	 <input type="hidden" value="1" name="iscms"  >
+								 	 <input type="hidden" value="" name="recipientid" class="fid">
+									<input type="hidden" value="" name="ftype" class="ftype">
+									<input type="hidden" value="" name="fnames" class="fnames">
+									 <div id="kluardisini"></div>
+								{if $plantypes=='Co-Creation'}
+									<div class="rows2">
+										<label>Attachment **</label>
+										<input type="file" name="attachment" id="fileattachment" > 
+										<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>** The maximum attachment size is 2MB 
+										<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**The file you attach must either be .jpg/.jpeg, .pdf, .doc/.docx.
+										<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**No other file types are allowed.</i>
+										<br><br>
+									</div><!-- /.rows2 -->
+								{/if}
+                                <div class="rows2">
+                                    <label class="fl">&nbsp;</label>
+                                    <input type="button" value="Cancel"  class="button fl" onCLick="location.href='{$basedomain}plan'"/>
+                                    <input type="hidden" name="type" value="5"/>
+                                    <input type="hidden" name="categoryid" value="{if $plantypes=='Co-Creation'}2{/if}{if $plantypes=='Brand'}3{/if}"/>
+                                    <input type="hidden" name="upload" value="simpan"/>
+                                    <input type="submit" value="Save" class="button fr"  style="margin:0 30px 0 0;"/>
+                                </div><!-- /.rows2 -->
+                            </form>
+                        </div> <!-- /.forms -->
+                    </div> <!-- /.theBox-content -->
+                </div> <!-- /.theBox -->
+            </div><!-- /.col-content -->
+            <div class="col-sidebar">
+				{include file="application/web/widgets/sidebar-widget.html"}
+            </div><!-- /.col-sidebar -->
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+
+{literal}
+	<script>
+		var baid = "";
+		var plid = "";
+		var areaid = "";
+		var brandid = "";
+		$(document).ready(function(){getBrand();});
+		
+		$(document).on('change','.brandpicker', function(){
+			$(".plpicker").html("<option value='' >loading... </option>");
+			$(".bapicker").html("<option value='' >loading... </option>");
+			$(".areapicker").html("<option value='' >loading... </option>");
+			brandid = $(this).val();
+			$(".areapicker").html("<option value='' >loading... </option>");
+			getAREA();
+					
+		});
+		
+		$(document).on('change','.areapicker', function(){
+			areaid = $(this).val();
+			$(".plpicker").html("<option value='' >loading... </option>");
+			getPL();
+					
+		});
+		
+		$(document).on('change','.plpicker', function(){
+			plid = $(this).val();
+			$(".bapicker").html("<option value='' >loading... </option>");
+			getBA();
+					
+		});
+		
+		function getBA(){
+		
+			/* get BA */
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:plid,brandid:brandid,areaid:areaid,type:"sba"},  function(data){
+				//console.log(data);
+				var html ="<option value='' > Pick Recepient  </option>";
+				$.each(data, function(i,e){ 
+						html+="<option value='"+e.ownerid+"_"+e.type+"_"+e.name+"' > "+e.name+"  </option>";
+				});
+				 
+				$(".bapicker").html(html);
+			
+			},"JSON");
+		
+		}
+		
+		function getPL(){
+					
+			/* get PL */
+			$(".bapicker").html("<option value='' >loading... </option>");
+			
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:areaid,brandid:brandid,type:"pl"},  function(data){	
+				var arrplid = new Array();
+				var html ="<option value='' > Pick Recepient  </option>";
+				$.each(data, function(i,e){
+						html+="<option value='"+e.ownerid+"_"+e.type+"_"+e.name+"' > "+e.name+"  </option>";
+						arrplid.push(e.ownerid);
+				} );
+				
+				plid = arrplid.join();
+				$(".plpicker").html(html);
+				getBA();
+			},"JSON");		
+		
+		}
+		
+		function getAREA(){
+			/* get AREA */
+			$(".plpicker").html("<option value='' >loading... </option>");
+			$(".bapicker").html("<option value='' >loading... </option>");
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:brandid,type:"area"},  function(data){	
+				var arrareaid = new Array();
+				
+				var html ="<option value='' > Pick Recepient  </option>";
+				$.each(data, function(i,e){
+						html+="<option value='"+e.ownerid+"' > "+e.name+"  </option>";
+						
+						arrareaid.push(e.ownerid);
+				});
+				
+				areaid = arrareaid.join();
+				getPL();
+					
+				$(".areapicker").html(html);
+			},"JSON");
+				
+		}
+		
+		function getBrand(){
+			/* get BRAND */
+			//$(".plpicker").html("<option value='' >loading... </option>");
+			//$(".bapicker").html("<option value='' >loading... </option>");
+			//$(".areapicker").html("<option value='' >loading... </option>");
+			 
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:1,type:"brand"},  function(data){	
+				var html ="<option value='' > Pick Recepient  </option>";
+					var arrbrandid = new Array();
+				$.each(data, function(i,e){
+						html+="<option value='"+e.ownerid+"' > "+e.name+"  </option>";
+						arrbrandid.push(e.ownerid);
+				});
+				 	brandid = arrbrandid.join();
+				$(".brandpicker").html(html);
+				
+				getAREA();
+			},"JSON");
+				
+		}
+	</script>
+{/literal}
+
+
+{literal}
+<script type="text/javascript">
+	$(document).on('change','#searchfriend ,#searchfriendpl',function(){
+
+		var addedfriends = $(this).val();
+		 
+		// get last friend list  strings
+		
+		var fidstr = $('.fid').val();
+		var ftypestr = $('.ftype').val();
+		var fnames = $('.fnames').val();
+		
+		var arrfid = [];
+		var arrftype = [];
+		var arrfnames = [];
+		if(fidstr!=''){
+			arrfid = fidstr.split(',');	
+		}
+		
+		if(ftypestr!=''){
+			arrftype = ftypestr.split(',');	
+		}
+		if(fnames!=''){
+			arrfnames = fnames.split(',');	
+		}
+		
+		if(addedfriends!=''){
+			
+			var newaddedfriends = addedfriends.split('_');
+			
+			arrfid.push(newaddedfriends[0]);
+			arrftype.push(newaddedfriends[1]);	
+			arrfnames.push(newaddedfriends[2]);	
+			
+			
+			
+		}
+		
+		$('.fid').val(arrfid);
+		$('.ftype').val(arrftype);
+		$('.fnames').val(arrfnames);
+
+		var html = "";
+		$.each(arrfid,function(i,e){
+			html += "<div class='recepientdata' > - "+arrfnames[i]+" <a href='javascript:void(0)' class='clearrecipient' recipeintindex='"+i+"' >X</a></div>";
+		});
+		$('#kluardisini').html(html);
+		
+	});
+
+	$(document).on('click','.clearrecipient',function(){
+
+		var addedfriends = $(this).attr('recipeintindex');
+		
+		// get last friend list  strings
+		
+		var fidstr = $('.fid').val();
+		var ftypestr = $('.ftype').val();
+		var fnames = $('.fnames').val();
+		
+		var arrfid = [];
+		var arrftype = [];
+		var arrfnames = [];
+		if(fidstr!=''){
+			arrfid = fidstr.split(',');	
+		}
+		
+		if(ftypestr!=''){
+			arrftype = ftypestr.split(',');	
+		}
+		if(fnames!=''){
+			arrfnames = fnames.split(',');	
+		}
+		
+		if(addedfriends!=''){
+			
+			arrfid.splice(addedfriends,1);
+			arrftype.splice(addedfriends,1);
+			arrfnames.splice(addedfriends,1);	
+			
+			
+			
+		}
+		
+		$('.fid').val(arrfid);
+		$('.ftype').val(arrftype);
+		$('.fnames').val(arrfnames);
+		
+		$(this).parent('.recepientdata').empty();
+		
+	});
+</script>
+{/literal}

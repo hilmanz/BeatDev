@@ -1,0 +1,161 @@
+ {if $user}
+	<div class="widget">
+    <div id="navigation">
+		<ul class="nav">
+			{if $user->leaderdetail->type!=101}
+				<li {if $pages==home || !$pages}class="active"{else}{/if}>
+					<a href="{$basedomain}home">
+						<i class="icons icon_home"></i>
+						<span>Home</span>
+						<i class="arrow-nav"></i>
+					</a>	    				
+				</li>
+				{*}
+{if $user->leaderdetail->type!=1}				
+				<li {if $pages==inbox}class="active"{else}{/if}>			
+					<a href="{$basedomain}inbox">
+						<i class="icons icon_message"></i>
+						<span>Inbox 
+							{if $messageCount}<span class="count">{$messageCount}</span>{/if}
+						</span>
+						<i class="arrow-nav"></i>
+					</a>	    					
+				</li>
+{/if}
+{/*}
+			{/if}
+			{if $user->leaderdetail->type==1}
+			{else}
+				{if $user->leaderdetail->type<100 OR $user->leaderdetail->type==666 }
+					<li {if $pages==plan}class="active"{else}{/if}>		
+						<a href="{$basedomain}plan">
+							<i class="icons icon_calendar"></i>
+							<span>Plan</span>
+							<i class="arrow-nav"></i>
+						</a>	    		  				
+					</li>
+				{/if}
+			{/if}
+			
+			{if $user->leaderdetail->type==1}
+				{else}
+					<li {if $pages==moderation}class="active"{else}{/if}>		
+						<a href="{$basedomain}moderation">
+							<i class="icons icon_megaphone"></i>
+							<span>Moderation</span>
+							<i class="arrow-nav"></i>
+						</a>	    	   				
+					</li>
+					{if $user->leaderdetail->type==666 OR $user->email =='erwin.sugiharto@sampoerna.com'}
+
+					<li {if $pages==register}class="active"{else}{/if}>		
+						<a href="{$basedomain}register">
+							<i class="icons icon_circleattach"></i>
+							<span>Register</span>
+							<i class="arrow-nav"></i>
+						</a>	    	   				
+					</li>
+
+					{/if}
+			{/if}
+			{if $user->leaderdetail->type!=101}
+			<li {if $pages=='baperformance'}class="active"{else}{/if}>		
+				<a href="{$basedomain}baperformance">
+					<i class="icons icon_chart"></i>
+					<span>BA Performance</span>
+					<i class="arrow-nav"></i>
+				</a>	    	   				
+			</li>
+			{/if}
+			{if $user->leaderdetail->type==1}
+			{else}
+				{if $user->leaderdetail->type!=101}
+				<li {if $pages==gallery}class="active"{else}{/if}>		
+					<a href="{$basedomain}gallery">
+						<i class="icons icon_polaroid"></i>
+						<span>Gallery</span>
+						<i class="arrow-nav"></i>
+					</a>	    	   				
+				</li>
+				{/if}
+			{/if}
+			{if $user->leaderdetail->type==4 OR $user->leaderdetail->type==6 OR $user->leaderdetail->type==46 OR $user->leaderdetail->type==100 OR $user->leaderdetail->type==666}
+					
+					<li {if $pages==badges  && $act==''}class="active"{else}{/if}>		
+						<a href="{$basedomain}badges">
+							<i class="icons icon_badges"></i>
+							<span>Badges</span>
+							<i class="arrow-nav"></i>
+						</a>	    	   				
+					</li>
+				
+					<li {if $pages==badges  && $act=='create'}class="active dark-button"{else}class="dark-button2"{/if}>
+						<a href="{$basedomain}badges/create" class="button">
+							<span>Create Badge</span>
+						</a>	    	   				
+					</li>
+					<li {if $pages==merchandise && $act==''}class="active"{else}{/if}>		
+						<a href="{$basedomain}merchandise">
+							<i class="icons icon_merchandise"></i>
+							<span>Merchandise</span>
+							<i class="arrow-nav"></i>
+						</a>	    	   				
+					</li>
+					
+					<li {if $pages==merchandise && $act==create}class="active dark-button"{else}class="dark-button2"{/if}>
+						<a href="{$basedomain}merchandise/create" class="button">
+							<span>Create Merchandise</span>
+						</a>	    	   				
+					</li>
+					<li {if $pages==merchandise && $act==redeem}class="active"{else}{/if}>		
+						<a href="{$basedomain}merchandise/redeem">
+							<i class="icons icon_redeem"></i>
+							<span>Redeem Activity</span>
+							<i class="arrow-nav"></i>
+						</a>	    	   				
+					</li>
+			{/if}
+			{if $user->leaderdetail->type>=100 OR $user->leaderdetail->type==666}
+				{if $user->leaderdetail->type!=101}
+					<li {if $pages==challenge && $act==''}class="active"{else}{/if}>		
+						<a href="{$basedomain}challenge">
+							<i class="icons icon_challenges"></i>
+							<span>Challenge</span>
+							<i class="arrow-nav"></i>
+						</a>	    	   				
+					</li>
+				
+					<li {if $pages==challenge && $act=='create'}class="active dark-button"{else}class="dark-button2"{/if}>
+						<a href="{$basedomain}challenge/create" class="button">
+							<span>Create Challenge</span>
+						</a>	    	   				
+					</li>
+				{/if}
+			{/if}
+			{if $user->leaderdetail->type==3 OR $user->leaderdetail->type==666}
+			
+			<li {if $pages=='brand' && $act=='' }class="active"{else}{/if}>
+				<a href="{$basedomain}brand">
+					<i class="icons icon_brand"></i>
+					<span>Brand Page</span>
+					<i class="arrow-nav"></i>
+				</a>	    	   				
+			</li>
+			<li {if $pages=='brand' && $act=='cover'}class="active"{else} {/if}>		
+				<a href="{$basedomain}brand/cover" >
+					<i class="icons icon_brand_cover"></i>
+					<span>Brand Cover</span>
+					<i class="arrow-nav"></i>
+				</a>	    	   				
+			</li>
+			<li {if $pages=='brand' && $act=='create'}class="active dark-button"{else}class="dark-button2"{/if}>		
+				<a href="{$basedomain}brand/create" class="button">
+					<span>Create Brand Post</span>
+				</a>	    	   				
+			</li>
+			
+			{/if}
+		</ul>
+    </div> <!-- /#nav -->
+</div><!-- /.widget -->
+{/if}

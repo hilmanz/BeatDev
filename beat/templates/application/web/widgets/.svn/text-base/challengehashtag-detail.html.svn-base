@@ -1,0 +1,66 @@
+<div id="theContainer" class="challengePage">
+    <div class="theContainer">
+        <div class="head-title">
+			<a href="{$basedomain}challenge/detail/{$cidStr}" class="btnback fl"></a>
+            <div class="navPaging fr">
+				{*}
+            	<a class="icons prev" href="#">&nbsp;</a>
+            	<a class="icons next" href="#">&nbsp;</a>
+				{?*}
+            </div><!-- /.navPaging -->
+        </div> <!-- /.head-title -->
+        <div class="theContent">
+        	<div class="theContents">
+                <div class="rows last-child">
+					{section loop=$detailhashtag name=i}
+                    <div class="entry-details">
+                        <div class="head-title">
+                            <a href="#" class="thumbsmall fl"><img src="{$basedomain}public_assets/user/photo/{if $detailhashtag[i].author.img}small_{$detailhashtag[i].author.img}{else}default.jpg{/if}" /></a>
+							<h1 class="fl username">{$detailhashtag[i].author.name|capitalize}</h1>
+                            <span class="date fr">{$detailhashtag[i].posted_date}</span>
+                        </div> <!-- /.head-title -->
+                        <p>{$detailhashtag[i].content}</p>
+						<img src="{$basedomain}public_assets/article/{if $detailhashtag[i].imagepath}{if $detailhashtag[i].image}{$detailhashtag[i].image}{/if}{else}default.jpg{/if} " />
+                    </div> <!-- /.entry-details -->
+                    <div class="act-form">	
+                    	<form id="act-form" method="POST" action="{$basedomain}challenge/setwinner">
+                        	<input type="hidden" name="userid" value="{$detailhashtag[i].authorid}" />
+                        	<input type="hidden" name="cid_user" value="{$detailhashtag[i].id}" />
+                        	<input type="hidden" name="cid" value="{$cidStr}" />
+                        	<input type="hidden" name="tags" value="{$tags}" />
+                        	<input type="hidden" name="set" value="winner" />
+							{if $cekwinner==''}
+                        	<input type="submit" class="button" value="Set as winner" />
+							{/if}
+                        	{*}<input type="button fl" class="button" value="Get badge" />
+                            <input type="text" class="smalls fl" value="Set Point" />
+							{/*}
+                        </form>
+                    </div><!-- /.act-form -->
+					{/section}
+                </div><!-- /.rows -->
+            </div><!-- /.theContents -->
+			{*}
+            <div class="sideRight">
+                <div class="head-row">
+                    <a href="#" class="fl tagslist">#contest</a>
+                    <span class="fr coversation-total">125 Conversations</span>
+                </div><!-- /."head-row -->
+				{if $challengeHashtag}
+					{section loop=$challengeHashtag name=i}
+					<div class="rows">
+						<a href="#" class="thumbsmall fl"><img src="{$basedomain}public_assets/user/photo/{if $challengeHashtag[i].author.img}small_{$challengeHashtag[i].author.img}{else}default.jpg{/if}" /></a>
+						<div class="entries fl">
+							<h3 class="username fl">{$challengeHashtag[i].author.name|capitalize}</h3>
+							<span class="date fr">{$challengeHashtag[i].posted_date}</span>
+							<p>{$challengeHashtag[i].content|truncate:50}</p>
+							<a href='{$basedomain}challenge/detailHashtag/{$challengeHashtag[i].id}/{$tags}' class="seedetail">See Detail &raquo;</a>
+						</div> <!-- /.entries -->
+					</div><!-- /.rows -->
+					{/section}
+				{/if}
+            </div><!-- /.sideRight -->
+			{/*}
+        </div> <!-- /.theContent -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

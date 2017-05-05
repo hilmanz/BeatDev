@@ -1,0 +1,10 @@
+
+<div class="popup popup-unverified">
+	<div class="popupContainer" id="popup-unverified">
+        <div class="popupContent">
+        	<h1>Akun Kamu  belum Terverifikasi</h1>
+            <h3>Mulailah perjalanan kreatifitasmu! Verifikasi profile A Exchange kamu dengan mengakses inbox e-mailmu.<br />
+<br />Untuk info lebih lanjut kirim e-mail ke <a href="mailto:info@amild.com">info@amild.com</a></h3>
+        </div><!-- END .popupContent -->
+    </div><!-- END .popupContainer -->
+</div><!-- END .popup -->

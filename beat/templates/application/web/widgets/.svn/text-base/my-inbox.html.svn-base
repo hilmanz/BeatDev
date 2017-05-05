@@ -1,0 +1,52 @@
+<div class="Activity_list" id="inbox-list">
+    <div class="the-title">
+        <h2 class="icon icon_message fl"><span>INBOX</span></h2>
+        <h2 class="icon icon_setting fr"><span><a href="#popup-email-setting" class="showPopup">EMAIL SETTING</a></span></h2>
+    </div>
+		<div class="inbox-messages">
+	{if $activity}
+
+		{section name=i loop=$activity}
+		<div class="content_activty {if $activity[i].n_status==0}message_close{else}message_open{/if}" id="message{$activity[i].id}"  >
+			<div class="img_content">
+				{if $activity[i].userdetail}
+					<a class="thumb50" href="{$basedomain}{if $user->id==$activity[i].userdetail.id}my{else}friends/{$activity[i].userdetail.id}{/if}" >
+						<img src="{$basedomain}public_assets/user/photo/{if $activity[i].userdetail.img}{$activity[i].userdetail.img}{else}default.jpg{/if}" />
+					</a>
+				{else}
+					<a class="thumb50" href="{$basedomain}{if $user->id==$activity[i].userdetail.id}my{else}friends/{$activity[i].userdetail.id}{/if}" >
+						<img src="{$basedomain}public_assets/user/photo/default.jpg" />
+					</a>
+				{/if}
+			  
+			</div>
+			<div class="content_detail">
+				{*}<p><a href="#popup-inbox" class="showPopup" noteid ="{$activity[i].id}" >{$activity[i].activityName}</a></p>{/*}
+				 <p>
+				 <span ><a  style="color:#E40404" href="{$basedomain}{if $user->id==$activity[i].userdetail.id}my{else}friends/{$activity[i].userdetail.id}{/if}" >{$activity[i].userdetail.name} {$activity[i].userdetail.last_name}</a> </span>
+				 <a href="#popup-inbox" class="readinbox" noteid ="{$activity[i].id}" nexturl="{$basedomain}{$activity[i].contentdetail.type}/{$activity[i].contentdetail.id}" >{$activity[i].activityName}</a>
+				 </p>
+				 <span class="dates">{$activity[i].date_time|date_format:"%e %B %Y %I:%M %p" }</span>
+			</div><!--END .content_detail-->
+			<div class="content_action">
+			 <a href="javascript:void(0)" class="icon_trash fl trashinbox" noteid ="{$activity[i].id}" >&nbsp;</a>
+			</div><!--END .content_action-->
+		</div><!-- END .content_activty -->
+		{/section}
+	
+		{else}
+			<div class="notFound">
+					<p>{$locale.inbox.empty}</p>
+			</div>
+		{/if}
+	</div>
+    <br />
+     <div class="paging" id="pagingInbox"></div> <!-- END .paging -->
+	 <script>
+		 getpaging(0,{$totalinboxdata},"pagingInbox","paging_ajax_inbox",10);
+	</script>
+</div><!-- END .Activity_list -->
+	{*}{include file="application/web/widgets/popup-inbox.html"}{/*}
+    {include file="application/web/widgets/popup-email-setting.html"}
+	
+	

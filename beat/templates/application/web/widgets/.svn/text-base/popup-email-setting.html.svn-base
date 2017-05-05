@@ -1,0 +1,51 @@
+<div class="popup">
+	<div class="popupContainer popup-email-setting" id="popup-email-setting">
+        <div class="popupContent">
+        	<div class="popupHead">
+                <div class="the-title">
+                    <h2 class="icon icon_setting"><span>Email Setting</span></h2>
+                </div>
+            </div>
+        	<div class="entry-popup">
+                 <form method="POST" id="formmailsetting" action="{$basedomain}my/ajax">
+                   	<h3>Kirim notifikasi ke email</h3>
+                 	<div class="row">
+                       	<input type="radio" name="n_status" value="1" /><label>Ya</label>
+                       	<input type="radio" name="n_status" value="0" /><label>Tidak</label>
+                    </div>
+                 	<div class="row">
+                       	<input type="radio" name="datenewsletter" value="1"/><label>Harian</label>
+                       	<input type="radio" name="datenewsletter" value="7"/><label>Mingguan</label>
+                    </div>
+                 	<div class="rowSubmit">
+						<input type="hidden" name="needs" value="inbox-news-letter" />
+                    	<input type="submit" value="SAVE" />
+                    </div>
+				</form>
+            </div><!--END .entry-popup-->
+        </div><!-- END .popupContent -->
+    </div><!-- END .popupContainer -->
+</div><!-- END .popup -->
+
+{literal}
+
+	<script>
+			var optionmailsetting = {
+							dataType:  'json',
+							success:    function(data) { 
+							
+								if(data) {
+									$("#popup-messagebox .popupContent .entry-popup h3").html("success save noification timer");
+									$(".messageboxpop").trigger('click');
+								}else {
+									$("#popup-messagebox .popupContent .entry-popup h3").html("failed to save noification timer");
+									$(".messageboxpop").trigger('click');
+								
+								}
+					
+						} 
+					};
+					
+					$("#formmailsetting").ajaxForm(optionmailsetting);
+	</script>
+{/literal}

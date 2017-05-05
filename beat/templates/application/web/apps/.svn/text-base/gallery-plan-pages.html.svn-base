@@ -1,0 +1,64 @@
+<div id="theContainer" class="galleryPage">
+    <div class="theContainer">
+        <div class="head-title">
+			<a href="{$basedomain}gallery" class="btnback fl"></a>
+            <div class="shorter fr">
+            	<select class="styled">
+                	<option>Select BA</option>
+                	{foreach from=$social key=k item=v}
+							{if $v.type==1}<option value="{$v.id}" > {$v.name}  </option>{/if}
+					{/foreach}	
+                </select>
+            </div><!-- /.shorter -->
+        </div> <!-- /.head-title -->
+      <!--   <div class="head-title">
+        	<div class="rowShorter">
+                <input type="radio" class="styled" name="brand" />
+                <span>Ba Plan</span>
+                <input type="radio" class="styled" name="brand" />
+                <span>Co Creation</span>
+                <input type="radio" class="styled" name="brand" />
+                <span>Brand Event</span>
+            </div> 
+        </div>  -->
+        <div class="theContent">
+        	<div class="head-row">
+                    <a href="#" class="thumbsmall fl"><img src="{$plandata.result[0].author.image_full_path}" /></a><h1 class="fl username">{$plandata.result[0].author.name} {$plandata.result[0].author.last_name}</h1>
+                    {*}<h3 class="fr">8 Plan Album</h3>{/*}
+            </div>
+       
+        	<div class="section">
+			 {foreach from=$plandata.result key=k item=v}
+            	<div class="col3">
+                	<div class="box-gallery">
+                    	<div class="imgbox">
+                        	<a href="{$basedomain}gallery/shows/{$v.id}" class="thumb-gallery"><img src="{$v.image_full_path}" width="100%" /></a>
+                        </div> <!-- /.imgbox -->
+                       
+                        <div class="gallery-info">
+                        	<span class="desc1">{$v.title} - {$v.posted_date|date_format:"%e %B %Y"}</span>
+                            <span class="desc2">{$v.totalgallery} Photos</span>
+							{if $user->leaderdetail->type==1}
+							{else}
+                            <a class="icon-remove theicon" href="{$basedomain}gallery/show/{$v.id}" onclick="return confirm('This action will permanently delete your photo. Delete it anyway?')">&nbsp;</a>
+							{/if}
+					   </div> <!-- /.gallery-info -->
+                    </div> <!-- /.box-gallery -->
+                </div> <!-- /.col3 -->
+				{/foreach} 
+			
+            	{*}
+                <div class="paging">
+                    <a href="#" class="prev">&laquo;</a>
+                    <a href="#">1</a>
+                    <a href="#" class="current">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#" class="next">&raquo;</a>
+                </div><!-- /.paging -->
+				{/*}
+            </div> <!-- /.section -->
+        </div> <!-- /.theContent -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

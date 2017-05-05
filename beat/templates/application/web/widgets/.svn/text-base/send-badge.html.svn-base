@@ -1,0 +1,99 @@
+<div id="theContainer" class="challengePage">
+    <div class="theContainer">
+        <div class="head-title">
+			<a href="{$basedomain}{$pages}" class="btnback fl"></a>
+        </div> <!-- /.head-title -->
+        {if $badge}
+        <div class="theContent">
+			<div class="rows last-child">
+				<div class="entry-details">
+					<div class="head-title">
+						<h1 class="fl">Send Badge</h1>
+					  
+					</div> <!-- /.head-title -->
+					<div class="forms">
+						<form id="create-badges" METHOD="POST" action="{$basedomain}{$pages}/sendTo">
+							<div class="rows">
+								<label>{$badge.name}</label>
+								<p>{$badge.detail}</p>
+							</div>
+							<div class="rows">
+								<label>Badge Active</label>
+								<img style="width:100px;" src="{$basedomain}/public_assets/badges/{$badge.image}">
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Badge Inactive</label>
+								<img style="width:100px;" src="{$basedomain}/public_assets/badges/{$badge.image_2}">
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Select Area</label>
+								<select name="area">
+									<option value="0"> - </option>
+									{section name=i loop=$loadCity}
+									<option value="{$loadCity[i].id}">{$loadCity[i].city}</option>
+									{/section}
+								</select>
+							</div>
+							<div class="rows">
+								<label>Select Brand</label>
+								<select name="brand">
+									<option value="0"> - </option>
+									<option value="5">MARLBORO</option>
+									<option value="4">AMILD</option>
+								</select>
+							</div>
+							<div class="rows">
+								<label>Select BA which will get this badge</label>
+								<select name="sendBadge[]" multiple="multiple" style="min-height:250px;">
+									{section name=i loop=$listBA}
+									<option value="{$listBA[i].id}">{$listBA[i].name} {$listBA[i].last_name}</option>
+									{/section}
+								</select>
+							</div>
+							<div class="rows">
+								<a href="{$basedomain}{$pages}" class="button">Cancel</a>
+								<input type="hidden" name="send_badges" value="1"/>
+								<input type="hidden" name="badgeID" value="{$badge.id}"/>
+								<input type="hidden" name="badgePoint" value="{$badge.point}"/>
+								<input type="submit" value="Send" class="button fr" style="margin:0;" />
+							</div><!-- /.rows -->
+						</form>
+					</div> <!-- /.forms -->
+				</div> <!-- /.entry-details -->
+			</div><!-- /.rows -->
+        </div> <!-- /.theContent -->
+        {else}
+        <div class="theContent">
+        	<h3>This Badge is not available</h3>
+        </div>
+        {/if}
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+
+<script>
+{literal}
+	$(document).ready(function(){
+		var badgeCol = {};
+		$("select[name='area']").on('change',function(){
+			badgeCol.area = $(this).val();
+			$.post(basedomain+'badges/ajax_load_ba',badgeCol,function(response){
+				var str='';
+				$.each(response,function(k,v){
+					str+='<option value="'+v.id+'">'+v.name+' '+v.last_name+'</option>';
+				});
+				$("select[name='sendBadge[]']").html(str);
+			},'json');
+		});
+		$("select[name='brand']").on('change',function(){
+			badgeCol.brand = $(this).val();
+			$.post(basedomain+'badges/ajax_load_ba',badgeCol,function(response){
+				var str='';
+				$.each(response,function(k,v){
+					str+='<option value="'+v.id+'">'+v.name+' '+v.last_name+'</option>';
+				});
+				$("select[name='sendBadge[]']").html(str);
+			},'json');
+		});
+	});
+{/literal}
+</script>

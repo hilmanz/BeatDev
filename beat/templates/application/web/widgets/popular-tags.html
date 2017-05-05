@@ -1,0 +1,29 @@
+
+<div class="widget tag-cloud-widget">
+    <div class="the-title">
+        <h2 class="icon icon_tag"><span>Popular Tags</span></h2>
+    </div>
+ {if $tags}
+ <ul class="tag-cloud clearfix">
+
+		{foreach from=$tags key=k item=v}
+			<li><a href="javascript:void(0)" class="picktags" search="{$v}" >{$v}</a></li>
+		{/foreach}
+	
+    </ul>
+{/if}
+</div><!-- END .widget -->
+
+
+{literal}
+<script>
+	$(document).on("click",".picktags",function(){
+			var keywords = $(this).attr("search");
+			$(".querykey").val(keywords);
+			$("#searchTop").submit();
+	});
+	
+	
+</script>
+{/literal}
+

@@ -1,0 +1,25 @@
+<div class="widget review-widget">
+    <div class="the-title">
+        <h2 class="icon icon_review"><span>Event Review</span></h2>
+    </div>
+	{if $featarticle}
+    <ul class="weekly-popular clearfix">
+        <li><a href="#popup-photography" class="showPopup articledetail "  contentid="{$featarticle.id}" ><img src="{if $featarticle.image}{$basedomain}public_assets/{$featarticle.imagepath}/small_{$featarticle.image}{else}{$basedomain}assets/content/thumb/img_content14.jpg{/if}"/></a></li>
+    </ul>
+    <div class="entry-review">
+    	<h3> <a href="#popup-photography" class="showPopup articledetail "  contentid="{$featarticle.id}" >{$featarticle.title}</a></h3>
+		<span class="dates">
+			{if $featarticle.posted_date!='0000-00-00 00:00:00'}{$featarticle.posted_date|date_format:"%e %B %Y"}{/if}
+		</span>
+    </div>
+    <div class="content_action">
+        <ul>
+            <li><a class="icon_view" href="javascript:void(0)">{$featarticle.views}</a></li>
+            <li><a class="icon_comment" href="javascript:void(0)">{$featarticle.commentcount}</a></li>
+        </ul>
+    </div><!--END .content_action-->
+    <div class="actBtn">
+        <a href="{$basedomain}{$pages}/review/2" class="btn_review fr">SEE  ALL  REVIEW</a>	
+    </div>
+	{/if}
+</div><!-- END .widget -->

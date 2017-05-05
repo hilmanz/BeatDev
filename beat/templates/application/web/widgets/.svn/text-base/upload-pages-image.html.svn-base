@@ -1,0 +1,30 @@
+<table cellpadding="0" cellspacing="0" border="0">
+	<tbody>		
+		<tr height="35">
+			<td valign="top"><input type="text" id="title_postimage" name="title" onBlur="if(this.value=='')this.value='Title';" onFocus="if(this.value=='Title')this.value='';" value="Title"/></td>
+		</tr>
+		<tr>
+			<td valign="top" height="35"><textarea type="text" id="content_postimage" name="desc" onBlur="if(this.value=='')this.value='Description';" onFocus="if(this.value=='Description')this.value='';" value="Description">Description</textarea></td>
+		</tr>
+		<tr height="35">
+			<td valign="top"><input type="text" name="tags" id="tags_postimage" onBlur="if(this.value=='')this.value='Tags';" onFocus="if(this.value=='Tags')this.value='';" value="Tags"/></td>
+		</tr>
+		<tr height="35">
+			<td valign="top">
+           	<label>Image</label> <input id="file_postimage" type="file" name="image" size="30" onclick="getSize()"/>
+             <small class="inputinfo">{$locale.ukuranfilepost}</small>
+            </td>
+		</tr>
+        <tr height="35">
+            <td valign="top">
+               {*} <input type="checkbox" id="check_postimage" value="https://staging-artcademy-amild.es-dm.com/Templates/Termsandconditions.aspx" onClick="{literal}if (this.checked) { window.open(this.value , '_blank');}{/literal}" /> {/*}
+                <input type="checkbox" id="check_postimage" value="1"/>
+                <label>Saya telah  menyetujui <a href="{$basedomain}tnc-upload-download.html" target="_blank">Syarat dan Ketentuan</a></label>
+            </td>
+        </tr>
+		<tr><td class="msg_formpostimage the-title"></td></tr>
+		<tr>
+			<td><a href="javascript:void(0)" class="doPostImage"><input type="submit" value="Submit"></a></td>
+		</tr>
+	</tbody>
+</table>

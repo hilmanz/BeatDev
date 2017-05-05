@@ -1,0 +1,23 @@
+                	<div id="hotArticle" class="article_boxBig">
+                        <a href="#" class="thumb250"><img src="{$basedomain}public_assets/thumb/img_content14.jpg" /></a>
+                        <div class="pita_rev"></div>
+                        <div class="isi_boxBig">
+                        	<div class="judul_event">
+                                <h3>Weezer Live In Jakarta</h3>
+                                <h4>50 Attending</h4>
+                                <span> Hall D Senayan Jakarta</span><br />
+                                <span>8 January 2013</span>
+                            </div>
+                            <p>Weezerians unite! Legenda power-pop asal California, Amerika Serikat, Weezer, akhirnya akan menggelar konser pertama mereka di Indonesia. Kosongkan jadwalmu pada tanggal 08 Januari 2013 mendatang untuk bergabung dalam singalong masal  di Lapangan D Senayan, Kompleks Gelora Bung Karno ....	</p>
+							<div class="content_action">
+                            	<ul>
+                                 	<li><a class="icon_view" href="#">60</a></li>
+                                    <li><a class="icon_comment" href="#">35</a></li>
+                                    
+        						</ul>
+                            </div><!--END .content_action-->
+                            <div class="attend">
+                            	<a href="#" class="anttending">I AM ATTEDNIDNG</a>
+                            </div>
+                        </div><!--END .isi_boxBig-->
+                    </div><!--END .article_boxBig-->

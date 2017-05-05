@@ -1,0 +1,223 @@
+<div id="theContainer2" class="baPage">
+    <div class="theContainer2">
+	<form action="{$basedomain}entourage" method="POST" class="formbaperformance"  id="shorter"  >
+        <div class="theContent2">
+		
+        	<div class="col-content">
+                <div class="darkBox mb20">
+                    <div class="darkBox-title">
+                        <h2 class="fl">Entourages</h2>
+                        <div class="shorter3">
+                                                 	
+                                <span><input type="radio" class="styled" name="filter" value="" {if $filter==''}checked{/if}/> &nbsp;All</span>
+                            	
+                                <span><input type="radio" class="styled" name="filter"  value="accept" {if $filter=='accept'}checked{/if} /> &nbsp;Approved</span>
+                            	
+                                <span><input type="radio" class="styled" name="filter" value="reject" {if $filter=='reject'}checked{/if} /> &nbsp;Rejected</span>
+                            	
+                                <span><input type="radio" class="styled" name="filter"  value="pending" {if $filter=='pending'}checked{/if} /> &nbsp;Pending</span>
+                            	
+                                <span><input type="radio" class="styled" name="filter" value="engagement" {if $filter=='engagement'}checked{/if} /> &nbsp;Engagement <!--<input type="submit" value="GO"/>--></span>
+								
+                            
+                        </div><!-- /.shorter -->
+                    </div><!-- /.darkBox-title -->
+                </div> <!-- /.darkBox -->
+               {$entourage_list}
+            </div><!-- /.col-content -->
+            <div class="col-sidebar">
+			{if $roletype==1}	
+				{else}
+					{if $roletype!=3 }
+                    <div class="selectBrand">
+                        <select class="styled"  name="brandid" >
+                            <option value="0"> - Brand - </option>   
+							
+						</select>
+                    </div><!-- /.selectBrand -->
+					{/if}
+					{if $roletype!=2 &&  $roletype!=5}
+					<div class="selectArea">
+                        <select class="cityDrop styled"  name="cityid"> 
+                        <option value="0"> - Area - </option>
+                         
+                        </select>
+                    </div><!-- /.selectArea -->
+					{/if}
+					{if $roletype!=1 && $roletype!=2}
+					<div class="selectArea">
+                        <select class="cityDrop styled"  name="plpicker"> 
+                        <option value="0"> - PL - </option>
+                           
+                        </select>
+                    </div><!-- /.selectArea -->
+					{/if}
+					<div class="selectBA">
+						<select class="baperformanceselecttor styled" name="uid"  >
+							<option value="0" >Select BA</option>
+							
+						</select>
+					</div><!-- /.selectBA -->
+				{/if}
+            </div><!-- /.col-sidebar -->
+        </div> <!-- /.theContent2 -->
+		</form>
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->
+{literal}
+<script>
+	$(document).on('change','.baperformanceselecttor',function(){
+		$(".formbaperformance").submit();
+	});
+	$(document).on('click','.radio',function(){
+		$(".formbaperformance").submit();
+	});
+</script>
+{/literal}
+<script>
+var uid='{$uid}';
+		var brandidr='{$brandid}';
+		var cityid='{$cityid}';
+		var plpicker='{$plpicker}';
+	console.log(brandidr+''+cityid+''+plpicker);
+</script>
+{literal}
+	<script>    
+		var baid = "";
+		var plid = "";
+		var areaid = "";
+		var brandid = "";
+		$(document).ready(function(){getBrand();});
+		
+		$(document).on('change',"select[name='brandid']", function(){
+			$("select[name='cityid']").html("<option value='' > Area </option>");
+			$("select[name='uid']").html("<option value='' > Select BA </option>");
+			
+			brandid = $(this).val();
+			
+			getAREA();
+					
+		});
+		
+		$(document).on('change',"select[name='cityid']", function(){
+			areaid = $(this).val();
+			$("select[name='plpicker']").html("<option value='' > PL </option>");
+			getPL();
+					
+		});
+		
+		$(document).on('change',"select[name='plpicker']", function(){
+			plid = $(this).val();
+			$("select[name='uid']").html("<option value='' > Select BA </option>");
+			getBA();
+					
+		});
+		
+		function getBA(){
+		
+			/* get BA */
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:plid,brandid:brandid,areaid:areaid,type:"sba"},  function(data){
+				//console.log(data);
+				var html ="<option value='' > Select BA  </option>";
+				$.each(data, function(i,e){ 
+						if(e.ownerid == uid)
+						{
+							$('#selectuid').html(e.name);
+							html+="<option value='"+e.ownerid+"' selected > "+e.name+"  </option>";
+						}
+						else
+						{
+							html+="<option value='"+e.ownerid+"' > "+e.name+"  </option>";
+						}
+				});
+				 
+				$("select[name='uid']").html(html);
+			
+			},"JSON");
+		
+		}
+		
+		function getPL(){
+					
+			/* get PL */
+			$("select[name='uid']").html("<option value='' > Select BA </option>");
+			
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:areaid,brandid:brandid,type:"pl"},  function(data){	
+				var arrplid = new Array();
+				var html ="<option value='' > PL  </option>";
+				$.each(data, function(i,e){
+							if(e.ownerid == plpicker)
+							{
+								$('#selectplpicker').html(e.name);
+								html+="<option value='"+e.ownerid+"'selected > "+e.name+"  </option>";
+							}
+							else
+							{
+								html+="<option value='"+e.ownerid+"' > "+e.name+"  </option>";
+							}
+						arrplid.push(e.ownerid);
+				} );
+				
+				plid = arrplid.join();
+				$("select[name='plpicker']").html(html);
+				getBA();
+			},"JSON");		
+		
+		}
+		
+		function getAREA(){
+			/* get AREA */
+			$("select[name='plpicker']").html("<option value='' > PL </option>");
+			$("select[name='uid']").html("<option value='' > Select BA </option>");
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:brandid,type:"area"},  function(data){	
+				var arrareaid = new Array();
+				
+				var html ="<option value='' > Area  </option>";
+				$.each(data, function(i,e){
+						if(e.ownerid == cityid )
+						{
+							$('#selectcityid').html(e.name);
+							html+="<option value='"+e.ownerid+"' selected > "+e.name+"  </option>";
+						}
+						else
+						{
+							html+="<option value='"+e.ownerid+"' > "+e.name+"  </option>";
+						}
+						arrareaid.push(e.ownerid);
+				});
+				
+				areaid = arrareaid.join();
+				getPL();
+					
+				$("select[name='cityid']").html(html);
+			},"JSON");
+				
+		}
+		
+		function getBrand(){
+			/* get BRAND */
+			
+			$.post(basedomain+"plan/ajax", {needs:'hirarkies',leadid:1,type:"brand"},  function(data){	
+				var html ="<option value='' > Brand  </option>";
+					var arrbrandid = new Array();
+				$.each(data, function(i,e){
+					if(e.ownerid == brandidr )
+						{
+							$('#selectbrandid').html(e.name);
+							html+="<option value='"+e.ownerid+"' selected > "+e.name+"  </option>";
+						}
+					else
+						{
+							html+="<option value='"+e.ownerid+"' > "+e.name+"  </option>";
+						}
+						arrbrandid.push(e.ownerid);
+				});
+				 	brandid = arrbrandid.join();
+				$("select[name='brandid']").html(html);
+				
+				getAREA();
+			},"JSON");
+				
+		}
+	</script>
+{/literal}

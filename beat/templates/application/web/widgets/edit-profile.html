@@ -1,0 +1,66 @@
+<div id="theContainer2" class="baPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content">
+                <div class="theBox" style="margin:0 0 30px 0;">
+                    <div class="theBox-title">
+                        <h2 class="fl blue">Edit Profile</h2>
+                        <div class="navPaging fr">
+                            <a class="btnback" href="{$basedomain}home/profileDetail">&nbsp;</a>
+                        </div><!-- /.navPaging -->
+                    </div><!-- /.theBox-title -->
+                    <div class="user-detail">
+					<form class="former" id="registerent" action="{$basedomain}home/saveUser"  method="POST" >
+                    	<table border="0" cellspacing="0" cellpadding="0">
+						  <tr>
+                            <td width="100">Name</td>
+                            <td width="1">:</td>
+                            <td><input type="text" id="name" name="name" style="width:250px;" value="{$userprofile.name}" /></td>
+                          </tr>
+						  <tr>
+                            <td width="100">Last Name</td>
+                            <td width="1">:</td>
+                            <td><input type="text" id="last_name" name="last_name" style="width:250px;" value="{$userprofile.last_name}" /></td>
+                          </tr>
+						  <tr>
+                            <td width="100">Nick Name</td>
+                            <td width="1">:</td>
+                            <td><input type="text" id="nickname" name="nickname" style="width:250px;" value="{$userprofile.nickname}"/></td>
+                          </tr>
+                          <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <!-- <td>{$userprofile.username}</td> -->
+							<td><input type="text" id="email" name="email" style="width:250px;" value="{$userprofile.email}" readonly></td>
+						  </tr>
+                          <tr>
+                            <td>Gender</td>
+                            <td>:</td>
+							<td>
+								  <div class="fl"><input type="radio" name="sex" value="Male" class="styled" {if $userprofile.sex == 'Male'} checked{/if} /></div> <span class="fl" style="line-height:27px; padding:0 20px 0 0;">Male </span>
+								  <div class="fl"><input type="radio" name="sex" value="Female" class="styled" {if $userprofile.sex == 'Female'} checked{/if} /></div> <span class="fl" style="line-height:27px; padding:0 20px 0 0;"> Female</span>
+							</td>
+						 </tr>
+                          <tr>
+                            <td>Phone Number</td>
+                            <td>:</td>
+                            <!-- <td>{$userprofile.phone_number}</td> -->
+							<td><input type="text" id="phone_number" name="phone_number" style="width:250px;" value="{if $userprofile.phone_number== 0}  {else} {$userprofile.phone_number}{/if}"/></td>
+                          </tr>
+						  <tr>
+							  <td>
+								
+                                <input type="hidden" value="{$tokenize}" name="tokenize">
+								<input type="submit" value="Edit" class="button">
+							  </td>
+						  </tr>
+						</table>
+					</form>
+				</div>
+                </div> <!-- /.theBox -->
+				
+            </div><!-- /.col-content -->
+          
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

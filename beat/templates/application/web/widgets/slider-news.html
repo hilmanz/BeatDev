@@ -1,0 +1,10 @@
+<div class="slider slide-loader clearfix">
+	<div id="slidernews" class="flexslider">
+		<ul class="slides">
+			{section name=i loop=$slider_news}
+				<li><img src="{$basedomain}public_assets/banner/thumbnail_698bb794fbb7b9fb34695aee2c9e0064.jpg"  alt=""></li>
+				<li><img src="{$basedomain}assets/content/original/{$slider_news[i].files}"  alt=""></li>
+			{/section}
+		</ul>
+	</div>
+</div>

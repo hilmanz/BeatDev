@@ -1,0 +1,66 @@
+<div id="friendsBox">
+	<div class="widget widget-band-member">
+		<div class="the-title clearfix">
+			<h2 class="icon icon_link fl"><span>Friends</span></h2>
+			{if $friendid}<a href="{$basedomain}friends/offriends/{$friendid}" class="seeAll fr">SEE ALL</a>
+			{else}<a href="{$basedomain}my/friends" class="seeAll fr">SEE ALL</a>
+			{/if}
+		</div>
+		{if $newfriends}
+			<ul class="friends-member clearfix">
+				<h3>NEWEST FRIENDS</h3>
+				{foreach from=$newfriends key=kCircle item=vCircle}
+					
+					{foreach from=$vCircle key=kGroup item=vGroup}
+					
+					
+						{foreach from=$vGroup key=kUser item=vUser}
+							{if $vUser.frienddetail.id}
+								{if $user->id==$vUser.frienddetail.id}
+									<li class="friendslist_{$vUser.frienddetail.id}">
+										<a href="{$basedomain}my/{$vUser.frienddetail.id}" class="thumb45 " ><img width="30" src="{$basedomain}public_assets/user/photo/{if $vUser.frienddetail.img}{$vUser.frienddetail.img}{else}default.jpg{/if}" /></a>
+									</li>
+								{else}
+									<li class="friendslist_{$vUser.frienddetail.id}"><a class="thumb45 " href="{$basedomain}friends/{$vUser.frienddetail.id}"><img width="30" src="{$basedomain}public_assets/user/photo/{if $vUser.frienddetail.img}{$vUser.frienddetail.img}{else}default.jpg{/if}" /></a></li>
+								{/if}
+							{/if}
+						{/foreach}
+						
+					{/foreach}
+					
+				{/foreach}
+			</ul>
+		{else}
+        	<div class="noFriends">
+                <p>{$locale.donthavefriend}</p>
+				<a href="{$basedomain}my/friends" ><p>SEARCH FRIENDS</p></a>   				
+            </div>
+		{/if}
+		
+		{if $usercircle}
+			
+			{foreach from=$usercircle key=kCircle item=vCircle}
+				{foreach from=$vCircle key=kGroup item=vGroup}
+					{if $group[$kGroup]}
+						<ul class="friends-member clearfix">
+						<h3>{$group[$kGroup]}</h3>
+						{foreach from=$vGroup key=kUser item=vUser}
+							{if $vUser.frienddetail.id}
+								{if $user->id==$vUser.frienddetail.id}
+									<li class="friendslist_{$vUser.frienddetail.id}">
+										<a href="{$basedomain}my/{$vUser.frienddetail.id}" class="thumb45 " ><img width="30" src="{$basedomain}public_assets/user/photo/{if $vUser.frienddetail.img}{$vUser.frienddetail.img}{else}default.jpg{/if}" /></a>
+									</li>
+								{else}
+									<li class="friendslist_{$vUser.frienddetail.id}"><a class="thumb45 " href="{$basedomain}friends/{$vUser.frienddetail.id}"><img width="30" src="{$basedomain}public_assets/user/photo/{if $vUser.frienddetail.img}{$vUser.frienddetail.img}{else}default.jpg{/if}" /></a></li>
+								{/if}
+							{/if}
+						{/foreach}
+						</ul>
+					{/if}
+				{/foreach}
+			{/foreach}
+		
+		{/if}
+		
+	</div><!-- END .section -->
+</div>

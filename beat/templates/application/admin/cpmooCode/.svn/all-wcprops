@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/cpmooCode
+END
+cpmooCode_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/cpmooCode/cpmooCode_edit.html
+END
+cpmooCode_new.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/cpmooCode/cpmooCode_new.html
+END
+cpmooCode_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/beat2013/!svn/ver/2/trunk/beat/templates/application/admin/cpmooCode/cpmooCode_list.html
+END

@@ -1,0 +1,59 @@
+<div class="section3">
+    <div class="the-title">
+        <h2 class="icon icon_ribbon"><span>New Uploaded</span></h2>
+    </div>	
+    <ul class="columns-4 clearfix">
+		{section name=i loop=$newest_post}
+			
+			{if $newest_post[i].type=='event'} {assign var='otherpathimage' value=$newest_post[i].type} 
+			{else} {assign var='otherpathimage' value=''}
+			{/if}
+			<li class="col4 boxs">
+				<a href="#popup-photography" class="showPopup thumb300 articledetail"  contentid="{$newest_post[i].id}" articleType="{$newest_post[i].type}" >
+				<img src="
+				{if $newest_post[i].video_thumbnail}https://img.youtube.com/vi/{$newest_post[i].video_thumbnail}/0.jpg
+					{else}
+						{if $newest_post[i].thumbnail_image}
+							{$basedomain}public_assets/{$newest_post[i].imagepath}/thumbnail_{$newest_post[i].thumbnail_image}
+						{else}
+							{if $newest_post[i].image}{$basedomain}public_assets/{$newest_post[i].imagepath}/{$newest_post[i].image}
+							{else}{$basedomain}assets/content/thumb/{if $newest_post[i].type=='music' || $newest_post[i].type=='dj'}default_music.jpg{else}default_image.jpg{/if}
+							{/if}
+						{/if}
+					{/if}
+				" alt="AltImage" alt="" class="full-image product-image" height="200" width="200" />			
+				</a>
+				<div class="summary">
+					<h3><a href="#popup-photography" class="showPopup" contentid="{$newest_post[i].id}" articleType="{$newest_post[i].type}">{$newest_post[i].title}</a></h3>
+					<p>{if $newest_post[i].author.name|ucwords}{$newest_post[i].author.name|ucwords} {else} anonymous {/if}</p>
+					{*}<p>{$newest_post[i].brief}</p>{/*}
+				</div>
+			</li>
+        {/section}
+    </ul>
+</div><!-- END .section -->
+
+{*}
+{if $newest_post[i].video_thumbnail}https://img.youtube.com/vi/{$newest_post[i].video_thumbnail}/0.jpg
+				{else}
+					{if $newest_post[i].thumbnail_image}
+						{if $newest_post[i].banner_thumbnail}{$basedomain}public_assets/banner/thumbnail_{$newest_post[i].thumbnail_image}
+						{else}{$basedomain}public_assets/article/thumbnail_{$newest_post[i].thumbnail_image}
+						{/if}
+					{else}
+						
+						{if $otherpathimage==''}
+							{if $newest_post[i].slider_image or $newest_post[i].image}
+								{if $newest_post[i].slider_image}
+									{$basedomain}public_assets/banner/{$newest_post[i].slider_image}
+								{else}
+									{$basedomain}public_assets/{if $newest_post[i].banner}banner{else}article{/if}/{$newest_post[i].image}
+								{/if}
+							{else}
+								{$basedomain}assets/content/thumb/image3.jpg
+							{/if} 
+						{else} {$basedomain}public_assets/{$otherpathimage}/{$newest_post[i].image}
+						{/if}
+					{/if}
+				{/if}
+{/*}

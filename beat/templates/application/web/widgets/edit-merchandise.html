@@ -1,0 +1,67 @@
+<div id="theContainer" class="challengePage">
+    <div class="theContainer">
+        <div class="head-title">
+			<a href="{$basedomain}{$pages}" class="btnback fl"></a>
+        </div> <!-- /.head-title -->
+        <div class="theContent">
+			<div class="rows last-child">
+				<div class="entry-details">
+					<div class="head-title">
+						<h1 class="fl">Edit Merchandise</h1>
+					  
+					</div> <!-- /.head-title -->
+					<div class="forms">
+						<form id="create-badges" METHOD="POST" enctype="multipart/form-data" action="{$basedomain}{$pages}/create">
+							<div class="rows">
+								<label>Name</label>
+								<input type="text" name="name" class="full-width" value="{$detailMerchandise.name}" />
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Detail</label>
+								<textarea name="desc" class="full-width">{$detailMerchandise.detail}</textarea>
+							</div><!-- /.rows -->
+							<div class="rows" style="padding:30px 0 30px 100px;">
+								<label>Image</label>
+								<img style="width:100px; float:left; margin:0 10px 0 0;" width="100" src="{$basedomain}/public_assets/merchandises/{$detailMerchandise.image}">
+                                <div class="upload">
+									<input type="file" name="merchandise_img" class="uploadfile fl" />
+                                </div>
+							</div><!-- /.rows -->
+							
+							<div class="rows">
+								<label>Stock</label>
+								<input type="number" name="stock" class="full-width" value="{$detailMerchandise.stock}"/>
+							</div><!-- /.rows -->
+							<div class="rows">
+								<label>Point</label>
+								<input type="number" name="point" value="{$detailMerchandise.point}" class="full-width"/>
+							</div><!-- /.rows -->
+							
+							<div class="rows">
+                                <label>Merchandise Status</label>
+								<select type="text" name="n_status">
+									<option value="0" {if $detailMerchandise.n_status == '0'}selected{/if}>Unpublish</option>
+									<option value="1" {if $detailMerchandise.n_status == '1'}selected{/if}>Publish</option>
+								</select>
+							</div>
+							<div class="rows">
+                                <label>Brand</label>
+								<select type="text" name="m_type">
+									<option value="0" {if $detailMerchandise.merchandise_type == '0'}selected{/if}>Both (AMILD & MARLBORO)</option>
+									<option value="4" {if $detailMerchandise.merchandise_type == '4'}selected{/if}>AMILD</option>
+									<option value="5" {if $detailMerchandise.merchandise_type == '5'}selected{/if}>MARLBORO</option>
+								</select>
+							</div>
+							<div class="rows">
+								<a href="{$basedomain}{$pages}" class="button">Cancel</a>
+								<input type="hidden" name="merchandise" value="1"/>
+								<input type="hidden" name="updateMerchandise" value="{$detailMerchandise.id}"/>
+								<input type="submit" value="Save" class="button fr" style="margin:0;" />
+							</div><!-- /.rows -->
+						</form>
+					</div> <!-- /.forms -->
+				</div> <!-- /.entry-details -->
+			</div><!-- /.rows -->
+        </div> <!-- /.theContent -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

@@ -1,0 +1,114 @@
+<div id="articlePage">
+                <div class="blog-content clearfix">
+					{if $featarticle}
+                	<div id="hotArticle" class="article_boxBig" >
+                        <a href="#popup-photography" class="showPopup articledetail thumb250"  contentid="{$featarticle.id}" ><img src="{if $featarticle.image}{$basedomain}public_assets/{$featarticle.imagepath}/big_{$featarticle.image}{else}{$basedomain}assets/content/thumb/img_content14.jpg{/if}" /></a>
+                        <div class="pita_rev"></div>
+                        <div class="isi_boxBig">
+                        	<div class="judul_event">
+                             <h3><a href="#popup-photography" class="showPopup articledetail"  contentid="{$featarticle.id}" >{$featarticle.title}</a></h3>
+                                <h4>{$featarticle.attending} Attending</h4>
+                               {*} <span>{$featarticle.brief}</span><br />{/*}
+                                <span>{if $featarticle.posted_date!='0000-00-00 00:00:00'}{$featarticle.posted_date|date_format:"%e %B %Y"}{/if}</span>
+                            </div>
+                            <div align="justify" >{$featarticle.content|truncate:180} </div>
+							<div class="content_action">
+                            	<ul>
+                                 	{*}<li><a class="icon_editpost" href="#">Edit Event</a></li>{/*}
+                                 	<li><a class="icon_view" href="#">{$featarticle.views}</a></li>
+                                    <li><a class="icon_comment" href="#">{$featarticle.commentcount}</a></li>
+                                    
+        						</ul>
+                            </div><!--END .content_action-->
+                            <div class="attend">
+                            	<a href="javascript:void(0)" class="anttending doattending" contentid="{$featarticle.id}" >I AM ATTENDING</a>
+                            </div>
+                        </div><!--END .isi_boxBig-->
+                    </div><!--END .article_boxBig-->
+					{/if}
+                    <div id="event_list">
+                    	<div class="event-head">                   
+                            <div class="tittle_event">
+                                <h2 class="icon icon_calendar"><span>Monthly Calendar</span></h2>
+                            </div>
+						
+                            <div class="cols_Selected">
+							<form method="POST" action="{$basedomain}{$pages}" id="searchfilter">
+								  <select class="styled dateposted" name="dateposted">
+										<option value="0" {if $dateposted==0}selected{/if}>Pilih Bulan</option>
+										<option value="1" {if $dateposted==1}selected{/if}>Januari</option>
+										<option value="2" {if $dateposted==2}selected{/if}>Februari</option>
+										<option value="3" {if $dateposted==3}selected{/if}>Maret</option>
+										<option value="4" {if $dateposted==4}selected{/if} >April</option>
+										<option value="5" {if $dateposted==5}selected{/if}>Mei</option>
+										<option value="6" {if $dateposted==6}selected{/if}>Juni</option>
+										<option value="7" {if $dateposted==7}selected{/if}>Juli</option>
+										<option value="8" {if $dateposted==8}selected{/if}>Agustus</option>
+										<option value="9" {if $dateposted==9}selected{/if}>September</option>
+										<option value="10" {if $dateposted==10}selected{/if}>Oktober</option>
+										<option value="11" {if $dateposted==11}selected{/if}>November</option>
+										<option value="12" {if $dateposted==12}selected{/if}>Desember</option>
+									</select>
+							</form>
+                            </div>
+						
+                        </div><!--END .tittle_event-->
+						<div class="eventcontentdata" >
+                        {if $article}
+							{section loop=$article name=i}
+							<div class="box_event">
+								<a href="#popup-photography" class="showPopup articledetail"  contentid="{$article[i].id}"  >
+									{if $article[i].posted_date!='0000-00-00 00:00:00'}
+									<div class="event_date">
+										<span class="date">{$article[i].posted_date|date_format:"%d"}</span>
+										<span class="day">{$article[i].posted_date|date_format:"%A"}</span>
+									</div>
+									{/if}
+								</a>
+								<div class="event_detail">
+									<h3>
+									<a href="#popup-photography" class="showPopup articledetail"  contentid="{$article[i].id}"  >{$article[i].title}</a>
+									</h3>
+									<span align="justify" >{$article[i].brief|truncate:24:""}<br />{$article[i].cityname}</span>
+									<h4>{$article[i].attending} Attending</h4>
+								</div>
+								<div class="event_action">
+									<div class="content_action">
+										<ul>
+                                 			{*}<li><a class="icon_editpost" href="#">Edit Event</a></li>{/*}
+											<li><a class="icon_view" href="#">{$article[i].views}</a></li>
+											<li><a class="icon_comment" href="#">{$article[i].commentcount}</a></li>
+										</ul>
+									</div><!--END .content_action-->
+								</div><!--END .event_action-->
+							</div><!--END .box_event-->
+							{/section}
+                        {else}
+                        	<div class="notFound">
+                            	<p>Maaf, event yang kamu cari belum tersedia</p>
+                            </div>
+					    {/if}	
+                        </div>
+                    </div><!--END #event_list-->
+
+                </div> <!-- END .blog-content -->
+                 <div class="paging" id="pagingID">
+                   
+                </div> <!-- END .paging -->
+              </div><!-- END #articlePage -->
+			  
+{literal}
+	<script>
+			$(document).on('change','.filtertype',function(){ $('#searchfilter').submit(); });
+	</script>
+{/literal}
+
+<!-- this will trigger auto popup if content id is existing -->
+{if $cid}
+<a href="#popup-photography" class="showPopup articledetail"  contentid="{$cid}" id="autopopupdetail" style="display:none"></a>
+{literal}
+	<script>
+		$(document).ready(function(){$("#autopopupdetail").trigger("click");});
+	</script>	
+{/literal}
+{/if}

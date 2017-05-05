@@ -1,0 +1,68 @@
+<div id="theContainer2" class="baPage">
+    <div class="theContainer2">
+        <div class="theContent2">
+        	<div class="col-content" style="width:88%;">
+			   <div class="theBox">  
+                    <div class="theBox-title">
+                        <h2 class="fl blue">Entourages</h2>
+                        <div class="navPaging fr">
+                            <a class="btnback" href="{$basedomain}entourage">&nbsp;</a>
+                        </div><!-- /.navPaging -->
+                    </div><!-- /.theBox-title -->
+                    <div class="user-container">
+                        <div class="thumb-user-big">
+                           <img src="{$userprofile.image_full_path}" />
+                        </div> <!-- /.thumb-user-big -->
+                        <div class="user-info">
+                            <h4 class="username">{$userprofile.name}</h4>
+							<!-- <span class="lates-date">Latest engagement: {$userprofile.register_date|date_format:"%e %B %Y"}</span>
+                            <span class="type-user">Type:{if $userprofile.n_status==1}Personal
+						   {elseif $userprofile.n_status==0}  Another Status
+						   {else}
+						   {/if}</span>-->
+							<span class="lates-date">Latest engagement: {$userprofile.register_date|date_format:"%d/%m/%Y %H:%M:%S"}</span>
+                            <span class="type-user">Type: {if $userprofile.n_status==1}Personal
+						   {elseif $userprofile.n_status==0}  Another Status
+						   {else}
+						   {/if}</span>
+							 
+                        </div> <!-- /.user-info --> 
+                    </div> <!-- /.user-container -->
+                    <div class="user-detail">
+		 
+                        <h4>Number of engagement(s):</h4>
+                        <p>{$userprofile.total}</p>
+                        <h4>Engagement date:</h4>
+                        <p>
+                     
+						{if $userprofile.latestengagament} 
+								{foreach from=$userprofile.latestengagament  key=k item=v}
+									<span class="lates-date">Latest engagement: {$v.date|date_format:"%d/%m/%Y %H:%M:%S"}</span>
+								{/foreach}
+						{/if}
+						
+                        </p>
+                        <h4>Brand Preference:</h4>
+                        <ol>
+                        <li>
+						   {if $userprofile.BRAND_NAME[0]}{$userprofile.BRAND_NAME[0]}
+						   {else}
+						   Others
+						   {/if}
+						  
+						</li>
+                        <li>
+						  {if $userprofile.BRAND_NAME[1]}{$userprofile.BRAND_NAME[1]}
+						   {else}
+						   Others
+						   {/if}
+						</li>
+                        </ol>
+                    </div> <!-- /.user-detail --> 
+               </div> <!-- /.theBox -->
+		
+            </div><!-- /.col-content -->
+           
+        </div> <!-- /.theContent2 -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

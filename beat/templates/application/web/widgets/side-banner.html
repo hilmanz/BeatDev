@@ -1,0 +1,31 @@
+{if $banner}
+<div class="widget" id="widget-sidebanner">
+    <div class="widget-sidebanner">
+        <div class="slider slide-loader clearfix">
+            <div class="flexslider widgetBanner">
+              <ul class="slides">
+	{section name=i loop=$banner}
+		<li>
+		<a href="{$basedomain}{if $banner[i].typeofarticlename}{$banner[i].typeofarticlename}{else}event{/if}/{$banner[i].id}" class="thumb300" >
+			{if $banner[i].thumbnail_image}<img src="{$basedomain}public_assets/banner/thumbnail_{$banner[i].thumbnail_image}" />
+			{else}
+				{if $banner[i].slider_image or $banner[i].image}
+					{if $banner[i].slider_image}
+						<img src="{$basedomain}public_assets/banner/{$banner[i].slider_image}" />				
+					{else}
+						<img src="{$basedomain}public_assets/article/{$banner[i].image}" />
+					{/if}
+				{else}
+					<img src="{$basedomain}assets/content/banner/sidebanner1.jpg" />
+				{/if}
+				
+			{/if}
+		</a>
+		</li>
+	{/section}
+              </ul>
+            </div>
+        </div><!-- END .slider -->
+    </div>
+</div><!-- END .widget -->
+{/if}

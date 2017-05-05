@@ -1,0 +1,108 @@
+<div id="theContainer" class="galleryPage">
+    <div class="theContainer">
+        <div class="head-title">
+			<a href="{$basedomain}gallery" class="btnback fl"></a>
+			{if $user->leaderdetail->type!=1}
+							
+			{else}
+            <div class="shorter fr">
+            	<select class="styled">
+                	<option>Select BA</option>
+                	{foreach from=$social key=k item=v}
+							{if $v.type==1}<option value="{$v.id}" > {$v.name}  </option>{/if}
+					{/foreach}	
+                </select>
+            </div><!-- /.shorter -->
+			{/if}	
+        </div> <!-- /.head-title -->
+        <div class="head-title">
+			<h3 class="fl">{$plandata.result[0].title} - {$plandata.result[0].posted_date|date_format:"%e %B %Y"} @ {$plandata.result[0].brief}</h3>
+          
+			<!-- {if $user->leaderdetail->type==1 || $user->leaderdetail->type==100 || $user->leaderdetail->type==4 }
+			{else}
+				{if $user->leaderdetail->type==3} 
+					{if $plandata.result[0].engagementtype} <a href="{$basedomain}gallery/addphoto/{$plandata.result[0].id}" class="button addPhoto fr">Add Photo</a>{/if}
+					
+				{else} <a href="{$basedomain}gallery/addphoto/{$plandata.result[0].id}" class="button addPhoto fr">Add Photo</a>
+				{/if}
+			{/if} -->
+			{if $plandata.result[0].type !='timeline' && $plandata.result[0].diff_date < '7'  }
+				{if $user->leaderdetail->type==1 || $user->leaderdetail->type==100 || $user->leaderdetail->type==4 }
+				{else}
+					{if $user->leaderdetail->type==3 } 
+						{if $plandata.result[0].engagementtype} <a href="{$basedomain}gallery/addphoto/{$plandata.result[0].id}" class="button addPhoto fr">Add Photo</a>{/if}
+						
+						{else} <a href="{$basedomain}gallery/addphoto/{$plandata.result[0].id}" class="button addPhoto fr">Add Photo</a>
+					{/if}
+				{/if}
+			{/if}
+		
+		</div> <!-- /.head-title -->
+        <div class="theContent">
+        	<div class="head-row">
+                <a href="#" class="thumbsmall fl"><img src="{$plandata.result[0].author.image_full_path}" /></a><h1 class="fl username">{$plandata.result[0].author.name} </h1>
+            </div>
+        	<div class="section">
+				{*}
+			 {foreach from=$plandata.result key=k item=v}
+			
+				{if $v.imagepath}
+            	<div class="col3">
+                	<div class="box-gallery">
+                    	<div class="imgbox">
+                        	<a href="{$basedomain}gallery/shows/{$v.id}" class="thumb-gallery"><img src="{$v.image_full_path}" width="100%" /></a>
+                        </div> <!-- /.imgbox -->
+                        <div class="gallery-info">
+                        	<span class="desc1">{$v.title} - {$v.posted_date|date_format:"%d/%m/%Y"} </span>
+							<a class="icon-remove theicon"  href="{$basedomain}gallery/clearphotocover/{$v.id}" onclick="return confirm('This action will permanently delete your photo. Delete it anyway?')">&nbsp;</a>    
+                        </div> <!-- /.gallery-info -->
+                    </div> <!-- /.box-gallery -->
+                </div> <!-- /.col3 -->
+				{/if}
+				{/foreach} 
+				{/*}
+				{if $acts=='detail'}
+					{if $plandata.result[0].gallery}
+						{foreach from=$plandata.result[0].gallery key=k item=v}
+						<div class="col3">
+							<div class="box-gallery">
+								<div class="imgbox">
+									<a href="{$basedomain}gallery/shows/{$plandata.result[0].id}" class="thumb-gallery"><img src="{$v.image_full_path}" width="100%" /></a>
+								</div> <!-- /.imgbox -->
+								<div class="gallery-info">
+								{if $k==0 }
+									<span class="desc1">{$plandata.result[0].rating.venue}</span>
+								<span class="desc1">{$plandata.result[0].rating.cityname}</span>
+								{/if}
+									<span class="desc1">{$v.title} -   {$v.created_date|date_format:"%d/%m/%Y"} </span>
+									{if $plandata.result[0].gallery[$k].friendtags }
+										<span class="desc2"> I'm with : 
+											{foreach from=$plandata.result[0].gallery[$k].friendtags key=x item=y}
+												{if $x >=1 && $x<= 1}
+													,{$y.name} 
+												{elseif $x == 0  }
+													{$y.name}
+												{/if}
+											{/foreach}
+											{if $x-1 > 0} 
+												<br>& {$x-1} more</br>
+											{/if}
+										</span>
+									{/if}
+									{if $v.id==$cid}
+										<a class="icon-remove theicon"  href="{$basedomain}gallery/clearphotocover/{$v.id}/{$cid}" onclick="return confirm('This action will permanently delete your photo. Delete it anyway?')">&nbsp;</a>   
+									{else}
+                          			<a class="icon-remove theicon"  href="{$basedomain}gallery/clearphoto/{$v.id}/{$cid}" onclick="return confirm('This action will permanently delete your photo. Delete it anyway?')">&nbsp;</a>    
+									{/if}
+								</div> <!-- /.gallery-info -->
+							</div> <!-- /.box-gallery -->
+						</div> <!-- /.col3 -->
+						{/foreach}
+					{/if}
+				
+				{/if}
+            	
+            </div> <!-- /.section -->
+        </div> <!-- /.theContent -->
+    </div> <!-- /.theContainer -->
+</div> <!-- /#theContainer -->

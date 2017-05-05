@@ -1,0 +1,37 @@
+<div class="slider slide-loader clearfix">
+	<div id="slider" class="flexslider" style="overflow: hidden; position: relative; height: 474px;">
+      <ul class="slides">
+		{section name=i loop=$banner}
+        <li>
+			<a href="{$basedomain}{$banner[i].typeofarticlename}/{$banner[i].id}" >
+				{if $banner[i].slider_image}
+					{if $banner[i].banner_thumb}<img src="{$basedomain}public_assets/banner/thumb_{$banner[i].slider_image}" />
+					{else}<img src="{$basedomain}public_assets/banner/{$banner[i].slider_image}" />
+					{/if}
+				{else}
+					{if $banner[i].image}<img src="{$basedomain}public_assets/banner/{$banner[i].image}" />
+					{else}<img src="{$basedomain}assets/content/slide/slide.jpg" />
+					{/if}
+				{/if}
+							 
+			</a>
+            <span class="label lfeatured"></span>
+       	</li>
+      {/section}
+      </ul>
+    </div>
+    <div id="carousel" class="flexslider">
+      <ul class="slides">
+		{section name=i loop=$banner}
+         <li>
+        	<p class="icon_cat icon_{$banner[i].typeofarticlename}">
+            	<span class="titleSlide">{$banner[i].content_name}</span>
+                <span>{$banner[i].brief|truncate:50:"..."}</span>
+             </p>
+         </li>
+		  {/section} 
+      </ul>
+    </div>
+
+
+</div><!-- END .slider -->

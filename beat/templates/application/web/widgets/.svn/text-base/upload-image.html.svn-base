@@ -1,0 +1,6 @@
+<form method="post" action="" enctype="multipart/form-data" onsubmit="javascript: return validator();">
+<p>Upload Image <input type="file" name="image"/> 
+<input type="submit" value="Save">
+</p>
+<input type="hidden" name="upload" value="1" />
+</form>

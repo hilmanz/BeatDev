@@ -1,0 +1,38 @@
+<div class="listPage">
+    {$shorter_filter}
+    <div class="section">
+        <ul class="columns-content page-content clearfix">
+            <li class="col-sidebar">
+               {$popular_tags}
+               {$weekly_popular}
+               {$side_banner}
+             </li> <!-- END .col-sidebar -->
+            <li class="col-main">
+                   {$article_images_list}
+            </li><!-- END .col-main -->    
+        </ul><!-- END .page-content -->
+    </div><!-- END .section -->
+</div><!-- END .listPage -->
+
+
+<script>
+	 getpaging({$start},{$total},"pagingID","paging_ajax",10);
+</script>
+
+{*}
+<script>
+	var start = parseInt({$start},10);
+	var total = {$total};
+
+	{literal}
+
+	$(window).scroll(function() {			
+			scrollRefresh.bottom(function(pos) {
+				start++;
+				paging_ajax_prog(start,10,total);
+			});		
+		});
+		
+	 {/literal}
+</script>
+{/*}

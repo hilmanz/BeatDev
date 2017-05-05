@@ -1,0 +1,31 @@
+<div class="listPage">
+   
+    <div class="section">
+        <ul class="columns-content page-content clearfix">
+            <li class="col-sidebar">
+             
+            </li> <!-- END .col-sidebar -->
+            <li class="col-main">
+			<form  method="GET" action="{$basedomain}entourage/register" class="former" >
+			       <div> register id <input name="registerid" value="" /></div>
+                    <div> name <input name="name" value="" /></div>
+                  <div>   nickname <input name="nickname" value="" /></div>
+                   <div>  email <input name="email" value="" /></div>
+                  <div>   img <input name="img" value="" /></div>
+                 <div>    small img <input name="small_img" value="" /></div>
+                 <div>    city <input name="city" value="" /></div>
+                 <div>    sex <input name="sex" value="" /></div>
+                 <div>    birthday <input name="birthday" value="" /></div>
+                <div>     description <input name="description" value="" /></div>
+                <div>     last name <input name="last_name" value="" /></div>
+                 <div>    street name <input name="StreetName" value="" /></div>
+                 <div>    phone number <input name="phone_number" value="" /></div>
+                <div>     brand <input name="Brand1_ID" value="" /></div>
+                  <div>    <input type="hidden" name="register" value="1" /></div>
+				  <input type="submit" value="register" />
+			</form>
+            </li><!-- END .col-main -->    
+        </ul><!-- END .page-content -->
+    </div><!-- END .section -->
+</div><!-- END .listPage -->
+

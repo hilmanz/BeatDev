@@ -1,0 +1,67 @@
+
+<div class="Favorite_list" id="favorite-list">
+	{if $my_article_favorite}
+    <ul class="columns-3">
+	{section loop=$my_article_favorite name=i}
+			<li class="col3">
+            <div class="article_box">
+                <div class="imgBox">
+                 <a href="#popup-photography" class="showPopup thumb300 articledetail"  contentid="{$my_article_favorite[i].id}" articleType="{$my_article_favorite[i].pagesname}" >
+				  <img class="greyscale" src="
+					{if $my_article_favorite[i].video_thumbnail}https://img.youtube.com/vi/{$my_article_favorite[i].video_thumbnail}/0.jpg
+					{else}
+						{if $my_article_favorite[i].image}{$basedomain}public_assets/{$my_article_favorite[i].imagepath}/{$my_article_favorite[i].image}
+						{else}
+							{if $my_article_favorite[i].thumbnail_image}{$basedomain}public_assets/{$my_article_favorite[i].imagepath}/thumbnail_{$my_article_favorite[i].thumbnail_image}
+							{else}{$basedomain}assets/content/thumb/image3.jpg
+							{/if}
+						{/if}
+					{/if}
+				
+					" />
+					</a>
+                 <a class="icon_cat icon_{$my_article_favorite[i].pagesname}" href="javascript:void(0)">&nbsp;</a>
+                </div>
+                <div class="article_isi">
+                    <a href="#popup-photography" class="showPopup thumb300 articledetail"  contentid="{$my_article_favorite[i].id}" articleType="{$my_article_favorite[i].pagesname}" ><h3>{$my_article_favorite[i].title}</h3></a>
+                    <span>{if $my_article_favorite[i].author}{$my_article_favorite[i].author.name} {$my_article_favorite[i].author.last_name}{else}anonymuse{/if}</span>
+					{if $my_article_favorite[i].hasfile&&$my_article_favorite[i].file}
+						<div class="mp3Player">
+							<audio src="{$basedomain}public_assets/music/mp3/{$my_article_favorite[i].file}" type="audio/mp3" controls="controls" width="180"></audio>	
+						</div><!-- end .mp3Player -->
+					{/if}
+                    <div class="boxBottom2">
+                        <div class="content_action fl">
+                           <ul>
+							<li><a class="icon_love count" counttype="favorite" count="{$my_article_favorite[i].favorite}" contentid="{$my_article_favorite[i].id}" href="javascript:void(0)">{$my_article_favorite[i].favorite}</a></li>
+							<li><a class="icon_comment count" counttype="comment" count="{$my_article_favorite[i].commentcount}" contentid="{$my_article_favorite[i].id}" href="javascript:void(0)">{$my_article_favorite[i].commentcount}</a></li>
+							<li><a class="icon_view count" counttype="views" count="{$my_article_favorite[i].views}" contentid="{$my_article_favorite[i].id}" href="javascript:void(0)">{$my_article_favorite[i].views}</a></li>
+					
+						</ul>
+                        </div><!--END .content_action-->
+                       {*} <a href="#" class="icon_trash fr"></a> {/*}
+                    </div><!--END .clearfix-->
+                </div><!--END .article_isi-->
+            </div><!--END .article_box-->
+         </li><!-- END .col3 -->
+		{/section}     
+    <br />
+	</ul>
+     <div class="paging" id="myFavoritePagingID" ></div> <!-- END .paging -->
+		 <script>
+		 getpaging(0,{$total},"pagingID","paging_ajax_latest_news",5);
+		 </script>
+    {else}
+        <div class="notFound">
+            <p>{$locale.activity.user_favourite}</p>
+        </div>
+    {/if}	
+</div><!-- END .Favorite_list -->
+
+
+
+
+
+
+
+

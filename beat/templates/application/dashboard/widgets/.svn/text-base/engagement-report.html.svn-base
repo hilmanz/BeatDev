@@ -1,0 +1,14 @@
+<table border=1>
+	<th colspan=2>Engagement Performance</th>
+	<tr> 
+		<td>index engagement </td> 		
+		<td>total</td> 
+	</tr>			
+ 
+	{foreach from=$engagemenentpreformanceReport key=k item=v}
+	<tr>
+		<td>{$k}</td>
+		<td>{$v}</td>
+	</tr>
+	{/foreach}
+</table>
